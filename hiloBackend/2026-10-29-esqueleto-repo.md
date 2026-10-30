@@ -15,9 +15,13 @@
 - Reglas de commits: en español, sin coautores, sin mencionar a Claude, sin claves ni archivos ignorados.
 - Hook `.githooks/pre-commit` que bloquea claves, `.env`, archivos ignorados y archivos de más de 5 MB.
 - Skills: `/retomar`, `/cerrar-sesion`, `/preparar-push`.
+- Entorno Python en `.venv` (Python 3.12) con versiones fijas: mediapipe 1.2.0, opencv-contrib-python 5.0.0.93, numpy 2.5.4, pyttsx3 2.99; dev: pytest 9.2.0, pip-audit 2.10.1. `pip-audit`: sin vulnerabilidades.
+- Quitado `opencv-python` (choca con `opencv-contrib-python`, que trae mediapipe).
+- pnpm 12.16.1 instalado con Corepack (sin npm), sin avisos de seguridad. Regla: npm prohibido.
 
 ## Lo que faltó por hacer
 - [ ] Subir a GitHub (con `/preparar-push`).
+- [ ] Instalar Flutter para la app móvil.
 - [ ] Cada compañero: activar el hook con `git config core.hooksPath .githooks`.
 - [ ] Completar "Curso" y "Equipo" en el README.
 - [ ] Definir el formato de `signs.json` (contrato de datos).

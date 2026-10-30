@@ -1,4 +1,6 @@
-opencv-python
-mediapipe
-pyttsx3
-numpy
+# Motor de LESCOCam. Versiones fijas y auditadas con pip-audit (2026-10-29).
+# opencv-contrib-python viene con mediapipe; NO instalar también opencv-python (chocan en cv2).
+mediapipe==1.2.0
+opencv-contrib-python==5.0.0.93
+numpy==2.5.4
+pyttsx3==2.99

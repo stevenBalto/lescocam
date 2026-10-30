@@ -36,15 +36,25 @@ así que corre sin GPU. Si ninguna seña supera el umbral, no inventa traducció
 
 ## Cómo arrancar
 
+Requisitos: Python 3.12, git. Para la app móvil: Flutter. Para cualquier herramienta de JavaScript: **pnpm** (npm no se usa en este proyecto).
+
 ```bash
 git clone https://github.com/stevenBalto/lescocam.git
 cd lescocam
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-git config core.hooksPath .githooks   # activa el bloqueo de claves y archivos ignorados
-cp .env.example .env             # opcional, solo si se usa Gemini
-pytest                           # correr pruebas
+python3 -m venv .venv
+source .venv/bin/activate              # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt    # motor + pytest + pip-audit
+git config core.hooksPath .githooks    # activa el bloqueo de claves y archivos ignorados
+pip-audit                              # verifica que no haya vulnerabilidades
+cp .env.example .env                   # opcional, solo si se usa Gemini
+pytest                                 # correr pruebas
+```
+
+pnpm se instala sin npm, con Corepack (viene con Node):
+
+```bash
+corepack enable pnpm
+corepack install -g pnpm@latest
 ```
 
 ## Privacidad

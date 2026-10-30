@@ -53,6 +53,17 @@ Hábitos:
 - `/compact` cuando la conversación ya esté larga.
 - Leer archivos grandes por partes; pegar solo el error, no el log entero.
 
+## Dependencias y seguridad (obligatorio)
+
+- **Prohibido npm.** Para cualquier paquete de JavaScript se usa **pnpm** (instalado con Corepack). Nunca `npm install` ni `npx`; usar `pnpm add` / `pnpm dlx`.
+- Python: siempre dentro de `.venv`, con versiones fijas (`==`) en `requirements.txt` y `requirements-dev.txt`.
+- **No instalar `opencv-python`**: MediaPipe ya trae `opencv-contrib-python` y chocan en `cv2`.
+- Antes de agregar o actualizar una dependencia, verificar que la versión no tenga vulnerabilidades conocidas:
+  - Python: `.venv/bin/pip-audit` debe decir "No known vulnerabilities found".
+  - JavaScript: `pnpm audit`.
+  - Flutter/Dart: revisar avisos de seguridad de cada paquete en GitHub Advisories / pub.dev.
+- Si una versión tiene una falla de seguridad, no se instala: se busca la versión corregida.
+
 ## Commits (obligatorio)
 
 - Los commits los hace el subagente `commits` (`.claude/agents/commits.md`).
