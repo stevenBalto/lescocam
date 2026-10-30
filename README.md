@@ -25,6 +25,8 @@ así que corre sin GPU. Si ninguna seña supera el umbral, no inventa traducció
 | `scripts/` | `recorder.py` para grabar señas nuevas y otras utilidades |
 | `tests/` | Pruebas con pytest |
 | `.claude/agents/` | Subagentes de Claude Code para el equipo |
+| `hiloBackend/` | Bitácora de sesiones del motor, datos, scripts y tests |
+| `hiloFrontend/movil/` · `hiloFrontend/desktop/` | Bitácora de sesiones de cada interfaz |
 
 ## Curso y equipo
 
