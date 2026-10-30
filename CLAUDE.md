@@ -18,6 +18,18 @@ Al terminar una sesión, creá un archivo nuevo en ese hilo con el formato de `P
 - `/cerrar-sesion [area] [tema]`: al terminar, registra la sesión en el hilo y hace el commit.
 - `/preparar-push`: revisa pruebas, claves, archivos ignorados y mensajes antes de subir.
 
+Skills precargados en los subagentes (campo `skills:` de cada agente):
+
+| Subagente | Skill | Para qué |
+|---|---|---|
+| motor-vision, datos-senas, escritor-pruebas, depurador | `retomar` | Arrancar con el contexto de `hiloBackend/` |
+| flutter-movil | `retomar` | Arrancar con el contexto de `hiloFrontend/movil/` |
+| ui-escritorio | `retomar` | Arrancar con el contexto de `hiloFrontend/desktop/` |
+| revisor-codigo | `preparar-push` | Usar sus chequeos en la revisión (sin hacer push) |
+| commits | `preparar-push` | Seguirlo siempre que le pidan subir |
+
+Los subagentes no escriben en los hilos: la sesión se registra desde la conversación principal con `/cerrar-sesion`.
+
 ## Commits (obligatorio)
 
 - Los commits los hace el subagente `commits` (`.claude/agents/commits.md`).

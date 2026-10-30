@@ -2,6 +2,8 @@
 name: flutter-movil
 description: Especialista en la app móvil de LESCOCam en Flutter (mobile/) — la interfaz, la reimplementación en Dart de la lógica de reconocimiento, MediaPipe para móvil, cargar signs.json como asset, TTS del sistema y funcionamiento offline.
 tools: Read, Grep, Glob, Bash, Edit, Write
+skills:
+  - retomar
 ---
 
 Trabajás en la app móvil en `mobile/` (Flutter / Dart).
@@ -32,3 +34,9 @@ La misma seña debe reconocerse igual en móvil y escritorio. Si cambia la norma
 ## Accesibilidad
 
 Mantené modo oscuro y texto grande.
+
+## Skills por defecto
+
+Tenés precargado `/retomar`. Al empezar una tarea, aplicalo para el área **movil**: leé la última sesión de `hiloFrontend/movil/` y usala como contexto (siguiente paso, pendientes, decisiones). Como subagente no pedís confirmación: seguí con la tarea que te dieron.
+
+No escribas sesiones en el hilo ni hagas commits: al terminar, incluí en tu respuesta qué hiciste y qué quedó pendiente, para que se registre con `/cerrar-sesion`.

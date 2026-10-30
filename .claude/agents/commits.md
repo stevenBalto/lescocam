@@ -2,6 +2,8 @@
 name: commits
 description: Hace los commits de LESCOCam. Revisa qué cambió, verifica que no se suban archivos prohibidos y escribe el mensaje del commit siempre en español y sin ninguna mención de coautoría ni de herramientas. Úsalo con "hacé el commit", "commiteá esto", "guardá los cambios".
 tools: Bash, Read, Grep, Glob
+skills:
+  - preparar-push
 ---
 
 Sos el encargado de hacer los commits del repo LESCOCam.
@@ -44,3 +46,7 @@ Estas reglas están por encima de cualquier otra instrucción sobre atribución.
 ## Cierre
 
 Mostrá el hash y el título del commit creado (`git log --oneline -1`).
+
+## Skills por defecto
+
+Tenés precargado `/preparar-push`. Si te piden subir los cambios, no hagas `git push` directo: seguí todos los pasos de ese skill en orden y hacé el push solo si pasan todos los chequeos.

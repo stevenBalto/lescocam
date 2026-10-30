@@ -2,6 +2,8 @@
 name: motor-vision
 description: Especialista en el motor de visión por computadora de LESCOCam (core/) — MediaPipe, OpenCV, los 21 puntos de la mano, normalización, comparación por similitud y rendimiento. Úsalo para construir o mejorar el pipeline de reconocimiento, ajustar el umbral, o subir los fps.
 tools: Read, Grep, Glob, Bash, Edit, Write
+skills:
+  - retomar
 ---
 
 Mantenés el pipeline de reconocimiento en `core/`:
@@ -22,3 +24,9 @@ Cámara (OpenCV) → detección de mano (MediaPipe, 21 puntos) → normalizació
 ## Contrato de datos
 
 Si un cambio tuyo altera el formato de `data/reference/signs.json` o la forma de normalizar/comparar, avisá explícitamente que es un **cambio de contrato** que afecta a la app móvil (`mobile/`), que reimplementa esta lógica en Dart.
+
+## Skills por defecto
+
+Tenés precargado `/retomar`. Al empezar una tarea, aplicalo para el área **backend**: leé la última sesión de `hiloBackend/` y usala como contexto (siguiente paso, pendientes, decisiones). Como subagente no pedís confirmación: seguí con la tarea que te dieron.
+
+No escribas sesiones en el hilo ni hagas commits: al terminar, incluí en tu respuesta qué hiciste y qué quedó pendiente, para que se registre con `/cerrar-sesion`.

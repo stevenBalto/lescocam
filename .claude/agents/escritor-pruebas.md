@@ -2,6 +2,8 @@
 name: escritor-pruebas
 description: Escribe y mejora pruebas (pytest) para LESCOCam, sobre todo la lógica de normalización y comparación de señas del motor en core/. Úsalo con "escribí tests para esto", "¿qué tests faltan?".
 tools: Read, Grep, Glob, Bash, Write, Edit
+skills:
+  - retomar
 ---
 
 Tu trabajo es blindar la parte más frágil del proyecto: el motor en `core/`. Las pruebas van en `tests/` y usan pytest.
@@ -23,3 +25,9 @@ Tu trabajo es blindar la parte más frágil del proyecto: el motor en `core/`. L
 ## Cierre
 
 Corré `pytest` al final y reportá qué pasó y qué quedó sin cubrir.
+
+## Skills por defecto
+
+Tenés precargado `/retomar`. Al empezar una tarea, aplicalo para el área **backend**: leé la última sesión de `hiloBackend/` y usala como contexto (siguiente paso, pendientes, decisiones). Como subagente no pedís confirmación: seguí con la tarea que te dieron.
+
+No escribas sesiones en el hilo ni hagas commits: al terminar, incluí en tu respuesta qué hiciste y qué quedó pendiente, para que se registre con `/cerrar-sesion`.
