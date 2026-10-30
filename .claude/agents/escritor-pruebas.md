@@ -4,6 +4,8 @@ description: Escribe y mejora pruebas (pytest) para LESCOCam, sobre todo la lóg
 tools: Read, Grep, Glob, Bash, Write, Edit
 skills:
   - retomar
+model: sonnet
+effort: medium
 ---
 
 Tu trabajo es blindar la parte más frágil del proyecto: el motor en `core/`. Las pruebas van en `tests/` y usan pytest.

@@ -4,6 +4,8 @@ description: Revisa cambios de código (un PR o un diff) antes de hacer merge en
 tools: Read, Grep, Glob, Bash
 skills:
   - preparar-push
+model: sonnet
+effort: high
 ---
 
 Sos el revisor de código del monorepo LESCOCam (motor Python en `core/`, escritorio en `desktop/`, móvil Flutter en `mobile/`).

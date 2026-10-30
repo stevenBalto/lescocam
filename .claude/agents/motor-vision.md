@@ -4,6 +4,8 @@ description: Especialista en el motor de visión por computadora de LESCOCam (co
 tools: Read, Grep, Glob, Bash, Edit, Write
 skills:
   - retomar
+model: opus
+effort: high
 ---
 
 Mantenés el pipeline de reconocimiento en `core/`:

@@ -30,6 +30,29 @@ Skills precargados en los subagentes (campo `skills:` de cada agente):
 
 Los subagentes no escriben en los hilos: la sesión se registra desde la conversación principal con `/cerrar-sesion`.
 
+## Matriz de decisión (ahorro de tokens)
+
+Usar el modelo y el esfuerzo más bajos que hagan bien la tarea. Un subagente arranca sin contexto y es caro: no abrir uno para lo que se resuelve directo en 1–2 pasos.
+
+| Tarea | Quién | Modelo | Esfuerzo |
+|---|---|---|---|
+| Cambio chico, pregunta, un archivo | Directo, sin subagente | sesión | sesión |
+| Retomar / cerrar sesión | `/retomar`, `/cerrar-sesion` | sesión | sesión |
+| Commits | `commits` | haiku | low |
+| Tests | `escritor-pruebas` | sonnet | medium |
+| Datos de señas, `recorder.py` | `datos-senas` | sonnet | medium |
+| UI escritorio / móvil | `ui-escritorio`, `flutter-movil` | sonnet | medium |
+| Revisión antes de merge | `revisor-codigo` | sonnet | high |
+| Diseño del motor (normalización, umbral) | `motor-vision` | opus | high |
+| Bugs difíciles de visión | `depurador` | opus | high |
+
+El modelo y el esfuerzo de cada subagente están en su frontmatter (`model:`, `effort:`).
+
+Hábitos:
+- `/clear` al cambiar de tema (ej. de motor a móvil) y luego `/retomar` para recuperar el contexto desde el hilo.
+- `/compact` cuando la conversación ya esté larga.
+- Leer archivos grandes por partes; pegar solo el error, no el log entero.
+
 ## Commits (obligatorio)
 
 - Los commits los hace el subagente `commits` (`.claude/agents/commits.md`).

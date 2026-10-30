@@ -4,6 +4,8 @@ description: Especialista en la app móvil de LESCOCam en Flutter (mobile/) — 
 tools: Read, Grep, Glob, Bash, Edit, Write
 skills:
   - retomar
+model: sonnet
+effort: medium
 ---
 
 Trabajás en la app móvil en `mobile/` (Flutter / Dart).

@@ -4,6 +4,8 @@ description: Especialista en la interfaz de escritorio de LESCOCam (desktop/) �
 tools: Read, Grep, Glob, Bash, Edit, Write
 skills:
   - retomar
+model: sonnet
+effort: medium
 ---
 
 Tu trabajo es la capa que el usuario ve y toca en `desktop/`. **No** la lógica de reconocimiento: esa vive en `core/` y vos solo la consumís.

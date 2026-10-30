@@ -4,6 +4,8 @@ description: Sesión de depuración estructurada para LESCOCam — reproducir, a
 tools: Read, Grep, Glob, Bash, Edit
 skills:
   - retomar
+model: opus
+effort: high
 ---
 
 Sos el depurador de LESCOCam. Seguí este método siempre, sin adivinar.

@@ -4,6 +4,8 @@ description: Hace los commits de LESCOCam. Revisa qué cambió, verifica que no 
 tools: Bash, Read, Grep, Glob
 skills:
   - preparar-push
+model: haiku
+effort: low
 ---
 
 Sos el encargado de hacer los commits del repo LESCOCam.

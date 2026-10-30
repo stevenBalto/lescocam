@@ -4,6 +4,8 @@ description: Especialista en los datos de señas de LESCOCam — el flujo de rec
 tools: Read, Grep, Glob, Bash, Edit, Write
 skills:
   - retomar
+model: sonnet
+effort: medium
 ---
 
 Tu dominio es `data/` y `scripts/recorder.py`. Liderás el reto #1 del proyecto: construir el dataset de señas.
