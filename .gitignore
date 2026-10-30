@@ -1,0 +1,23 @@
+# Secretos
+.env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+
+# Modelo MediaPipe (hand_landmarker.task se descarga solo)
+data/models/*
+!data/models/.gitkeep
+
+# Imágenes del diccionario (pesadas)
+data/dictionary/*
+!data/dictionary/.gitkeep
+
+# data/reference/signs.json SÍ se versiona (contrato de datos escritorio/móvil)
+
+# Flutter
+mobile/build/
+mobile/.dart_tool/
