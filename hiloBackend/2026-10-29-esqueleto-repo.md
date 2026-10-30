@@ -10,7 +10,7 @@
 - Clonado el repo (estaba vacío) y creada la estructura: `core/`, `desktop/`, `mobile/`, `data/` (models, reference, dictionary), `scripts/`, `tests/`.
 - `README.md`, `requirements.txt` (opencv-python, mediapipe, pyttsx3, numpy), `.gitignore`, `.env.example`.
 - `data/reference/signs.json` inicializado como `{}` (sí se versiona).
-- 7 subagentes en `.claude/agents/`: revisor-codigo, depurador, escritor-pruebas, motor-vision, datos-senas, flutter-movil, ui-escritorio.
+- 8 subagentes en `.claude/agents/`: revisor-codigo, depurador, escritor-pruebas, motor-vision, datos-senas, flutter-movil, ui-escritorio, commits.
 - Carpetas de hilos: `hiloBackend/` y `hiloFrontend/` (movil y desktop).
 
 ## Lo que faltó por hacer
