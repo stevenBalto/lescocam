@@ -11,10 +11,14 @@
 - `README.md`, `requirements.txt` (opencv-python, mediapipe, pyttsx3, numpy), `.gitignore`, `.env.example`.
 - `data/reference/signs.json` inicializado como `{}` (sí se versiona).
 - 8 subagentes en `.claude/agents/`: revisor-codigo, depurador, escritor-pruebas, motor-vision, datos-senas, flutter-movil, ui-escritorio, commits.
-- Carpetas de hilos: `hiloBackend/` y `hiloFrontend/` (movil y desktop).
+- Carpetas de hilos: `hiloBackend/` y `hiloFrontend/` (movil y desktop), y `CLAUDE.md` con las reglas del proyecto.
+- Reglas de commits: en español, sin coautores, sin mencionar a Claude, sin claves ni archivos ignorados.
+- Hook `.githooks/pre-commit` que bloquea claves, `.env`, archivos ignorados y archivos de más de 5 MB.
+- Skills: `/retomar`, `/cerrar-sesion`, `/preparar-push`.
 
 ## Lo que faltó por hacer
-- [ ] Subir a GitHub (`git push -u origin main`).
+- [ ] Subir a GitHub (con `/preparar-push`).
+- [ ] Cada compañero: activar el hook con `git config core.hooksPath .githooks`.
 - [ ] Completar "Curso" y "Equipo" en el README.
 - [ ] Definir el formato de `signs.json` (contrato de datos).
 - [ ] Escribir la lógica del motor en `core/` (cámara, MediaPipe, normalización, comparación).

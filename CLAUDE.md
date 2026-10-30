@@ -12,6 +12,12 @@ Antes de trabajar, leé la sesión más reciente del hilo que corresponda y segu
 
 Al terminar una sesión, creá un archivo nuevo en ese hilo con el formato de `PLANTILLA.md` (`AAAA-MM-DD-tema.md`): fecha, qué se hizo, qué faltó y el siguiente paso.
 
+## Skills del proyecto
+
+- `/retomar [area]`: al empezar, resume la última sesión del hilo y el siguiente paso.
+- `/cerrar-sesion [area] [tema]`: al terminar, registra la sesión en el hilo y hace el commit.
+- `/preparar-push`: revisa pruebas, claves, archivos ignorados y mensajes antes de subir.
+
 ## Commits (obligatorio)
 
 - Los commits los hace el subagente `commits` (`.claude/agents/commits.md`).
