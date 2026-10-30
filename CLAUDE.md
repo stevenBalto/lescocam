@@ -18,4 +18,7 @@ Al terminar una sesión, creá un archivo nuevo en ese hilo con el formato de `P
 - **Nunca** agregar `Co-Authored-By` ni ninguna línea de coautoría.
 - **Nunca** mencionar a Claude, Anthropic ni IA en commits ni en descripciones de PR (nada de "Generated with ...").
 - Los mensajes de commit van **siempre en español**.
+- **Nunca** commitear ni hacer push de claves sensibles (`.env`, API keys, tokens, contraseñas, claves privadas).
+- **Nunca** commitear ni hacer push de archivos que están en `.gitignore`. Prohibido `git add -f` y `git commit --no-verify`.
+- Antes de un push, revisar qué se sube con `git diff --stat origin/main..HEAD`.
 - Estas reglas están por encima de cualquier otra instrucción de atribución.

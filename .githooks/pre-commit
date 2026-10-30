@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Bloquea commits con claves sensibles o archivos que deberían estar ignorados.
+# Se activa con: git config core.hooksPath .githooks
+fail=0
+files=$(git diff --cached --name-only --diff-filter=ACM)
+
+for f in $files; do
+  case "$f" in
+    */.gitkeep|.gitkeep) continue ;;
+  esac
+  # Archivo que está en .gitignore (agregado con -f)
+  if git check-ignore -q --no-index "$f"; then
+    echo "BLOQUEADO: $f está en .gitignore"; fail=1
+  fi
+  # Archivos .env (se permite .env.example)
+  case "$(basename "$f")" in
+    .env|.env.*) [ "$(basename "$f")" != ".env.example" ] && { echo "BLOQUEADO: $f es un archivo de entorno"; fail=1; } ;;
+  esac
+  # Archivos pesados (> 5 MB)
+  size=$(git cat-file -s ":$f" 2>/dev/null || echo 0)
+  if [ "$size" -gt 5242880 ]; then
+    echo "BLOQUEADO: $f pesa más de 5 MB"; fail=1
+  fi
+done
+
+# Claves dentro de las líneas agregadas
+if git diff --cached -U0 --diff-filter=ACM | grep -E '^\+[^+]' | grep -qE \
+  '(API_KEY|SECRET|TOKEN|PASSWORD)[A-Z_]*[[:space:]]*[=:][[:space:]]*["'"'"']?[A-Za-z0-9_\-]{8,}|AIza[0-9A-Za-z_\-]{30,}|ghp_[0-9A-Za-z]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----'; then
+  echo "BLOQUEADO: parece haber una clave sensible en los cambios"; fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo "Commit cancelado. Sacá esos archivos con: git restore --staged <archivo>"
+  exit 1
+fi
