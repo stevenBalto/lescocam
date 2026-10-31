@@ -1,0 +1,86 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="368" height="236" viewBox="0 0 368 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="C&#195;&#161;mara / Escena" clip-path="url(#clip0_0_396)">
+<ellipse id="luz" cx="184" cy="120" rx="150" ry="110" fill="url(#paint0_radial_0_396)"/>
+<path id="persona &#194;&#183; torso" d="M96 236C99 188 128 160 160 151C165 149 168 145 168 140V124C178 130 190 130 200 124V140C200 145 203 149 208 151C240 160 269 188 272 236H96Z" fill="url(#paint1_linear_0_396)" stroke="black"/>
+<ellipse id="persona &#194;&#183; cabeza" cx="184" cy="87" rx="29" ry="35" fill="url(#paint2_linear_0_396)"/>
+<g id="Malla de la cara">
+<circle id="Ellipse" cx="172" cy="74" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_2" cx="196" cy="74" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_3" cx="173" cy="82" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_4" cx="195" cy="82" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_5" cx="184" cy="93" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_6" cx="176" cy="104" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_7" cx="184" cy="106" r="2" fill="#9FB3D9"/>
+<circle id="Ellipse_8" cx="192" cy="104" r="2" fill="#9FB3D9"/>
+</g>
+<path id="luz de borde" d="M160 72C164 58 174 52 184 52C194 52 204 58 208 72" stroke-width="1.5" stroke-linecap="round" stroke="#5B7DC0" stroke-opacity="0.55"/>
+<path id="luz de hombros" d="M112 182C124 166 142 156 160 151M208 151C226 156 244 166 256 182" stroke-width="1.5" stroke-linecap="round" stroke="#5B7DC0" stroke-opacity="0.35"/>
+<g id="Mano derecha">
+<path id="seguimiento" d="M85.4 111.6V102.6H94.4M167.8 102.6H176.8V111.6M176.8 201V210H167.8M94.4 210H85.4V201" stroke-width="1.5" stroke-linecap="round" stroke="#9FB3D9" stroke-opacity="0.6"/>
+<path id="huesos" d="M168.8 139.4L165.4 147.3L160.8 156.2L153.3 169.9L128 202L114.8 191.4L104.3 177L98 163.2L93.4 151.9M122.6 115L121.9 126.6L122 139.4L122.1 158.5L128 202M122.1 158.5L134 157.2M134 157.2L137.3 136.5L139.4 123L141.4 110.6M134 157.2L144.9 162.2M144.9 162.2L151 144L155.1 131.9L157.7 121.7M144.9 162.2L153.3 169.9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke="#E8EEF9" stroke-opacity="0.7"/>
+<path id="punto 0" d="M130.5 202C130.5 203.381 129.381 204.5 128 204.5C126.619 204.5 125.5 203.381 125.5 202C125.5 200.619 126.619 199.5 128 199.5C129.381 199.5 130.5 200.619 130.5 202Z" fill="white" stroke="#0B1630"/>
+<circle id="punto 1" cx="114.795" cy="191.404" r="2.1" fill="#F68B1F"/>
+<circle id="punto 2" cx="104.321" cy="176.988" r="2.1" fill="#F68B1F"/>
+<circle id="punto 3" cx="97.9958" cy="163.229" r="2.1" fill="#F68B1F"/>
+<circle id="punto 4" cx="93.4158" cy="151.873" r="2.5" fill="#F68B1F"/>
+<circle id="punto 5" cx="122.125" cy="158.546" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 6" cx="121.971" cy="139.386" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 7" cx="121.868" cy="126.613" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 8" cx="122.637" cy="115.041" r="2.5" fill="#2F7DE1"/>
+<circle id="punto 9" cx="134.026" cy="157.242" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 10" cx="137.311" cy="136.5" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 11" cx="139.446" cy="123.018" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 12" cx="141.417" cy="110.573" r="2.5" fill="#1E9E6A"/>
+<circle id="punto 13" cx="144.941" cy="162.16" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 14" cx="151.009" cy="143.985" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 15" cx="155.054" cy="131.869" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 16" cx="157.734" cy="121.662" r="2.5" fill="#9B4DCA"/>
+<circle id="punto 17" cx="153.289" cy="169.86" r="2.1" fill="#D6336C"/>
+<circle id="punto 18" cx="160.774" cy="156.163" r="2.1" fill="#D6336C"/>
+<circle id="punto 19" cx="165.364" cy="147.322" r="2.1" fill="#D6336C"/>
+<circle id="punto 20" cx="168.752" cy="139.354" r="2.5" fill="#D6336C"/>
+</g>
+<g id="Mano izquierda">
+<path id="seguimiento_2" d="M186 121.8V112.8H197.96M258.292 112.8H270.252V121.8M270.252 205V214H258.292M197.96 214H186V205" stroke-width="1.5" stroke-linecap="round" stroke="#9FB3D9" stroke-opacity="0.6"/>
+<path id="huesos_2" d="M213 173.043L240 204.043L251.2 192.843L257.8 178.543L258.3 169.343L251.1 163.443M246.4 119.643V130.743L245.7 144.143L244.9 162.543L240 204.043M244.9 162.543L233.5 161.443M233.5 161.443L228.1 142.143L224.8 129.543L221.9 118.843M233.5 161.443L220 161.043M220 161.043L213 149.043L209 139.043L206 130.043M220 161.043L213 173.043M213 173.043L204 165.043L198 158.043L194 151.043" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke="#E8EEF9" stroke-opacity="0.7"/>
+<path id="punto 0_2" d="M244.5 206C244.5 207.381 243.381 208.5 242 208.5C240.619 208.5 239.5 207.381 239.5 206C239.5 204.619 240.619 203.5 242 203.5C243.381 203.5 244.5 204.619 244.5 206Z" fill="white" stroke="#0B1630"/>
+<circle id="punto 1_2" cx="253.24" cy="194.879" r="2.1" fill="#F68B1F"/>
+<circle id="punto 2_2" cx="259.845" cy="180.514" r="2.1" fill="#F68B1F"/>
+<circle id="punto 3_2" cx="260.252" cy="171.303" r="2.1" fill="#F68B1F"/>
+<circle id="punto 4_2" cx="253.128" cy="165.452" r="2.5" fill="#F68B1F"/>
+<circle id="punto 5_2" cx="246.872" cy="164.524" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 6_2" cx="247.685" cy="146.103" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 7_2" cx="248.382" cy="132.779" r="2.1" fill="#2F7DE1"/>
+<circle id="punto 8_2" cx="248.442" cy="121.599" r="2.5" fill="#2F7DE1"/>
+<circle id="punto 9_2" cx="235.518" cy="163.48" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 10_2" cx="230.075" cy="144.131" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 11_2" cx="226.833" cy="131.502" r="2.1" fill="#1E9E6A"/>
+<circle id="punto 12_2" cx="223.938" cy="120.843" r="2.5" fill="#1E9E6A"/>
+<circle id="punto 13_2" cx="222" cy="163" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 14_2" cx="215" cy="151" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 15_2" cx="211" cy="141" r="2.1" fill="#9B4DCA"/>
+<circle id="punto 16_2" cx="208" cy="132" r="2.5" fill="#9B4DCA"/>
+<circle id="punto 17_2" cx="215" cy="175" r="2.1" fill="#D6336C"/>
+<circle id="punto 18_2" cx="206" cy="167" r="2.1" fill="#D6336C"/>
+<circle id="punto 19_2" cx="200" cy="160" r="2.1" fill="#D6336C"/>
+<circle id="punto 20_2" cx="196" cy="153" r="2.5" fill="#D6336C"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_396" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(184 120) scale(150 110)">
+<stop stop-color="#2A4A8A" stop-opacity="0.35"/>
+<stop offset="1" stop-color="#2A4A8A" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint1_linear_0_396" x1="184" y1="124" x2="184" y2="236" gradientUnits="userSpaceOnUse">
+<stop stop-color="#24396B"/>
+<stop offset="1" stop-color="#152346"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_396" x1="184" y1="52" x2="184" y2="122" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2A4277"/>
+<stop offset="1" stop-color="#1C2E5B"/>
+</linearGradient>
+<clipPath id="clip0_0_396">
+<rect width="368" height="236" fill="white"/>
+</clipPath>
+</defs>
+</svg>

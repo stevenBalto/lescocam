@@ -1,0 +1,11 @@
+singleton Estado Estado.qml
+MarcoVentana MarcoVentana.qml
+CabeceraVentana CabeceraVentana.qml
+GlifoTipo GlifoTipo.qml
+Interruptor Interruptor.qml
+Opcion Opcion.qml
+MiniCamara MiniCamara.qml
+Tarjeta Tarjeta.qml
+Recorte Recorte.qml
+AvisoFlotante AvisoFlotante.qml
+TarjetaModal TarjetaModal.qml
