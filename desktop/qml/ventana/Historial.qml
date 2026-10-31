@@ -51,11 +51,17 @@ MarcoVentana {
 
     function pegar() { Nav.ir("06") }
     function copiar() { Nav.abrir("Capa · Aviso del historial · copiado") }
+    function reproducir() { sonando = true; motor.hablar(elegida) }
+    function alternar() { if (sonando) { sonando = false; motor.detenerVoz() } else reproducir() }
     function descargarAudio() { Nav.abrir("Capa · Aviso del historial · audio") }
 
-    Timer {   // la reproducción de ejemplo termina sola
+    Connections {   // la voz avisa cuando termina de hablar
+        target: motor
+        function onHablandoCambio() { if (!motor.hablando) vista.sonando = false }
+    }
+    Timer {   // por si la voz del sistema nunca avisa
         running: vista.sonando
-        interval: 3000
+        interval: 60000
         onTriggered: vista.sonando = false
     }
 
@@ -324,10 +330,10 @@ MarcoVentana {
                         MouseArea {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
-                            onClicked: vista.sonando = !vista.sonando
+                            onClicked: vista.alternar()
                         }
-                        Keys.onReturnPressed: vista.sonando = !vista.sonando
-                        Keys.onSpacePressed: vista.sonando = !vista.sonando
+                        Keys.onReturnPressed: vista.alternar()
+                        Keys.onSpacePressed: vista.alternar()
                     }
                     Row {   // onda
                         x: 68; y: 16
@@ -377,7 +383,7 @@ MarcoVentana {
                         icono: carta.escrito ? "" : "reproducir"
                         colorIcono: Tema.acentoNaranja
                         ladoIcono: 16
-                        onClic: carta.escrito ? vista.pegar() : vista.sonando = true
+                        onClic: carta.escrito ? vista.pegar() : vista.reproducir()
                     }
                     Row {
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -391,7 +397,7 @@ MarcoVentana {
                             visible: carta.escrito
                             width: 132; alto: 46; pastilla: true
                             texto: "Escuchar"; icono: "reproducir"; ladoIcono: 14
-                            onClic: vista.sonando = true
+                            onClic: vista.reproducir()
                         }
                         Boton {
                             width: 183; alto: 46; pastilla: true

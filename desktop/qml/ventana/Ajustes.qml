@@ -32,7 +32,7 @@ MarcoVentana {
     property bool pausarSinManos: true
     property bool altoContraste: false
 
-    function escuchar() { Nav.abrir("Capa · Aviso de ajustes · escuchar") }
+    function escuchar() { motor.hablar("Hola, así suena mi voz"); Nav.abrir("Capa · Aviso de ajustes · escuchar") }
 
     CabeceraVentana {
         titulo: "Ajustes"

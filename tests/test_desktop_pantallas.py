@@ -34,7 +34,7 @@ CAPAS = [
 @pytest.fixture(scope="module")
 def app():
     qapp = QApplication.instance() or QApplication([])
-    aplicacion = Aplicacion(dev=True, pantalla="01")
+    aplicacion = Aplicacion(dev=True, pantalla="01", camara=False)
     avisos = []
     aplicacion.cargar()
     aplicacion.motor.warnings.connect(lambda lista: avisos.extend(a.toString() for a in lista))
@@ -64,4 +64,34 @@ def test_capa_carga_sin_errores(app, nombre):
     _mostrar(qapp, raiz, "irA", "02")
     avisos.clear()
     _mostrar(qapp, raiz, "abrirCapa", nombre)
+    assert avisos == []
+
+
+def _teclear(qapp, ventana, texto=None, tecla=None):
+    from PySide6.QtCore import QEvent, Qt
+    from PySide6.QtGui import QGuiApplication, QKeyEvent
+    teclas = [(tecla, "")] if tecla else [(ord(c.upper()) if c.isalpha() else ord(c), c) for c in texto]
+    for codigo, letra in teclas:
+        for tipo in (QEvent.Type.KeyPress, QEvent.Type.KeyRelease):
+            QGuiApplication.sendEvent(ventana, QKeyEvent(tipo, codigo, Qt.KeyboardModifier.NoModifier, letra))
+    for _ in range(5):
+        qapp.processEvents()
+
+
+def _leer(raiz, metodo):
+    from PySide6.QtCore import Q_RETURN_ARG
+    return QMetaObject.invokeMethod(raiz, metodo, Q_RETURN_ARG("QVariant"))
+
+
+def test_escribir_con_teclado(app):
+    qapp, raiz, avisos = app
+    _mostrar(qapp, raiz, "irA", "02a")
+    ventana = raiz.property("panel")
+    ventana.requestActivate()
+    for _ in range(10):
+        qapp.processEvents()
+    avisos.clear()
+    _teclear(qapp, ventana, "hola mundo")
+    assert _leer(raiz, "textoEscrito") == "hola mundo"
+    assert _leer(raiz, "palabrasEscritas") == 1  # «mundo» sigue en curso hasta el espacio
     assert avisos == []

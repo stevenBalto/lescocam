@@ -1,3 +1,4 @@
 module Lesco
 singleton Tema 1.0 Tema.qml
 singleton Nav 1.0 Nav.qml
+singleton Escrito 1.0 Escrito.qml

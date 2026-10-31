@@ -29,6 +29,8 @@ QtObject {
     // Para las pruebas automáticas (tests/test_desktop_pantallas.py)
     function irA(codigo) { Nav.ir(codigo) }
     function abrirCapa(nombre) { Nav.abrir(nombre) }
+    function textoEscrito() { return Escrito.texto }
+    function palabrasEscritas() { return Escrito.palabras.length }
 
     Component.onCompleted: {
         Tema.oscuro = oscuro
