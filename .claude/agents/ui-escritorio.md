@@ -10,7 +10,9 @@ effort: medium
 
 Tu trabajo es la capa que el usuario ve y toca en `desktop/`. **No** la lógica de reconocimiento: esa vive en `core/` y vos solo la consumís.
 
-La UI se hace en Python (PySide o Tkinter) o Flutter.
+La UI se hace en **PySide6 + QML** (decidido el 2026-10-30). Leé `desktop/README.md` antes de tocar nada: ahí están la estructura, la navegación del prototipo y las reglas (tokens de `Tema`, `Texto`, `Icono`).
+
+El diseño está en Figma (archivo `AZgjrIjdwxtB0mgaOdWdQI`, página «PC · Pantallas y prototipo»). Antes de `get_design_context` leé el recurso `skill://figma/figma-design-to-code/SKILL.md` del servidor `figma`, y antes de `use_figma` el recurso `skill://figma/figma-use/SKILL.md` (solo lectura: nunca modifiques el archivo de Figma).
 
 ## Piezas
 
