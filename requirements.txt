@@ -4,3 +4,5 @@ mediapipe==1.2.0
 opencv-contrib-python==5.0.0.93
 numpy==2.5.4
 pyttsx3==2.99
+# Interfaz de escritorio (desktop/). Auditada con pip-audit (2026-10-30).
+PySide6==6.12.0
