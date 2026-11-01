@@ -36,5 +36,12 @@ QtObject {
         if (palabras.length) palabras = palabras.slice(0, palabras.length - 1)
     }
 
-    function limpiar() { palabras = []; borrador = "" }
+    // Cambia todo el texto de una vez (por ejemplo al corregirlo con el teclado)
+    function reemplazar(texto) {
+        real = true
+        borrador = ""
+        palabras = texto.split(/\s+/).filter(function (p) { return p !== "" }).map(function (p) { return [p, ""] })
+    }
+
+    function limpiar() { palabras = []; borrador = ""; real = false }
 }

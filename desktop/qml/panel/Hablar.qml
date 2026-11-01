@@ -23,10 +23,32 @@ Item {
     readonly property bool silencio: base === "09v"
     readonly property real k: [1, 1.25, 1.5][Tema.escala]     // escala de texto
 
-    // Datos de ejemplo (compartidos entre pantallas)
-    property string frase: "Hola, soy Christian."
-    property string voz: "Ana"
-    property string velocidad: "Normal"
+    // Con señas reales se usa lo escrito (Escrito); si no, la frase de ejemplo del prototipo.
+    // La voz y la velocidad son las de Ajustes (motor).
+    readonly property string frase: Escrito.real ? Escrito.texto : "Hola, soy Christian."
+    readonly property string voz: motor.voz
+    readonly property string velocidad: motor.velocidad
+
+    // Deletreo con señas: la letra se suma a la palabra en curso; 1,5 s sin letras nuevas
+    // la cierra y se dice en voz alta, palabra por palabra.
+    Connections {
+        target: motor
+        function onLetraReconocida(letra) {
+            if (Nav.camaraPausada || !vista.enVivo || !vista.visible) return
+            Escrito.iniciar()
+            Escrito.borrador += letra.toLowerCase()
+            cierraPalabra.restart()
+        }
+    }
+    Timer {
+        id: cierraPalabra
+        interval: 1500
+        onTriggered: {
+            var palabra = Escrito.borrador
+            Escrito.confirmarBorrador()
+            motor.hablarEnCola(palabra)
+        }
+    }
 
     readonly property var palabrasVivo: ({
         "07": [["Hola", false], ["Soy", false], ["C-H-R-I-S-T-I-A-N", true]],
@@ -129,7 +151,10 @@ Item {
                 width: parent.width
                 spacing: 2     // vertical; el espacio de 9 px entre palabras va en cada palabra
                 Repeater {
-                    model: vista.palabrasVivo[vista.base] || []
+                    model: Escrito.real
+                           ? Escrito.palabras.map(function (x) { return [x[0], false] })
+                                 .concat(Escrito.borrador !== "" ? [[Escrito.borrador.split("").join("-").toUpperCase(), true]] : [])
+                           : (vista.palabrasVivo[vista.base] || [])
                     Item {
                         width: Math.min(palabra.implicitWidth + 9, flujoPalabras.width)
                         height: palabra.implicitHeight
@@ -184,7 +209,7 @@ Item {
                     font.pointSize: 26 * vista.k * 0.75
                     font.weight: Font.ExtraBold
                     Accessible.name: "Texto que se dirá en voz alta"
-                    onTextChanged: if (activeFocus) vista.frase = text
+                    onTextChanged: if (activeFocus) Escrito.reemplazar(text)
                     Keys.onReturnPressed: focus = false
                     Keys.onEnterPressed: focus = false
                 }
@@ -198,16 +223,16 @@ Item {
         Grupo {
             visible: vista.revisar
             titulo: "Voz"
-            opciones: ["Ana", "Diego", "Lucía"]
+            opciones: motor.voces
             valor: vista.voz
-            onElegir: (o) => vista.voz = o
+            onElegir: (o) => motor.elegirVoz(o)
         }
         Grupo {
             visible: vista.revisar
             titulo: "Velocidad"
             opciones: ["Lenta", "Normal", "Rápida"]
             valor: vista.velocidad
-            onElegir: (o) => vista.velocidad = o
+            onElegir: (o) => motor.elegirVelocidad(o)
         }
         Texto {
             visible: vista.revisar
@@ -388,7 +413,10 @@ Item {
                 pastilla: true
                 width: 44
                 Accessible.name: "Borrar palabra"
-                onClic: if (vista.base !== "07b") vista.ir("07b")
+                onClic: {
+                    if (Escrito.real) Escrito.borrarUltima()
+                    else if (vista.base !== "07b") vista.ir("07b")
+                }
             }
             Boton {
                 texto: "Terminar"
@@ -411,7 +439,7 @@ Item {
                 id: bNuevo
                 texto: "Empezar de nuevo"
                 pastilla: true
-                onClic: vista.ir("07a")
+                onClic: { Escrito.limpiar(); vista.ir("07a") }
             }
             Boton {
                 texto: "Generar voz"
@@ -450,7 +478,10 @@ Item {
                 ladoIcono: 20
                 colorIcono: Tema.acentoNaranja
                 width: vista.resto(filaVoz.width, bCopiar.width + bMp3.width + 16, implicitWidth)
-                onClic: vista.ir(vista.base === "09e" ? "07a" : vista.ruta.reproducir)
+                onClic: {
+                    if (vista.base === "09e") { Escrito.limpiar(); vista.ir("07a") }
+                    else { motor.hablar(vista.frase); vista.ir(vista.ruta.reproducir) }
+                }
             }
         }
     }
