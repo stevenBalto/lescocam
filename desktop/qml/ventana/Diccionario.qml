@@ -410,7 +410,7 @@ MarcoVentana {
                     Boton {
                         width: 175; alto: 46; pastilla: true
                         texto: "Escuchar"; icono: "reproducir"; ladoIcono: 16
-                        onClic: Nav.abrir("Capa · Aviso del diccionario · escuchar")
+                        onClic: { motor.hablar(Estado.senaActual); Nav.abrir("Capa · Aviso del diccionario · escuchar") }
                     }
                 }
             }

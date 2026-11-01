@@ -17,6 +17,7 @@ from PySide6.QtSvg import QSvgRenderer
 from PySide6.QtWidgets import QApplication
 
 from desktop import iconos
+from desktop.motor import Motor, ProveedorCamara
 
 RAIZ = Path(__file__).resolve().parent
 QML = RAIZ / "qml"
@@ -71,8 +72,9 @@ class Recargador(QObject):
 
 
 class Aplicacion:
-    def __init__(self, dev: bool, pantalla: str, oscuro: bool = False, escala: int = 0):
+    def __init__(self, dev: bool, pantalla: str, oscuro: bool = False, escala: int = 0, camara: bool = True):
         self.dev = dev
+        self.nucleo = Motor(camara_permitida=camara)
         self.pantalla = pantalla
         self.oscuro = oscuro
         self.escala = escala
@@ -91,6 +93,8 @@ class Aplicacion:
         motor = QQmlApplicationEngine()
         motor.warnings.connect(lambda avisos: [print(a.toString(), file=sys.stderr) for a in avisos])
         motor.addImageProvider("icono", ProveedorIconos())
+        motor.addImageProvider("camara", ProveedorCamara(self.nucleo))
+        motor.rootContext().setContextProperty("motor", self.nucleo)
         motor.addImportPath(str(QML))
         motor.setInitialProperties({
             "modoDev": self.dev,
@@ -110,6 +114,7 @@ def main(argv=None):
     parser.add_argument("--dev", action="store_true", help="modo desarrollo: recarga al guardar, chat de prueba y atajos para saltar de pantalla")
     parser.add_argument("--pantalla", default="", help="código de la pantalla inicial del prototipo, por ejemplo 02 o 13s")
     parser.add_argument("--captura", metavar="CARPETA", help="guarda un PNG de cada ventana visible y cierra (para comparar con Figma)")
+    parser.add_argument("--sin-camara", action="store_true", help="no abrir la cámara (se ve la ilustración del prototipo)")
     parser.add_argument("--oscuro", action="store_true", help="arrancar en modo oscuro")
     parser.add_argument("--escala", type=int, choices=(100, 125, 150), default=100, help="tamaño del texto en %%")
     args = parser.parse_args(argv)
@@ -122,7 +127,8 @@ def main(argv=None):
     for fuente in (ASSETS / "fuentes").glob("*.ttf"):
         QFontDatabase.addApplicationFont(str(fuente))
 
-    aplicacion = Aplicacion(args.dev, args.pantalla, args.oscuro, (100, 125, 150).index(args.escala))
+    aplicacion = Aplicacion(args.dev, args.pantalla, args.oscuro, (100, 125, 150).index(args.escala), camara=not args.sin_camara and not args.captura)
+    app.aboutToQuit.connect(aplicacion.nucleo.detener)
     aplicacion.cargar()
     if args.dev:
         recargador = Recargador()

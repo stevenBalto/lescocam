@@ -10,6 +10,7 @@ Item {
     clip: true
     Camara {
         estado: ""
+        vivo: false   // es un video de referencia, no la cámara del usuario
         anchors.centerIn: parent
         width: parent.width * mini.zoom
         height: parent.height * mini.zoom

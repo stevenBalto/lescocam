@@ -22,17 +22,14 @@ MarcoVentana {
         return secciones[2]
     }
 
-    // Valores de ejemplo (el motor se conecta después)
-    property string velocidad: "Normal"
-    property string camara: "Integrada HD"
+    // Valores de ejemplo (todavía no hacen nada)
     property string intensidad: "Normal"
     property bool ocultarPantallaCompleta: true
-    property bool espejo: true
-    property bool puntosMano: true
-    property bool pausarSinManos: true
     property bool altoContraste: false
 
-    function escuchar() { Nav.abrir("Capa · Aviso de ajustes · escuchar") }
+    // Voz, velocidad y cámara salen del motor y se guardan en el equipo
+    readonly property string muestra: "Hola, soy Christian."
+    function escuchar() { motor.hablar(muestra) }
 
     CabeceraVentana {
         titulo: "Ajustes"
@@ -179,7 +176,7 @@ MarcoVentana {
                         alto: 40
                         pastilla: true
                         estilo: "oscuro"
-                        texto: "Escuchar · voz " + Estado.voz
+                        texto: "Escuchar · voz " + motor.voz
                         icono: "reproducir"
                         colorIcono: Tema.acentoNaranja
                         ladoIcono: 14
@@ -191,12 +188,13 @@ MarcoVentana {
             // ── Voz y audio ──
             Fila {
                 visible: vista.seccion.codigo === "15a"
-                titulo: "Voz"; detalle: "Español latino"; anchoControl: 204
+                titulo: "Voz"; detalle: "Voces en español de este equipo"; anchoControl: filaVoces.width
                 Row {
+                    id: filaVoces
                     spacing: 8
                     Repeater {
-                        model: ["Ana", "Diego", "Lucía"]
-                        Opcion { texto: modelData; activo: Estado.voz === modelData; onElegir: Estado.voz = modelData }
+                        model: motor.voces
+                        Opcion { texto: modelData; activo: motor.voz === modelData; onElegir: { motor.elegirVoz(modelData); vista.escuchar() } }
                     }
                 }
             }
@@ -207,7 +205,7 @@ MarcoVentana {
                     spacing: 8
                     Repeater {
                         model: ["Lenta", "Normal", "Rápida"]
-                        Opcion { texto: modelData; activo: vista.velocidad === modelData; onElegir: vista.velocidad = modelData }
+                        Opcion { texto: modelData; activo: motor.velocidad === modelData; onElegir: { motor.elegirVelocidad(modelData); vista.escuchar() } }
                     }
                 }
             }
@@ -220,12 +218,13 @@ MarcoVentana {
             // ── Cámara ──
             Fila {
                 visible: vista.seccion.codigo === "15b"
-                titulo: "Cámara"; anchoControl: 249
+                titulo: "Cámara"; anchoControl: filaCamaras.width
                 Row {
+                    id: filaCamaras
                     spacing: 8
                     Repeater {
-                        model: ["Integrada HD", "Logitech C920"]
-                        Opcion { texto: modelData; activo: vista.camara === modelData; onElegir: vista.camara = modelData }
+                        model: motor.camaras
+                        Opcion { texto: modelData; activo: motor.camara === modelData; onElegir: motor.elegirCamara(modelData) }
                     }
                 }
             }
@@ -234,17 +233,17 @@ MarcoVentana {
                 titulo: "Imagen en espejo"
                 detalle: "Su mano derecha aparece a la derecha de la pantalla, como al mirarse en un espejo. Así es más fácil acomodar las señas."
                 anchoControl: 44
-                Interruptor { nombreAccesible: "Imagen en espejo"; activo: vista.espejo; onCambio: (v) => vista.espejo = v }
+                Interruptor { nombreAccesible: "Imagen en espejo"; activo: motor.espejo; onCambio: (v) => motor.espejo = v }
             }
             Fila {
                 visible: vista.seccion.codigo === "15b"
                 titulo: "Mostrar los puntos de la mano"; detalle: "Ayuda a ver si la cámara la ve bien"; anchoControl: 44
-                Interruptor { nombreAccesible: "Mostrar los puntos de la mano"; activo: vista.puntosMano; onCambio: (v) => vista.puntosMano = v }
+                Interruptor { nombreAccesible: "Mostrar los puntos de la mano"; activo: motor.puntosMano; onCambio: (v) => motor.puntosMano = v }
             }
             Fila {
                 visible: vista.seccion.codigo === "15b"
                 titulo: "Pausar si no hay manos"; detalle: "Después de 3 segundos"; anchoControl: 44
-                Interruptor { nombreAccesible: "Pausar si no hay manos"; activo: vista.pausarSinManos; onCambio: (v) => vista.pausarSinManos = v }
+                Interruptor { nombreAccesible: "Pausar si no hay manos"; activo: motor.pausarSinManos; onCambio: (v) => motor.pausarSinManos = v }
             }
 
             // ── Burbuja y atajos ──

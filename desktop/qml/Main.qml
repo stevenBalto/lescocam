@@ -26,9 +26,17 @@ QtObject {
     property var escritorio: Loader { source: "escritorio/Escritorio.qml" }
     property var herramientas: Loader { active: raiz.modoDev; source: "dev/Herramientas.qml" }
 
+    // «Pausar si no hay manos» (Ajustes › Cámara): el motor avisa y se pausa la cámara del panel
+    property var vigiaManos: Connections {
+        target: motor
+        function onSinManos() { if (Nav.esPanel(Nav.pantalla)) Nav.camaraPausada = true }
+    }
+
     // Para las pruebas automáticas (tests/test_desktop_pantallas.py)
     function irA(codigo) { Nav.ir(codigo) }
     function abrirCapa(nombre) { Nav.abrir(nombre) }
+    function textoEscrito() { return Escrito.texto }
+    function palabrasEscritas() { return Escrito.palabras.length }
 
     Component.onCompleted: {
         Tema.oscuro = oscuro

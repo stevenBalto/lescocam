@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Effects
+import QtQuick.Window
 import Lesco
 
 // Componente «Cámara» (368×236): escena con la persona y los 21 puntos de cada
@@ -10,10 +11,29 @@ Item {
     property string estado: "Cámara · solo en este equipo"
     property color colorPunto: Tema.estadoEnVivo
     property bool mostrarEscena: true
+    // false en los videos de referencia: muestran la ilustración, no la cámara del usuario
+    property bool vivo: true
+    // La cámara solo se abre mientras este componente se ve y no está en pausa
+    readonly property bool pideCamara: vivo && visible && !Nav.camaraPausada
+        && Window.window !== null && Window.window.visible
+    readonly property bool hayVideo: vivo && !!motor && motor.hayVideo
+    property bool _pedida: false
+    property int _frame: 0
     default property alias encima: capaEncima.data
 
     implicitWidth: 368
     implicitHeight: 236
+
+    onPideCamaraChanged: {
+        if (pideCamara && !_pedida) { _pedida = true; motor.pedirCamara() }
+        else if (!pideCamara && _pedida) { _pedida = false; motor.soltarCamara() }
+    }
+    Component.onCompleted: if (pideCamara) { _pedida = true; motor.pedirCamara() }
+    Component.onDestruction: if (_pedida && motor) motor.soltarCamara()
+    Connections {
+        target: motor
+        function onFrameNuevo(n) { if (camara.hayVideo) camara._frame = n }
+    }
 
     Rectangle {
         id: marco
@@ -38,7 +58,14 @@ Item {
         }
         Image {
             anchors.fill: parent
-            visible: camara.mostrarEscena
+            visible: camara.hayVideo
+            source: camara.hayVideo ? "image://camara/frame?" + camara._frame : ""
+            fillMode: Image.PreserveAspectCrop
+            cache: false
+        }
+        Image {
+            anchors.fill: parent
+            visible: camara.mostrarEscena && !camara.hayVideo
             source: Qt.resolvedUrl("../../assets/imagenes/camara-escena.svg")
             sourceSize: Qt.size(width * 2, height * 2)
         }

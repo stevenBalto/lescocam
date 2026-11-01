@@ -44,9 +44,32 @@ Item {
         "03i": { hint: "Se borró «SOY». Toque una palabra para borrarla o corregirla",
                  palabras: [["Hola"], ["Christian"]], borrar: "03b", terminar: "04" }
     })
-    readonly property var d: datos[Nav.pantalla] || datos["02"]
+    // Con texto real (teclado o señas) se deja el ejemplo del prototipo y se muestra lo escrito.
+    readonly property var d: Escrito.real
+        ? ({ hint: Escrito.palabras.length || Escrito.borrador !== ""
+                   ? "Escriba con el teclado o haga señas · Espacio separa palabras"
+                   : "Escriba con el teclado o haga su primera seña…",
+             palabras: Escrito.palabras, terminar: "01b" })
+        : (datos[Nav.pantalla] || datos["02"])
     readonly property real tamHint: Tema.escala === 0 ? 13 : Tema.tamNota
     readonly property real tamPalabra: Tema.tamTitulo
+
+    // Deletreo con señas: cada letra reconocida se suma a la palabra en curso y
+    // 1,5 s sin letras nuevas la cierra. Se ignora con la cámara en pausa.
+    Connections {
+        target: motor
+        function onLetraReconocida(letra) {
+            if (Nav.camaraPausada || !vista.visible) return
+            Escrito.iniciar()
+            Escrito.borrador += letra.toLowerCase()
+            cierraPalabra.restart()
+        }
+    }
+    Timer {
+        id: cierraPalabra
+        interval: 1500
+        onTriggered: Escrito.confirmarBorrador()
+    }
 
     Column {
         id: arriba
@@ -127,20 +150,60 @@ Item {
                             tamLetra: vista.tamPalabra
                         }
                     }
-                    Item {   // cursor
-                        width: 4; height: vista.tamPalabra * 1.3
-                        Rectangle {
-                            width: 2.5; height: vista.tamPalabra; radius: 2
-                            anchors.centerIn: parent
+                    TextInput {   // campo de teclado: Espacio o Enter cierran la palabra
+                        id: entrada
+                        width: Math.max(6, implicitWidth)
+                        height: vista.tamPalabra * 1.3
+                        text: Escrito.borrador
+                        font.family: Tema.fuente
+                        font.pixelSize: vista.tamPalabra
+                        font.weight: Font.ExtraBold
+                        font.letterSpacing: -0.3
+                        color: Tema.textoPrincipal
+                        selectionColor: Tema.acentoNaranja
+                        verticalAlignment: TextInput.AlignVCenter
+                        maximumLength: 40
+                        inputMethodHints: Qt.ImhNoPredictiveText
+                        activeFocusOnTab: true
+                        focus: true
+                        Accessible.role: Accessible.EditableText
+                        Accessible.name: "Texto a escribir"
+                        cursorDelegate: Rectangle {
+                            width: 2.5; radius: 2
                             color: Tema.acentoNaranja
-                            SequentialAnimation on opacity {
-                                loops: Animation.Infinite
-                                running: !Tema.reducirMovimiento
-                                NumberAnimation { to: 0; duration: 500; easing.type: Easing.InOutQuad }
-                                NumberAnimation { to: 1; duration: 500; easing.type: Easing.InOutQuad }
+                            visible: entrada.cursorVisible
+                        }
+                        onTextEdited: {
+                            if (/\s/.test(text)) {   // un espacio pegado o tipeado cierra la palabra
+                                var partes = text.split(/\s+/)
+                                var resto = text.match(/\s$/) ? "" : partes.pop()
+                                partes.forEach(function (p) { Escrito.agregar(p) })
+                                Escrito.borrador = resto
+                                text = resto
+                            } else {
+                                Escrito.iniciar()
+                                Escrito.borrador = text
                             }
                         }
+                        onAccepted: { Escrito.confirmarBorrador(); text = "" }
+                        Keys.onPressed: function (e) {
+                            if (e.key === Qt.Key_Backspace && text === "" && Escrito.palabras.length) {
+                                Escrito.borrarUltima()
+                                e.accepted = true
+                            }
+                        }
+                        Connections {
+                            target: Escrito
+                            function onBorradorChanged() { if (entrada.text !== Escrito.borrador) entrada.text = Escrito.borrador }
+                        }
+                        Component.onCompleted: forceActiveFocus()
                     }
+                }
+                MouseArea {   // tocar la tarjeta enfoca el campo
+                    anchors.fill: parent
+                    z: -1
+                    cursorShape: Qt.IBeamCursor
+                    onClicked: entrada.forceActiveFocus()
                 }
             }
 
@@ -253,7 +316,7 @@ Item {
                 pastilla: true
                 width: 44
                 Accessible.name: "Borrar palabra"
-                onClic: if (vista.d.borrar) Nav.ir(vista.d.borrar)
+                onClic: if (Escrito.real) Escrito.borrarUltima(); else if (vista.d.borrar) Nav.ir(vista.d.borrar)
             }
         }
         // Con texto grande «Terminar» se ajusta a su contenido y queda a la derecha
