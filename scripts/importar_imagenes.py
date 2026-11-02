@@ -2,7 +2,8 @@
 
 El nombre del archivo es la etiqueta: A.png -> "A", CH.png -> "CH".
 Cada imagen pasa por el mismo camino que la cámara (espejo, MediaPipe,
-normalización) y queda como una toma de esa seña.
+normalización con la proporción de la imagen) y queda como una toma de esa
+seña, con "frame": [ancho, alto] de la imagen (signs.json version 3).
 
 Uso:
     .venv/bin/python -m scripts.importar_imagenes data/dictionary            # prueba, no guarda
@@ -15,7 +16,6 @@ los números comparten forma con letras y se separan después. --numeros las inc
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -24,7 +24,8 @@ import cv2
 import numpy as np
 
 from core.camara import Detector
-from core.clasificador import RUTA_SENAS
+from core.clasificador import RUTA_SENAS, confianza, escribir_signs, leer_signs, signs_vacio
+from core.rasgos import rasgos
 
 EXTENSIONES = {".png", ".jpg", ".jpeg", ".webp"}
 DECIMALES = 6
@@ -41,23 +42,24 @@ def leer_imagenes(carpeta: Path, numeros: bool) -> list[Path]:
 def vector_de_imagen(detector: Detector, ruta: Path):
     imagen = cv2.imread(str(ruta))
     if imagen is None:
-        return None, "no se pudo abrir"
+        return None, None, "no se pudo abrir"
     # La app espeja cada frame de la cámara (vista selfie) antes de detectar:
     # se hace lo mismo para que la toma salga por el mismo camino.
     mano = detector.procesar(cv2.flip(imagen, 1))
     if mano is None:
-        return None, "no se detectó la mano"
+        return None, None, "no se detectó la mano"
     if mano.vector is None:
-        return None, "mano degenerada"
-    return mano.vector, None
+        return None, None, "mano degenerada"
+    return mano.vector, mano.frame, None
 
 
 def pares_parecidos(vectores: dict[str, np.ndarray], cuantos: int = 8):
-    etiquetas = list(vectores)
+    """Pares con mayor confianza entre sí según el clasificador (rasgos de forma)."""
+    etiquetas = [e for e, v in vectores.items() if rasgos(v) is not None]
     if len(etiquetas) < 2:
         return []
-    m = np.array([v / np.linalg.norm(v) for v in vectores.values()])
-    sims = m @ m.T
+    m = np.array([rasgos(vectores[e]) for e in etiquetas])
+    sims = confianza(np.linalg.norm(m[:, None] - m[None], axis=2))
     pares = [(float(sims[i, j]), etiquetas[i], etiquetas[j])
              for i in range(len(etiquetas)) for j in range(i + 1, len(etiquetas))]
     return sorted(pares, reverse=True)[:cuantos]
@@ -79,16 +81,16 @@ def main(argv=None) -> int:
         return 1
 
     detector = Detector(confianza_deteccion=0.3)
-    vectores, fallidas = {}, []
+    vectores, frames, fallidas = {}, {}, []
     try:
         for ruta in rutas:
             etiqueta = ruta.stem.upper()
-            vector, error = vector_de_imagen(detector, ruta)
+            vector, frame, error = vector_de_imagen(detector, ruta)
             if error:
                 fallidas.append((ruta.name, error))
                 print(f"  ❌ {etiqueta:4} {error}")
             else:
-                vectores[etiqueta] = vector
+                vectores[etiqueta], frames[etiqueta] = vector, frame
                 print(f"  ✅ {etiqueta}")
     finally:
         detector.cerrar()
@@ -105,9 +107,9 @@ def main(argv=None) -> int:
         return 1
 
     destino: Path = args.destino
-    datos = {"version": 2, "signs": {}}
+    datos = signs_vacio()
     if destino.exists() and not args.reemplazar:
-        datos = json.loads(destino.read_text(encoding="utf-8"))
+        datos = leer_signs(destino)   # exige version 3: no se mezclan vectores de versiones distintas
     ahora = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     for etiqueta, vector in vectores.items():
         toma = {
@@ -115,12 +117,11 @@ def main(argv=None) -> int:
             "samples": 1,
             "recorded_at": ahora,
             "source": f"imagen:{args.carpeta.name}/{etiqueta}",
+            "frame": [int(frames[etiqueta][0]), int(frames[etiqueta][1])],
         }
         datos["signs"].setdefault(etiqueta, {"takes": []})["takes"].append(toma)
 
-    tmp = destino.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(datos, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    tmp.replace(destino)  # se escribe aparte y se reemplaza: si se corta, el original queda intacto
+    escribir_signs(destino, datos)
     print(f"\nGuardado en {destino} ({len(datos['signs'])} señas).")
     return 0
 

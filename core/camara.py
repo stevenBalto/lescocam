@@ -28,6 +28,7 @@ class Mano:
     puntos: list        # 21 NormalizedLandmark (x, y en [0,1] del frame)
     lado: str           # "Left" | "Right" (la mano real de la persona)
     vector: object      # np.ndarray (63,) normalizado, o None si la mano es degenerada
+    frame: tuple        # (ancho, alto) en píxeles del frame procesado
 
 
 def asegurar_modelo(ruta: Path = RUTA_MODELO) -> Path:
@@ -72,7 +73,12 @@ class Detector:
         self._detector = vision.HandLandmarker.create_from_options(opciones)
 
     def procesar(self, frame_bgr) -> Optional[Mano]:
-        """frame_bgr debe estar espejado (vista selfie) para que Left/Right sea correcto."""
+        """frame_bgr debe estar espejado (vista selfie) para que Left/Right sea correcto.
+
+        El tamaño (ancho, alto) para corregir la proporción se toma del propio frame:
+        es exactamente la imagen que ve MediaPipe, así que no se puede pasar uno equivocado.
+        """
+        alto, ancho = frame_bgr.shape[:2]
         rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
         imagen = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
         resultado = self._detector.detect(imagen)
@@ -81,10 +87,10 @@ class Detector:
         puntos = resultado.hand_landmarks[0]
         lado = resultado.handedness[0][0].category_name
         try:
-            vector = normalize_landmarks(puntos, lado)
+            vector = normalize_landmarks(puntos, lado, frame=(ancho, alto))
         except ValueError:
             vector = None
-        return Mano(puntos, lado, vector)
+        return Mano(puntos, lado, vector, (ancho, alto))
 
     def cerrar(self) -> None:
         self._detector.close()

@@ -17,6 +17,8 @@ data/dictionary/*
 !data/dictionary/.gitkeep
 
 # data/reference/signs.json SÍ se versiona (contrato de datos escritorio/móvil)
+# Copias de seguridad de migraciones (scripts/migrar_v3.py)
+data/reference/*.bak
 
 # Flutter
 mobile/build/

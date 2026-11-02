@@ -4,7 +4,8 @@ Pensado para videos donde cada letra aparece escrita en pantalla mientras se
 hace la seña (como "Abecedario en LESCO" de Hands-On!). El video se corta en
 tramos cada vez que cambia el rótulo y los tramos se asignan en orden a ORDEN.
 
-  - Letras quietas: de la parte central de cada tramo salen varias tomas.
+  - Letras quietas: de la parte central de cada tramo salen varias tomas, con
+    "frame": [ancho, alto] del recorte de la mano (signs.json version 3).
   - Letras con movimiento: se guarda la secuencia aparte (el motor todavía no
     las reconoce) en un archivo ignorado por git.
 
@@ -24,7 +25,8 @@ import cv2
 import numpy as np
 
 from core.camara import Detector
-from core.clasificador import RUTA_SENAS, Clasificador
+from core.landmarks import VERSION_VECTOR
+from core.clasificador import RUTA_SENAS, Clasificador, escribir_signs, leer_signs, signs_vacio
 
 ORDEN = ["A", "B", "C", "CH", "D", "E", "F", "G", "H", "I", "J", "K", "L", "LL", "M",
          "N", "Ñ", "O", "P", "Q", "R", "RR", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -167,8 +169,8 @@ def main(argv=None) -> int:
         print("\nPrueba sin guardar. Agregá --guardar para escribir en signs.json.")
         return 0
 
-    datos = json.loads(args.destino.read_text(encoding="utf-8")) if args.destino.exists() \
-        else {"version": 2, "signs": {}}
+    datos = leer_signs(args.destino) if args.destino.exists() else signs_vacio()
+    x0, y0, x1, y1 = RECORTE_MANO
     ahora = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     for etiqueta, tomas in quietas.items():
         for vector, muestras in tomas:
@@ -177,13 +179,13 @@ def main(argv=None) -> int:
                 "samples": muestras,
                 "recorded_at": ahora,
                 "source": f"video:{args.video.name}",
+                "frame": [x1 - x0, y1 - y0],
             })
-    tmp = args.destino.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(datos, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    tmp.replace(args.destino)
+    escribir_signs(args.destino, datos)
 
     RUTA_SECUENCIAS.parent.mkdir(parents=True, exist_ok=True)
-    RUTA_SECUENCIAS.write_text(json.dumps({"video": args.video.name, "fps": fps, "secuencias": secuencias},
+    RUTA_SECUENCIAS.write_text(json.dumps({"version": VERSION_VECTOR, "video": args.video.name, "fps": fps,
+                                           "frame": [x1 - x0, y1 - y0], "secuencias": secuencias},
                                           ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nGuardado: {sum(len(t) for t in quietas.values())} tomas en {args.destino}, "
           f"{len(secuencias)} secuencias en {RUTA_SECUENCIAS}.")
