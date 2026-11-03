@@ -80,3 +80,54 @@ def test_guardar_rechaza_signs_version_2(tmp_path):
     with pytest.raises(VersionIncompatible, match="migrar_v3"):
         guardar_toma(ruta, "A", np.full(63, 0.1), 30, "ana", (640, 480))
     assert ruta.read_text() == original
+
+
+# ---------------------------------------------------------------- letras con movimiento
+
+def _flujo_de(gesto, antes=0.7, despues=0.7, fps=30.0):
+    from dataclasses import replace
+    pre = [replace(gesto[0], t=i / fps, _forma=None) for i in range(int(antes * fps))]
+    medio = [replace(c, t=antes + c.t - gesto[0].t, _forma=None) for c in gesto]
+    fin = medio[-1].t
+    post = [replace(gesto[-1], t=fin + (i + 1) / fps, _forma=None) for i in range(int(despues * fps))]
+    cuadros = pre + medio + post
+    return cuadros, [c.t for c in cuadros]
+
+
+@pytest.fixture(scope="module")
+def plantillas_mov():
+    from core.movimiento import cuadros_de_toma, leer_movimientos
+    datos = leer_movimientos()
+    return {e: cuadros_de_toma(entrada["takes"][0]) for e, entrada in datos["signs"].items()}
+
+
+def test_gesto_oficial_aceptado_y_rechazado_como_otra_letra(plantillas_mov):
+    from scripts.recorder import evaluar_gesto, movimiento_oficial
+    oficial = movimiento_oficial()
+    cuadros, t = _flujo_de(plantillas_mov["LL"])
+    assert evaluar_gesto(cuadros, t, "LL", oficial)[0] == ACEPTADA
+    estado, msg, top, gesto = evaluar_gesto(cuadros, t, "RR", oficial)
+    assert estado == RECHAZADA and "LL" in msg and gesto is not None
+
+
+def test_gesto_sin_movimiento_se_rechaza(plantillas_mov):
+    from scripts.recorder import evaluar_gesto, movimiento_oficial
+    cuadros, t = _flujo_de(plantillas_mov["LL"][:1], antes=2.0, despues=0.0)
+    estado, msg, _, gesto = evaluar_gesto(cuadros, t, "LL", movimiento_oficial())
+    assert estado == RECHAZADA and gesto is None and "movimiento" in msg
+
+
+def test_guardar_gesto_agrega_toma_webcam(tmp_path, plantillas_mov):
+    import shutil
+
+    from core.movimiento import RUTA_MOVIMIENTOS, leer_movimientos
+    from scripts.recorder import guardar_gesto, movimiento_oficial
+    ruta = tmp_path / "movimientos.json"
+    shutil.copy(RUTA_MOVIMIENTOS, ruta)
+    antes = len(leer_movimientos(ruta)["signs"]["J"]["takes"])
+    toma = guardar_gesto(ruta, "J", plantillas_mov["J"], "prueba", (640, 480), 30.0)
+    datos = leer_movimientos(ruta)
+    assert len(datos["signs"]["J"]["takes"]) == antes + 1
+    assert toma["source"] == "webcam:prueba" and toma["frame"] == [640, 480]
+    # el control de calidad sigue usando solo las oficiales
+    assert len(movimiento_oficial(ruta)._plantillas) == len(movimiento_oficial()._plantillas)

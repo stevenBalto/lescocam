@@ -11,6 +11,8 @@ Cámara (OpenCV) → mano (MediaPipe, 21 puntos) → normalización → comparac
 
 No usa un modelo entrenado pesado: compara la mano con señas de referencia por similitud,
 así que corre sin GPU. Si ninguna seña supera el umbral, no inventa traducción.
+Las letras con movimiento se comparan como gesto entero (trayectoria + forma) con DTW
+contra `movimientos.json` (`core/movimiento.py`, `core/reconocedor.py`).
 
 ## Estructura (monorepo)
 
@@ -20,6 +22,7 @@ así que corre sin GPU. Si ninguna seña supera el umbral, no inventa traducció
 | `desktop/` | Interfaz de escritorio (usa `core/`) |
 | `mobile/` | App móvil en Flutter (reimplementa la lógica en Dart, usa el mismo `signs.json`) |
 | `data/reference/signs.json` | Señas de referencia. **Se versiona**: es el contrato de datos entre escritorio y móvil |
+| `data/reference/movimientos.json` | Letras con movimiento (J, LL, Ñ, RR, Z): gestos cuadro a cuadro. **Se versiona** (contrato; formato en `core/movimiento.py`) |
 | `data/models/` | Modelo `hand_landmarker.task` de MediaPipe. No se versiona, se descarga |
 | `data/dictionary/` | Imágenes del diccionario. No se versionan |
 | `scripts/` | `recorder.py` para grabar señas nuevas y otras utilidades |

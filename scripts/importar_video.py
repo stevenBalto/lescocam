@@ -6,17 +6,24 @@ tramos cada vez que cambia el rótulo y los tramos se asignan en orden a ORDEN.
 
   - Letras quietas: de la parte central de cada tramo salen varias tomas, con
     "frame": [ancho, alto] del recorte de la mano (signs.json version 3).
-  - Letras con movimiento: se guarda la secuencia aparte (el motor todavía no
-    las reconoce) en un archivo ignorado por git.
+  - Letras con movimiento (J, LL, Ñ, RR, Z): el gesto se busca en VENTANAS_MOVIMIENTO
+    (segundos del video, elegidos mirando los frames: el movimiento propio de la
+    seña, sin la mano que entra o sale) y se recorta con el mismo Segmentador que
+    usa el motor en vivo (core/movimiento.py). Se guarda en
+    data/reference/movimientos.json (versionado, formato en core/movimiento.py).
 
 Uso:
     .venv/bin/python -m scripts.importar_video data/dictionary/videos/abecedario-lesco.mp4
-    .venv/bin/python -m scripts.importar_video VIDEO --guardar
+    .venv/bin/python -m scripts.importar_video VIDEO --guardar              # quietas + movimiento
+    .venv/bin/python -m scripts.importar_video VIDEO --solo-movimientos     # solo movimientos.json
+
+--guardar AGREGA tomas a signs.json cada vez que se corre (si ya estaban, quedan
+duplicadas); para rehacer solo las letras con movimiento usá --solo-movimientos,
+que reemplaza las tomas "video:<este video>" de movimientos.json y no toca signs.json.
 """
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,8 +32,9 @@ import cv2
 import numpy as np
 
 from core.camara import Detector
-from core.landmarks import VERSION_VECTOR
 from core.clasificador import RUTA_SENAS, Clasificador, escribir_signs, leer_signs, signs_vacio
+from core.movimiento import (RUTA_MOVIMIENTOS, TIPO, cuadro_de_mano, escribir_movimientos, leer_movimientos,
+                             movimientos_vacio, recortar_gesto, toma_desde_cuadros)
 from core.sinteticas import regenerar
 
 ORDEN = ["A", "B", "C", "CH", "D", "E", "F", "G", "H", "I", "J", "K", "L", "LL", "M",
@@ -43,7 +51,17 @@ MIN_CAMBIO_ROTULO = 800                # píxeles que cambian de un frame al otr
 
 CENTRO = 0.6                           # fracción central del tramo que se usa (la mano ya está quieta)
 DECIMALES = 6
-RUTA_SECUENCIAS = Path("data/dictionary/secuencias_video.json")
+
+# Dónde está el movimiento de cada letra en el video de Hands-On! (segundos). El
+# rótulo no coincide con el gesto: J y LL empiezan al final del tramo de I y de L,
+# y Z sale del cuadro por abajo (se usa la parte en que la mano se ve entera).
+#   J : de I (meñique arriba) el meñique baja girando la muñeca y termina horizontal
+#   LL: la L se desliza de costado ~0.7 manos y se queda quieta
+#   Ñ : el puño de la N gira la muñeca de un lado al otro (~4 vaivenes)
+#   RR: la R (índice y medio cruzados) se desliza de costado ~0.6 manos
+#   Z : el índice arriba dibuja la Z (raya arriba, diagonal hacia abajo, raya abajo)
+VENTANAS_MOVIMIENTO = {"J": (41.37, 43.21), "LL": (51.65, 52.72), "Ñ": (61.55, 64.56),
+                       "RR": (78.74, 79.81), "Z": (105.31, 106.77)}
 
 
 def mascara_rotulo(frame) -> np.ndarray:
@@ -101,6 +119,51 @@ def vectores_por_tramo(ruta: Path, tramos, detector: Detector) -> list[list]:
     return salida
 
 
+def gestos_en_ventanas(ruta: Path, fps: float, detector: Detector, ventanas=VENTANAS_MOVIMIENTO) -> dict:
+    """letra -> lista de Cuadros del gesto recortado (o None si no se encontró movimiento)."""
+    x0, y0, x1, y1 = RECORTE_MANO
+    rangos = {l: (int(round(a * fps)), int(round(b * fps))) for l, (a, b) in ventanas.items()}
+    cuadros = {l: [] for l in ventanas}
+    cap = cv2.VideoCapture(str(ruta))
+    i = 0
+    hasta = max(b for _, b in rangos.values())
+    while i <= hasta:
+        ok, frame = cap.read()
+        if not ok:
+            break
+        dentro = [l for l, (a, b) in rangos.items() if a <= i <= b]
+        if dentro:
+            mano = detector.procesar(cv2.flip(frame[y0:y1, x0:x1], 1))
+            for l in dentro:
+                cuadros[l].append(cuadro_de_mano(mano, i / fps))
+        i += 1
+    cap.release()
+    salida = {}
+    for l, cs in cuadros.items():
+        a = rangos[l][0]
+        salida[l] = recortar_gesto(cs, [(a + k) / fps for k in range(len(cs))])
+    return salida
+
+
+def guardar_movimientos(gestos: dict, video: Path, fps: float, destino: Path = RUTA_MOVIMIENTOS) -> int:
+    """Reemplaza las tomas "video:<video>" de cada letra en movimientos.json. Devuelve cuántas guardó."""
+    datos = leer_movimientos(destino) if destino.exists() else movimientos_vacio()
+    x0, y0, x1, y1 = RECORTE_MANO
+    source = f"video:{video.name}"
+    ahora = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    n = 0
+    for letra, gesto in gestos.items():
+        if not gesto:
+            continue
+        entrada = datos["signs"].setdefault(letra, {"categoria": "letra", "tipo": TIPO, "takes": []})
+        entrada["takes"] = [t for t in entrada["takes"] if t.get("source") != source]
+        entrada["takes"].insert(0, toma_desde_cuadros(gesto, source, fps, (x1 - x0, y1 - y0), ahora,
+                                                      inicio=round(gesto[0].t, 3), fin=round(gesto[-1].t, 3)))
+        n += 1
+    escribir_movimientos(destino, datos)
+    return n
+
+
 def tomas_quietas(vectores: list, cuantas: int) -> list[tuple[np.ndarray, int]]:
     """Parte la zona central del tramo en `cuantas` grupos: [(promedio, frames usados), ...]."""
     n = len(vectores)
@@ -125,7 +188,26 @@ def main(argv=None) -> int:
     parser.add_argument("--guardar", action="store_true", help="escribir en signs.json (sin esto solo prueba)")
     parser.add_argument("--tomas", type=int, default=3, help="tomas por letra quieta")
     parser.add_argument("--destino", type=Path, default=RUTA_SENAS)
+    parser.add_argument("--solo-movimientos", action="store_true",
+                        help="guardar solo las letras con movimiento en movimientos.json (no toca signs.json)")
+    parser.add_argument("--movimientos", type=Path, default=RUTA_MOVIMIENTOS)
     args = parser.parse_args(argv)
+
+    if args.solo_movimientos:
+        cap = cv2.VideoCapture(str(args.video))
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+        cap.release()
+        detector = Detector(confianza_deteccion=0.3)
+        try:
+            gestos = gestos_en_ventanas(args.video, fps, detector)
+        finally:
+            detector.cerrar()
+        for letra, g in gestos.items():
+            print(f"{letra:3} " + ("❌ sin movimiento en la ventana" if not g else
+                                   f"{g[0].t:6.2f}-{g[-1].t:6.2f}s  {len(g)} cuadros"))
+        n = guardar_movimientos(gestos, args.video, fps, args.movimientos)
+        print(f"\nGuardado: {n} letras con movimiento en {args.movimientos}.")
+        return 0
 
     fps, tramos = buscar_tramos(args.video)
     if len(tramos) != len(ORDEN):
@@ -137,7 +219,7 @@ def main(argv=None) -> int:
 
     clasificador = Clasificador(args.destino) if args.destino.exists() else None
     detector = Detector(confianza_deteccion=0.3)
-    quietas, secuencias = {}, {}
+    quietas = {}
     print(f"{'letra':5} {'tiempo':>13} {'mano':>5} {'mov':>5}  comparación con signs.json actual")
     try:
         todos = vectores_por_tramo(args.video, tramos, detector)
@@ -148,9 +230,7 @@ def main(argv=None) -> int:
         mov = movimiento(vectores)
         linea = f"{etiqueta:5} {a / fps:6.2f}-{b / fps:5.2f}s {detectados * 100 // len(vectores):4}% {mov:5.2f}  "
         if etiqueta in CON_MOVIMIENTO:
-            secuencias[etiqueta] = [None if v is None else [round(float(x), DECIMALES) for x in v]
-                                    for v in vectores]
-            print(linea + "con movimiento: secuencia guardada aparte")
+            print(linea + "con movimiento: va a movimientos.json")
             continue
         tomas = tomas_quietas(vectores, args.tomas)
         if not tomas:
@@ -184,12 +264,14 @@ def main(argv=None) -> int:
             })
     escribir_signs(args.destino, regenerar(datos))   # recalcula las sintéticas
 
-    RUTA_SECUENCIAS.parent.mkdir(parents=True, exist_ok=True)
-    RUTA_SECUENCIAS.write_text(json.dumps({"version": VERSION_VECTOR, "video": args.video.name, "fps": fps,
-                                           "frame": [x1 - x0, y1 - y0], "secuencias": secuencias},
-                                          ensure_ascii=False) + "\n", encoding="utf-8")
+    detector = Detector(confianza_deteccion=0.3)
+    try:
+        gestos = gestos_en_ventanas(args.video, fps, detector)
+    finally:
+        detector.cerrar()
+    n = guardar_movimientos(gestos, args.video, fps, args.movimientos)
     print(f"\nGuardado: {sum(len(t) for t in quietas.values())} tomas en {args.destino}, "
-          f"{len(secuencias)} secuencias en {RUTA_SECUENCIAS}.")
+          f"{n} letras con movimiento en {args.movimientos}.")
     return 0
 
 

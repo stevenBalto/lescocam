@@ -285,8 +285,7 @@ class Motor(QObject):
 
             import cv2
             from core import camara
-            from core.aceptador import Aceptador
-            from core.clasificador import Clasificador
+            from core.reconocedor import Reconocedor
             cap = camara.abrir_camara(indice)
             detector = camara.Detector()
         except Exception as e:  # sin cámara, permiso denegado o falta de librerías
@@ -294,9 +293,9 @@ class Motor(QObject):
             return
         self._publicar_error("")
         try:   # sin signs.json válido la cámara funciona igual, solo que sin reconocer
-            clasificador, aceptador = Clasificador(), Aceptador()
+            reconocedor = Reconocedor.desde_archivos()   # quietas + movimiento (si hay movimientos.json)
         except (OSError, ValueError):
-            clasificador = aceptador = None
+            reconocedor = None
         ultima_mano = time.monotonic()
         avisado = False
         try:
@@ -315,14 +314,9 @@ class Motor(QObject):
                 elif self._pausar and not avisado and ahora - ultima_mano > SEGUNDOS_SIN_MANOS:
                     avisado = True
                     self.sinManos.emit()
-                if clasificador is not None:
-                    if mano is None or mano.vector is None:
-                        aceptador.mano_perdida()
-                    else:
-                        top = clasificador.mejores(mano.vector, 2)
-                        letra = aceptador.actualizar(top, ahora)
-                        if letra is not None:
-                            self.letraReconocida.emit(letra)
+                if reconocedor is not None:
+                    for letra in reconocedor.actualizar(mano, ahora):
+                        self.letraReconocida.emit(letra)
                 if not self._espejo:
                     frame = cv2.flip(frame, 1)
                 rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)

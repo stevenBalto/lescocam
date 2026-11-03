@@ -10,10 +10,17 @@ Uso:
 Teclas: ESPACIO graba (cuenta 3 s y captura ~1 s) · G guarda (solo si ✅) ·
 R repite · N siguiente letra · Q/ESC salir.
 
+Letras con movimiento (J, LL, Ñ, RR, Z, las de data/reference/movimientos.json):
+la captura dura CAPTURA_MOVIMIENTO_S; hay que empezar con la postura inicial
+quieta, hacer el gesto y quedarse quieto al final. El gesto se recorta con el
+mismo Segmentador del motor y se compara SOLO contra las plantillas oficiales
+(video:/imagen:) con el mismo DTW; se guarda solo si queda aceptado.
+
 Contrato (signs.json version 3): agrega a takes de la letra {"vector", "samples",
 "recorded_at", "source": "webcam:<persona>", "frame": [ancho, alto]}. El vector ya
 viene corregido por la proporción del frame (core/landmarks.py); "frame" queda
-como registro del tamaño de la cámara.
+como registro del tamaño de la cámara. Las letras con movimiento agregan una toma
+a movimientos.json (formato en core/movimiento.py) con source "webcam:<persona>".
 """
 from __future__ import annotations
 
@@ -23,19 +30,23 @@ import time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 import numpy as np
 
 from core.aceptador import MARGEN
 from core.clasificador import CATEGORIAS, RUTA_SENAS, Clasificador, escribir_signs, leer_signs, tomas_de
+from core.movimiento import (RUTA_MOVIMIENTOS, TIPO, ReconocedorMovimiento, cuadros_de_toma, escribir_movimientos,
+                             leer_movimientos, recortar_gesto, toma_desde_cuadros)
 from core.rasgos import rasgos
-from core.referencia import cargar_oficiales
+from core.referencia import cargar_oficiales, es_oficial
 
 RAIZ = Path(__file__).resolve().parent.parent
 CARPETA_IMAGENES = RAIZ / "data" / "dictionary"
 DECIMALES = 6
 CUENTA_S = 3.0
 CAPTURA_S = 1.0
+CAPTURA_MOVIMIENTO_S = 3.0
 MIN_VALIDOS = 0.6      # fracción mínima de frames con mano
 MAX_DISPERSION = 0.35  # distancia media de los rasgos de cada frame al promedio (ver limitaciones)
 
@@ -71,6 +82,48 @@ def clasificadores_oficiales(ruta: Path) -> dict:
             clasificador = Clasificador.desde_tomas(etiquetas, vectores)
             por_categoria.update((e, clasificador) for e in etiquetas)
     return por_categoria
+
+
+def movimiento_oficial(ruta: Path = RUTA_MOVIMIENTOS) -> Optional[ReconocedorMovimiento]:
+    """Reconocedor con SOLO las plantillas oficiales de movimientos.json (None si no hay)."""
+    try:
+        datos = leer_movimientos(ruta)
+    except (OSError, ValueError):
+        return None
+    plantillas = [(e, cuadros_de_toma(t)) for e, entrada in datos["signs"].items()
+                  for t in entrada.get("takes", []) if es_oficial(t)]
+    try:
+        return ReconocedorMovimiento.desde_plantillas(plantillas)
+    except ValueError:
+        return None
+
+
+def evaluar_gesto(cuadros: list, tiempos: list, etiqueta: str, oficial: ReconocedorMovimiento):
+    """Control de calidad de una letra con movimiento. (estado, mensaje, top, gesto recortado)."""
+    gesto = recortar_gesto(cuadros, tiempos)
+    if not gesto:
+        return RECHAZADA, "no se vio movimiento: empezá quieto, hacé el gesto y quedate quieto", [], None
+    top = oficial.mejores(gesto, 3)
+    if not top or top[0][1] <= 0:
+        return RECHAZADA, f"el movimiento no se parece a {etiqueta}; miralo de nuevo en el video", top, gesto
+    primera, conf = top[0]
+    if primera != etiqueta:
+        return RECHAZADA, f"esto se parece más a {primera} que a {etiqueta}", top, gesto
+    segunda = top[1][1] if len(top) > 1 else 0.0
+    if conf >= oficial.umbral and conf - segunda >= oficial.margen:
+        return ACEPTADA, f"{etiqueta} clara ({conf:.0%}); apretá G para guardar", top, gesto
+    return DUDOSA, f"se parece a {etiqueta} pero no es clara; repetí el gesto", top, gesto
+
+
+def guardar_gesto(ruta: Path, etiqueta: str, gesto: list, persona: str, frame: tuple, fps: float) -> dict:
+    """Agrega el gesto como toma "webcam:<persona>" de la letra en movimientos.json."""
+    ruta = Path(ruta)
+    datos = leer_movimientos(ruta)
+    toma = toma_desde_cuadros(gesto, f"webcam:{persona}", fps, frame,
+                              datetime.now(timezone.utc).replace(microsecond=0).isoformat())
+    datos["signs"].setdefault(etiqueta, {"categoria": "letra", "tipo": TIPO, "takes": []})["takes"].append(toma)
+    escribir_movimientos(ruta, datos)
+    return toma
 
 
 def promediar_frames(vectores: list, total: int):
@@ -148,16 +201,20 @@ def main(argv=None) -> int:
     ap.add_argument("--camara", type=int, default=0)
     ap.add_argument("--tomas", type=int, default=5)
     ap.add_argument("--destino", type=Path, default=RUTA_SENAS)
+    ap.add_argument("--movimientos", type=Path, default=RUTA_MOVIMIENTOS)
     a = ap.parse_args(argv)
 
     import cv2
     from core.camara import Detector, abrir_camara, dibujar_mano, leer_espejado
 
+    from core.movimiento import cuadro_de_mano
     persona = "".join(c for c in a.persona.strip().lower() if c.isalnum() or c in "-_") or "anonimo"
     oficial = clasificadores_oficiales(a.destino)
+    oficial_mov = movimiento_oficial(a.movimientos)
+    con_movimiento = set(oficial_mov.etiquetas) if oficial_mov else set()
     letras = []
     for l in (x.upper() for x in a.letras):
-        if l in oficial:
+        if l in oficial or l in con_movimiento:
             letras.append(l)
         else:
             print(f"{l}: no tiene tomas oficiales, se salta (no se definen señas nuevas).")
@@ -178,7 +235,11 @@ def main(argv=None) -> int:
         for letra in letras:
             if salir:
                 break
-            hechas = sum(1 for t in _tomas_webcam(a.destino, letra, persona))
+            mov = letra in con_movimiento
+            hechas = (sum(1 for t in leer_movimientos(a.movimientos)["signs"][letra]["takes"]
+                          if t.get("source") == f"webcam:{persona}") if mov
+                      else sum(1 for t in _tomas_webcam(a.destino, letra, persona)))
+            cuadros, tiempos_captura = [], []
             aceptadas = 0
             resultado = None  # (estado, msg, top, vector, n, frame) tras evaluar
             aviso = ""
@@ -199,10 +260,24 @@ def main(argv=None) -> int:
                     resto = CUENTA_S - (ahora - t0)
                     if resto <= 0:
                         fase, t0, vals, total = "captura", ahora, [], 0
+                        cuadros, tiempos_captura = [], []
                     else:
                         cv2.putText(frame, str(int(resto) + 1), (ancho // 2 - 30, alto // 2 + 30),
                                     cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 255, 255), 6)
-                if fase == "captura":
+                if fase == "captura" and mov:
+                    cuadros.append(cuadro_de_mano(mano, ahora))
+                    tiempos_captura.append(ahora)
+                    cv2.circle(frame, (ancho - 25, 25), 10, (0, 0, 255), -1)
+                    if ahora - t0 >= CAPTURA_MOVIMIENTO_S:
+                        fase = "espera"
+                        est, msg, top, gesto = evaluar_gesto(cuadros, tiempos_captura, letra, oficial_mov)
+                        stats[letra][est] += 1
+                        print(f"  {letra}: {est} | " + ", ".join(f"{e}={s:.2f}" for e, s in top), flush=True)
+                        if est == RECHAZADA:
+                            motivos[msg.split(";")[0]] += 1
+                        fps = (len(tiempos_captura) - 1) / max(tiempos_captura[-1] - tiempos_captura[0], 1e-6)
+                        resultado, aviso = (est, msg, top, gesto, fps, (ancho, alto)), ""
+                elif fase == "captura":
                     total += 1
                     vals.append(mano.vector if mano else None)
                     cv2.circle(frame, (ancho - 25, 25), 10, (0, 0, 255), -1)
@@ -220,6 +295,9 @@ def main(argv=None) -> int:
                             resultado, aviso = (est, msg, top, vec, n, (ancho, alto)), ""
                 _texto(cv2, frame, f"Letra {letra}  aceptadas {aceptadas}/{a.tomas}  (ya tenias {hechas} de {persona})", 25)
                 _texto(cv2, frame, "ESPACIO grabar | G guardar | R repetir | N siguiente | Q salir", alto - 12, esc=0.5)
+                if mov and not resultado:
+                    _texto(cv2, frame, f"con movimiento ({CAPTURA_MOVIMIENTO_S:.0f} s): quieto, gesto, quieto",
+                           alto - 40, (0, 255, 255), 0.5)
                 if aviso:
                     _texto(cv2, frame, aviso, 55, (0, 200, 255))
                 if resultado:
@@ -240,7 +318,10 @@ def main(argv=None) -> int:
                 elif k == ord("g"):
                     if resultado and resultado[0] == ACEPTADA:
                         _, _, _, vec, n, fr = resultado
-                        guardar_toma(a.destino, letra, vec, n, persona, fr)
+                        if mov:
+                            guardar_gesto(a.movimientos, letra, vec, persona, fr, n)
+                        else:
+                            guardar_toma(a.destino, letra, vec, n, persona, fr)
                         aceptadas += 1
                         resultado = None
                         aviso = "guardada"
