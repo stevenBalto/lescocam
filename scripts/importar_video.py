@@ -27,6 +27,7 @@ import numpy as np
 from core.camara import Detector
 from core.landmarks import VERSION_VECTOR
 from core.clasificador import RUTA_SENAS, Clasificador, escribir_signs, leer_signs, signs_vacio
+from core.sinteticas import regenerar
 
 ORDEN = ["A", "B", "C", "CH", "D", "E", "F", "G", "H", "I", "J", "K", "L", "LL", "M",
          "N", "Ñ", "O", "P", "Q", "R", "RR", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -181,7 +182,7 @@ def main(argv=None) -> int:
                 "source": f"video:{args.video.name}",
                 "frame": [x1 - x0, y1 - y0],
             })
-    escribir_signs(args.destino, datos)
+    escribir_signs(args.destino, regenerar(datos))   # recalcula las sintéticas
 
     RUTA_SECUENCIAS.parent.mkdir(parents=True, exist_ok=True)
     RUTA_SECUENCIAS.write_text(json.dumps({"version": VERSION_VECTOR, "video": args.video.name, "fps": fps,

@@ -27,9 +27,11 @@ def _girar(vector, **angulos):
     return normalizar_puntos(pts, "Right")
 
 
-def _tomas():
+def _tomas(categoria="letra"):
     datos = json.loads(RUTA_SENAS.read_text(encoding="utf-8"))
     for etiqueta, entrada in datos["signs"].items():
+        if entrada.get("categoria", "letra") != categoria:
+            continue
         for toma in entrada["takes"]:
             yield etiqueta, toma
 
@@ -66,19 +68,22 @@ def test_rasgos_de_mano_degenerada_es_none(vector):
     assert rasgos(vector) is None
 
 
-def test_cada_toma_se_reconoce_de_costado():
-    """Mano girada 30° a cada lado (yaw): sigue siendo la misma letra."""
-    clasificador = Clasificador()
-    for etiqueta, toma in _tomas():
+@pytest.mark.parametrize("categoria", ["letra", "numero"])
+def test_cada_toma_se_reconoce_de_costado(categoria):
+    """Mano girada 30° a cada lado (yaw): sigue siendo la misma seña (también las sintéticas)."""
+    clasificador = Clasificador(categoria=categoria)
+    for etiqueta, toma in _tomas(categoria):
         for yaw in (-30, 30):
             reconocida, _ = clasificador.clasificar(_girar(toma["vector"], yaw=yaw))
-            assert reconocida == etiqueta, (etiqueta, yaw)
+            assert reconocida == etiqueta, (etiqueta, toma["source"], yaw)
 
 
 def _cruzada(ref, consulta):
     datos = json.loads(RUTA_SENAS.read_text(encoding="utf-8"))
     etiquetas, vectores, consultas = [], [], []
     for etiqueta, entrada in datos["signs"].items():
+        if entrada.get("categoria", "letra") != "letra":
+            continue
         for toma in entrada["takes"]:
             fuente = toma.get("source", "").split(":")[0]
             if fuente == ref:

@@ -1,7 +1,9 @@
 """Mide qué tan bien reconoce el motor, para comparar cambios con números.
 
-Compara el método anterior ("coseno": similitud de coseno del vector de 63) con
-el actual ("rasgos": core/clasificador.py) en:
+Compara el método anterior ("coseno": similitud de coseno del vector de 63), el
+de rasgos solo con tomas reales ("rasgos": core/clasificador.py) y rasgos más
+tomas sintéticas ("rasgos+sint": core/sinteticas.py, generadas en cada prueba
+SOLO desde las tomas oficiales de su referencia, para no hacer trampa) en:
 
   1. Validación cruzada por fuente (solo signs.json): las tomas de video se
      clasifican usando como referencia solo las de imagen, y al revés. Son dos
@@ -15,7 +17,15 @@ el actual ("rasgos": core/clasificador.py) en:
        (con la corrección de la version 3 los tres resultados deben ser iguales);
      - flujo: el video entero (con transiciones y letras con movimiento) pasado
        por el Aceptador, como en vivo. Cuenta letras aceptadas e inventadas.
-  4. Tomas de webcam (webcam:<persona>) contra solo las oficiales.
+  4. "Persona nueva": tomas de webcam (webcam:<persona>) contra (a) solo las
+     oficiales y (b) oficiales + sintéticas, derechas y giradas ±15/30/45°.
+     Ojo: el grabador solo guarda tomas que ya acepta contra las oficiales, así
+     que (a) sale ~100% por construcción; sirve para ver que (b) no empeore.
+  5. Números (categoria "numero"): pares de números parecidos y qué letra se
+     leería en modo deletreo (no deben aparecer como letras).
+
+Las sintéticas guardadas en signs.json no se usan como referencia acá: cada
+método arma la suya para que la comparación sea justa.
 
 Uso:
     .venv/bin/python -m scripts.evaluar_motor                 # solo signs.json
@@ -36,8 +46,11 @@ from pathlib import Path
 import numpy as np
 
 from core.aceptador import Aceptador
-from core.clasificador import RUTA_SENAS, Clasificador, leer_signs, mejor_por_etiqueta, tomas_de
+from core.clasificador import (RUTA_SENAS, Clasificador, categoria_de, confianza, leer_signs,
+                               mejor_por_etiqueta, tomas_de)
 from core.landmarks import normalizar_puntos, normalize_landmarks
+from core.rasgos import rasgos
+from core.sinteticas import generar
 
 RUTA_EXTRAIDO = Path("data/dictionary/evaluacion_landmarks.json")
 RUTA_VIDEO = Path("data/dictionary/videos/abecedario-lesco.mp4")
@@ -69,9 +82,25 @@ class Coseno:
         return mejor_por_etiqueta(self._etiquetas, self._matriz @ (v / n))[:k]
 
 
+FUENTES_OFICIALES = ("imagen", "video")
+
+
+def con_sinteticas(etiquetas, vectores, fuentes=None):
+    """Clasificador con las tomas dadas + sintéticas generadas SOLO desde las oficiales entre ellas."""
+    etiquetas, vectores = list(etiquetas), np.asarray(vectores, dtype=np.float64)
+    of = (np.ones(len(etiquetas), bool) if fuentes is None
+          else np.isin(np.asarray(fuentes), FUENTES_OFICIALES))
+    s_et, s_vec, _ = generar([e for e, o in zip(etiquetas, of) if o], vectores[of])
+    if not s_et:
+        return Clasificador.desde_tomas(etiquetas, vectores)
+    return Clasificador.desde_tomas(etiquetas + list(s_et), np.vstack([vectores, s_vec]))
+
+
 def metodos():
-    """nombre -> (constructor(etiquetas, vectores), parámetros del aceptador)."""
-    return {"coseno": (Coseno, COSENO), "rasgos": (Clasificador.desde_tomas, parametros())}
+    """nombre -> (constructor(etiquetas, vectores, fuentes), parámetros del aceptador)."""
+    return {"coseno": (lambda e, v, f=None: Coseno(e, v), COSENO),
+            "rasgos": (lambda e, v, f=None: Clasificador.desde_tomas(e, v), parametros()),
+            "rasgos+sint": (con_sinteticas, parametros())}
 
 
 def parametros(aceptador: Aceptador | None = None) -> dict:
@@ -86,10 +115,14 @@ def titulo(p: dict) -> str:
 
 # ---------------------------------------------------------------- utilidades
 
-def cargar_signs(ruta: Path):
+def cargar_signs(ruta: Path, categoria: str = "letra"):
+    """(etiquetas, vectores, fuentes) de una categoría. fuente = lo de antes de ":" en source
+    ("imagen", "video", "webcam", "sintetica")."""
     datos = leer_signs(ruta)
     etiquetas, vectores, fuentes = [], [], []
     for etiqueta, entrada in datos["signs"].items():
+        if categoria_de(entrada) != categoria:
+            continue
         for toma in tomas_de(entrada):
             etiquetas.append(etiqueta)
             vectores.append(np.asarray(toma["vector"], dtype=np.float64))
@@ -158,12 +191,15 @@ def evaluar_signs(ruta: Path):
         print(f"== {nombre}  ({titulo(p)})")
         for ref, con in direcciones:
             r, c = fuentes == ref, fuentes == con
-            res = evaluar(crear(etiquetas[r], vectores[r]), etiquetas[c], vectores[c], p["umbral"], p["margen"])
+            res = evaluar(crear(etiquetas[r], vectores[r], fuentes[r]), etiquetas[c], vectores[c],
+                          p["umbral"], p["margen"])
             print(f"  ref {ref:6} → {con:6}: exactitud {fmt_pct(res['exactitud'])}  "
                   f"aceptadas bien {fmt_pct(res['acepta_bien'])}  mal {fmt_pct(res['acepta_mal'])}  "
                   f"margen medio {res['margen']:.3f}")
             print(f"      confusiones: {pares(res['confusiones'])}")
         print("  giro (promedio de ambas direcciones y ± del ángulo):")
+        clasificadores = {ref: crear(etiquetas[fuentes == ref], vectores[fuentes == ref], fuentes[fuentes == ref])
+                          for ref, _ in direcciones}
         for angulo in (0,) + ANGULOS:
             fila = []
             for eje in EJES:
@@ -171,9 +207,9 @@ def evaluar_signs(ruta: Path):
                 for signo in ((1,) if angulo == 0 else (1, -1)):
                     m = rotacion(eje, signo * angulo)
                     for ref, con in direcciones:
-                        r, c = fuentes == ref, fuentes == con
+                        c = fuentes == con
                         consultas = [girar(v, m) for v in vectores[c]]
-                        accs.append(evaluar(crear(etiquetas[r], vectores[r]), etiquetas[c], consultas,
+                        accs.append(evaluar(clasificadores[ref], etiquetas[c], consultas,
                                             p["umbral"], p["margen"])["exactitud"])
                 fila.append(np.mean(accs))
             print(f"    ±{angulo:2}°  " + "  ".join(f"{e} {fmt_pct(a)}" for e, a in zip(EJES, fila))
@@ -183,40 +219,67 @@ def evaluar_signs(ruta: Path):
 
 # ---------------------------------------------------------------- 4: tomas de webcam
 
-def evaluar_webcam(ruta: Path) -> None:
-    """Cada toma de webcam contra un clasificador armado SOLO con las oficiales.
+def evaluar_webcam(ruta: Path, detalle: bool = False) -> None:
+    """"Persona nueva": cada toma de webcam contra (a) solo oficiales y (b) oficiales + sintéticas.
 
-    Es lo más parecido a uso real que hay en signs.json: otra persona, otra cámara.
+    Nunca se usa ninguna toma de webcam como referencia.
     """
-    from core.referencia import es_oficial
-
-    datos = leer_signs(ruta)
-    oficiales, consultas = ([], []), []
-    for etiqueta, entrada in datos["signs"].items():
-        for toma in tomas_de(entrada):
-            if es_oficial(toma):
-                oficiales[0].append(etiqueta)
-                oficiales[1].append(toma["vector"])
-            elif str(toma.get("source", "")).startswith("webcam:"):
-                consultas.append((etiqueta, toma))
-    if not consultas:
+    etiquetas, vectores, fuentes = cargar_signs(ruta)
+    w = fuentes == "webcam"
+    if not w.any():
         return
+    of = np.isin(fuentes, FUENTES_OFICIALES)
     a = Aceptador()
-    clasificador = Clasificador.desde_tomas(*oficiales)
-    print(f"== tomas de webcam contra solo oficiales ({titulo(parametros(a))})")
-    res = []
-    for etiqueta, toma in consultas:
-        top = clasificador.mejores(toma["vector"], 2)
-        conf1 = top[0][1] if top else 0.0
-        conf2 = top[1][1] if len(top) > 1 else 0.0
-        res.append((etiqueta, top[0][0] if top else None, conf1, conf2))
-        estado = "acepta" if a._valida(top) is not None else "no pasa"
-        print(f"  {etiqueta:3} {toma.get('source', '?'):14} frame {str(toma.get('frame', '-')):11} → "
-              f"{res[-1][1]} conf {conf1:.3f} margen {conf1 - conf2:.3f} ({estado})")
-    r = resumir(res, a.umbral, a.margen)
-    print(f"  total {r['n']}: exactitud {fmt_pct(r['exactitud'])}  aceptadas bien {fmt_pct(r['acepta_bien'])}  "
-          f"mal {fmt_pct(r['acepta_mal'])}  conf media {np.mean([x[2] for x in res]):.3f}  "
-          f"margen medio {r['margen']:.3f}\n")
+    refs = {"(a) oficiales": Clasificador.desde_tomas(etiquetas[of], vectores[of]),
+            "(b) oficiales+sint": con_sinteticas(etiquetas[of], vectores[of])}
+    print(f"== persona nueva: {w.sum()} tomas de webcam ({titulo(parametros(a))})")
+    print("   (las tomas ya pasaron el control del grabador contra las oficiales: (a) ~100% por construcción)")
+    for nombre, clasificador in refs.items():
+        for angulo in (0,) + ANGULOS:
+            filas = []
+            for eje in (EJES if angulo else EJES[:1]):
+                for signo in ((1, -1) if angulo else (1,)):
+                    consultas = [girar(v, rotacion(eje, signo * angulo)) for v in vectores[w]]
+                    filas.append(evaluar(clasificador, etiquetas[w], consultas, a.umbral, a.margen))
+            r = {k: float(np.mean([f[k] for f in filas])) for k in ("exactitud", "acepta_bien", "acepta_mal", "margen")}
+            print(f"  {nombre:19} giro ±{angulo:2}°: top-1 {fmt_pct(r['exactitud'])}  "
+                  f"aceptadas bien {fmt_pct(r['acepta_bien'])}  mal {fmt_pct(r['acepta_mal'])}  "
+                  f"margen medio {r['margen']:.3f}")
+    if detalle:
+        for etiqueta, vec in zip(etiquetas[w], vectores[w]):
+            tops = [c.mejores(vec, 2) for c in refs.values()]
+            print(f"  {etiqueta:3} " + " | ".join(
+                f"{t[0][0]} {t[0][1]:.3f} margen {t[0][1] - t[1][1]:.3f} "
+                f"({'acepta' if a._valida(t) is not None else 'no pasa'})" for t in tops))
+    print()
+
+
+# ---------------------------------------------------------------- 5: números
+
+def evaluar_numeros(ruta: Path) -> None:
+    """Números: pares parecidos entre sí y qué letra se leería con la mano de cada número."""
+    etiquetas, vectores, fuentes = cargar_signs(ruta, "numero")
+    of = np.isin(fuentes, FUENTES_OFICIALES)
+    if not of.any():
+        return
+    nums = sorted(set(etiquetas[of]), key=lambda e: (len(e), e))
+    print(f"== números: {len(nums)} señas, {of.sum()} tomas oficiales, {(fuentes == 'sintetica').sum()} sintéticas")
+    r = {e: rasgos(vectores[of][list(etiquetas[of]).index(e)]) for e in nums}
+    pares = sorted(((float(confianza(np.linalg.norm(r[x] - r[y]))), x, y)
+                    for i, x in enumerate(nums) for y in nums[i + 1:]), reverse=True)
+    print("  pares más parecidos (confianza; el umbral es "
+          f"{Aceptador().umbral}): " + ", ".join(f"{x}~{y} {c:.3f}" for c, x, y in pares[:5]))
+    num_clf = Clasificador.desde_tomas(etiquetas[of], vectores[of])
+    let_et, let_vec, let_f = cargar_signs(ruta, "letra")
+    let_of = np.isin(let_f, FUENTES_OFICIALES)
+    letras = Clasificador.desde_tomas(let_et[let_of], let_vec[let_of])
+    a = Aceptador()
+    for e in nums:
+        v = vectores[of][list(etiquetas[of]).index(e)]
+        tn, tl = num_clf.mejores(v, 2), letras.mejores(v, 2)
+        print(f"  {e}: modo números → {tn[0][0]} (2.º {tn[1][0]} {tn[1][1]:.3f}) | "
+              f"modo letras → {tl[0][0]} {tl[0][1]:.3f} ({'acepta' if a._valida(tl) is not None else 'no pasa'})")
+    print()
 
 
 # ---------------------------------------------------------------- 3: material extraído
@@ -303,7 +366,7 @@ def evaluar_cuadros(ruta_signs: Path, ruta: Path):
     quietos = [t for t in tramos if not t["movimiento"]]
     centrales = [(t["letra"], cuadros[i]) for t in quietos
                  for i in range(t["centro"][0], t["centro"][1] + 1) if cuadros[i] is not None]
-    referencias = {"imagen": fuentes == "imagen", "todas": np.ones(len(fuentes), bool)}
+    referencias = {"imagen": fuentes == "imagen", "todas": fuentes != "sintetica"}
     print(f"Material extraído: {len(centrales)} cuadros centrales de {len(quietos)} letras quietas, "
           f"{len(cuadros)} cuadros en total.\n")
     print("Referencias 'imagen' = otra persona (honesto). 'todas' = incluye tomas del mismo video "
@@ -312,7 +375,7 @@ def evaluar_cuadros(ruta_signs: Path, ruta: Path):
     for nombre, (crear, p) in metodos().items():
         print(f"== {nombre}  ({titulo(p)})")
         for ref, mascara in referencias.items():
-            clasificador = crear(etiquetas[mascara], vectores[mascara])
+            clasificador = crear(etiquetas[mascara], vectores[mascara], fuentes[mascara])
             for camara, tam in CAMARAS.items():
                 res = evaluar(clasificador, [c[0] for c in centrales],
                               [vector_con_camara(c[1], tam) for c in centrales], p["umbral"], p["margen"])
@@ -372,13 +435,15 @@ def main(argv=None) -> int:
     parser.add_argument("--signs", type=Path, default=RUTA_SENAS)
     parser.add_argument("--extraer", action="store_true", help="leer imágenes y video de data/dictionary/")
     parser.add_argument("--cuadros", action="store_true", help="evaluar también con lo extraído")
+    parser.add_argument("--detalle", action="store_true", help="listar cada toma de webcam")
     args = parser.parse_args(argv)
 
     if args.extraer:
         extraer(RUTA_VIDEO, CARPETA_IMAGENES, RUTA_EXTRAIDO)
         return 0
     evaluar_signs(args.signs)
-    evaluar_webcam(args.signs)
+    evaluar_webcam(args.signs, args.detalle)
+    evaluar_numeros(args.signs)
     if args.cuadros:
         if not RUTA_EXTRAIDO.exists():
             print(f"No existe {RUTA_EXTRAIDO}: corré primero con --extraer")

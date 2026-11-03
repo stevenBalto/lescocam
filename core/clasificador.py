@@ -4,6 +4,11 @@ Cada toma de signs.json (vector de 63) se pasa a rasgos de forma (`core/rasgos.p
 una sola vez al cargar. En cada frame se calculan los rasgos de la mano y la
 distancia euclídea a cada toma; la confianza es 1 - distancia / DISTANCIA_MAX
 (1 = idéntica, 0 = a DISTANCIA_MAX o más). De cada letra cuenta su toma más cercana.
+
+Cada seña tiene una categoría (campo opcional "categoria" de la seña en
+signs.json: "letra" si falta, o "numero"). El clasificador compara solo contra
+las señas de UNA categoría (por defecto "letra"): varios números tienen la misma
+forma que una letra (2 = V, 6 = W) y en modo deletreo no tienen que aparecer.
 """
 from __future__ import annotations
 
@@ -24,6 +29,9 @@ RUTA_SENAS = RAIZ / "data" / "reference" / "signs.json"
 DISTANCIA_MAX = 2.0
 # Confianza mínima = distancia máxima 1.1. Elegido con scripts/evaluar_motor.py.
 UMBRAL = 0.45
+
+CATEGORIAS = ("letra", "numero")
+CATEGORIA_POR_DEFECTO = "letra"
 
 
 class VersionIncompatible(ValueError):
@@ -64,6 +72,17 @@ def escribir_signs(ruta: Path | str, datos: dict) -> None:
     tmp.replace(ruta)
 
 
+def categoria_de(entrada: dict) -> str:
+    """Categoría de una seña de signs.json ("letra" si no lo dice)."""
+    return entrada.get("categoria", CATEGORIA_POR_DEFECTO)
+
+
+def _validar_categoria(categoria: str) -> str:
+    if categoria not in CATEGORIAS:
+        raise ValueError(f"categoria debe ser una de {CATEGORIAS}, llegó {categoria!r}")
+    return categoria
+
+
 def tomas_de(entrada: dict) -> list[dict]:
     """Tomas de una etiqueta. Formato viejo ({"vector": ...}) = una sola toma."""
     if "takes" in entrada:
@@ -73,15 +92,20 @@ def tomas_de(entrada: dict) -> list[dict]:
     return []
 
 
-def cargar_tomas(ruta: Path | str = RUTA_SENAS) -> Tuple[list[str], np.ndarray]:
+def cargar_tomas(ruta: Path | str = RUTA_SENAS,
+                 categoria: str = CATEGORIA_POR_DEFECTO) -> Tuple[list[str], np.ndarray]:
     """Carga signs.json -> (etiqueta de cada fila, matriz con el vector de 63 de cada toma).
 
-    Se saltan las tomas inválidas (largo distinto de 63, valores no finitos o vector nulo).
-    Lanza VersionIncompatible si el archivo no es de la versión actual.
+    Solo las señas de `categoria`. Incluye todas sus tomas (oficiales, de webcam y
+    sintéticas). Se saltan las tomas inválidas (largo distinto de 63, valores no
+    finitos o vector nulo). Lanza VersionIncompatible si el archivo no es de la versión actual.
     """
+    _validar_categoria(categoria)
     datos = leer_signs(ruta)
     etiquetas, filas = [], []
     for etiqueta, entrada in datos.get("signs", {}).items():
+        if categoria_de(entrada) != categoria:
+            continue
         for toma in tomas_de(entrada):
             vec = np.asarray(toma["vector"], dtype=np.float64).reshape(-1)
             if vec.shape[0] != VECTOR_SIZE or not np.all(np.isfinite(vec)) or not vec.any():
@@ -89,7 +113,7 @@ def cargar_tomas(ruta: Path | str = RUTA_SENAS) -> Tuple[list[str], np.ndarray]:
             etiquetas.append(etiqueta)
             filas.append(vec)
     if not filas:
-        raise ValueError(f"{ruta} no contiene señas válidas")
+        raise ValueError(f"{ruta} no contiene señas válidas de la categoría {categoria!r}")
     return etiquetas, np.vstack(filas)
 
 
@@ -108,11 +132,14 @@ def confianza(distancia):
 
 
 class Clasificador:
-    def __init__(self, ruta: Path | str = RUTA_SENAS, umbral: float = UMBRAL):
+    def __init__(self, ruta: Path | str = RUTA_SENAS, umbral: float = UMBRAL,
+                 categoria: str = CATEGORIA_POR_DEFECTO):
+        """categoria: "letra" (deletreo, por defecto) o "numero". Solo compara contra esa categoría."""
         if not 0.0 < umbral <= 1.0:
             raise ValueError("umbral debe estar en (0, 1]")
         self.umbral = umbral
-        self._preparar(*cargar_tomas(ruta))
+        self.categoria = _validar_categoria(categoria)
+        self._preparar(*cargar_tomas(ruta, categoria))
 
     @classmethod
     def desde_tomas(cls, etiquetas: list[str], vectores, umbral: float = UMBRAL) -> "Clasificador":
@@ -121,6 +148,7 @@ class Clasificador:
             raise ValueError("umbral debe estar en (0, 1]")
         nuevo = cls.__new__(cls)
         nuevo.umbral = umbral
+        nuevo.categoria = None   # las tomas las elige quien llama
         nuevo._preparar(list(etiquetas), np.asarray(vectores, dtype=np.float64))
         return nuevo
 

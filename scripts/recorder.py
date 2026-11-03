@@ -1,7 +1,8 @@
 """Graba tomas con la webcam para sumar variedad (otras manos, cámaras, luz, ángulos).
 
-Cada toma se compara contra la referencia OFICIAL (imagen:/video:) de la letra
-y solo se puede guardar si queda aceptada. Así no entran señas mal hechas.
+Cada toma se compara contra la referencia OFICIAL (imagen:/video:) de su
+categoría (letras o números; nunca contra webcam: ni sintetica:) y solo se puede
+guardar si queda aceptada. Así no entran señas mal hechas.
 
 Uso:
     .venv/bin/python -m scripts.recorder A B C --persona steven [--camara 0] [--tomas 5]
@@ -26,7 +27,7 @@ from pathlib import Path
 import numpy as np
 
 from core.aceptador import MARGEN
-from core.clasificador import RUTA_SENAS, UMBRAL, Clasificador, escribir_signs, leer_signs, tomas_de
+from core.clasificador import CATEGORIAS, RUTA_SENAS, Clasificador, escribir_signs, leer_signs, tomas_de
 from core.rasgos import rasgos
 from core.referencia import cargar_oficiales
 
@@ -55,6 +56,21 @@ def evaluar_toma(vector, etiqueta: str, clasificador_oficial: Clasificador, k: i
     if conf >= clasificador_oficial.umbral and margen >= MARGEN:
         return ACEPTADA, f"{etiqueta} clara ({conf:.0%}); apretá G para guardar", top
     return DUDOSA, f"se parece a {etiqueta} pero no es clara; comparala con la referencia", top
+
+
+def clasificadores_oficiales(ruta: Path) -> dict:
+    """seña -> Clasificador con SOLO las tomas oficiales de su categoría.
+
+    Las tomas de webcam y las sintéticas no cuentan. Un número se controla contra
+    los números y una letra contra las letras (2 y V tienen la misma forma).
+    """
+    por_categoria = {}
+    for categoria in CATEGORIAS:
+        etiquetas, vectores = cargar_oficiales(ruta, categoria)
+        if etiquetas:
+            clasificador = Clasificador.desde_tomas(etiquetas, vectores)
+            por_categoria.update((e, clasificador) for e in etiquetas)
+    return por_categoria
 
 
 def promediar_frames(vectores: list, total: int):
@@ -138,15 +154,10 @@ def main(argv=None) -> int:
     from core.camara import Detector, abrir_camara, dibujar_mano, leer_espejado
 
     persona = "".join(c for c in a.persona.strip().lower() if c.isalnum() or c in "-_") or "anonimo"
-    etiquetas, vectores = cargar_oficiales(a.destino)
-    if not etiquetas:
-        print("No hay tomas oficiales en signs.json.")
-        return 1
-    oficial = Clasificador.desde_tomas(etiquetas, vectores)
-    con_ref = set(etiquetas)
+    oficial = clasificadores_oficiales(a.destino)
     letras = []
     for l in (x.upper() for x in a.letras):
-        if l in con_ref:
+        if l in oficial:
             letras.append(l)
         else:
             print(f"{l}: no tiene tomas oficiales, se salta (no se definen señas nuevas).")
@@ -201,8 +212,9 @@ def main(argv=None) -> int:
                         if err:
                             aviso, resultado = err, None
                         else:
-                            est, msg, top = evaluar_toma(vec, letra, oficial)
+                            est, msg, top = evaluar_toma(vec, letra, oficial[letra])
                             stats[letra][est] += 1
+                            print(f"  {letra}: {est} | " + ", ".join(f"{e}={s:.2f}" for e, s in top), flush=True)
                             if est == RECHAZADA:
                                 motivos[msg.split(";")[0]] += 1
                             resultado, aviso = (est, msg, top, vec, n, (ancho, alto)), ""

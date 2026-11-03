@@ -6,13 +6,15 @@ import numpy as np
 import pytest
 
 from core.aceptador import Aceptador
-from core.clasificador import RUTA_SENAS, Clasificador, cargar_tomas
+from core.clasificador import CATEGORIAS, RUTA_SENAS, Clasificador, cargar_tomas, categoria_de
 
 
 def test_cada_sena_de_referencia_se_reconoce_a_si_misma():
+    """Cada toma (oficial, de webcam o sintética) contra el clasificador de su categoría."""
     datos = json.loads(RUTA_SENAS.read_text(encoding="utf-8"))
-    clasificador = Clasificador()
+    clasificadores = {c: Clasificador(categoria=c) for c in CATEGORIAS}
     for etiqueta, entrada in datos["signs"].items():
+        clasificador = clasificadores[categoria_de(entrada)]
         for toma in entrada["takes"]:
             reconocida, confianza = clasificador.clasificar(toma["vector"])
             assert reconocida == etiqueta

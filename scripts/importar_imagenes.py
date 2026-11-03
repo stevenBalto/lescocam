@@ -10,8 +10,14 @@ Uso:
     .venv/bin/python -m scripts.importar_imagenes data/dictionary --guardar
     .venv/bin/python -m scripts.importar_imagenes data/dictionary --guardar --reemplazar
 
-Por defecto se saltan las imágenes con nombre numérico (1.png, 2.png...):
-los números comparten forma con letras y se separan después. --numeros las incluye.
+Por defecto se saltan las imágenes con nombre numérico (1.png, 2.png...).
+--numeros las incluye y --solo-numeros importa solo esas. Los números se guardan
+con "categoria": "numero" (comparten forma con letras: 2 = V, 6 = W) y el
+clasificador los compara aparte.
+
+Al guardar se recalculan las tomas sintéticas (core/sinteticas.py).
+
+    .venv/bin/python -m scripts.importar_imagenes data/dictionary --solo-numeros --guardar
 """
 from __future__ import annotations
 
@@ -26,17 +32,24 @@ import numpy as np
 from core.camara import Detector
 from core.clasificador import RUTA_SENAS, confianza, escribir_signs, leer_signs, signs_vacio
 from core.rasgos import rasgos
+from core.sinteticas import regenerar
 
 EXTENSIONES = {".png", ".jpg", ".jpeg", ".webp"}
 DECIMALES = 6
 
 
-def leer_imagenes(carpeta: Path, numeros: bool) -> list[Path]:
+def leer_imagenes(carpeta: Path, numeros: bool, solo_numeros: bool = False) -> list[Path]:
     rutas = [p for p in sorted(carpeta.iterdir())
              if p.is_file() and p.suffix.lower() in EXTENSIONES]
+    if solo_numeros:
+        return [p for p in rutas if p.stem.isdigit()]
     if not numeros:
         rutas = [p for p in rutas if not p.stem.isdigit()]
     return rutas
+
+
+def categoria_de_etiqueta(etiqueta: str) -> str:
+    return "numero" if etiqueta.isdigit() else "letra"
 
 
 def vector_de_imagen(detector: Detector, ruta: Path):
@@ -72,10 +85,11 @@ def main(argv=None) -> int:
     parser.add_argument("--reemplazar", action="store_true",
                         help="borrar todas las señas actuales y dejar solo las importadas")
     parser.add_argument("--numeros", action="store_true", help="incluir imágenes con nombre numérico")
+    parser.add_argument("--solo-numeros", action="store_true", help="importar solo las imágenes con nombre numérico")
     parser.add_argument("--destino", type=Path, default=RUTA_SENAS)
     args = parser.parse_args(argv)
 
-    rutas = leer_imagenes(args.carpeta, args.numeros)
+    rutas = leer_imagenes(args.carpeta, args.numeros, args.solo_numeros)
     if not rutas:
         print(f"No hay imágenes en {args.carpeta}")
         return 1
@@ -119,8 +133,12 @@ def main(argv=None) -> int:
             "source": f"imagen:{args.carpeta.name}/{etiqueta}",
             "frame": [int(frames[etiqueta][0]), int(frames[etiqueta][1])],
         }
-        datos["signs"].setdefault(etiqueta, {"takes": []})["takes"].append(toma)
+        entrada = datos["signs"].setdefault(etiqueta, {"takes": []})
+        if categoria_de_etiqueta(etiqueta) != "letra":
+            entrada["categoria"] = categoria_de_etiqueta(etiqueta)
+        entrada["takes"].append(toma)
 
+    datos = regenerar(datos)
     escribir_signs(destino, datos)
     print(f"\nGuardado en {destino} ({len(datos['signs'])} señas).")
     return 0
