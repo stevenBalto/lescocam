@@ -19,6 +19,7 @@ import json
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -38,6 +39,24 @@ def pedir(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": AGENTE})
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read()
+
+
+def bajar_video(url: str) -> tuple[bytes, str]:
+    """Baja el video. Si da 404 prueba variantes de mayúsculas del nombre:
+    algunas fichas de la página apuntan a cabeza.mp4 y el archivo es Cabeza.mp4."""
+    carpeta, _, nombre = url.rpartition("/")
+    base, punto, ext = nombre.rpartition(".")
+    variantes = [nombre] + [v + punto + ext for v in (base.capitalize(), base.lower(), base.upper(), base.title())]
+    ultimo = None
+    for v in dict.fromkeys(variantes):
+        try:
+            return pedir(f"{carpeta}/{v}"), f"{carpeta}/{v}"
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            ultimo = e
+            time.sleep(PAUSA)
+    raise ultimo
 
 
 def nombre_archivo(idw: int, etiqueta: str) -> str:
@@ -74,7 +93,7 @@ def main(argv=None) -> int:
     for i, (idw, etiqueta) in enumerate(sorted(palabras.items(), key=lambda p: p[1]), 1):
         clave = str(idw)
         dato = cat["palabras"].get(clave)
-        if dato and (CARPETA / "videos" / dato["archivo"]).exists():
+        if dato and dato.get("archivo") and (CARPETA / "videos" / dato["archivo"]).exists():
             continue
         if a.max and nuevas >= a.max:
             break
@@ -90,7 +109,7 @@ def main(argv=None) -> int:
             url = urllib.parse.urljoin(BASE, urllib.parse.quote(m.group(1), safe="/:%"))
             archivo = nombre_archivo(idw, etiqueta)
             time.sleep(PAUSA)
-            datos = pedir(url)
+            datos, url = bajar_video(url)
             destino = CARPETA / "videos" / archivo
             tmp = destino.with_suffix(".part")
             tmp.write_bytes(datos)
