@@ -7,6 +7,7 @@ mientras alguien la pide. Cada frame (ya con la mano dibujada) se sirve en
 que se guardan en el equipo (voz, velocidad, cámara, espejo, puntos, pausa).
 """
 
+import os
 import sys
 import threading
 
@@ -21,6 +22,19 @@ from desktop.locutor import Locutor
 # Lenta ≈ 0,8× · Normal 1× · Rápida ≈ 1,3×.
 VELOCIDADES = {"Lenta": -0.4, "Normal": 0.0, "Rápida": 0.07}
 SEGUNDOS_SIN_MANOS = 3
+# Modo palabra (experimental, APAGADO por defecto): LESCOCAM_MODO=palabras usa
+# core/cuerpo.DetectorCuerpo (dos manos + pose) y core/reconocedor_palabras con
+# data/reference/senas.db en vez del deletreo, y emite `palabraReconocida`.
+# La interfaz todavía no lo muestra.
+MODO_PALABRAS = "palabras"
+
+
+class _Punto:
+    """Punto x, y (normalizado) para dibujar las manos del modo palabra con camara.dibujar_mano."""
+    __slots__ = ("x", "y")
+
+    def __init__(self, x, y):
+        self.x, self.y = float(x), float(y)
 
 
 class ProveedorCamara(QQuickImageProvider):
@@ -48,6 +62,7 @@ class Motor(QObject):
     errorCambio = Signal()
     hablandoCambio = Signal()
     letraReconocida = Signal(str)
+    palabraReconocida = Signal(str)
     sinManos = Signal()
     ajusteCambio = Signal()
     # Órdenes al hilo de la voz (se entregan en cola, sin bloquear la interfaz)
@@ -287,13 +302,20 @@ class Motor(QObject):
             from core import camara
             from core.reconocedor import Reconocedor
             cap = camara.abrir_camara(indice)
-            detector = camara.Detector()
+            palabras = None
+            if os.environ.get("LESCOCAM_MODO") == MODO_PALABRAS:
+                from core.cuerpo import DetectorCuerpo
+                from core.reconocedor_palabras import ReconocedorPalabras
+                detector = DetectorCuerpo()
+                palabras = ReconocedorPalabras.desde_db()
+            else:
+                detector = camara.Detector()
         except Exception as e:  # sin cámara, permiso denegado o falta de librerías
             self._publicar_error(f"No se pudo abrir la cámara: {e}")
             return
         self._publicar_error("")
         try:   # sin signs.json válido la cámara funciona igual, solo que sin reconocer
-            reconocedor = Reconocedor.desde_archivos()   # quietas + movimiento (si hay movimientos.json)
+            reconocedor = Reconocedor.desde_archivos() if palabras is None else None   # quietas + movimiento
         except (OSError, ValueError):
             reconocedor = None
         ultima_mano = time.monotonic()
@@ -305,12 +327,22 @@ class Motor(QObject):
                 if frame is None:
                     self._publicar_error("La cámara dejó de responder")
                     break
-                mano = detector.procesar(frame)
                 ahora = time.monotonic()
-                if mano is not None:
+                if palabras is not None:
+                    cuerpo = detector.procesar(frame, ahora)
+                    palabra = palabras.actualizar(cuerpo, ahora)
+                    if palabra:
+                        self.palabraReconocida.emit(palabra)
+                    manos = [camara.Mano([_Punto(*p[:2]) for p in pts], lado, None, cuerpo.frame)
+                             for pts, lado, _ in cuerpo.manos]
+                else:
+                    mano = detector.procesar(frame)
+                    manos = [mano] if mano is not None else []
+                if manos:
                     ultima_mano, avisado = ahora, False
                     if self._puntos:
-                        camara.dibujar_mano(frame, mano)
+                        for m in manos:
+                            camara.dibujar_mano(frame, m)
                 elif self._pausar and not avisado and ahora - ultima_mano > SEGUNDOS_SIN_MANOS:
                     avisado = True
                     self.sinManos.emit()
@@ -326,7 +358,7 @@ class Motor(QObject):
                     self._frame = imagen
                     self._n += 1
                     n = self._n
-                self._cambiar_estado(mano is not None)
+                self._cambiar_estado(bool(manos))
                 self.frameNuevo.emit(n)
         finally:
             cap.release()

@@ -1,0 +1,111 @@
+# Palabras iniciales del modo "palabra" (Diccionario LESCO de CENAREC).
+# Una etiqueta por línea, tal como en data/dictionary/cenarec/catalogo.json.
+# Para ampliar: agregar líneas y volver a correr scripts/extraer_cenarec.py y
+# scripts/construir_palabras.py. Las líneas con # son comentarios.
+
+# Saludos y cortesía
+HOLA
+ADIÓS/SALUDAR
+GRACIAS
+POR-FAVOR
+PERMISO
+BIENVENIDO
+ESTAR-BIEN
+BUENO
+MAL
+SÍ
+NO
+
+# Familia
+FAMILIA
+MAMÁ
+PAPÁ
+HERMANO
+HIJO
+HIJA
+ABUELO
+TÍO
+PRIMO
+ESPOSO
+
+# Personas
+PERSONA
+HOMBRE
+MUJER
+NIÑO
+BEBÉ
+SORDO
+PROFESOR
+DOCTOR
+
+# Días
+LUNES
+MARTES
+MIÉRCOLES
+JUEVES
+VIERNES
+SÁBADO
+DOMINGO
+
+# Tiempo
+HOY
+AYER
+MAÑANA
+AHORA
+DÍA
+SEMANA
+AÑO
+NOCHE
+
+# Colores
+ROJO
+AZUL
+VERDE
+AMARILLO
+NEGRO
+BLANCO
+
+# Comida
+COMER
+LECHE
+CAFÉ (BEBIDA)
+PAN
+CARNE
+FRUTA
+HUEVO
+POLLO
+
+# Lugares
+CASA
+ESCUELA
+BAÑO
+HOSPITAL
+COSTA-RICA
+
+# Verbos básicos
+IR
+VENIR
+QUERER
+NECESITAR
+AYUDAR
+ENTENDER
+SABER
+ESTUDIAR
+HABLAR
+VER
+DORMIR
+TRABAJAR
+GUSTAR
+
+# Preguntas
+QUÉ-PASAR
+CÓMO
+DÓNDE
+CUANDO
+QUIÉN
+CUÁNTO
+
+# Lengua de señas
+LESCO
+SEÑA
+NOMBRE
