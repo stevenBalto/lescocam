@@ -2,6 +2,12 @@
 
 Monorepo: motor Python en `core/`, escritorio en `desktop/`, móvil Flutter en `mobile/`. Ver `README.md`.
 
+## Arranque del equipo (obligatorio)
+
+Si el usuario dice «Hola chat, póngamonos al hilo del proyecto para avanzar» (o algo equivalente, como «ponernos al hilo del proyecto»), ejecutá la skill `hilo-equipo` **antes que cualquier otra cosa**: primero pedí el nombre y no leas ni ejecutes nada más hasta tenerlo. Tiene prioridad sobre "Hilos de sesión". El plan de los 4 problemas del equipo está en `hiloEquipo/`.
+
+Al cerrar cada fase del plan es obligatorio tacharla, hacer commit, `git pull` y `git push` antes de seguir con la fase siguiente.
+
 ## Hilos de sesión (leer siempre al empezar)
 
 Antes de trabajar, leé la sesión más reciente del hilo que corresponda y seguí desde su "Siguiente paso":
@@ -14,6 +20,7 @@ Al terminar una sesión, creá un archivo nuevo en ese hilo con el formato de `P
 
 ## Skills del proyecto
 
+- `/hilo-equipo`: arranque del equipo (se activa con «Hola chat, póngamonos al hilo del proyecto para avanzar»): pide el nombre, hace pull y muestra el problema y la fase de esa persona.
 - `/retomar [area]`: al empezar, resume la última sesión del hilo y el siguiente paso.
 - `/cerrar-sesion [area] [tema]`: al terminar, registra la sesión en el hilo y hace el commit.
 - `/preparar-push`: revisa pruebas, claves, archivos ignorados y mensajes antes de subir.
