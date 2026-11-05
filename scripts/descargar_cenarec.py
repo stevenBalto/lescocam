@@ -10,6 +10,7 @@ quedó si se corta (salta los videos ya descargados).
 Uso:
     .venv/bin/python -m scripts.descargar_cenarec            # todo
     .venv/bin/python -m scripts.descargar_cenarec --max 20   # prueba con 20
+    .venv/bin/python -m scripts.descargar_cenarec --lista data/reference/banco/steven.txt   # solo esas
 """
 from __future__ import annotations
 
@@ -79,7 +80,11 @@ def guardar_catalogo(cat: dict) -> None:
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--max", type=int, default=0, help="descargar como mucho N videos nuevos (0 = todos)")
+    p.add_argument("--lista", type=Path, help="bajar solo las etiquetas de este archivo (una por línea, # comenta)")
     a = p.parse_args(argv)
+    solo = None
+    if a.lista:
+        solo = {l.strip() for l in a.lista.read_text(encoding="utf-8").splitlines() if l.strip() and not l.startswith("#")}
 
     (CARPETA / "videos").mkdir(parents=True, exist_ok=True)
     pagina = pedir(LISTA).decode("utf-8", errors="replace")
@@ -87,6 +92,12 @@ def main(argv=None) -> int:
     for idw, etiqueta in RE_PALABRA.findall(pagina):
         palabras.setdefault(int(idw), html.unescape(etiqueta).strip())
     print(f"{len(palabras)} palabras en el diccionario")
+    if solo is not None:
+        faltan = solo - set(palabras.values())
+        if faltan:
+            print(f"  no están en el diccionario: {sorted(faltan)}")
+        palabras = {i: e for i, e in palabras.items() if e in solo}
+        print(f"  se bajan {len(palabras)} de la lista")
 
     cat = leer_catalogo()
     nuevas = errores = 0
