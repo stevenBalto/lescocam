@@ -64,6 +64,13 @@ Item {
             Escrito.borrador += letra.toLowerCase()
             cierraPalabra.restart()
         }
+        // Modo palabras: cada seña completa es una palabra (cierra lo que se estaba deletreando).
+        function onPalabraReconocida(palabra) {
+            if (Nav.camaraPausada || !vista.visible) return
+            cierraPalabra.stop()
+            Escrito.confirmarBorrador()
+            Escrito.agregar(palabra, "")
+        }
     }
     Timer {
         id: cierraPalabra

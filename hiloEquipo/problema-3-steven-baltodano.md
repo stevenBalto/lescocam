@@ -16,12 +16,29 @@ Para el alfabeto basta una mano, pero para palabras y señas complejas hacen fal
 
 ## Fases
 
-- [ ] **Fase 1 — Conectar el modo palabras y medir**
+- [x] ~~**Fase 1 — Conectar el modo palabras y medir**~~ ✅ 2026-11-05 — evidencia: ambas manos en **83,1 %** de los 50 158 cuadros de seña de las 598 bimanuales (**79,2 %** sin contar 1965 cuadros con las dos manos del mismo lado); 213/598 palabras ≥ 90 %. Modo palabras conectado en la app (Ajustes › Cámara › «Reconocer palabras completas»). Medido con `scripts/medir_dos_manos.py`, resultado en `hiloEquipo/medidas/problema3-fase1-base.json`.
   **Hecho cuando:** el modo palabras funciona en la app de escritorio y se midió el porcentaje de cuadros con ambas manos sobre las 598 señas bimanuales (punto de partida).
 
 - [ ] **Fase 2 — Reforzar la detección**
   Interpolación de huecos, muñeca del pose como respaldo, umbral de seguimiento más bajo.
   **Hecho cuando:** se volvió a medir y subió respecto a la fase 1. Si ya se llega a ≥ 90 %, se pasa directo a la fase 3.
+
+  Causas medidas en la fase 1 (cuadros donde falta una mano):
+  - 58 % están en huecos de ≤ 5 cuadros y 75 % en huecos de ≤ 8 (a 30 fps): se pierde un instante y vuelve.
+  - Cuando falta una mano, el pose ve las dos muñecas en el 100 % de los cuadros.
+  - 1965 cuadros con las dos manos marcadas del mismo lado (MediaPipe confunde izquierda/derecha).
+  - 21 % de los cuadros con una mano tienen las manos juntas o cruzadas.
+
+  Pasos, en orden, midiendo después de cada uno (`medir_dos_manos` + que `evaluar_palabras` no empeore):
+  1. Asignar el lado de cada mano por la muñeca del pose más cercana (arregla los del mismo lado).
+  2. Rellenar huecos cortos (≤ 8 cuadros) interpolando entre el cuadro anterior y el siguiente.
+  3. Huecos largos: última forma de mano conocida, ubicada en la muñeca del pose.
+  4. Bajar el umbral de confianza 0,5 → 0,3 (re-extrae las 598: probar primero con una muestra y **avisar a Christian**).
+
+## Extra (fuera de las fases)
+
+- [ ] Modo letras: detectar las dos manos y leer solo la **dominante** (zurdos; que la otra mano no confunda).
+- [ ] Modo único letras + palabras sin interruptor: hablarlo con Johan (problema 2, respaldo por deletreo) antes de empezar.
 
 - [ ] **Fase 3 — Usar la cara en las señas**
   **Hecho cuando:** la ubicación de la seña respecto al rostro entra al reconocimiento, y se midió que no empeora el resultado.
