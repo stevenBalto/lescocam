@@ -18,6 +18,8 @@ Variantes (para evaluar robustez; se aplican al frame original antes de espejar)
     giro        cámara girada 8 grados
     desplazado  persona corrida 80 px a un costado
     espejo      sin espejar: la persona queda zurda
+    poca_luz_1..3   poca luz, 3 niveles (tenue -> casi a oscuras)
+    contraluz_1..3  contraluz con ventana atrás, 3 niveles (sujeto oscuro, fondo quemado)
 
 Uso:
     .venv/bin/python -m scripts.extraer_cenarec                       # palabras_iniciales.txt
@@ -45,7 +47,9 @@ CATALOGO = CARPETA / "catalogo.json"
 VIDEOS = CARPETA / "videos"
 EXTRACCION = CARPETA / "extraccion"
 LISTA = RAIZ / "data" / "reference" / "palabras_iniciales.txt"
-VARIANTES = ("base", "15fps", "4x3", "cerca", "lejos", "giro", "desplazado", "espejo")
+VARIANTES = ("base", "15fps", "4x3", "cerca", "lejos", "giro", "desplazado", "espejo",
+             "poca_luz_1", "poca_luz_2", "poca_luz_3",
+             "contraluz_1", "contraluz_2", "contraluz_3")
 
 
 def leer_lista(ruta: Path = LISTA) -> list[str]:
@@ -108,7 +112,36 @@ def transformar(frame, variante: str):
     if variante == "desplazado":
         m = np.float32([[1, 0, 80], [0, 1, 0]])
         return cv2.warpAffine(frame, m, (ancho, alto), borderMode=cv2.BORDER_REPLICATE)
+    if variante.startswith("poca_luz_"):
+        # Poca luz: menos exposición (ganancia baja sobre el pixel ya en gamma) MÁS
+        # ruido del sensor, que es lo que de verdad confunde a MediaPipe: con poca
+        # luz entran pocos fotones y el ruido de lectura pesa frente a la señal. El
+        # oscurecido solo casi no baja la detección; el ruido sí. Nivel 1 tenue, 3 casi a oscuras.
+        nivel = variante[-1]
+        ganancia = {"1": 0.45, "2": 0.26, "3": 0.13}[nivel]
+        sigma = {"1": 4.0, "2": 8.0, "3": 14.0}[nivel]
+        return _con_luz(frame, ganancia, 0.0, sigma)
+    if variante.startswith("contraluz_"):
+        # Contraluz (ventana atrás): el sujeto queda subexpuesto (ganancia baja), la
+        # parte de arriba se quema de blanco (gradiente que baja de brillo) y la zona
+        # oscura trae ruido. Es el caso más común (ventana detrás de la persona).
+        nivel = variante[-1]
+        ganancia = {"1": 0.55, "2": 0.38, "3": 0.24}[nivel]
+        techo = {"1": 120.0, "2": 180.0, "3": 230.0}[nivel]
+        sigma = {"1": 4.0, "2": 8.0, "3": 13.0}[nivel]
+        grad = np.linspace(techo, 0.0, alto, dtype=np.float32)[:, None, None]
+        return _con_luz(frame, ganancia, grad, sigma)
     return frame
+
+
+def _con_luz(frame, ganancia, agregado, sigma):
+    """Aplica ganancia + brillo agregado + ruido gaussiano. Semilla por cuadro: reproducible."""
+    import numpy as np
+    out = frame.astype(np.float32) * ganancia + agregado
+    if sigma > 0:
+        rng = np.random.default_rng(int(frame.sum()) & 0xFFFFFFFF)
+        out += rng.normal(0.0, sigma, size=frame.shape).astype(np.float32)
+    return np.clip(out, 0, 255).astype(np.uint8)
 
 
 def extraer_video(ruta_video: Path, variante: str = "base", detector=None) -> tuple[dict, float]:

@@ -17,7 +17,7 @@ No encontramos ningún estudio que mida cómo afectan CLAHE o gamma a MediaPipe,
 
 ## Fases
 
-- [ ] **Fase 1 — Banco de luz**
+- [x] ~~**Fase 1 — Banco de luz**~~ ✅ 2026-11-05 — evidencia: banco de luz en `scripts/extraer_cenarec.py` (variantes `poca_luz_1..3` y `contraluz_1..3`) y medidor `scripts/evaluar_luz.py`. Tasa de detección de manos (≥1) medida sobre 30 videos, % vs luz normal: poca luz 1 = 100 %, poca luz 2 = 89 %, poca luz 3 = 0 %; contraluz 1 = 100 %, contraluz 2 = 100 %, contraluz 3 = 28 %. Casos a recuperar: poca luz 2 y 3, contraluz 3.
   **Hecho cuando:** hay un conjunto de videos oscurecidos (al menos poca luz y contraluz, en 3 niveles) y se midió la tasa de detección actual en cada uno (punto de partida).
 
 - [ ] **Fase 2 — Probar las mejoras**
