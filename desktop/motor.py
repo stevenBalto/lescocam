@@ -22,11 +22,23 @@ from desktop.locutor import Locutor
 # Lenta ≈ 0,8× · Normal 1× · Rápida ≈ 1,3×.
 VELOCIDADES = {"Lenta": -0.4, "Normal": 0.0, "Rápida": 0.07}
 SEGUNDOS_SIN_MANOS = 3
-# Modo palabra (experimental, APAGADO por defecto): LESCOCAM_MODO=palabras usa
-# core/cuerpo.DetectorCuerpo (dos manos + pose) y core/reconocedor_palabras con
-# data/reference/senas.db en vez del deletreo, y emite `palabraReconocida`.
-# La interfaz todavía no lo muestra.
+# Modo (ajuste `modo`, se elige en Ajustes › Cámara):
+#   "letras"   deletreo con una mano (core/reconocedor) → `letraReconocida`
+#   "palabras" dos manos + pose (core/cuerpo.DetectorCuerpo) y palabras completas
+#              de data/reference/senas.db (core/reconocedor_palabras) → `palabraReconocida`
+# LESCOCAM_MODO=palabras|letras fuerza el modo al arrancar (para probar sin tocar el ajuste).
+MODO_LETRAS = "letras"
 MODO_PALABRAS = "palabras"
+MODOS = (MODO_LETRAS, MODO_PALABRAS)
+
+
+def texto_palabra(etiqueta: str) -> str:
+    """Etiqueta del diccionario → texto para escribir: «POR-FAVOR» → «por favor»,
+    «TIERRA(PLANETA)» → «tierra», «INFORMAR-2» → «informar»."""
+    import re
+    texto = re.sub(r"\(.*?\)", "", etiqueta)
+    texto = re.sub(r"-\d+$", "", texto.strip())
+    return texto.replace("-", " ").strip().lower()
 
 
 class _Punto:
@@ -95,6 +107,8 @@ class Motor(QObject):
         self._puntos = self._leer("puntosMano", True)
         self._pausar = self._leer("pausarSinManos", True)
         self._camara = self._leer("camara", "")
+        modo = os.environ.get("LESCOCAM_MODO") or self._leer("modo", MODO_LETRAS)
+        self._modo = modo if modo in MODOS else MODO_LETRAS
 
     # --- Ajustes guardados ----------------------------------------------------
     def _leer(self, clave, defecto):
@@ -136,6 +150,19 @@ class Motor(QObject):
     def pausarSinManos(self, v):
         self._pausar = bool(v)
         self._guardar("pausarSinManos", self._pausar)
+
+    @Property(str, notify=ajusteCambio)
+    def modo(self):
+        return self._modo
+
+    @Slot(str)
+    def elegirModo(self, nombre):
+        if nombre in MODOS and nombre != self._modo:
+            self._modo = nombre
+            self._guardar("modo", nombre)
+            if self._hilo is not None:   # la cámara estaba abierta: se reabre con el otro detector
+                self.detener_camara()
+                self._arrancar()
 
     # --- Estado para QML ------------------------------------------------------
     @Property(bool, notify=hayVideoCambio)
@@ -303,7 +330,7 @@ class Motor(QObject):
             from core.reconocedor import Reconocedor
             cap = camara.abrir_camara(indice)
             palabras = None
-            if os.environ.get("LESCOCAM_MODO") == MODO_PALABRAS:
+            if self._modo == MODO_PALABRAS:
                 from core.cuerpo import DetectorCuerpo
                 from core.reconocedor_palabras import ReconocedorPalabras
                 detector = DetectorCuerpo()
@@ -332,18 +359,22 @@ class Motor(QObject):
                     cuerpo = detector.procesar(frame, ahora)
                     palabra = palabras.actualizar(cuerpo, ahora)
                     if palabra:
-                        self.palabraReconocida.emit(palabra)
+                        self.palabraReconocida.emit(texto_palabra(palabra))
                     manos = [camara.Mano([_Punto(*p[:2]) for p in pts], lado, None, cuerpo.frame)
                              for pts, lado, _ in cuerpo.manos]
+                    # Entre señas los brazos descansan abajo (a veces fuera de cuadro):
+                    # con el cuerpo a la vista no se pausa.
+                    presente = bool(manos) or cuerpo.pose is not None
                 else:
                     mano = detector.procesar(frame)
                     manos = [mano] if mano is not None else []
-                if manos:
+                    presente = bool(manos)
+                if presente:
                     ultima_mano, avisado = ahora, False
-                    if self._puntos:
-                        for m in manos:
-                            camara.dibujar_mano(frame, m)
-                elif self._pausar and not avisado and ahora - ultima_mano > SEGUNDOS_SIN_MANOS:
+                if manos and self._puntos:
+                    for m in manos:
+                        camara.dibujar_mano(frame, m)
+                if not presente and self._pausar and not avisado and ahora - ultima_mano > SEGUNDOS_SIN_MANOS:
                     avisado = True
                     self.sinManos.emit()
                 if reconocedor is not None:

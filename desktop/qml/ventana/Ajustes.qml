@@ -242,6 +242,13 @@ MarcoVentana {
             }
             Fila {
                 visible: vista.seccion.codigo === "15b"
+                titulo: "Reconocer palabras completas"
+                detalle: "Experimental. Usa las dos manos y el cuerpo. Empiece y termine cada seña con los brazos abajo. Apagado: deletreo letra por letra."
+                anchoControl: 44
+                Interruptor { nombreAccesible: "Reconocer palabras completas"; activo: motor.modo === "palabras"; onCambio: (v) => motor.elegirModo(v ? "palabras" : "letras") }
+            }
+            Fila {
+                visible: vista.seccion.codigo === "15b"
                 titulo: "Pausar si no hay manos"; detalle: "Después de 3 segundos"; anchoControl: 44
                 Interruptor { nombreAccesible: "Pausar si no hay manos"; activo: motor.pausarSinManos; onCambio: (v) => motor.pausarSinManos = v }
             }

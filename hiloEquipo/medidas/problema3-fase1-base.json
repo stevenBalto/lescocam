@@ -1,0 +1,4201 @@
+{
+ "variante": "base",
+ "palabras": 598,
+ "total": {
+  "cuadros": 50158,
+  "0": 928,
+  "1": 7559,
+  "2": 41671,
+  "mismo_lado": 1965
+ },
+ "porcentaje_ambas": 0.8308,
+ "sobre_meta": 213,
+ "por_palabra": {
+  "A-PARTIR-DE": {
+   "cuadros": 100,
+   "0": 0,
+   "1": 7,
+   "2": 93,
+   "mismo_lado": 0
+  },
+  "A-VECES": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 5,
+   "2": 78,
+   "mismo_lado": 5
+  },
+  "A-VECES-2": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 16,
+   "2": 50,
+   "mismo_lado": 1
+  },
+  "ABRAZAR": {
+   "cuadros": 106,
+   "0": 0,
+   "1": 4,
+   "2": 102,
+   "mismo_lado": 0
+  },
+  "ABRIL": {
+   "cuadros": 87,
+   "0": 1,
+   "1": 12,
+   "2": 74,
+   "mismo_lado": 3
+  },
+  "ABRIR": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 5,
+   "2": 85,
+   "mismo_lado": 4
+  },
+  "ABRIR-2": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 13,
+   "2": 67,
+   "mismo_lado": 1
+  },
+  "ACCESO/ACCEDER": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 4,
+   "2": 77,
+   "mismo_lado": 5
+  },
+  "ACCIDENTE": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 33,
+   "2": 48,
+   "mismo_lado": 7
+  },
+  "ACOMPAÑAR": {
+   "cuadros": 74,
+   "0": 5,
+   "1": 15,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "ACONGOJARSE": {
+   "cuadros": 100,
+   "0": 2,
+   "1": 65,
+   "2": 33,
+   "mismo_lado": 10
+  },
+  "ACOSTUMBRAR": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 12,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "ACTIVIDAD": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 12,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "ACUERDO": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 11,
+   "2": 63,
+   "mismo_lado": 4
+  },
+  "ADELANTAR": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 4,
+   "2": 99,
+   "mismo_lado": 1
+  },
+  "ADJUNTAR-UN-ARCHIVO": {
+   "cuadros": 109,
+   "0": 0,
+   "1": 13,
+   "2": 96,
+   "mismo_lado": 12
+  },
+  "AFILIAR": {
+   "cuadros": 88,
+   "0": 1,
+   "1": 17,
+   "2": 70,
+   "mismo_lado": 12
+  },
+  "AGREGAR": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 20,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "AGRUPARSE": {
+   "cuadros": 62,
+   "0": 6,
+   "1": 10,
+   "2": 46,
+   "mismo_lado": 3
+  },
+  "AHORA": {
+   "cuadros": 60,
+   "0": 3,
+   "1": 8,
+   "2": 49,
+   "mismo_lado": 1
+  },
+  "AHORRAR": {
+   "cuadros": 95,
+   "0": 0,
+   "1": 15,
+   "2": 80,
+   "mismo_lado": 1
+  },
+  "AISLADO-EN-CASA": {
+   "cuadros": 98,
+   "0": 0,
+   "1": 2,
+   "2": 96,
+   "mismo_lado": 0
+  },
+  "AL-FRENTE": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 13,
+   "2": 69,
+   "mismo_lado": 5
+  },
+  "ALAJUELITA": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 8,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "ALBANIA": {
+   "cuadros": 85,
+   "0": 5,
+   "1": 33,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "ALGUNO/ALGO": {
+   "cuadros": 115,
+   "0": 0,
+   "1": 6,
+   "2": 109,
+   "mismo_lado": 18
+  },
+  "ALQUILER": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 4,
+   "2": 82,
+   "mismo_lado": 0
+  },
+  "AMBOS": {
+   "cuadros": 60,
+   "0": 0,
+   "1": 3,
+   "2": 57,
+   "mismo_lado": 0
+  },
+  "AMETRALLAR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 4,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "AMÉRICA": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 13,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "ANALIZAR/EXAMINAR": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 4,
+   "2": 89,
+   "mismo_lado": 1
+  },
+  "ANASCOR": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 11,
+   "2": 70,
+   "mismo_lado": 8
+  },
+  "ANGEL": {
+   "cuadros": 147,
+   "0": 0,
+   "1": 10,
+   "2": 137,
+   "mismo_lado": 7
+  },
+  "ANIMAL": {
+   "cuadros": 72,
+   "0": 1,
+   "1": 9,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "ANTES": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 1,
+   "2": 95,
+   "mismo_lado": 0
+  },
+  "APARECER": {
+   "cuadros": 63,
+   "0": 0,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "APARIENCIA": {
+   "cuadros": 38,
+   "0": 3,
+   "1": 12,
+   "2": 23,
+   "mismo_lado": 0
+  },
+  "APARTAR": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 12,
+   "2": 69,
+   "mismo_lado": 14
+  },
+  "APARTE": {
+   "cuadros": 103,
+   "0": 1,
+   "1": 19,
+   "2": 83,
+   "mismo_lado": 39
+  },
+  "APELLIDO": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 9,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "APLAUDIR": {
+   "cuadros": 83,
+   "0": 1,
+   "1": 13,
+   "2": 69,
+   "mismo_lado": 4
+  },
+  "APLICAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 9,
+   "2": 76,
+   "mismo_lado": 2
+  },
+  "APOYAR": {
+   "cuadros": 91,
+   "0": 1,
+   "1": 38,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "APRENDER": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 24,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "APROBAR": {
+   "cuadros": 69,
+   "0": 4,
+   "1": 23,
+   "2": 42,
+   "mismo_lado": 0
+  },
+  "APROVECHAR": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 12,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "ARBOL": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 13,
+   "2": 58,
+   "mismo_lado": 4
+  },
+  "ARREGLAR": {
+   "cuadros": 62,
+   "0": 1,
+   "1": 2,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "ASAMBLEA": {
+   "cuadros": 98,
+   "0": 0,
+   "1": 1,
+   "2": 97,
+   "mismo_lado": 0
+  },
+  "ASAMBLEA-LEGISLATIVA": {
+   "cuadros": 95,
+   "0": 5,
+   "1": 19,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "ASERRÍ": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 1,
+   "2": 80,
+   "mismo_lado": 2
+  },
+  "ASOCIACIÓN": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 1,
+   "2": 87,
+   "mismo_lado": 3
+  },
+  "ASUSTAR": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 10,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "ATENDER": {
+   "cuadros": 95,
+   "0": 3,
+   "1": 13,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "ATERRIZAR/VENIR-EN-AVIÓN": {
+   "cuadros": 112,
+   "0": 0,
+   "1": 11,
+   "2": 101,
+   "mismo_lado": 2
+  },
+  "ATRASAR": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 10,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "AYUDAR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 4,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "AÑO": {
+   "cuadros": 117,
+   "0": 0,
+   "1": 10,
+   "2": 107,
+   "mismo_lado": 1
+  },
+  "BACHILLERATO": {
+   "cuadros": 85,
+   "0": 6,
+   "1": 33,
+   "2": 46,
+   "mismo_lado": 18
+  },
+  "BAILAR": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 11,
+   "2": 82,
+   "mismo_lado": 1
+  },
+  "BALLENA-2": {
+   "cuadros": 113,
+   "0": 5,
+   "1": 48,
+   "2": 60,
+   "mismo_lado": 14
+  },
+  "BANANO": {
+   "cuadros": 106,
+   "0": 0,
+   "1": 41,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "BANCO": {
+   "cuadros": 75,
+   "0": 1,
+   "1": 3,
+   "2": 71,
+   "mismo_lado": 4
+  },
+  "BARATO": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 9,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "BARCO/IR-EN-BARCO": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 0,
+   "2": 80,
+   "mismo_lado": 1
+  },
+  "BASURA": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 0,
+   "2": 69,
+   "mismo_lado": 0
+  },
+  "BAÑARSE": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 9,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "BEBÉ": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 10,
+   "2": 89,
+   "mismo_lado": 1
+  },
+  "BIBLIA": {
+   "cuadros": 85,
+   "0": 5,
+   "1": 10,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "BICICLETA": {
+   "cuadros": 84,
+   "0": 4,
+   "1": 19,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "BIENVENIDO": {
+   "cuadros": 93,
+   "0": 1,
+   "1": 13,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "BILINGÜISMO": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 7,
+   "2": 80,
+   "mismo_lado": 2
+  },
+  "BIOLOGÍA": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 16,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "BODA": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 2,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "BOSQUE": {
+   "cuadros": 123,
+   "0": 0,
+   "1": 3,
+   "2": 120,
+   "mismo_lado": 0
+  },
+  "BRIBRI": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 3,
+   "2": 76,
+   "mismo_lado": 1
+  },
+  "BRILLAR": {
+   "cuadros": 104,
+   "0": 1,
+   "1": 14,
+   "2": 89,
+   "mismo_lado": 1
+  },
+  "BRINCAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 1,
+   "2": 84,
+   "mismo_lado": 3
+  },
+  "BUS": {
+   "cuadros": 102,
+   "0": 0,
+   "1": 10,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "CABALLO": {
+   "cuadros": 95,
+   "0": 2,
+   "1": 3,
+   "2": 90,
+   "mismo_lado": 0
+  },
+  "CAERSE": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "CAERSE-2": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 9,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "CAJA": {
+   "cuadros": 87,
+   "0": 2,
+   "1": 19,
+   "2": 66,
+   "mismo_lado": 6
+  },
+  "CAMA": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 13,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "CAMBIAR": {
+   "cuadros": 79,
+   "0": 2,
+   "1": 21,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "CAMISA": {
+   "cuadros": 87,
+   "0": 13,
+   "1": 15,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "CAMIÓN/MANEJAR-CAMIÓN": {
+   "cuadros": 133,
+   "0": 2,
+   "1": 21,
+   "2": 110,
+   "mismo_lado": 25
+  },
+  "CANSAR": {
+   "cuadros": 109,
+   "0": 0,
+   "1": 5,
+   "2": 104,
+   "mismo_lado": 1
+  },
+  "CARNE": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 5,
+   "2": 83,
+   "mismo_lado": 11
+  },
+  "CARRERA (ACADÉMICA)": {
+   "cuadros": 88,
+   "0": 3,
+   "1": 13,
+   "2": 72,
+   "mismo_lado": 16
+  },
+  "CARTA": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 10,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "CASA": {
+   "cuadros": 62,
+   "0": 0,
+   "1": 12,
+   "2": 50,
+   "mismo_lado": 1
+  },
+  "CENAREC": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 12,
+   "2": 76,
+   "mismo_lado": 7
+  },
+  "CENTROAMÉRICA": {
+   "cuadros": 123,
+   "0": 0,
+   "1": 0,
+   "2": 123,
+   "mismo_lado": 0
+  },
+  "CERCA": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "CERRAR": {
+   "cuadros": 112,
+   "0": 0,
+   "1": 9,
+   "2": 103,
+   "mismo_lado": 3
+  },
+  "CERTIFICADO": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 0,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "CERVEZA": {
+   "cuadros": 82,
+   "0": 2,
+   "1": 8,
+   "2": 72,
+   "mismo_lado": 15
+  },
+  "CHINO": {
+   "cuadros": 90,
+   "0": 4,
+   "1": 14,
+   "2": 72,
+   "mismo_lado": 0
+  },
+  "CHOFER": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 13,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "CIENCIAS": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "CIUDAD-QUESADA": {
+   "cuadros": 94,
+   "0": 2,
+   "1": 8,
+   "2": 84,
+   "mismo_lado": 5
+  },
+  "CLARO": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 14,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "CLASE": {
+   "cuadros": 86,
+   "0": 1,
+   "1": 8,
+   "2": 77,
+   "mismo_lado": 4
+  },
+  "CLIMA": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 16,
+   "2": 87,
+   "mismo_lado": 0
+  },
+  "CLÍNICA": {
+   "cuadros": 60,
+   "0": 0,
+   "1": 13,
+   "2": 47,
+   "mismo_lado": 5
+  },
+  "COCINA": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 5,
+   "2": 78,
+   "mismo_lado": 5
+  },
+  "COCINAR": {
+   "cuadros": 67,
+   "0": 0,
+   "1": 11,
+   "2": 56,
+   "mismo_lado": 2
+  },
+  "COCODRILO": {
+   "cuadros": 97,
+   "0": 0,
+   "1": 77,
+   "2": 20,
+   "mismo_lado": 3
+  },
+  "COLABORAR": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 17,
+   "2": 69,
+   "mismo_lado": 3
+  },
+  "COMPARAR": {
+   "cuadros": 109,
+   "0": 1,
+   "1": 15,
+   "2": 93,
+   "mismo_lado": 6
+  },
+  "COMPARTIR": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 1,
+   "2": 86,
+   "mismo_lado": 0
+  },
+  "COMPLICAR": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 10,
+   "2": 76,
+   "mismo_lado": 0
+  },
+  "COMPRAR": {
+   "cuadros": 63,
+   "0": 1,
+   "1": 15,
+   "2": 47,
+   "mismo_lado": 7
+  },
+  "COMPUTADORA": {
+   "cuadros": 65,
+   "0": 0,
+   "1": 5,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "COMUNICARSE/COMUNICACIÓN": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 12,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "COMUNIDAD": {
+   "cuadros": 77,
+   "0": 1,
+   "1": 2,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "CON-EL-TIEMPO": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 4,
+   "2": 72,
+   "mismo_lado": 0
+  },
+  "CONOCER": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 14,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "CONSOLAR": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 14,
+   "2": 75,
+   "mismo_lado": 2
+  },
+  "CONSTRUIR": {
+   "cuadros": 87,
+   "0": 1,
+   "1": 20,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "CONTACTAR": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 10,
+   "2": 69,
+   "mismo_lado": 3
+  },
+  "CONTINUAR/SEGUIR": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "CONTRATAR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 6,
+   "2": 76,
+   "mismo_lado": 1
+  },
+  "CONTROLAR": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "COPIAR": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 13,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "CORRECTO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "CORREO-ELECTRÓNICO": {
+   "cuadros": 102,
+   "0": 18,
+   "1": 45,
+   "2": 39,
+   "mismo_lado": 3
+  },
+  "CORRER": {
+   "cuadros": 69,
+   "0": 3,
+   "1": 21,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "CORRER-2": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 19,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "CORTAR-RELACIÓN": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 10,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "CORTO/BREVE": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 13,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "CUALQUIERA/NO-IMPORTAR": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "CUCARACHA": {
+   "cuadros": 82,
+   "0": 2,
+   "1": 18,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "CUCHILLO": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 5,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "CUERPO": {
+   "cuadros": 42,
+   "0": 2,
+   "1": 3,
+   "2": 37,
+   "mismo_lado": 0
+  },
+  "CUIDAR-2": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 14,
+   "2": 75,
+   "mismo_lado": 36
+  },
+  "CULANTRO": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 18,
+   "2": 60,
+   "mismo_lado": 22
+  },
+  "CUMPLEAÑOS": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 8,
+   "2": 78,
+   "mismo_lado": 7
+  },
+  "CUMPLIR": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 22,
+   "2": 62,
+   "mismo_lado": 5
+  },
+  "CURSO": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 12,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "CUÁL": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 10,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "CUÁL-2": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 8,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "CUÑADO": {
+   "cuadros": 58,
+   "0": 0,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "CÁNCER": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 6,
+   "2": 72,
+   "mismo_lado": 0
+  },
+  "CÓMO": {
+   "cuadros": 50,
+   "0": 1,
+   "1": 9,
+   "2": 40,
+   "mismo_lado": 1
+  },
+  "CÓMO-2": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 11,
+   "2": 55,
+   "mismo_lado": 4
+  },
+  "CÓMODO": {
+   "cuadros": 122,
+   "0": 0,
+   "1": 0,
+   "2": 122,
+   "mismo_lado": 1
+  },
+  "DAR": {
+   "cuadros": 91,
+   "0": 6,
+   "1": 24,
+   "2": 61,
+   "mismo_lado": 9
+  },
+  "DE-LEJOS": {
+   "cuadros": 112,
+   "0": 2,
+   "1": 5,
+   "2": 105,
+   "mismo_lado": 3
+  },
+  "DE-PIE": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 0,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "DEBAJO": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 12,
+   "2": 73,
+   "mismo_lado": 7
+  },
+  "DECIDIR": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "DEFECAR": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 3,
+   "2": 76,
+   "mismo_lado": 0
+  },
+  "DEJAR": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 4
+  },
+  "DENTRO": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 17,
+   "2": 75,
+   "mismo_lado": 0
+  },
+  "DEPENDER": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 4,
+   "2": 88,
+   "mismo_lado": 0
+  },
+  "DEPORTE": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 31,
+   "2": 48,
+   "mismo_lado": 10
+  },
+  "DERECHO": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 7,
+   "2": 68,
+   "mismo_lado": 6
+  },
+  "DESAPARECER": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 16,
+   "2": 58,
+   "mismo_lado": 17
+  },
+  "DESAPARECER-2": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 12,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "DESARROLLAR": {
+   "cuadros": 67,
+   "0": 0,
+   "1": 13,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "DESARROLLAR-2": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 11,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "DESCANSAR": {
+   "cuadros": 105,
+   "0": 1,
+   "1": 15,
+   "2": 89,
+   "mismo_lado": 3
+  },
+  "DESDE": {
+   "cuadros": 88,
+   "0": 2,
+   "1": 13,
+   "2": 73,
+   "mismo_lado": 1
+  },
+  "DESDE-ANTES-HASTA-AHORA": {
+   "cuadros": 97,
+   "0": 0,
+   "1": 7,
+   "2": 90,
+   "mismo_lado": 0
+  },
+  "DESDE-ANTES-HASTA-CIERTO-MOMENTO": {
+   "cuadros": 92,
+   "0": 1,
+   "1": 30,
+   "2": 61,
+   "mismo_lado": 15
+  },
+  "DESDE-CIERTO-MOMENTO-HACIA-ADELANTE": {
+   "cuadros": 98,
+   "0": 2,
+   "1": 17,
+   "2": 79,
+   "mismo_lado": 4
+  },
+  "DESMORONAR": {
+   "cuadros": 91,
+   "0": 1,
+   "1": 2,
+   "2": 88,
+   "mismo_lado": 2
+  },
+  "DESORDEN": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 14,
+   "2": 85,
+   "mismo_lado": 2
+  },
+  "DESPEDIR": {
+   "cuadros": 60,
+   "0": 0,
+   "1": 0,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "DESPERTARSE": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 21,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "DESPLAZARSE": {
+   "cuadros": 82,
+   "0": 12,
+   "1": 14,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "DESTRUIR": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 28,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "DIBUJAR": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "DICCIONARIO": {
+   "cuadros": 77,
+   "0": 4,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 4
+  },
+  "DIFERENTE/SER-DIFERENTE": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 15,
+   "2": 64,
+   "mismo_lado": 4
+  },
+  "DIPUTADO": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 2,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "DISCAPACIDAD": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 11,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "DISCO": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 3,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "DISCRIMINAR": {
+   "cuadros": 96,
+   "0": 6,
+   "1": 51,
+   "2": 39,
+   "mismo_lado": 2
+  },
+  "DISCUTIR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 10,
+   "2": 67,
+   "mismo_lado": 15
+  },
+  "DISEÑAR": {
+   "cuadros": 94,
+   "0": 0,
+   "1": 11,
+   "2": 83,
+   "mismo_lado": 3
+  },
+  "DISMINUIR": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 7,
+   "2": 82,
+   "mismo_lado": 1
+  },
+  "DIVISIÓN/DIVIDIR": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 8,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "DIVORCIO": {
+   "cuadros": 73,
+   "0": 6,
+   "1": 17,
+   "2": 50,
+   "mismo_lado": 4
+  },
+  "DOCTOR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 0,
+   "2": 82,
+   "mismo_lado": 22
+  },
+  "DOLOR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 12,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "DORMIR": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 37,
+   "2": 59,
+   "mismo_lado": 15
+  },
+  "DUDAR": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 1,
+   "2": 95,
+   "mismo_lado": 6
+  },
+  "DURANTE-ESTE-TIEMPO": {
+   "cuadros": 96,
+   "0": 8,
+   "1": 15,
+   "2": 73,
+   "mismo_lado": 3
+  },
+  "DURAR": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 1,
+   "2": 91,
+   "mismo_lado": 0
+  },
+  "DURO/ESTRICTO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 9,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "DÉBIL": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 6,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "DÍA": {
+   "cuadros": 77,
+   "0": 2,
+   "1": 12,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "DÓLAR": {
+   "cuadros": 123,
+   "0": 0,
+   "1": 0,
+   "2": 123,
+   "mismo_lado": 0
+  },
+  "ECONOMÍA": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 6,
+   "2": 68,
+   "mismo_lado": 22
+  },
+  "ECUADOR": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 4,
+   "2": 83,
+   "mismo_lado": 10
+  },
+  "EDITAR": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 13,
+   "2": 77,
+   "mismo_lado": 1
+  },
+  "EDUCACIÓN": {
+   "cuadros": 109,
+   "0": 1,
+   "1": 6,
+   "2": 102,
+   "mismo_lado": 2
+  },
+  "EJEMPLO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 11,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "ELECTRICIDAD": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 8,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "EMOCIONARSE": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 8,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "EMPATAR": {
+   "cuadros": 104,
+   "0": 2,
+   "1": 8,
+   "2": 94,
+   "mismo_lado": 4
+  },
+  "EMPEZAR/COMENZAR": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 0,
+   "2": 91,
+   "mismo_lado": 0
+  },
+  "EMPLEADO": {
+   "cuadros": 61,
+   "0": 1,
+   "1": 22,
+   "2": 38,
+   "mismo_lado": 1
+  },
+  "EMPRESA/FÁBRICA": {
+   "cuadros": 70,
+   "0": 2,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "EMPUJAR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 8,
+   "2": 69,
+   "mismo_lado": 0
+  },
+  "EN-LA-MAÑANA": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 16,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "EN-LA-TARDE": {
+   "cuadros": 100,
+   "0": 4,
+   "1": 5,
+   "2": 91,
+   "mismo_lado": 0
+  },
+  "EN-SEGUNDO-LUGAR": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 4
+  },
+  "EN-SEGUNDO-LUGAR-2": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 2,
+   "2": 89,
+   "mismo_lado": 0
+  },
+  "EN-TERCER-LUGAR-2": {
+   "cuadros": 77,
+   "0": 2,
+   "1": 16,
+   "2": 59,
+   "mismo_lado": 3
+  },
+  "ENCAJAR": {
+   "cuadros": 105,
+   "0": 0,
+   "1": 6,
+   "2": 99,
+   "mismo_lado": 4
+  },
+  "ENCONTRARSE-CON": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 8,
+   "2": 91,
+   "mismo_lado": 0
+  },
+  "ENFATIZAR": {
+   "cuadros": 98,
+   "0": 0,
+   "1": 11,
+   "2": 87,
+   "mismo_lado": 5
+  },
+  "ENFRENTARSE": {
+   "cuadros": 115,
+   "0": 2,
+   "1": 10,
+   "2": 103,
+   "mismo_lado": 0
+  },
+  "ENGORDAR": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 0,
+   "2": 88,
+   "mismo_lado": 0
+  },
+  "ENSALADA": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 13,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "ENSEÑAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 7,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "ENTRAR": {
+   "cuadros": 101,
+   "0": 4,
+   "1": 59,
+   "2": 38,
+   "mismo_lado": 7
+  },
+  "ENTRE-COMILLAS": {
+   "cuadros": 86,
+   "0": 4,
+   "1": 17,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "ENTRE-OTROS": {
+   "cuadros": 89,
+   "0": 1,
+   "1": 10,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "ENTREGAR-RECIBIR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 3,
+   "2": 74,
+   "mismo_lado": 11
+  },
+  "ENTREVISTAR": {
+   "cuadros": 72,
+   "0": 1,
+   "1": 22,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "ENVIAR": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "EQUILIBRAR": {
+   "cuadros": 104,
+   "0": 0,
+   "1": 10,
+   "2": 94,
+   "mismo_lado": 0
+  },
+  "EQUIPO": {
+   "cuadros": 156,
+   "0": 14,
+   "1": 28,
+   "2": 114,
+   "mismo_lado": 0
+  },
+  "ESCLAVO": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 1,
+   "2": 92,
+   "mismo_lado": 3
+  },
+  "ESCOBILLAS": {
+   "cuadros": 127,
+   "0": 1,
+   "1": 14,
+   "2": 112,
+   "mismo_lado": 3
+  },
+  "ESCONDER/ESCONDIDO": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 11
+  },
+  "ESCONDERSE": {
+   "cuadros": 84,
+   "0": 1,
+   "1": 8,
+   "2": 75,
+   "mismo_lado": 2
+  },
+  "ESCRIBIR": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 27,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "ESCRIBIR-EN-COMPUTADORA": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 0,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "ESCUELA": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 1,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "ESFORZAR": {
+   "cuadros": 95,
+   "0": 0,
+   "1": 6,
+   "2": 89,
+   "mismo_lado": 3
+  },
+  "ESO": {
+   "cuadros": 58,
+   "0": 0,
+   "1": 14,
+   "2": 44,
+   "mismo_lado": 0
+  },
+  "ESPAÑOL": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 0,
+   "2": 76,
+   "mismo_lado": 1
+  },
+  "ESPECIAL": {
+   "cuadros": 113,
+   "0": 0,
+   "1": 5,
+   "2": 108,
+   "mismo_lado": 0
+  },
+  "ESPERAR": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 10,
+   "2": 89,
+   "mismo_lado": 2
+  },
+  "ESPOSO": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 16
+  },
+  "ESPÍRITU": {
+   "cuadros": 76,
+   "0": 1,
+   "1": 16,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "ESQUINA": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 56,
+   "2": 29,
+   "mismo_lado": 0
+  },
+  "ESTABLECER": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 3,
+   "2": 73,
+   "mismo_lado": 1
+  },
+  "ESTADIO": {
+   "cuadros": 98,
+   "0": 2,
+   "1": 8,
+   "2": 88,
+   "mismo_lado": 0
+  },
+  "ESTADOS-UNIDOS": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 2,
+   "2": 89,
+   "mismo_lado": 0
+  },
+  "ESTAR-BALANCEADO": {
+   "cuadros": 108,
+   "0": 2,
+   "1": 17,
+   "2": 89,
+   "mismo_lado": 17
+  },
+  "ESTAR-SATISFECHO": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 8,
+   "2": 72,
+   "mismo_lado": 4
+  },
+  "ESTATUTO": {
+   "cuadros": 94,
+   "0": 0,
+   "1": 5,
+   "2": 89,
+   "mismo_lado": 9
+  },
+  "ESTUDIAR": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 5,
+   "2": 82,
+   "mismo_lado": 1
+  },
+  "ESTUDIOS-SOCIALES": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 8,
+   "2": 81,
+   "mismo_lado": 3
+  },
+  "EXAMEN": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 12,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "EXCELENTE": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 8,
+   "2": 88,
+   "mismo_lado": 2
+  },
+  "EXPEDIENTE": {
+   "cuadros": 88,
+   "0": 2,
+   "1": 6,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "EXPERIMENTAR": {
+   "cuadros": 88,
+   "0": 1,
+   "1": 25,
+   "2": 62,
+   "mismo_lado": 3
+  },
+  "EXPLICAR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 15,
+   "2": 62,
+   "mismo_lado": 5
+  },
+  "EXPLOTAR": {
+   "cuadros": 72,
+   "0": 3,
+   "1": 9,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "EXPRESAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 1,
+   "2": 84,
+   "mismo_lado": 0
+  },
+  "EXPULSAR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 12,
+   "2": 70,
+   "mismo_lado": 8
+  },
+  "EXTENSIÓN-ESPACIO": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 0,
+   "2": 84,
+   "mismo_lado": 2
+  },
+  "FACTURA": {
+   "cuadros": 75,
+   "0": 1,
+   "1": 26,
+   "2": 48,
+   "mismo_lado": 4
+  },
+  "FAMILIA": {
+   "cuadros": 80,
+   "0": 3,
+   "1": 6,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "FAMOSO": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 19,
+   "2": 49,
+   "mismo_lado": 0
+  },
+  "FELICITAR": {
+   "cuadros": 79,
+   "0": 13,
+   "1": 56,
+   "2": 10,
+   "mismo_lado": 3
+  },
+  "FELIZ/CONTENTO/ALEGRE": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 16,
+   "2": 59,
+   "mismo_lado": 5
+  },
+  "FIEL": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 6,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "FIESTA": {
+   "cuadros": 88,
+   "0": 1,
+   "1": 13,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "FILA": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 12,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "FIRMAR": {
+   "cuadros": 55,
+   "0": 0,
+   "1": 15,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "FLEXIBLE": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 5,
+   "2": 82,
+   "mismo_lado": 0
+  },
+  "FLOR": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 0
+  },
+  "FLUIDO": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 6,
+   "2": 72,
+   "mismo_lado": 5
+  },
+  "FORMARSE/SURGIR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 0,
+   "2": 82,
+   "mismo_lado": 0
+  },
+  "FORMATO": {
+   "cuadros": 114,
+   "0": 4,
+   "1": 16,
+   "2": 94,
+   "mismo_lado": 6
+  },
+  "FOTO": {
+   "cuadros": 69,
+   "0": 1,
+   "1": 27,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "FRACCIÓN": {
+   "cuadros": 89,
+   "0": 1,
+   "1": 23,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "FRASE": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 13,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "FRESCO": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 3,
+   "2": 76,
+   "mismo_lado": 18
+  },
+  "FRUTA-2": {
+   "cuadros": 103,
+   "0": 1,
+   "1": 9,
+   "2": 93,
+   "mismo_lado": 6
+  },
+  "FRÍO": {
+   "cuadros": 59,
+   "0": 0,
+   "1": 20,
+   "2": 39,
+   "mismo_lado": 0
+  },
+  "FUERTE": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 17,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "FUNCIÓN": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 0,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "FUNDAR": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 16,
+   "2": 63,
+   "mismo_lado": 8
+  },
+  "FÍSICA": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 14,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "GASOLINA": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 7,
+   "2": 89,
+   "mismo_lado": 1
+  },
+  "GATO": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 15,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "GESTO": {
+   "cuadros": 119,
+   "0": 0,
+   "1": 10,
+   "2": 109,
+   "mismo_lado": 0
+  },
+  "GIMNASIO": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 5,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "GOLFITO": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 6,
+   "2": 75,
+   "mismo_lado": 2
+  },
+  "GOLPEAR": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 11,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "GORDO": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 7,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "GORILA": {
+   "cuadros": 78,
+   "0": 2,
+   "1": 14,
+   "2": 62,
+   "mismo_lado": 7
+  },
+  "GRABAR-SONIDO": {
+   "cuadros": 96,
+   "0": 2,
+   "1": 20,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "GRADO": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 8,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "GRAMÁTICA": {
+   "cuadros": 70,
+   "0": 3,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "GRANDE": {
+   "cuadros": 79,
+   "0": 18,
+   "1": 17,
+   "2": 44,
+   "mismo_lado": 0
+  },
+  "GRANDE-2": {
+   "cuadros": 71,
+   "0": 2,
+   "1": 21,
+   "2": 48,
+   "mismo_lado": 0
+  },
+  "GRATIS": {
+   "cuadros": 65,
+   "0": 2,
+   "1": 12,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "GRECIA": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 2,
+   "2": 78,
+   "mismo_lado": 11
+  },
+  "GRUPO": {
+   "cuadros": 83,
+   "0": 1,
+   "1": 13,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "GRÚA": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 7,
+   "2": 85,
+   "mismo_lado": 0
+  },
+  "GUADALUPE": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 10,
+   "2": 75,
+   "mismo_lado": 5
+  },
+  "GUANTES": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 26,
+   "2": 61,
+   "mismo_lado": 4
+  },
+  "GUARDAR": {
+   "cuadros": 108,
+   "0": 1,
+   "1": 91,
+   "2": 16,
+   "mismo_lado": 9
+  },
+  "GUATEMALA": {
+   "cuadros": 58,
+   "0": 0,
+   "1": 2,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "GUATUSO": {
+   "cuadros": 112,
+   "0": 0,
+   "1": 25,
+   "2": 87,
+   "mismo_lado": 1
+  },
+  "GUERRA": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 13,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "GUÁPILES": {
+   "cuadros": 65,
+   "0": 0,
+   "1": 6,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "GUÍA/GUIAR": {
+   "cuadros": 104,
+   "0": 0,
+   "1": 7,
+   "2": 97,
+   "mismo_lado": 0
+  },
+  "HASTA": {
+   "cuadros": 87,
+   "0": 2,
+   "1": 22,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "HAY-DIFERENTES": {
+   "cuadros": 119,
+   "0": 1,
+   "1": 4,
+   "2": 114,
+   "mismo_lado": 1
+  },
+  "HELICÓPTERO": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 7,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "HERMANO": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 5,
+   "2": 94,
+   "mismo_lado": 0
+  },
+  "HIJA": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 0,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "HIJO": {
+   "cuadros": 34,
+   "0": 0,
+   "1": 4,
+   "2": 30,
+   "mismo_lado": 1
+  },
+  "HIJO-2": {
+   "cuadros": 32,
+   "0": 0,
+   "1": 6,
+   "2": 26,
+   "mismo_lado": 2
+  },
+  "HOJA (PLANTA)": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 12,
+   "2": 72,
+   "mismo_lado": 2
+  },
+  "HORARIO": {
+   "cuadros": 99,
+   "0": 2,
+   "1": 25,
+   "2": 72,
+   "mismo_lado": 4
+  },
+  "HOSPITAL": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 4,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "HOTEL": {
+   "cuadros": 81,
+   "0": 2,
+   "1": 12,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "HUELGA": {
+   "cuadros": 89,
+   "0": 2,
+   "1": 11,
+   "2": 76,
+   "mismo_lado": 0
+  },
+  "HUEVO": {
+   "cuadros": 89,
+   "0": 1,
+   "1": 10,
+   "2": 78,
+   "mismo_lado": 2
+  },
+  "HUNDIRSE/DECRECER": {
+   "cuadros": 98,
+   "0": 0,
+   "1": 11,
+   "2": 87,
+   "mismo_lado": 0
+  },
+  "IDENTIDAD": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 46,
+   "2": 39,
+   "mismo_lado": 4
+  },
+  "IDIOMA": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 20,
+   "2": 56,
+   "mismo_lado": 5
+  },
+  "IGNÓRELO!": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 19,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "IMAGEN": {
+   "cuadros": 110,
+   "0": 3,
+   "1": 13,
+   "2": 94,
+   "mismo_lado": 14
+  },
+  "IMAGINAR": {
+   "cuadros": 96,
+   "0": 8,
+   "1": 47,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "IMPORTANTE": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 19,
+   "2": 54,
+   "mismo_lado": 6
+  },
+  "IMPRIMIR": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 9,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "INDEPENDIZAR": {
+   "cuadros": 99,
+   "0": 2,
+   "1": 19,
+   "2": 78,
+   "mismo_lado": 4
+  },
+  "INFORMAR-2": {
+   "cuadros": 83,
+   "0": 23,
+   "1": 19,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "INGENIERO": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 26,
+   "2": 58,
+   "mismo_lado": 3
+  },
+  "INGLÉS": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 63,
+   "2": 7,
+   "mismo_lado": 4
+  },
+  "INOCENTE": {
+   "cuadros": 75,
+   "0": 3,
+   "1": 19,
+   "2": 53,
+   "mismo_lado": 4
+  },
+  "INSISTIR": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 6,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "INSTITUTO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "INTEGRAR/INTEGRACIÓN": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 13,
+   "2": 86,
+   "mismo_lado": 21
+  },
+  "INTERACTUAR": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 4,
+   "2": 89,
+   "mismo_lado": 0
+  },
+  "INTERESANTE": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "INTERNACIONAL": {
+   "cuadros": 104,
+   "0": 0,
+   "1": 13,
+   "2": 91,
+   "mismo_lado": 8
+  },
+  "INTERRUMPIR": {
+   "cuadros": 79,
+   "0": 5,
+   "1": 9,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "INTÉRPRETE": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 13
+  },
+  "INVESTIGAR": {
+   "cuadros": 96,
+   "0": 4,
+   "1": 16,
+   "2": 76,
+   "mismo_lado": 7
+  },
+  "INVIERNO": {
+   "cuadros": 87,
+   "0": 1,
+   "1": 18,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "IR-2": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 16,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "IRSE-2": {
+   "cuadros": 77,
+   "0": 2,
+   "1": 30,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "JACÓ": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 8,
+   "2": 95,
+   "mismo_lado": 2
+  },
+  "JAMAICA": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 42,
+   "2": 29,
+   "mismo_lado": 2
+  },
+  "JAPÓN": {
+   "cuadros": 67,
+   "0": 0,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "JESÚS": {
+   "cuadros": 81,
+   "0": 1,
+   "1": 5,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "JUGADOR": {
+   "cuadros": 55,
+   "0": 0,
+   "1": 5,
+   "2": 50,
+   "mismo_lado": 7
+  },
+  "JUGAR": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 2,
+   "2": 69,
+   "mismo_lado": 0
+  },
+  "JUNTOS/CON": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 8,
+   "2": 85,
+   "mismo_lado": 1
+  },
+  "KINDER": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 4,
+   "2": 75,
+   "mismo_lado": 4
+  },
+  "LA-SABANA": {
+   "cuadros": 90,
+   "0": 11,
+   "1": 16,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "LATINOAMÉRICA": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 9,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "LECCIÓN": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 2,
+   "2": 80,
+   "mismo_lado": 13
+  },
+  "LECHE": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 13,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "LECTURA": {
+   "cuadros": 88,
+   "0": 2,
+   "1": 23,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "LEER": {
+   "cuadros": 84,
+   "0": 1,
+   "1": 11,
+   "2": 72,
+   "mismo_lado": 3
+  },
+  "LENGUA": {
+   "cuadros": 65,
+   "0": 1,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "LESCO": {
+   "cuadros": 104,
+   "0": 0,
+   "1": 4,
+   "2": 100,
+   "mismo_lado": 0
+  },
+  "LETRA": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 16,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "LEY": {
+   "cuadros": 87,
+   "0": 1,
+   "1": 15,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "LEÓN": {
+   "cuadros": 77,
+   "0": 9,
+   "1": 25,
+   "2": 43,
+   "mismo_lado": 5
+  },
+  "LIBERIA": {
+   "cuadros": 90,
+   "0": 1,
+   "1": 24,
+   "2": 65,
+   "mismo_lado": 5
+  },
+  "LIBRE": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 16,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "LIBRO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 1,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "LIMITADO": {
+   "cuadros": 79,
+   "0": 16,
+   "1": 13,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "LISTA": {
+   "cuadros": 97,
+   "0": 1,
+   "1": 20,
+   "2": 76,
+   "mismo_lado": 1
+  },
+  "LISTO": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 16
+  },
+  "LLEVAR-TRAER": {
+   "cuadros": 63,
+   "0": 8,
+   "1": 17,
+   "2": 38,
+   "mismo_lado": 5
+  },
+  "LLORAR": {
+   "cuadros": 100,
+   "0": 0,
+   "1": 8,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "LLOVER": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "LUCHAR": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 29,
+   "2": 48,
+   "mismo_lado": 5
+  },
+  "LUGAR": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 10,
+   "2": 83,
+   "mismo_lado": 6
+  },
+  "LÍNEA": {
+   "cuadros": 119,
+   "0": 0,
+   "1": 5,
+   "2": 114,
+   "mismo_lado": 3
+  },
+  "MACARRONES": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 26,
+   "2": 61,
+   "mismo_lado": 4
+  },
+  "MADERA": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 28,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "MADRUGADA": {
+   "cuadros": 93,
+   "0": 1,
+   "1": 7,
+   "2": 85,
+   "mismo_lado": 0
+  },
+  "MANO": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 12,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "MANO-2": {
+   "cuadros": 56,
+   "0": 0,
+   "1": 14,
+   "2": 42,
+   "mismo_lado": 0
+  },
+  "MARCHA": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 3,
+   "2": 85,
+   "mismo_lado": 2
+  },
+  "MATAR": {
+   "cuadros": 99,
+   "0": 1,
+   "1": 62,
+   "2": 36,
+   "mismo_lado": 4
+  },
+  "MATEMÁTICAS": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 5,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "MAYORÍA": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 22,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "MEDIAS": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 3,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "MEDICINA": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 2,
+   "2": 77,
+   "mismo_lado": 2
+  },
+  "MENSAJE-DE-TEXTO": {
+   "cuadros": 74,
+   "0": 1,
+   "1": 4,
+   "2": 69,
+   "mismo_lado": 0
+  },
+  "MESA": {
+   "cuadros": 75,
+   "0": 7,
+   "1": 22,
+   "2": 46,
+   "mismo_lado": 16
+  },
+  "MIEDO": {
+   "cuadros": 115,
+   "0": 0,
+   "1": 1,
+   "2": 114,
+   "mismo_lado": 1
+  },
+  "MIL": {
+   "cuadros": 63,
+   "0": 1,
+   "1": 8,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "MILLÓN": {
+   "cuadros": 83,
+   "0": 4,
+   "1": 21,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "MINUTO": {
+   "cuadros": 78,
+   "0": 2,
+   "1": 23,
+   "2": 53,
+   "mismo_lado": 3
+  },
+  "MITAD/MEDIA": {
+   "cuadros": 75,
+   "0": 3,
+   "1": 13,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "MODELO": {
+   "cuadros": 93,
+   "0": 1,
+   "1": 11,
+   "2": 81,
+   "mismo_lado": 6
+  },
+  "MONJA": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 40,
+   "2": 36,
+   "mismo_lado": 5
+  },
+  "MONJE": {
+   "cuadros": 99,
+   "0": 1,
+   "1": 20,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "MORIR": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 1
+  },
+  "MOSTRAR": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 6,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "MOTIVAR": {
+   "cuadros": 102,
+   "0": 5,
+   "1": 29,
+   "2": 68,
+   "mismo_lado": 12
+  },
+  "MUCHO": {
+   "cuadros": 61,
+   "0": 1,
+   "1": 13,
+   "2": 47,
+   "mismo_lado": 7
+  },
+  "MUDARSE": {
+   "cuadros": 107,
+   "0": 0,
+   "1": 27,
+   "2": 80,
+   "mismo_lado": 3
+  },
+  "MULTIPLICAR": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 1,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "MUNDO": {
+   "cuadros": 90,
+   "0": 3,
+   "1": 22,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "MUNDO-2": {
+   "cuadros": 87,
+   "0": 1,
+   "1": 19,
+   "2": 67,
+   "mismo_lado": 7
+  },
+  "MUSULMÁN": {
+   "cuadros": 89,
+   "0": 8,
+   "1": 11,
+   "2": 70,
+   "mismo_lado": 6
+  },
+  "MÁS": {
+   "cuadros": 88,
+   "0": 5,
+   "1": 14,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "MÁS-ADELANTE": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 3,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "MÁS-SUMA": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 3
+  },
+  "MÍNIMO": {
+   "cuadros": 78,
+   "0": 14,
+   "1": 21,
+   "2": 43,
+   "mismo_lado": 6
+  },
+  "NACER": {
+   "cuadros": 43,
+   "0": 0,
+   "1": 9,
+   "2": 34,
+   "mismo_lado": 1
+  },
+  "NADA": {
+   "cuadros": 98,
+   "0": 2,
+   "1": 3,
+   "2": 93,
+   "mismo_lado": 0
+  },
+  "NADA-MÁS": {
+   "cuadros": 68,
+   "0": 1,
+   "1": 18,
+   "2": 49,
+   "mismo_lado": 4
+  },
+  "NADAR": {
+   "cuadros": 96,
+   "0": 3,
+   "1": 26,
+   "2": 67,
+   "mismo_lado": 9
+  },
+  "NARANJA": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 5,
+   "2": 82,
+   "mismo_lado": 7
+  },
+  "NERVIOSO": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 0,
+   "2": 103,
+   "mismo_lado": 0
+  },
+  "NICARAGUA": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 6,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "NICOYA": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 4,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "NO-HABER-CAMPO": {
+   "cuadros": 86,
+   "0": 1,
+   "1": 25,
+   "2": 60,
+   "mismo_lado": 4
+  },
+  "NO-HAY/NO-HABER": {
+   "cuadros": 76,
+   "0": 7,
+   "1": 20,
+   "2": 49,
+   "mismo_lado": 4
+  },
+  "NO-PODER": {
+   "cuadros": 62,
+   "0": 0,
+   "1": 7,
+   "2": 55,
+   "mismo_lado": 0
+  },
+  "NO-PODER-DORMIR": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 2,
+   "2": 80,
+   "mismo_lado": 4
+  },
+  "NO-SABER-QUÉ-HACER": {
+   "cuadros": 98,
+   "0": 0,
+   "1": 2,
+   "2": 96,
+   "mismo_lado": 0
+  },
+  "NOCHE": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 10,
+   "2": 56,
+   "mismo_lado": 2
+  },
+  "NOMBRE": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 2,
+   "2": 91,
+   "mismo_lado": 0
+  },
+  "NORMAL": {
+   "cuadros": 94,
+   "0": 2,
+   "1": 37,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "NOTA": {
+   "cuadros": 82,
+   "0": 9,
+   "1": 15,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "NOVIO": {
+   "cuadros": 71,
+   "0": 2,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "NUEVO": {
+   "cuadros": 68,
+   "0": 1,
+   "1": 23,
+   "2": 44,
+   "mismo_lado": 2
+  },
+  "NÚMERO": {
+   "cuadros": 88,
+   "0": 0,
+   "1": 7,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "OBJETIVO": {
+   "cuadros": 74,
+   "0": 4,
+   "1": 11,
+   "2": 59,
+   "mismo_lado": 5
+  },
+  "OCTUBRE-2": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 10,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "OCUPADO": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 0,
+   "2": 74,
+   "mismo_lado": 9
+  },
+  "ODIAR": {
+   "cuadros": 122,
+   "0": 25,
+   "1": 12,
+   "2": 85,
+   "mismo_lado": 1
+  },
+  "OFICINA": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 5,
+   "2": 86,
+   "mismo_lado": 2
+  },
+  "OJALÁ": {
+   "cuadros": 77,
+   "0": 1,
+   "1": 12,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "OSCURO": {
+   "cuadros": 86,
+   "0": 13,
+   "1": 38,
+   "2": 35,
+   "mismo_lado": 8
+  },
+  "OTRA-VEZ": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 23,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "PAGAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 9,
+   "2": 76,
+   "mismo_lado": 2
+  },
+  "PALABRA": {
+   "cuadros": 110,
+   "0": 0,
+   "1": 6,
+   "2": 104,
+   "mismo_lado": 0
+  },
+  "PALMARES": {
+   "cuadros": 78,
+   "0": 1,
+   "1": 6,
+   "2": 71,
+   "mismo_lado": 7
+  },
+  "PALMARES-2": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 8,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "PAN": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 13,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "PANAMÁ": {
+   "cuadros": 63,
+   "0": 0,
+   "1": 0,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "PAPAS": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 2,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "PARAGUAS": {
+   "cuadros": 88,
+   "0": 1,
+   "1": 19,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "PARAGUAY": {
+   "cuadros": 69,
+   "0": 1,
+   "1": 3,
+   "2": 65,
+   "mismo_lado": 23
+  },
+  "PARAÍSO": {
+   "cuadros": 88,
+   "0": 2,
+   "1": 20,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "PARQUE": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 4,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "PASEAR": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 1,
+   "2": 85,
+   "mismo_lado": 0
+  },
+  "PATINES": {
+   "cuadros": 119,
+   "0": 1,
+   "1": 10,
+   "2": 108,
+   "mismo_lado": 11
+  },
+  "PAZ": {
+   "cuadros": 54,
+   "0": 2,
+   "1": 18,
+   "2": 34,
+   "mismo_lado": 8
+  },
+  "PEDIR": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 20,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "PEOR": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 12,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "PEQUEÑO(ENTIDAD HORIZONTAL)": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 2,
+   "2": 83,
+   "mismo_lado": 18
+  },
+  "PEQUEÑO(ENTIDAD VERTICAL)": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 2,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "PERCIBIR": {
+   "cuadros": 89,
+   "0": 5,
+   "1": 26,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "PERDER": {
+   "cuadros": 95,
+   "0": 1,
+   "1": 10,
+   "2": 84,
+   "mismo_lado": 13
+  },
+  "PEREZ-ZELEDÓN": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 6,
+   "2": 83,
+   "mismo_lado": 6
+  },
+  "PERFECTO": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 11,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "PERIÓDICO": {
+   "cuadros": 72,
+   "0": 1,
+   "1": 15,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "PERMISO": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 11,
+   "2": 67,
+   "mismo_lado": 18
+  },
+  "PERSONA": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 7,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "PIES": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 2,
+   "2": 76,
+   "mismo_lado": 14
+  },
+  "PIRÁMIDE": {
+   "cuadros": 124,
+   "0": 12,
+   "1": 22,
+   "2": 90,
+   "mismo_lado": 23
+  },
+  "PLAYA": {
+   "cuadros": 83,
+   "0": 6,
+   "1": 21,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "PLAZA-DE-LA-CULTURA-1": {
+   "cuadros": 88,
+   "0": 1,
+   "1": 21,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "PLAZA-VIQUEZ": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 4,
+   "2": 99,
+   "mismo_lado": 4
+  },
+  "POCO-A-POCO": {
+   "cuadros": 109,
+   "0": 0,
+   "1": 2,
+   "2": 107,
+   "mismo_lado": 0
+  },
+  "PODER": {
+   "cuadros": 36,
+   "0": 3,
+   "1": 9,
+   "2": 24,
+   "mismo_lado": 1
+  },
+  "POLLITO": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 11,
+   "2": 85,
+   "mismo_lado": 1
+  },
+  "PONER": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 5,
+   "2": 68,
+   "mismo_lado": 6
+  },
+  "POR-ESO": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 31,
+   "2": 48,
+   "mismo_lado": 5
+  },
+  "POR-FAVOR": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 0,
+   "2": 89,
+   "mismo_lado": 0
+  },
+  "POSTERGAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 12,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "PRACTICAR": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 6,
+   "2": 75,
+   "mismo_lado": 3
+  },
+  "PREMIO": {
+   "cuadros": 97,
+   "0": 0,
+   "1": 8,
+   "2": 89,
+   "mismo_lado": 2
+  },
+  "PRESTAR": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 28,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "PRIMERA-VEZ": {
+   "cuadros": 92,
+   "0": 0,
+   "1": 0,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "PRIMO": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 5,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "PROBAR": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 6,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "PROBLEMA": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 2,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "PROFESOR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "PROFUNDO": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 10,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "PROMISMO": {
+   "cuadros": 76,
+   "0": 10,
+   "1": 56,
+   "2": 10,
+   "mismo_lado": 4
+  },
+  "PROPONER": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 30,
+   "2": 54,
+   "mismo_lado": 3
+  },
+  "PROVINCIA": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 11,
+   "2": 72,
+   "mismo_lado": 9
+  },
+  "PSICOLOGÍA": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 21,
+   "2": 51,
+   "mismo_lado": 14
+  },
+  "PUENTE": {
+   "cuadros": 93,
+   "0": 1,
+   "1": 5,
+   "2": 87,
+   "mismo_lado": 0
+  },
+  "PUERTO-RICO": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 6,
+   "2": 80,
+   "mismo_lado": 1
+  },
+  "PULPERÍA": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 2,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "PÁGINA": {
+   "cuadros": 82,
+   "0": 3,
+   "1": 22,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "PÁJARO": {
+   "cuadros": 107,
+   "0": 3,
+   "1": 17,
+   "2": 87,
+   "mismo_lado": 26
+  },
+  "QUE": {
+   "cuadros": 51,
+   "0": 0,
+   "1": 1,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "QUEDARSE": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 11,
+   "2": 49,
+   "mismo_lado": 0
+  },
+  "QUEQUE": {
+   "cuadros": 71,
+   "0": 1,
+   "1": 8,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "QUERER": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 3,
+   "2": 77,
+   "mismo_lado": 6
+  },
+  "QUIZ": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "QUÉ-HACER?": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 8,
+   "2": 77,
+   "mismo_lado": 14
+  },
+  "QUÍMICA": {
+   "cuadros": 74,
+   "0": 1,
+   "1": 22,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "RECONOCER": {
+   "cuadros": 103,
+   "0": 2,
+   "1": 11,
+   "2": 90,
+   "mismo_lado": 3
+  },
+  "RECORDAR": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 11,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "REDUCIRSE": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 8,
+   "2": 79,
+   "mismo_lado": 2
+  },
+  "REGAÑAR-DURO": {
+   "cuadros": 83,
+   "0": 3,
+   "1": 16,
+   "2": 64,
+   "mismo_lado": 13
+  },
+  "REGLA": {
+   "cuadros": 75,
+   "0": 1,
+   "1": 11,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "REINA": {
+   "cuadros": 115,
+   "0": 2,
+   "1": 20,
+   "2": 93,
+   "mismo_lado": 0
+  },
+  "RESOLVER": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 7,
+   "2": 68,
+   "mismo_lado": 11
+  },
+  "RESPONDER": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 8,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "RESPONSABLE": {
+   "cuadros": 102,
+   "0": 1,
+   "1": 10,
+   "2": 91,
+   "mismo_lado": 2
+  },
+  "RESTAR": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 23,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "RÁPIDO": {
+   "cuadros": 92,
+   "0": 18,
+   "1": 22,
+   "2": 52,
+   "mismo_lado": 7
+  },
+  "SALIR": {
+   "cuadros": 76,
+   "0": 0,
+   "1": 12,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "SAN-CARLOS": {
+   "cuadros": 78,
+   "0": 1,
+   "1": 21,
+   "2": 56,
+   "mismo_lado": 9
+  },
+  "SAN-JOSÉ": {
+   "cuadros": 81,
+   "0": 1,
+   "1": 28,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "SAN-PEDRO": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 4,
+   "2": 75,
+   "mismo_lado": 2
+  },
+  "SAN-RAMÓN": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 4,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "SANAR/SALUD": {
+   "cuadros": 71,
+   "0": 2,
+   "1": 1,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "SANTA-LUCÍA": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 3,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "SANTO-DOMINGO": {
+   "cuadros": 102,
+   "0": 0,
+   "1": 1,
+   "2": 101,
+   "mismo_lado": 0
+  },
+  "SEGURO": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 2,
+   "2": 84,
+   "mismo_lado": 0
+  },
+  "SEMBRAR": {
+   "cuadros": 107,
+   "0": 0,
+   "1": 27,
+   "2": 80,
+   "mismo_lado": 1
+  },
+  "SEMINARIO": {
+   "cuadros": 112,
+   "0": 6,
+   "1": 36,
+   "2": 70,
+   "mismo_lado": 5
+  },
+  "SENTARSE": {
+   "cuadros": 84,
+   "0": 0,
+   "1": 2,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "SER-IMPOSIBLE": {
+   "cuadros": 96,
+   "0": 5,
+   "1": 27,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "SERVIR": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 12,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "SETIEMBRE": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "SEÑA": {
+   "cuadros": 78,
+   "0": 0,
+   "1": 17,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "SEÑA-3": {
+   "cuadros": 95,
+   "0": 2,
+   "1": 28,
+   "2": 65,
+   "mismo_lado": 12
+  },
+  "SEÑA-4": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 38,
+   "2": 35,
+   "mismo_lado": 14
+  },
+  "SIGNIFICAR": {
+   "cuadros": 99,
+   "0": 0,
+   "1": 10,
+   "2": 89,
+   "mismo_lado": 1
+  },
+  "SILLA": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 9,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "SIMPLE": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 15,
+   "2": 54,
+   "mismo_lado": 5
+  },
+  "SITUACIÓN": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 11,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "SOBRE": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 0,
+   "2": 66,
+   "mismo_lado": 15
+  },
+  "SOBRINO": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 8,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "SODA": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 11,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "SOPA": {
+   "cuadros": 97,
+   "0": 0,
+   "1": 6,
+   "2": 91,
+   "mismo_lado": 1
+  },
+  "SORPRENDIDO": {
+   "cuadros": 122,
+   "0": 0,
+   "1": 8,
+   "2": 114,
+   "mismo_lado": 0
+  },
+  "SOSTÉN": {
+   "cuadros": 91,
+   "0": 0,
+   "1": 5,
+   "2": 86,
+   "mismo_lado": 0
+  },
+  "SUAVE": {
+   "cuadros": 67,
+   "0": 0,
+   "1": 2,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "SUBTÍTULOS": {
+   "cuadros": 91,
+   "0": 2,
+   "1": 11,
+   "2": 78,
+   "mismo_lado": 1
+  },
+  "SUCEDER/PASAR-ALGO": {
+   "cuadros": 66,
+   "0": 0,
+   "1": 7,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "SUERTE": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 11,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "SUMAR": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 13,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "SÍMBOLO": {
+   "cuadros": 85,
+   "0": 0,
+   "1": 5,
+   "2": 80,
+   "mismo_lado": 2
+  },
+  "TAL-VEZ": {
+   "cuadros": 97,
+   "0": 0,
+   "1": 13,
+   "2": 84,
+   "mismo_lado": 11
+  },
+  "TAMAL": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 27,
+   "2": 46,
+   "mismo_lado": 5
+  },
+  "TAMBIÉN": {
+   "cuadros": 70,
+   "0": 2,
+   "1": 23,
+   "2": 45,
+   "mismo_lado": 2
+  },
+  "TAREA": {
+   "cuadros": 92,
+   "0": 1,
+   "1": 13,
+   "2": 78,
+   "mismo_lado": 3
+  },
+  "TAXI": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 8,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "TEMA": {
+   "cuadros": 79,
+   "0": 20,
+   "1": 8,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "TEMBLAR": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 19,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "TENEDOR": {
+   "cuadros": 80,
+   "0": 2,
+   "1": 24,
+   "2": 54,
+   "mismo_lado": 3
+  },
+  "TENER-CULPA": {
+   "cuadros": 74,
+   "0": 0,
+   "1": 19,
+   "2": 55,
+   "mismo_lado": 4
+  },
+  "TERMINAR/ÚLTIMO": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 17,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "TERRIBLE": {
+   "cuadros": 71,
+   "0": 3,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "TIEMPO-2": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 11,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "TIERRA(MATERIAL)": {
+   "cuadros": 69,
+   "0": 0,
+   "1": 25,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "TIERRA(PLANETA)": {
+   "cuadros": 89,
+   "0": 1,
+   "1": 71,
+   "2": 17,
+   "mismo_lado": 2
+  },
+  "TOCAR": {
+   "cuadros": 70,
+   "0": 0,
+   "1": 2,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "TODA-LA-MAÑANA": {
+   "cuadros": 108,
+   "0": 17,
+   "1": 10,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "TODAVÍA-NO": {
+   "cuadros": 116,
+   "0": 1,
+   "1": 8,
+   "2": 107,
+   "mismo_lado": 4
+  },
+  "TODO": {
+   "cuadros": 91,
+   "0": 1,
+   "1": 9,
+   "2": 81,
+   "mismo_lado": 3
+  },
+  "TODO-EL-DÍA": {
+   "cuadros": 109,
+   "0": 1,
+   "1": 15,
+   "2": 93,
+   "mismo_lado": 5
+  },
+  "TORTUGA": {
+   "cuadros": 75,
+   "0": 0,
+   "1": 11,
+   "2": 64,
+   "mismo_lado": 1
+  },
+  "TRATAR": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 16,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "TRATAR-DE-COMUNICARSE": {
+   "cuadros": 79,
+   "0": 0,
+   "1": 8,
+   "2": 71,
+   "mismo_lado": 6
+  },
+  "TRATAR-DE-CONVERSAR": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 17,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "TURISMO": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 4
+  },
+  "TURRIALBA": {
+   "cuadros": 68,
+   "0": 0,
+   "1": 4,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "TÉ": {
+   "cuadros": 77,
+   "0": 0,
+   "1": 7,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "TÉ^FRIO": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 13,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "UNIVERSIDAD": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 21,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "USAR": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 6,
+   "2": 83,
+   "mismo_lado": 0
+  },
+  "VACA/TORO": {
+   "cuadros": 109,
+   "0": 2,
+   "1": 21,
+   "2": 86,
+   "mismo_lado": 4
+  },
+  "VACACIONES": {
+   "cuadros": 66,
+   "0": 2,
+   "1": 9,
+   "2": 55,
+   "mismo_lado": 1
+  },
+  "VACÍO": {
+   "cuadros": 77,
+   "0": 8,
+   "1": 10,
+   "2": 59,
+   "mismo_lado": 7
+  },
+  "VAPOR": {
+   "cuadros": 128,
+   "0": 1,
+   "1": 16,
+   "2": 111,
+   "mismo_lado": 8
+  },
+  "VEGETAL": {
+   "cuadros": 73,
+   "0": 2,
+   "1": 41,
+   "2": 30,
+   "mismo_lado": 4
+  },
+  "VENCER": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 9,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "VENDER": {
+   "cuadros": 80,
+   "0": 13,
+   "1": 14,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "VENTANA": {
+   "cuadros": 58,
+   "0": 0,
+   "1": 2,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "VERDE": {
+   "cuadros": 60,
+   "0": 0,
+   "1": 0,
+   "2": 60,
+   "mismo_lado": 9
+  },
+  "VEZ": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 13,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "VIDA": {
+   "cuadros": 58,
+   "0": 0,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "VIENTO": {
+   "cuadros": 107,
+   "0": 3,
+   "1": 12,
+   "2": 92,
+   "mismo_lado": 3
+  },
+  "VIOLAR-LA-LEY": {
+   "cuadros": 96,
+   "0": 0,
+   "1": 14,
+   "2": 82,
+   "mismo_lado": 1
+  },
+  "VOCABULARIO": {
+   "cuadros": 82,
+   "0": 2,
+   "1": 4,
+   "2": 76,
+   "mismo_lado": 0
+  },
+  "VOLCÁN": {
+   "cuadros": 103,
+   "0": 0,
+   "1": 8,
+   "2": 95,
+   "mismo_lado": 0
+  },
+  "WINDOWS": {
+   "cuadros": 78,
+   "0": 1,
+   "1": 21,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "YA": {
+   "cuadros": 86,
+   "0": 1,
+   "1": 2,
+   "2": 83,
+   "mismo_lado": 25
+  },
+  "YA-2": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 11,
+   "2": 61,
+   "mismo_lado": 9
+  },
+  "YUCA": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 26,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "ZACATE": {
+   "cuadros": 83,
+   "0": 0,
+   "1": 22,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "ZAPATO": {
+   "cuadros": 61,
+   "0": 0,
+   "1": 9,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "ZARCERO-2": {
+   "cuadros": 74,
+   "0": 1,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 3
+  }
+ }
+}
