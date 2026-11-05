@@ -125,12 +125,14 @@ Item {
             Item {
                 anchors.fill: parent
                 visible: Nav.camaraPausada
+                // Si la causa es la luz baja, el aviso lo dice; si no, es «no ve nada».
+                readonly property bool porLuz: !!motor && motor.nivelLuz === "baja"
                 Rectangle { anchors.fill: parent; color: Qt.rgba(10 / 255, 23 / 255, 48 / 255, 0.86) }
                 Column {
                     anchors.centerIn: parent
                     spacing: 6
-                    Texto { anchors.horizontalCenter: parent.horizontalCenter; text: "❚❚  En pausa"; color: "#ffffff"; peso: Font.DemiBold; tam: 18 }
-                    Texto { anchors.horizontalCenter: parent.horizontalCenter; text: "La cámara no ve nada. Lo escrito sigue aquí."; color: Qt.rgba(1, 1, 1, 0.85); tam: 13 }
+                    Texto { anchors.horizontalCenter: parent.horizontalCenter; text: parent.parent.porLuz ? "☀  Necesita más luz" : "❚❚  En pausa"; color: "#ffffff"; peso: Font.DemiBold; tam: 18 }
+                    Texto { anchors.horizontalCenter: parent.horizontalCenter; text: parent.parent.porLuz ? "Hay muy poca luz para ver tus manos. Lo escrito sigue aquí." : "La cámara no ve nada. Lo escrito sigue aquí."; color: Qt.rgba(1, 1, 1, 0.85); tam: 13 }
                 }
             }
         }
@@ -405,7 +407,7 @@ Item {
                 texto: Nav.camaraPausada ? "Reanudar" : "Pausar"
                 icono: Nav.camaraPausada ? "reproducir" : "pausar"
                 pastilla: true
-                onClic: Nav.camaraPausada = !Nav.camaraPausada
+                onClic: Nav.alternarPausa()
             }
             Boton {
                 id: bBorrar

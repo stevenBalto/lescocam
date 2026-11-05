@@ -14,7 +14,9 @@ Item {
     // false en los videos de referencia: muestran la ilustración, no la cámara del usuario
     property bool vivo: true
     // La cámara solo se abre mientras este componente se ve y no está en pausa
-    readonly property bool pideCamara: vivo && visible && !Nav.camaraPausada
+    // La cámara solo se suelta en pausa MANUAL. En la pausa automática (sin manos /
+    // sin luz) sigue prendida para poder detectar cuándo vuelve y reanudar sola.
+    readonly property bool pideCamara: vivo && visible && !(Nav.camaraPausada && Nav.pausaManual)
         && Window.window !== null && Window.window.visible
     readonly property bool hayVideo: vivo && !!motor && motor.hayVideo
     property bool _pedida: false
@@ -93,6 +95,35 @@ Item {
             spacing: 6
             Rectangle { width: 8; height: 8; radius: 4; color: camara.colorPunto; anchors.verticalCenter: parent.verticalCenter }
             Texto { text: camara.estado; color: "#ffffff"; tam: Tema.tamNota }
+        }
+    }
+
+    // Aviso del nivel de luz (solo cámara en vivo). «regular»: se está mejorando la
+    // imagen; «baja»: ni con la mejora se detecta, hay que pedir más luz. Siempre con texto.
+    Rectangle {
+        id: pastillaLuz
+        visible: camara.vivo && camara.hayVideo && !!motor && motor.nivelLuz !== "buena"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        height: filaLuz.implicitHeight + 10
+        width: filaLuz.implicitWidth + 19
+        radius: height / 2
+        color: Qt.rgba(11 / 255, 22 / 255, 48 / 255, 0.82)
+        Row {
+            id: filaLuz
+            x: 9
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 6
+            Rectangle {
+                width: 8; height: 8; radius: 4
+                anchors.verticalCenter: parent.verticalCenter
+                color: (!!motor && motor.nivelLuz === "baja") ? Tema.estadoEnVivo : Tema.estadoAviso
+            }
+            Texto {
+                text: (!!motor && motor.nivelLuz === "baja") ? "Necesito más luz" : "Poca luz · mejorando"
+                color: "#ffffff"; tam: Tema.tamNota
+            }
         }
     }
 }

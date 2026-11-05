@@ -334,7 +334,7 @@ Item {
                     icono: Nav.camaraPausada ? "reproducir" : "pausar"
                     pastilla: true
                     width: 108
-                    onClic: Nav.camaraPausada = !Nav.camaraPausada
+                    onClic: Nav.alternarPausa()
                 }
                 Boton {
                     icono: "borrar-palabra"; ladoIcono: 22

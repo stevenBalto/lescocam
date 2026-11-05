@@ -16,8 +16,18 @@ QtObject {
     // Variables del prototipo (colección «Prototipo» en Figma)
     property bool primerUso: true
     property bool camaraPausada: false
+    // La pausa puede ser manual (el usuario tocó «Pausar»: se apaga la cámara y queda
+    // hasta que la reanude) o automática (no hay manos / tapada / sin luz: la cámara
+    // sigue prendida y se reanuda sola al volver a ver una mano). Solo la manual suelta la cámara.
+    property bool pausaManual: false
     property bool burbujaVisible: true
     property bool destello: true
+
+    // Botón «Pausar/Reanudar» del panel: siempre es pausa manual.
+    function alternarPausa() {
+        if (camaraPausada) { camaraPausada = false; pausaManual = false }
+        else { camaraPausada = true; pausaManual = true }
+    }
 
     property bool modoDev: false     // --dev: muestra el chat de prueba y el «Facilitador»
 

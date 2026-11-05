@@ -96,3 +96,89 @@ def caja_munecas(pose_norm, ancho: int, alto: int, radio: float = 0.13):
     xs = [int(x * ancho) for x, _ in puntos]
     ys = [int(y * alto) for _, y in puntos]
     return (min(xs) - r, min(ys) - r, max(xs) + r, max(ys) + r)
+
+
+def caja_puntos(puntos_norm, ancho: int, alto: int, margen: float = 0.25):
+    """Caja (x0, y0, x1, y1) en píxeles que cubre unos landmarks (x, y normalizados),
+    con un margen alrededor. puntos_norm: iterable de (x, y[, z]). None si está vacío."""
+    xs, ys = [], []
+    for p in puntos_norm:
+        x, y = float(p[0]), float(p[1])
+        if np.isfinite(x) and np.isfinite(y):
+            xs.append(x)
+            ys.append(y)
+    if not xs:
+        return None
+    ancho_caja = (max(xs) - min(xs)) or 0.1
+    alto_caja = (max(ys) - min(ys)) or 0.1
+    mx, my = margen * ancho_caja, margen * alto_caja
+    return (int((min(xs) - mx) * ancho), int((min(ys) - my) * alto),
+            int((max(xs) + mx) * ancho), int((max(ys) + my) * alto))
+
+
+# ---------------------------------------------------------------- medidor de luz (fase 3)
+
+# El nivel de luz depende SOLO del brillo, medido en la zona central-baja del cuadro
+# (donde están el torso y las manos; se evita el techo/la ventana de arriba). NO se
+# ata a si hay o no manos: así el nivel es continuo y se recupera solo cuando vuelve
+# la luz, sin intervención manual.
+#
+# Umbrales (luma 0-255) con HISTÉRESIS: el umbral para empeorar de nivel y el de
+# mejorar son distintos, para que no parpadee en el límite. Calibrados con el banco
+# de luz (brillo en la mano: base ~68, poca_luz_1 ~30, poca_luz_2 ~18, poca_luz_3 ~11);
+# se afinan con cámara real.
+LUZ_REGULAR_ENTRA = 35.0   # buena  -> regular (empieza a mejorar la imagen)
+LUZ_REGULAR_SALE = 45.0   # regular -> buena
+LUZ_BAJA_ENTRA = 16.0     # regular -> baja (pedir más luz)
+LUZ_BAJA_SALE = 23.0      # baja    -> regular
+MUY_OSCURO = 18.0         # por debajo de esto, aclarar con gamma; si no, con CLAHE
+
+NIVELES = ("buena", "regular", "baja")
+
+# Zona central-baja del cuadro donde se mide el brillo (fracciones del ancho/alto).
+_ZONA = (0.25, 0.30, 0.75, 0.95)
+
+
+def brillo_central(frame) -> float:
+    """Luma media (0-255) de la zona central-baja del cuadro (torso y manos)."""
+    alto, ancho = frame.shape[:2]
+    fx0, fy0, fx1, fy1 = _ZONA
+    return brillo(frame, (int(fx0 * ancho), int(fy0 * alto), int(fx1 * ancho), int(fy1 * alto)))
+
+
+class MedidorLuz:
+    """Decide, cuadro a cuadro y solo por el brillo, el nivel de luz y si mejorar.
+
+    Uso en el bucle de cámara:
+        frame2, nivel, pedir, estrategia = medidor.antes_de_detectar(frame)
+
+    - "buena": luz suficiente; no se toca la imagen.
+    - "regular": poca luz; se aclara la imagen automáticamente (y se sigue detectando).
+    - "baja": muy poca luz; se pide más luz.
+    El nivel es continuo: sube y baja con la luz, con histéresis para no parpadear, y
+    se recupera solo (no depende de que haya manos).
+    """
+
+    def __init__(self):
+        self._nivel = "buena"
+
+    def _clasificar(self, b: float) -> str:
+        nivel = self._nivel
+        if nivel == "baja":
+            if b > LUZ_BAJA_SALE:
+                nivel = "regular"
+        elif b < LUZ_BAJA_ENTRA:
+            nivel = "baja"
+        if nivel == "buena" and b < LUZ_REGULAR_ENTRA:
+            nivel = "regular"
+        elif nivel == "regular" and b > LUZ_REGULAR_SALE:
+            nivel = "buena"
+        return nivel
+
+    def antes_de_detectar(self, frame):
+        b = brillo_central(frame)
+        self._nivel = nivel = self._clasificar(b)
+        aplicar = nivel != "buena"
+        estrategia = "denoise_gamma" if b < MUY_OSCURO else "denoise_clahe"
+        salida = mejorar(frame, estrategia) if aplicar else frame
+        return salida, nivel, nivel == "baja", (estrategia if aplicar else "ninguna")

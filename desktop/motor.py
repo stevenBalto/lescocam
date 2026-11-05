@@ -64,6 +64,8 @@ class Motor(QObject):
     letraReconocida = Signal(str)
     palabraReconocida = Signal(str)
     sinManos = Signal()
+    nivelLuzCambio = Signal()
+    primerUsoVistoCambio = Signal()
     ajusteCambio = Signal()
     # Órdenes al hilo de la voz (se entregan en cola, sin bloquear la interfaz)
     _iniciar_voz = Signal(str, float)
@@ -84,6 +86,7 @@ class Motor(QObject):
         self._n = 0
         self._hay_video = False
         self._mano = False
+        self._nivel_luz = "buena"   # "buena" | "regular" | "baja" (ver core/mejora_luz.MedidorLuz)
         self._error = ""
         self._hilo_voz = None
         self._locutor = None
@@ -95,6 +98,9 @@ class Motor(QObject):
         self._puntos = self._leer("puntosMano", True)
         self._pausar = self._leer("pausarSinManos", True)
         self._camara = self._leer("camara", "")
+        # El asistente de primer uso se muestra una sola vez; se puede volver a ver
+        # desde Ajustes › Acerca de. Se guarda en el equipo para no repetirlo en cada arranque.
+        self._primer_uso_visto = self._leer("primerUsoVisto", False)
 
     # --- Ajustes guardados ----------------------------------------------------
     def _leer(self, clave, defecto):
@@ -146,6 +152,12 @@ class Motor(QObject):
     def hayMano(self):
         return self._mano
 
+    @Property(str, notify=nivelLuzCambio)
+    def nivelLuz(self):
+        """Luz en la zona de la mano: "buena" (no se toca), "regular" (se mejora la
+        imagen automáticamente) o "baja" (ni con la mejora se detecta: pedir más luz)."""
+        return self._nivel_luz
+
     @Property(str, notify=errorCambio)
     def errorCamara(self):
         return self._error
@@ -153,6 +165,18 @@ class Motor(QObject):
     @Property(bool, notify=hablandoCambio)
     def hablando(self):
         return self._hablando
+
+    @Property(bool, notify=primerUsoVistoCambio)
+    def primerUsoVisto(self):
+        return self._primer_uso_visto
+
+    @Slot()
+    def marcarPrimerUsoVisto(self):
+        """Lo llama la interfaz al terminar el primer uso: no se vuelve a mostrar solo."""
+        if not self._primer_uso_visto:
+            self._primer_uso_visto = True
+            self._guardar("primerUsoVisto", True)
+            self.primerUsoVistoCambio.emit()
 
     def ultimo_frame(self) -> QImage:
         with self._candado:
@@ -300,6 +324,7 @@ class Motor(QObject):
 
             import cv2
             from core import camara
+            from core.mejora_luz import MedidorLuz
             from core.reconocedor import Reconocedor
             cap = camara.abrir_camara(indice)
             palabras = None
@@ -320,6 +345,7 @@ class Motor(QObject):
             reconocedor = None
         ultima_mano = time.monotonic()
         avisado = False
+        medidor = MedidorLuz()
         try:
             while not self._parar.is_set():
                 # Siempre se detecta con la imagen espejada: así «izquierda/derecha» es la mano real.
@@ -328,6 +354,10 @@ class Motor(QObject):
                     self._publicar_error("La cámara dejó de responder")
                     break
                 ahora = time.monotonic()
+                # Mejora de luz automática según el brillo: en poca luz aclara la imagen
+                # ANTES de detectar (y es la que se muestra). En luz buena no toca nada.
+                # El nivel es continuo y se recupera solo. Ver core/mejora_luz.MedidorLuz.
+                frame, nivel_luz, _pedir_luz, _ = medidor.antes_de_detectar(frame)
                 if palabras is not None:
                     cuerpo = detector.procesar(frame, ahora)
                     palabra = palabras.actualizar(cuerpo, ahora)
@@ -359,6 +389,7 @@ class Motor(QObject):
                     self._n += 1
                     n = self._n
                 self._cambiar_estado(bool(manos))
+                self._cambiar_nivel_luz(nivel_luz)
                 self.frameNuevo.emit(n)
         finally:
             cap.release()
@@ -374,6 +405,11 @@ class Motor(QObject):
         if mano != self._mano:
             self._mano = mano
             self.manoCambio.emit()
+
+    def _cambiar_nivel_luz(self, nivel: str):
+        if nivel != self._nivel_luz:
+            self._nivel_luz = nivel
+            self.nivelLuzCambio.emit()
 
     def _publicar_error(self, texto: str):
         if texto != self._error:
