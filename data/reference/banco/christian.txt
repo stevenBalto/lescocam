@@ -1,0 +1,50 @@
+# Banco de prueba de Christian (problema 1, fase 1): 30 palabras. Incluye las 12 del NÚCLEO común.
+# Cada persona imita el video de CENAREC de estas palabras con scripts/grabar_banco.py.
+# Las tomas son SOLO de prueba: nunca plantillas ni datos de entrenamiento.
+# Mismo formato que palabras_iniciales.txt (etiqueta tal como en el catálogo de CENAREC).
+
+# Saludos y cortesía
+HOLA
+GRACIAS
+POR-FAVOR
+BUENO
+SÍ
+NO
+
+# Familia
+MAMÁ
+PAPÁ
+HERMANO
+ABUELO
+
+# Personas
+MUJER
+NIÑO
+SORDO
+DOCTOR
+
+# Días y tiempo
+LUNES
+HOY
+AHORA
+AYER
+
+# Colores
+ROJO
+AZUL
+
+# Comida
+COMER
+LECHE
+CAFÉ (BEBIDA)
+
+# Lugares
+CASA
+ESCUELA
+BAÑO
+
+# Verbos
+QUERER
+AYUDAR
+ESTUDIAR
+DORMIR

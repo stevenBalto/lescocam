@@ -1,0 +1,40 @@
+# Banco de prueba de Steven (problema 1, fase 1): 30 palabras en 3 tandas de 10.
+# Cada tanda = 4 palabras del NÚCLEO común (las graban los 4) + 6 propias.
+# Mismo formato que palabras_iniciales.txt. Las tomas son SOLO de prueba: nunca plantillas ni entrenamiento.
+# Palabra de reserva del equipo (por si falla un video): LESCO.
+
+# Tanda 1
+VERDE
+HOLA
+NOMBRE
+GRACIAS
+AÑO
+JUEVES
+SÍ
+CUÁNTO
+NO
+ENTENDER
+
+# Tanda 2
+PAN
+MAMÁ
+BEBÉ
+NIÑO
+AMARILLO
+SÁBADO
+HOY
+QUÉ-PASAR
+COMER
+IR
+
+# Tanda 3
+HIJA
+POR-FAVOR
+CÓMO
+CASA
+FRUTA
+COSTA-RICA
+QUERER
+MAL
+AYUDAR
+TRABAJAR

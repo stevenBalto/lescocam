@@ -1,0 +1,40 @@
+# Banco de prueba de Johan (problema 1, fase 1): 30 palabras en 3 tandas de 10.
+# Cada tanda = 4 palabras del NÚCLEO común (las graban los 4) + 6 propias.
+# Mismo formato que palabras_iniciales.txt. Las tomas son SOLO de prueba: nunca plantillas ni entrenamiento.
+# Palabra de reserva del equipo (por si falla un video): LESCO.
+
+# Tanda 1
+HUEVO
+HOLA
+HOSPITAL
+GRACIAS
+NOCHE
+MIÉRCOLES
+SÍ
+QUIÉN
+NO
+HABLAR
+
+# Tanda 2
+FAMILIA
+MAMÁ
+PROFESOR
+NIÑO
+NEGRO
+TÍO
+HOY
+ESTAR-BIEN
+COMER
+SABER
+
+# Tanda 3
+PRIMO
+POR-FAVOR
+PERMISO
+CASA
+DOMINGO
+CUANDO
+QUERER
+SEMANA
+AYUDAR
+VER
