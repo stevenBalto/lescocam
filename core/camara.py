@@ -63,7 +63,7 @@ class Detector:
 
     def __init__(self, confianza_deteccion: float = 0.6, confianza_seguimiento: float = 0.5):
         opciones = vision.HandLandmarkerOptions(
-            base_options=BaseOptions(model_asset_path=str(asegurar_modelo())),
+            base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
             running_mode=vision.RunningMode.IMAGE,
             num_hands=1,
             min_hand_detection_confidence=confianza_deteccion,

@@ -64,12 +64,12 @@ class DetectorCuerpo:
     def __init__(self, confianza: float = 0.5):
         from mediapipe.tasks.python import BaseOptions, vision
         self._manos = vision.HandLandmarker.create_from_options(vision.HandLandmarkerOptions(
-            base_options=BaseOptions(model_asset_path=str(asegurar_modelo())),
+            base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
             running_mode=vision.RunningMode.VIDEO, num_hands=2,
             min_hand_detection_confidence=confianza, min_hand_presence_confidence=confianza,
             min_tracking_confidence=confianza))
         self._pose = vision.PoseLandmarker.create_from_options(vision.PoseLandmarkerOptions(
-            base_options=BaseOptions(model_asset_path=str(asegurar_modelo_pose())),
+            base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo_pose()).read_bytes()),
             running_mode=vision.RunningMode.VIDEO, num_poses=1))
         self._ultimo_ms = -1
 

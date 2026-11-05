@@ -294,7 +294,7 @@ def extraer(ruta_video: Path, carpeta: Path, destino: Path) -> None:
     from scripts.importar_video import CENTRO, CON_MOVIMIENTO, ORDEN, RECORTE_MANO, buscar_tramos
 
     opciones = vision.HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path=str(asegurar_modelo())),
+        base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
         running_mode=vision.RunningMode.IMAGE, num_hands=1,
         min_hand_detection_confidence=0.3, min_hand_presence_confidence=0.3)
     detector = vision.HandLandmarker.create_from_options(opciones)
