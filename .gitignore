@@ -23,3 +23,5 @@ data/reference/*.bak
 # Flutter
 mobile/build/
 mobile/.dart_tool/
+
+# data/banco/ SÍ se versiona: ~100 KB por toma (el límite del hook es 5 MB por archivo). Ver core/banco.py

@@ -19,8 +19,9 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
 ## Fases
 
 - [ ] **Fase 1 — Banco de prueba**
-  Los 4 graban ~30 palabras × 2 tomas cada uno, imitando el video del CENAREC, con distinta luz y distancia. Christian coordina. Se guardan como tomas `webcam:<persona>` (ubicación por definir en esta fase; no se versiona lo que pase de 5 MB).
-  **Hecho cuando:** el banco existe y se midió el motor actual (top-1, top-3, aceptaciones erróneas y resultado por persona). Ese es el punto de partida.
+  Cada uno graba **30 palabras × 2 tomas** imitando el video del CENAREC (`scripts/grabar_banco.py`), con su cámara y variando luz, distancia y ángulo por tandas. Reparto de las 85 palabras iniciales: **12 del núcleo común** (las graban los 4, para comparar firmantes con las mismas palabras) + **18 propias** por persona; LESCO queda de reserva. Listas en `data/reference/banco/<nombre>.txt`. Las tomas (landmarks, no video) van en `data/banco/<persona>/` y se versionan (~100 KB cada una). Christian coordina; Steven, Reyman y Johan arrancan con «Vengo de parte de Christian» (skill `vengo-de-parte-de-christian`) y al terminar suben sus tomas y su registro `hiloEquipo/banco/<persona>.md`. Estado: `.venv/Scripts/python -m scripts.registrar_banco --estado`.
+  **Hecho cuando:** el banco existe (las 4 personas completas) y se midió el motor actual (top-1, top-3, aceptaciones erróneas y resultado por persona y por cámara). Ese es el punto de partida.
+  **Avance:** Christian completo (2026-11-05, iPhone 13): top-1 16.7 %, top-3 25.0 %, aceptación errónea 0 %. Faltan Steven, Reyman y Johan. No se tacha hasta tener las 4.
 
 - [ ] **Fase 2 — Aumentación en landmarks**
   Aplicar las variaciones de arriba a las 2 plantillas de cada palabra.
