@@ -30,6 +30,8 @@ SEGUNDOS_SIN_MANOS = 3
 MODO_LETRAS = "letras"
 MODO_PALABRAS = "palabras"
 MODOS = (MODO_LETRAS, MODO_PALABRAS)
+# Mano que lee el modo letras (core/camara.MANOS): "cualquiera", "derecha" o "izquierda".
+MANOS_DOMINANTES = ("cualquiera", "derecha", "izquierda")
 
 
 def texto_palabra(etiqueta: str) -> str:
@@ -117,6 +119,8 @@ class Motor(QObject):
         self._primer_uso_visto = self._leer("primerUsoVisto", False)
         modo = os.environ.get("LESCOCAM_MODO") or self._leer("modo", MODO_LETRAS)
         self._modo = modo if modo in MODOS else MODO_LETRAS
+        mano = self._leer("manoDominante", "cualquiera")
+        self._mano_dominante = mano if mano in MANOS_DOMINANTES else "cualquiera"
 
     # --- Ajustes guardados ----------------------------------------------------
     def _leer(self, clave, defecto):
@@ -169,6 +173,19 @@ class Motor(QObject):
             self._modo = nombre
             self._guardar("modo", nombre)
             if self._hilo is not None:   # la cámara estaba abierta: se reabre con el otro detector
+                self.detener_camara()
+                self._arrancar()
+
+    @Property(str, notify=ajusteCambio)
+    def manoDominante(self):
+        return self._mano_dominante
+
+    @Slot(str)
+    def elegirManoDominante(self, nombre):
+        if nombre in MANOS_DOMINANTES and nombre != self._mano_dominante:
+            self._mano_dominante = nombre
+            self._guardar("manoDominante", nombre)
+            if self._hilo is not None and self._modo == MODO_LETRAS:   # se reabre con la mano nueva
                 self.detener_camara()
                 self._arrancar()
 
@@ -377,7 +394,7 @@ class Motor(QObject):
                 detector = DetectorCuerpo(recorte=True)   # busca de cerca la mano que falte (problema 3)
                 palabras = ReconocedorPalabras.desde_db()
             else:
-                detector = camara.Detector()
+                detector = camara.Detector(mano=self._mano_dominante)
         except Exception as e:  # sin cámara, permiso denegado o falta de librerías
             self._publicar_error(f"No se pudo abrir la cámara: {e}")
             return

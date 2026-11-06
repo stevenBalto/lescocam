@@ -66,3 +66,12 @@ def test_variable_de_entorno_fuerza_el_modo(qapp, monkeypatch):
 ])
 def test_texto_palabra(etiqueta, texto):
     assert texto_palabra(etiqueta) == texto
+
+
+def test_mano_dominante(qapp):
+    motor = Motor(camara_permitida=False)
+    assert motor.manoDominante == "cualquiera"
+    motor.elegirManoDominante("izquierda")
+    assert motor.manoDominante == "izquierda"
+    motor.elegirManoDominante("las dos")
+    assert motor.manoDominante == "izquierda"

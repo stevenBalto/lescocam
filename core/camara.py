@@ -58,14 +58,27 @@ def leer_espejado(cap: cv2.VideoCapture):
     return cv2.flip(frame, 1)
 
 
-class Detector:
-    """Detecta una mano por frame y devuelve puntos + vector normalizado."""
+MANOS = {"cualquiera": None, "derecha": "Right", "izquierda": "Left"}
 
-    def __init__(self, confianza_deteccion: float = 0.6, confianza_seguimiento: float = 0.5):
+
+class Detector:
+    """Detecta una mano por frame y devuelve puntos + vector normalizado.
+
+    mano: "cualquiera" (la primera que encuentre, como siempre), "derecha" o
+    "izquierda" (la DOMINANTE para deletrear: busca las dos y devuelve solo esa;
+    la otra se ignora aunque esté a la vista. Sirve para zurdos y para que la
+    mano que descansa no confunda).
+    """
+
+    def __init__(self, confianza_deteccion: float = 0.6, confianza_seguimiento: float = 0.5,
+                 mano: str = "cualquiera"):
+        if mano not in MANOS:
+            raise ValueError(f"mano: {mano!r} (opciones: {', '.join(MANOS)})")
+        self._lado = MANOS[mano]
         opciones = vision.HandLandmarkerOptions(
             base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
             running_mode=vision.RunningMode.IMAGE,
-            num_hands=1,
+            num_hands=1 if self._lado is None else 2,
             min_hand_detection_confidence=confianza_deteccion,
             min_hand_presence_confidence=confianza_deteccion,
             min_tracking_confidence=confianza_seguimiento,
@@ -84,8 +97,11 @@ class Detector:
         resultado = self._detector.detect(imagen)
         if not resultado.hand_landmarks:
             return None
-        puntos = resultado.hand_landmarks[0]
-        lado = resultado.handedness[0][0].category_name
+        elegida = elegir_mano([(pts, h[0].category_name) for pts, h in
+                               zip(resultado.hand_landmarks, resultado.handedness)], getattr(self, "_lado", None))
+        if elegida is None:
+            return None
+        puntos, lado = elegida
         try:
             vector = normalize_landmarks(puntos, lado, frame=(ancho, alto))
         except ValueError:
@@ -94,6 +110,26 @@ class Detector:
 
     def cerrar(self) -> None:
         self._detector.close()
+
+
+def elegir_mano(manos: list, lado: Optional[str]):
+    """(puntos, lado) de la mano a leer, o None. manos: [(puntos, "Left"/"Right")] de MediaPipe.
+
+    lado None: la primera. "Right"/"Left": la de ese lado; si MediaPipe marcó las
+    dos igual (pasa con las manos juntas), la que está de ese lado de la imagen
+    (espejada: la derecha de la persona queda a la derecha).
+    """
+    if not manos:
+        return None
+    if lado is None:
+        return manos[0]
+    del_lado = [m for m in manos if m[1] == lado]
+    if len(del_lado) == 1:
+        return del_lado[0]
+    if not del_lado:
+        return None   # solo se ve la otra mano: no se lee
+    x = lambda m: sum(p.x for p in m[0]) / len(m[0])
+    return max(del_lado, key=x) if lado == "Right" else min(del_lado, key=x)
 
 
 # Colores por dedo (BGR) como en el prototipo: pulgar, índice, medio, anular, meñique.

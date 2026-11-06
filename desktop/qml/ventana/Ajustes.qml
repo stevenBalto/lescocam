@@ -242,6 +242,20 @@ MarcoVentana {
             }
             Fila {
                 visible: vista.seccion.codigo === "15b"
+                titulo: "Mano para deletrear"
+                detalle: "Con «Derecha» o «Izquierda» solo se lee esa mano y la otra se ignora (útil para zurdos)."
+                anchoControl: filaManos.width
+                Row {
+                    id: filaManos
+                    spacing: 8
+                    Repeater {
+                        model: [["cualquiera", "Cualquiera"], ["derecha", "Derecha"], ["izquierda", "Izquierda"]]
+                        Opcion { texto: modelData[1]; activo: motor.manoDominante === modelData[0]; onElegir: motor.elegirManoDominante(modelData[0]) }
+                    }
+                }
+            }
+            Fila {
+                visible: vista.seccion.codigo === "15b"
                 titulo: "Reconocer palabras completas"
                 detalle: "Experimental. Usa las dos manos y el cuerpo. Empiece y termine cada seña con los brazos abajo. Apagado: deletreo letra por letra."
                 anchoControl: 44
