@@ -19,7 +19,7 @@ Cuando los 4 terminen, se mide todo junto en el **banco de prueba**: personas qu
 
 ## Dependencias entre problemas
 
-- **1 y 3:** comparten el formato de landmarks v1 (congelado). Cambiarlo obliga a re-extraer.
+- **1 y 3:** comparten el formato de landmarks v1 (congelado). Cambiarlo obliga a re-extraer. **Desde 2026-11-05 el problema 3 usa `DetectorCuerpo(recorte=True)`** (mismo formato, menos huecos de una mano): toda extracción nueva para entrenar tiene que hacerse con recorte. Ver el aviso en [`README.md`](README.md#️-aviso-del-problema-3-para-el-problema-1-christian--detector-con-recorte-2026-11-05).
 - **2 y 1:** las palabras nuevas que consiga Johan se agregan después como plantillas; no bloquea a nadie.
 - **4:** es independiente. Afecta la cámara en vivo, no el entrenamiento.
 - **2 y 3:** el respaldo por deletreo se conecta al modo palabras que Steven deja en la app.

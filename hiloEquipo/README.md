@@ -47,6 +47,18 @@ El problema 1 entrena con landmarks extraídos hoy, y el problema 3 puede cambia
 
 Si alguien necesita cambiarlo (otro detector, otros puntos), **avisa a Christian antes**, porque obliga a re-extraer.
 
+### ⚠️ Aviso del problema 3 para el problema 1 (Christian) — detector con recorte (2026-11-05)
+
+**Leer antes de extraer landmarks o entrenar** (problema 1, fases 2 a 5).
+
+- **Qué cambió:** `DetectorCuerpo(recorte=True)` (`core/cuerpo.py`, función `buscar_en_recortes`). Si en un cuadro falta una mano, se la busca otra vez en un recorte alrededor de la muñeca de la pose (no se busca si ese brazo está en reposo). En las 598 señas bimanuales de CENAREC los cuadros con ambas manos suben de **83,1 % a 93,5 %**. Detalle y medidas: `problema-3-steven-baltodano.md`.
+- **El formato v1 NO cambió:** mismas 2 manos + pose, mismos campos (`core/cuerpo.a_arrays`). El código de entrenamiento no se rompe. Lo que cambian son los **valores**: hay muchos menos huecos de una mano.
+- **La app ya usa el recorte** en modo palabras (`desktop/motor.py`, `scripts/demo_palabras.py`). Por eso, **para que entrenamiento y cámara vean lo mismo, toda extracción nueva tiene que hacerse con `DetectorCuerpo(recorte=True)`**, también la de ASL Citizen (fase 3 del problema 1). Con `DetectorCuerpo()` sin parámetros sale lo de antes, con huecos.
+- **Extracciones existentes** (en la laptop de Steven; `data/dictionary/` no va a git): `data/dictionary/cenarec/extraccion/base/` (los 1072 videos) es la de **antes, sin recorte**; no se tocó. `extraccion/det_recorte/` tiene solo las 598 bimanuales con una versión anterior del recorte (sin el ajuste de reposo): sirve para medir, no para entrenar. `scripts/extraer_cenarec.py` todavía usa `DetectorCuerpo()` sin recorte.
+- **Aumentación (fase 2 del problema 1):** la "pérdida de cuadros de una mano" debería parecerse a lo que queda con recorte (~6 % de cuadros con una sola mano en las bimanuales), no al 17 % de antes.
+- **Descriptor de palabras:** si se usan las plantillas de `senas.db`, el descriptor pasó a la **versión 2** (83 columnas: + posición de cada mano respecto de la cara). Formato en `core/senas_db.py`.
+- **Cuándo re-extraer CENAREC:** decisión del equipo: **una sola vez, cuando Johan (problema 2) haya agregado todos los videos de palabras nuevos**, para no re-extraer ni regenerar cada vez. Esa re-extracción la puede correr Steven (~30 s por video); pendiente de acordar con Christian.
+
 ## Cierre del equipo
 
 Cuando los 4 problemas terminen, se mide todo junto en el banco de prueba (ver `PROBLEMAS.md`). Si no se llega a la meta, se itera.
