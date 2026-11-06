@@ -8,9 +8,9 @@ descriptores en vivo (core/palabras.py). Formato (FORMATO_DB = 1):
         version_descriptor  core.palabras.VERSION_DESCRIPTOR
         version_vector      core.landmarks.VERSION_VECTOR (rasgos de la forma)
         muestras            filas de cada plantilla (MUESTRAS)
-        columnas            columnas de cada fila (COLUMNAS = 79)
+        columnas            columnas de cada fila (COLUMNAS = 83)
         escala              los datos son int16 / escala (4096: rango +-8, paso 0.00024)
-        pesos               JSON, lista de 79 números: se multiplica cada columna al cargar
+        pesos               JSON, lista de 83 números: se multiplica cada columna al cargar
         constantes          JSON con las constantes de segmentación y comparación
         fuente              de dónde salen las plantillas
         creado              fecha ISO
@@ -27,8 +27,11 @@ descriptores en vivo (core/palabras.py). Formato (FORMATO_DB = 1):
     0-1    posición de la muñeca dominante: (muñeca - centro de hombros) / ancho de hombros
     2-32   31 rasgos de la forma de la mano dominante (core/rasgos.py)
     33-38  ejes "y" y "z" del marco de la palma dominante (core/rasgos.marco_palma)
-    39-77  lo mismo para la mano NO dominante (todo 0 si no participa)
-    78     1 si la no dominante participa, 0 si no
+    39-40  posición de la muñeca dominante respecto de la cara: c = (muñeca - nariz) / ancho de hombros,
+           x max(0, 1 - |c| / CARA_RADIO) (solo cerca de la cara; ver core/palabras.py).
+           Desde version_descriptor 2
+    41-81  lo mismo para la mano NO dominante (todo 0 si no participa)
+    82     1 si la no dominante participa, 0 si no
 
 Para comparar: descriptor = datos / escala * pesos (columna a columna) y DTW
 (core/palabras.dtw_lote). Es el mismo número que da core.palabras.descriptor().
@@ -86,16 +89,15 @@ class VersionIncompatible(ValueError):
 
 def pesos_columnas(pesos=None) -> np.ndarray:
     """(COLUMNAS,) con el peso de cada columna (los de core/palabras.py si pesos es None)."""
-    pp, pf, pe, pn, pa = pesos if pesos is not None else (P.PESO_POSICION, P.PESO_FORMA, P.PESO_EJES,
-                                                         P.PESO_NO_DOMINANTE, P.PESO_ACTIVA)
-    bloque = np.concatenate([np.full(2, pp), np.full(P.NUM_RASGOS, pf), np.full(6, pe)])
+    pp, pf, pe, pn, pa, pc = P.pesos_completos(pesos)
+    bloque = np.concatenate([np.full(2, pp), np.full(P.NUM_RASGOS, pf), np.full(6, pe), np.full(2, pc)])
     return np.concatenate([bloque, bloque * pn, [pa]])
 
 
 def constantes() -> dict:
     nombres = ("Y_REPOSO", "T_ARRANQUE", "T_FIN", "PREVIOS", "DURACION_MIN", "DURACION_MAX", "HUECO_MAX",
                "VISIBILIDAD_MIN", "W_MIN", "MUESTRAS", "FRACCION_ACTIVA", "BANDA", "DISTANCIA_MAX", "UMBRAL",
-               "MARGEN")
+               "MARGEN", "CARA_MODO", "CARA_RADIO", "NARIZ_TIPICA")
     return {n: getattr(P, n) for n in nombres}
 
 

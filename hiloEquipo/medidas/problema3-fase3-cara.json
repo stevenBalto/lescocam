@@ -1,0 +1,24 @@
+{
+ "fecha": "2026-11-05",
+ "descripcion": "Problema 3, fase 3: posición de la mano respecto de la cara en el descriptor de palabras (VERSION_DESCRIPTOR 2).",
+ "elegido": {"CARA_MODO": "cerca", "CARA_RADIO": 0.6, "PESO_CARA": 1.0},
+ "cenarec_1039_palabras_cruzada": {
+  "n": 2078,
+  "sin_cara": {"top1": 0.987, "top5": 0.994, "aceptadas_bien": 0.953, "aceptadas_mal": 0.001},
+  "cara_cerca_w1": {"top1": 0.987, "top5": 0.994, "aceptadas_bien": 0.954, "aceptadas_mal": 0.001},
+  "cara_cerca_w2": {"top1": 0.987, "top5": 0.994, "aceptadas_bien": 0.954, "aceptadas_mal": 0.001}
+ },
+ "cenarec_85_palabras_cruzada": {
+  "n": 170,
+  "sin_cara": {"top1": 0.988, "aceptadas_bien": 0.971, "aceptadas_mal": 0.0},
+  "cara_resta_w2": {"top1": 0.988, "aceptadas_bien": 0.982, "aceptadas_mal": 0.0}
+ },
+ "banco_de_prueba_120_tomas_2_personas": {
+  "sin_cara": {"top1": 0.333, "top3": 0.50, "aceptadas_bien": 0.15, "aceptadas_mal": 0.0},
+  "cara_resta_w1": {"top1": 0.275, "top3": 0.425, "aceptadas_bien": 0.133, "aceptadas_mal": 0.025},
+  "cara_resta_w2": {"top1": 0.275, "top3": 0.383, "aceptadas_bien": 0.133, "aceptadas_mal": 0.05},
+  "cara_cerca_r06_w1": {"top1": 0.333, "top3": 0.50, "aceptadas_bien": 0.15, "aceptadas_mal": 0.0},
+  "cara_cerca_r09_w2": {"top1": 0.292, "top3": 0.475, "aceptadas_bien": 0.15, "aceptadas_mal": 0.0}
+ },
+ "conclusion": "La cara 'cerca' (solo con la mano a menos de 0,6 anchos de hombro de la nariz) entra al reconocimiento sin empeorar nada; tampoco mejora de forma medible con estos datos. La variante 'resta' (siempre) empeora con otras personas y se descartó."
+}

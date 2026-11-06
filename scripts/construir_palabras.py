@@ -32,7 +32,7 @@ from core import senas_db
 from core.cuerpo import desde_arrays
 from scripts.extraer_cenarec import LISTA, catalogo, leer_lista, ruta_cache
 
-PESOS_CRUDOS = (1.0, 1.0, 1.0, 1.0, 1.0)
+PESOS_CRUDOS = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 PREFIJO_LETRA = "LETRA-"
 
 

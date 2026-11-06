@@ -257,7 +257,7 @@ def test_clasifica_y_nunca_inventa(formas):
 
 def test_db_ida_y_vuelta(tmp_path, formas):
     cuadros = palabra_cuadros(sena(formas))
-    crudo = P.descriptor(cuadros, False, pesos=(1, 1, 1, 1, 1))
+    crudo = P.descriptor(cuadros, False, pesos=(1, 1, 1, 1, 1, 1))
     ruta = tmp_path / "senas.db"
     senas_db.escribir(ruta, [{"etiqueta": "ARCO", "idw": 1, "manos": 1, "fuente": "prueba",
                               "plantillas": [{"repeticion": 1, "fuente": "prueba", "inicio": 0.0, "fin": 1.0,

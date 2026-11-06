@@ -22,7 +22,7 @@ plantilla y la otra de prueba, y al revés.
 Uso:
     .venv/bin/python -m scripts.evaluar_palabras                  # todo
     .venv/bin/python -m scripts.evaluar_palabras --solo cruzada variantes
-    .venv/bin/python -m scripts.evaluar_palabras --pesos 2 0.5 0.5 0.7 1   # probar pesos
+    .venv/bin/python -m scripts.evaluar_palabras --pesos 2 0.5 0.5 0.7 1 1   # probar pesos
 """
 from __future__ import annotations
 
@@ -407,7 +407,7 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--lista", type=Path, default=LISTA)
     p.add_argument("--solo", nargs="*", choices=("cruzada", "variantes", "negativas", "escala", "umbrales", "velocidad"))
-    p.add_argument("--pesos", nargs=5, type=float, help="posición forma ejes no_dominante activa")
+    p.add_argument("--pesos", nargs="+", type=float, help="posición forma ejes no_dominante activa [cara]")
     p.add_argument("--procesos", type=int, default=6)
     p.add_argument("--sin-letras", action="store_true",
                    help="no usar las letras deletreadas de CENAREC (LETRA-*) como plantillas negativas")

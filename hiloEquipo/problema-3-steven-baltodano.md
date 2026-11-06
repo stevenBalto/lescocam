@@ -34,11 +34,16 @@ Para el alfabeto basta una mano, pero para palabras y señas complejas hacen fal
 
 ## Extra (fuera de las fases)
 
-- [ ] Modo letras: detectar las dos manos y leer solo la **dominante** (zurdos; que la otra mano no confunda).
+- [x] ~~Modo letras: detectar las dos manos y leer solo la **dominante** (zurdos; que la otra mano no confunda).~~ ✅ 2026-11-05 — `core/camara.Detector(mano="derecha"|"izquierda")` busca las dos y lee solo esa; en la app: Ajustes › Cámara › «Mano para deletrear» (por defecto «Cualquiera», como antes). Falta probarlo en vivo con un zurdo.
 - [ ] Modo único letras + palabras sin interruptor: hablarlo con Johan (problema 2, respaldo por deletreo) antes de empezar.
 
-- [ ] **Fase 3 — Usar la cara en las señas**
+- [x] ~~**Fase 3 — Usar la cara en las señas**~~ ✅ 2026-11-05 — evidencia: la posición de cada mano respecto de la nariz entra al descriptor (`core/palabras.py`, `VERSION_DESCRIPTOR = 2`, 83 columnas) y no empeora: CENAREC 1039 palabras, aceptadas bien 95,3 → 95,4 %, mal 0,1 → 0,1 %; banco de prueba (120 tomas, 2 personas) top-1 33,3 → 33,3 %, mal 0 → 0 %. Resultado en `hiloEquipo/medidas/problema3-fase3-cara.json`.
   **Hecho cuando:** la ubicación de la seña respecto al rostro entra al reconocimiento, y se midió que no empeora el resultado.
+
+  Qué se hizo:
+  - Primera versión ("resta": muñeca - nariz siempre): **empeora con otras personas** (banco: top-1 33 → 27 %, aparecen 2,5–5 % de aceptadas mal). La distancia nariz-hombros cambia de persona a persona y con la cámara: suma un error fijo a todas las señas. Descartada.
+  - Versión elegida ("cerca"): la posición respecto de la nariz solo cuenta con la mano a menos de 0,6 anchos de hombro de la cara (30 de las 85 palabras iniciales pasan por ahí: AZUL, COSTA-RICA, POLLO, NIÑO...). No empeora nada; tampoco mejora de forma medible con estos datos (CENAREC es una sola persona y en el banco el 85 % de las tomas falla por otras razones).
+  - **Cambio de contrato: afecta a la app móvil.** `senas.db` pasa a `version_descriptor 2` (83 columnas: + 2 de cara por mano) y guarda `CARA_MODO`, `CARA_RADIO` y `NARIZ_TIPICA` en `constantes`. Una base vieja se rechaza (`VersionIncompatible`). `data/reference/senas.db` regenerado (85 palabras, desde el cache, sin re-extraer videos).
 
 - [ ] **Fase 4 — Alternativa RTMW (solo si no se llegó a la meta)**
   **Hecho cuando:** se comparó RTMW contra MediaPipe con el mismo conjunto de señas y se decidió con números. Si la meta ya se cumplió en la fase 2, esta fase se tacha con la nota "no hizo falta".
@@ -50,7 +55,7 @@ Para no re-extraer y re-entrenar cada vez que se agregan videos, esto se hace **
 - [ ] Re-extraer **todos** los videos con `DetectorCuerpo(recorte=True)` (la versión que no busca en brazos en reposo) y volver a medir las bimanuales: `scripts/probar_deteccion.py --muestra 598 --config recorte_v2` (la medición de 93,5 % es de la versión anterior del recorte, sin el ajuste de reposo).
 - [ ] Coordinar con Christian (problema 1): que su entrenamiento use la misma extracción con recorte que la app. Ya se le avisó del cambio; falta su decisión.
 - [ ] Regenerar `data/reference/senas.db` (y la base completa) desde la extracción con recorte, para que plantillas y cámara pasen por el mismo detector.
-- [ ] Volver a medir la fase 3 (cara) con la extracción nueva.
+- [ ] Volver a medir la fase 3 (cara) con la extracción nueva y con el banco de prueba completo (las 4 personas): es donde la cara debería notarse. Probar también `PESO_CARA` 2 y `CARA_RADIO` 0,9.
 
 ## Notas
 

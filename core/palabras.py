@@ -37,8 +37,15 @@ video de CENAREC) y una seña nueva se compara con todas por DTW.
          FRACCION_ACTIVA de la seña (si no, es una seña de una mano y su bloque
          queda en 0 con la marca "activa" = 0);
        - huecos de la mano: interpolación lineal en el tiempo.
-     Por muestra (79 valores):
-       dominante: posición (2) x PESO_POSICION, rasgos (31) x PESO_FORMA, ejes (6) x PESO_EJES
+       - posición respecto de la CARA (problema 3, fase 3): c = (muñeca - nariz) / W
+         cuadro a cuadro (nariz interpolada; si no se ve nunca, NARIZ_TIPICA
+         respecto de los hombros), multiplicada por max(0, 1 - |c| / CARA_RADIO):
+         solo cuenta con la mano CERCA de la cara (frente, boca, mejilla) y lejos
+         queda en 0. Restarla siempre ("resta") empeoraba con otras personas: la
+         distancia nariz-hombros cambia de persona a persona y con la cámara.
+     Por muestra (83 valores):
+       dominante: posición (2) x PESO_POSICION, rasgos (31) x PESO_FORMA, ejes (6) x PESO_EJES,
+                  cara (2) x PESO_CARA
        no dominante: lo mismo x PESO_NO_DOMINANTE, y la marca activa x PESO_ACTIVA
   4. `dtw_lote()`: el mismo DTW de core/movimiento.dtw (banda de Sakoe-Chiba,
      pasos simétricos, dividido por n + m) contra todas las plantillas a la vez.
@@ -61,7 +68,7 @@ from core.cuerpo import HOMBRO_DER, HOMBRO_IZQ, MUNECA_DER, MUNECA_IZQ, NARIZ, C
 from core.landmarks import NUM_LANDMARKS, WRIST, corregir_proporcion, normalizar_puntos
 from core.rasgos import NUM_RASGOS, marco_palma, rasgos
 
-VERSION_DESCRIPTOR = 1
+VERSION_DESCRIPTOR = 2   # 2: + posición respecto de la cara (2 columnas por mano)
 
 # --- Cuerpo ---
 VISIBILIDAD_MIN = 0.5      # hombros con menos visibilidad = no hay cuerpo en el frame
@@ -84,8 +91,12 @@ PESO_FORMA = 0.5
 PESO_EJES = 0.5
 PESO_NO_DOMINANTE = 0.7
 PESO_ACTIVA = 1.0
+PESO_CARA = 1.0
+CARA_MODO = "cerca"           # "resta" (muñeca - nariz), "cerca" (solo cerca de la cara), "cerca_y"
+CARA_RADIO = 0.6              # anchos de hombro: más lejos de la nariz que esto, la cara no cuenta
+NARIZ_TIPICA = (0.0, -0.63)   # (nariz - centro de hombros) / W, mediana de CENAREC: respaldo si no se ve la cara
 FORMA = NUM_RASGOS + 6
-BLOQUE = 2 + FORMA
+BLOQUE = 2 + FORMA + 2
 COLUMNAS = 2 * BLOQUE + 1
 
 # --- Comparación ---
@@ -320,6 +331,14 @@ def espejos_posibles(cuadros: Sequence[CuadroPalabra], mano: str = "auto") -> li
     return {"derecha": [False], "izquierda": [True]}.get(mano, [False, True])
 
 
+def pesos_completos(pesos=None) -> tuple:
+    """(posición, forma, ejes, no_dominante, activa, cara). Con 5 valores (antes de la v2) la cara va con PESO_CARA."""
+    if pesos is None:
+        return PESO_POSICION, PESO_FORMA, PESO_EJES, PESO_NO_DOMINANTE, PESO_ACTIVA, PESO_CARA
+    pesos = tuple(float(x) for x in pesos)
+    return pesos + (PESO_CARA,) if len(pesos) == 5 else pesos
+
+
 def descriptor(cuadros: Sequence[CuadroPalabra], espejo: bool = False, muestras: int = MUESTRAS,
                pesos=None) -> Optional[np.ndarray]:
     """(muestras, COLUMNAS) de la seña en forma canónica (dominante como diestra). None si no alcanza.
@@ -327,8 +346,7 @@ def descriptor(cuadros: Sequence[CuadroPalabra], espejo: bool = False, muestras:
     espejo=True: la dominante es el brazo 0 (zurdo): x de las posiciones negada y
     brazos intercambiados. Ver espejos_posibles().
     """
-    pp, pf, pe, pn, pa = pesos if pesos is not None else (PESO_POSICION, PESO_FORMA, PESO_EJES,
-                                                         PESO_NO_DOMINANTE, PESO_ACTIVA)
+    pp, pf, pe, pn, pa, pc = pesos_completos(pesos)
     cuadros = [c for c in cuadros if c is not None]
     if len(cuadros) < 2:
         return None
@@ -340,6 +358,9 @@ def descriptor(cuadros: Sequence[CuadroPalabra], espejo: bool = False, muestras:
     dom, nod = (0, 1) if espejo else (1, 0)
     fuera = actividad(cuadros)
     grilla = np.linspace(t[0], t[-1], muestras)
+    nariz = _interpolar(t, [None if c.nariz is None else (c.nariz - centro) / ancho for c in cuadros], grilla, 2)
+    if nariz is None:
+        nariz = np.tile(np.array(NARIZ_TIPICA, dtype=np.float64), (muestras, 1))
     bloques = []
     for b, peso in ((dom, 1.0), (nod, pn)):
         p = _interpolar(t, [None if c.muneca[b] is None else (c.muneca[b] - centro) / ancho for c in cuadros],
@@ -351,9 +372,19 @@ def descriptor(cuadros: Sequence[CuadroPalabra], espejo: bool = False, muestras:
         elif p is None or f is None or fuera[b] < FRACCION_ACTIVA:
             bloques.append(np.zeros((muestras, BLOQUE)))
             continue
+        cara = p - nariz
+        if CARA_MODO != "resta":
+            # Solo cuenta cerca de la cara: lejos queda en 0 para todos (sin el corrimiento fijo
+            # que da la distancia nariz-hombros, que cambia de persona a persona y con la cámara).
+            g = np.clip(1.0 - np.linalg.norm(cara, axis=1) / CARA_RADIO, 0.0, 1.0)[:, None]
+            cara = cara * g
+            if CARA_MODO == "cerca_y":
+                cara = cara * np.array([0.0, 1.0])
         if espejo:
             p = p * np.array([-1.0, 1.0])
-        bloques.append(np.concatenate([p * pp, f[:, :NUM_RASGOS] * pf, f[:, NUM_RASGOS:] * pe], axis=1) * peso)
+            cara = cara * np.array([-1.0, 1.0])
+        bloques.append(np.concatenate([p * pp, f[:, :NUM_RASGOS] * pf, f[:, NUM_RASGOS:] * pe, cara * pc],
+                                      axis=1) * peso)
     activa = 0.0 if not np.any(bloques[1]) else pa
     return np.concatenate([bloques[0], bloques[1], np.full((muestras, 1), activa)], axis=1)
 
