@@ -48,6 +48,18 @@ Para el alfabeto basta una mano, pero para palabras y señas complejas hacen fal
 - [x] ~~**Fase 4 — Alternativa RTMW (solo si no se llegó a la meta)**~~ ✅ 2026-11-05 — no hizo falta: la meta (≥ 90 %) se cumplió en la fase 2 con el recorte (93,5 %).
   **Hecho cuando:** se comparó RTMW contra MediaPipe con el mismo conjunto de señas y se decidió con números. Si la meta ya se cumplió en la fase 2, esta fase se tacha con la nota "no hizo falta".
 
+## Pendientes de Steven Baltodano
+
+Las 4 fases están cerradas. Queda a cargo de Steven:
+
+1. **Grabar su banco de prueba (30 palabras)** — se arranca diciéndole a Claude «Vengo de parte de Christian». Lista en `data/reference/banco/steven.txt`:
+   - [ ] Tanda 1: VERDE, HOLA, NOMBRE, GRACIAS, AÑO, JUEVES, SÍ, CUÁNTO, NO, ENTENDER
+   - [ ] Tanda 2: PAN, MAMÁ, BEBÉ, NIÑO, AMARILLO, SÁBADO, HOY, QUÉ-PASAR, COMER, IR
+   - [ ] Tanda 3: HIJA, POR-FAVOR, CÓMO, CASA, FRUTA, COSTA-RICA, QUERER, MAL, AYUDAR, TRABAJAR
+2. **Cuando Johan agregue los videos de palabras** (no antes: para no re-extraer ni regenerar cada vez), hacer la lista de abajo «Pendiente para cuando estén todos los videos».
+3. - [ ] Probar en vivo: HOLA en modo palabras y «Mano para deletrear» con un zurdo.
+4. - [ ] Hablar con Johan del modo único letras + palabras (ver «Extra»).
+
 ## Pendiente para cuando estén todos los videos
 
 Para no re-extraer y re-entrenar cada vez que se agregan videos, esto se hace **una sola vez**, cuando estén todos los materiales juntos:
