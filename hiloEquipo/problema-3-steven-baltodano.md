@@ -45,7 +45,7 @@ Para el alfabeto basta una mano, pero para palabras y señas complejas hacen fal
   - Versión elegida ("cerca"): la posición respecto de la nariz solo cuenta con la mano a menos de 0,6 anchos de hombro de la cara (30 de las 85 palabras iniciales pasan por ahí: AZUL, COSTA-RICA, POLLO, NIÑO...). No empeora nada; tampoco mejora de forma medible con estos datos (CENAREC es una sola persona y en el banco el 85 % de las tomas falla por otras razones).
   - **Cambio de contrato: afecta a la app móvil.** `senas.db` pasa a `version_descriptor 2` (83 columnas: + 2 de cara por mano) y guarda `CARA_MODO`, `CARA_RADIO` y `NARIZ_TIPICA` en `constantes`. Una base vieja se rechaza (`VersionIncompatible`). `data/reference/senas.db` regenerado (85 palabras, desde el cache, sin re-extraer videos).
 
-- [ ] **Fase 4 — Alternativa RTMW (solo si no se llegó a la meta)**
+- [x] ~~**Fase 4 — Alternativa RTMW (solo si no se llegó a la meta)**~~ ✅ 2026-11-05 — no hizo falta: la meta (≥ 90 %) se cumplió en la fase 2 con el recorte (93,5 %).
   **Hecho cuando:** se comparó RTMW contra MediaPipe con el mismo conjunto de señas y se decidió con números. Si la meta ya se cumplió en la fase 2, esta fase se tacha con la nota "no hizo falta".
 
 ## Pendiente para cuando estén todos los videos
