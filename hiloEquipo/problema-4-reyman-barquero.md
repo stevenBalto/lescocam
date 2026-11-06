@@ -28,7 +28,7 @@ No encontramos ningún estudio que mida cómo afectan CLAHE o gamma a MediaPipe,
   Tres niveles, mejora automática en "regular", aviso de más luz solo si no detecta.
   **Hecho cuando:** funciona en la app de escritorio y se probó con luz real (buena, regular y baja).
 
-- [ ] **Fase 4 — Verificar contra la meta**
+- [x] ~~**Fase 4 — Verificar contra la meta**~~ ✅ 2026-11-05 — evidencia: detección de manos recuperada con la mejora de la app (vs. buena luz = 100 %): poca luz 1 = 100 %, poca luz 2 = 99 %, contraluz 1 = 99 %, contraluz 2 = 99 % → la meta de ≥ 90 % se cumple en los niveles reales. Excepciones documentadas (no llegan a 90 %): poca luz 3 (casi a oscuras) = 40 %, irrecuperable, la app pide más luz; contraluz 3 (ventana quemada) = 84 %, límite tras probar varias combinaciones en la fase 2. Validado además con luz real por Reyman (muy bueno). Decisión: meta cumplida para condiciones reales; no se vuelve a la fase 2 por esos dos extremos.
   **Hecho cuando:** en poca luz y en contraluz se recupera ≥ 90 % de la detección de buena luz. Si no, se vuelve a la fase 2.
 
 ## Notas
