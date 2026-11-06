@@ -252,6 +252,30 @@ MarcoVentana {
                 titulo: "Pausar si no hay manos"; detalle: "Después de 3 segundos"; anchoControl: 44
                 Interruptor { nombreAccesible: "Pausar si no hay manos"; activo: motor.pausarSinManos; onCambio: (v) => motor.pausarSinManos = v }
             }
+            // Simulador de iluminación: aplica a la cámara en vivo las condiciones del banco
+            // de luz, para probar el medidor sin apagar/prender luces. Solo en modo desarrollo.
+            Column {
+                visible: vista.seccion.codigo === "15b" && Nav.modoDev
+                width: 754
+                spacing: 8
+                Texto { text: "SIMULAR ILUMINACIÓN · SOLO PRUEBAS (DESARROLLO)"; color: Tema.textoSecundario; peso: Font.ExtraBold; tam: 12.5 }
+                Flow {
+                    width: 754
+                    spacing: 8
+                    Repeater {
+                        model: [
+                            { t: "Normal", c: "normal" },
+                            { t: "Poca luz 1", c: "poca_luz_1" },
+                            { t: "Poca luz 2", c: "poca_luz_2" },
+                            { t: "Poca luz 3", c: "poca_luz_3" },
+                            { t: "Contraluz 1", c: "contraluz_1" },
+                            { t: "Contraluz 2", c: "contraluz_2" },
+                            { t: "Contraluz 3", c: "contraluz_3" }
+                        ]
+                        Opcion { texto: modelData.t; activo: motor.simulacionLuz === modelData.c; onElegir: motor.simularLuz(modelData.c) }
+                    }
+                }
+            }
 
             // ── Burbuja y atajos ──
             Fila {

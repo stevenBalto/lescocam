@@ -77,6 +77,7 @@ class Motor(QObject):
     palabraReconocida = Signal(str)
     sinManos = Signal()
     nivelLuzCambio = Signal()
+    simulacionLuzCambio = Signal()
     primerUsoVistoCambio = Signal()
     ajusteCambio = Signal()
     # Órdenes al hilo de la voz (se entregan en cola, sin bloquear la interfaz)
@@ -99,6 +100,7 @@ class Motor(QObject):
         self._hay_video = False
         self._mano = False
         self._nivel_luz = "buena"   # "buena" | "regular" | "baja" (ver core/mejora_luz.MedidorLuz)
+        self._sim_luz = "normal"    # simulación de luz para pruebas (solo --dev); no se guarda
         self._error = ""
         self._hilo_voz = None
         self._locutor = None
@@ -184,6 +186,20 @@ class Motor(QObject):
         """Luz en la zona de la mano: "buena" (no se toca), "regular" (se mejora la
         imagen automáticamente) o "baja" (ni con la mejora se detecta: pedir más luz)."""
         return self._nivel_luz
+
+    @Property(str, notify=simulacionLuzCambio)
+    def simulacionLuz(self):
+        """Condición de luz simulada sobre la cámara (pruebas): "normal", "poca_luz_1..3"
+        o "contraluz_1..3". Ver core/mejora_luz.CONDICIONES_LUZ."""
+        return self._sim_luz
+
+    @Slot(str)
+    def simularLuz(self, condicion):
+        from core.mejora_luz import CONDICIONES_LUZ
+        condicion = condicion if condicion in CONDICIONES_LUZ else "normal"
+        if condicion != self._sim_luz:
+            self._sim_luz = condicion
+            self.simulacionLuzCambio.emit()
 
     @Property(str, notify=errorCambio)
     def errorCamara(self):
@@ -351,7 +367,7 @@ class Motor(QObject):
 
             import cv2
             from core import camara
-            from core.mejora_luz import MedidorLuz
+            from core.mejora_luz import MedidorLuz, simular_luz
             from core.reconocedor import Reconocedor
             cap = camara.abrir_camara(indice)
             palabras = None
@@ -381,6 +397,10 @@ class Motor(QObject):
                     self._publicar_error("La cámara dejó de responder")
                     break
                 ahora = time.monotonic()
+                # Simulación de luz para pruebas (solo --dev; "normal" no toca nada):
+                # degrada la cámara como el banco de luz, para probar el medidor desde la PC.
+                if self._sim_luz != "normal":
+                    frame = simular_luz(frame, self._sim_luz)
                 # Mejora de luz automática según el brillo: en poca luz aclara la imagen
                 # ANTES de detectar (y es la que se muestra). En luz buena no toca nada.
                 # El nivel es continuo y se recupera solo. Ver core/mejora_luz.MedidorLuz.

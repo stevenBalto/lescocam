@@ -25,6 +25,46 @@ MUNECA_IZQ, MUNECA_DER = 15, 16
 ESTRATEGIAS = ("ninguna", "gamma", "clahe", "gamma_clahe",
                "denoise_gamma", "denoise_clahe", "denoise_gamma_clahe")
 
+# Condiciones de luz que se pueden SIMULAR sobre un frame (para pruebas sin tener que
+# apagar/prender luces). Las mismas del banco de luz (scripts/evaluar_luz.py).
+CONDICIONES_LUZ = ("normal",
+                   "poca_luz_1", "poca_luz_2", "poca_luz_3",
+                   "contraluz_1", "contraluz_2", "contraluz_3")
+
+
+def _con_luz(frame, ganancia, agregado, sigma):
+    """Aplica ganancia + brillo agregado + ruido gaussiano. Semilla por cuadro: reproducible."""
+    out = frame.astype(np.float32) * ganancia + agregado
+    if sigma > 0:
+        rng = np.random.default_rng(int(frame.sum()) & 0xFFFFFFFF)
+        out += rng.normal(0.0, sigma, size=frame.shape).astype(np.float32)
+    return np.clip(out, 0, 255).astype(np.uint8)
+
+
+def simular_luz(frame, condicion: str):
+    """Degrada un frame para simular poca luz o contraluz (3 niveles cada uno).
+
+    "normal" (o None) no toca nada. En poca luz baja la exposición y mete ruido de
+    sensor; en contraluz, además, quema de blanco la parte de arriba (ventana atrás).
+    Es lo contrario de mejorar(): sirve para probar el medidor de luz desde la PC.
+    """
+    if not condicion or condicion == "normal":
+        return frame
+    alto = frame.shape[0]
+    if condicion.startswith("poca_luz_"):
+        nivel = condicion[-1]
+        ganancia = {"1": 0.45, "2": 0.26, "3": 0.13}[nivel]
+        sigma = {"1": 4.0, "2": 8.0, "3": 14.0}[nivel]
+        return _con_luz(frame, ganancia, 0.0, sigma)
+    if condicion.startswith("contraluz_"):
+        nivel = condicion[-1]
+        ganancia = {"1": 0.55, "2": 0.38, "3": 0.24}[nivel]
+        techo = {"1": 120.0, "2": 180.0, "3": 230.0}[nivel]
+        sigma = {"1": 4.0, "2": 8.0, "3": 13.0}[nivel]
+        grad = np.linspace(techo, 0.0, alto, dtype=np.float32)[:, None, None]
+        return _con_luz(frame, ganancia, grad, sigma)
+    return frame
+
 
 def gamma(frame, g: float = 2.2):
     """Aclara subiendo las sombras con una LUT. g > 1 aclara; g = 1 no toca nada."""

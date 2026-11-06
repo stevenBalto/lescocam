@@ -26,6 +26,16 @@ Window {
         ["Animación de inicio", "00a 00b 00c 00d"]
     ]
 
+    readonly property var condicionesLuz: [
+        { texto: "Luz normal", codigo: "normal" },
+        { texto: "Poca luz 1 (tenue)", codigo: "poca_luz_1" },
+        { texto: "Poca luz 2 (oscuro)", codigo: "poca_luz_2" },
+        { texto: "Poca luz 3 (casi a oscuras)", codigo: "poca_luz_3" },
+        { texto: "Contraluz 1 (suave)", codigo: "contraluz_1" },
+        { texto: "Contraluz 2 (fuerte)", codigo: "contraluz_2" },
+        { texto: "Contraluz 3 (ventana quemada)", codigo: "contraluz_3" }
+    ]
+
     ScrollView {
         anchors.fill: parent
         anchors.margins: 12
@@ -48,6 +58,21 @@ Window {
                 }
             }
             CheckBox { text: "Primer uso pendiente"; checked: Nav.primerUso; onToggled: Nav.primerUso = checked }
+
+            // Simular iluminación sobre la cámara en vivo (para probar el medidor de luz
+            // sin apagar/prender luces). "normal" = cámara tal cual.
+            Texto { text: "Simular iluminación (cámara)"; peso: Font.Bold; color: "#4b5b7c"; tam: 12 }
+            ComboBox {
+                width: parent.width
+                model: ventana.condicionesLuz
+                textRole: "texto"
+                currentIndex: {
+                    for (var i = 0; i < ventana.condicionesLuz.length; i++)
+                        if (ventana.condicionesLuz[i].codigo === (motor ? motor.simulacionLuz : "normal")) return i
+                    return 0
+                }
+                onActivated: (i) => { if (motor) motor.simularLuz(ventana.condicionesLuz[i].codigo) }
+            }
 
             Repeater {
                 model: ventana.grupos

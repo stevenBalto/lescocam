@@ -24,7 +24,7 @@ No encontramos ningún estudio que mida cómo afectan CLAHE o gamma a MediaPipe,
   Gamma, CLAHE, umbral más bajo, y brillo medido en la zona de la mano.
   **Hecho cuando:** hay una tabla con la tasa de detección de cada combinación y se eligió la mejor con números.
 
-- [ ] **Fase 3 — Medidor de luz en la app**
+- [x] ~~**Fase 3 — Medidor de luz en la app**~~ ✅ 2026-11-05 — evidencia: medidor de luz en la app (`core/mejora_luz.MedidorLuz` + bucle de `desktop/motor.py`) con 3 niveles (buena/regular/baja), mejora automática (denoise+CLAHE, o gamma si está muy oscuro) y aviso "Necesita más luz". Probado con luz REAL por Reyman (laptop-windows): luces apagadas con brillo de pantalla → "poca luz, mejorando"; brillo al mínimo → "necesito más luz"; al subir el brillo se reanuda y detecta solo, aun con la pieza a oscuras. Simulador de iluminación desde la PC en Ajustes › Cámara (solo --dev) para reproducir poca_luz_1..3 y contraluz_1..3. Pendiente para la fase 4: contraluz 3 todavía inconsistente (coincide con el 84 % medido en la fase 2; en contraluz el cuadro está brillante y el medidor no lo marca por brillo). Extras surgidos de las pruebas: primer uso una sola vez y pausa por falta de manos/luz que se reanuda sola.
   Tres niveles, mejora automática en "regular", aviso de más luz solo si no detecta.
   **Hecho cuando:** funciona en la app de escritorio y se probó con luz real (buena, regular y baja).
 

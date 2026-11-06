@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from core.mejora_luz import (
+    CONDICIONES_LUZ,
     LUZ_BAJA_ENTRA,
     LUZ_REGULAR_ENTRA,
     LUZ_REGULAR_SALE,
@@ -15,6 +16,7 @@ from core.mejora_luz import (
     denoise,
     gamma,
     mejorar,
+    simular_luz,
 )
 
 
@@ -87,6 +89,36 @@ def test_brillo_central_ignora_los_bordes():
     # el brillo del cuadro entero sube por la franja, pero el central-bajo sigue oscuro
     assert brillo(img) > brillo_central(img)
     assert brillo_central(img) < 30
+
+
+def test_simular_normal_no_toca():
+    img = _frame(120)
+    assert np.array_equal(simular_luz(img, "normal"), img)
+    assert np.array_equal(simular_luz(img, None), img)
+
+
+def test_simular_poca_luz_oscurece():
+    img = _frame(120)
+    for cond in ("poca_luz_1", "poca_luz_2", "poca_luz_3"):
+        salida = simular_luz(img, cond)
+        assert salida.shape == img.shape and salida.dtype == np.uint8
+        assert brillo(salida) < brillo(img)             # queda más oscuro
+    # a mayor nivel, más oscuro
+    assert brillo(simular_luz(img, "poca_luz_3")) < brillo(simular_luz(img, "poca_luz_1"))
+
+
+def test_simular_contraluz_quema_arriba_y_oscurece_abajo():
+    img = _frame(120)
+    salida = simular_luz(img, "contraluz_3")
+    alto = salida.shape[0]
+    arriba = brillo(salida[:alto // 5])
+    abajo = brillo(salida[4 * alto // 5:])
+    assert arriba > abajo                                # la ventana (arriba) queda más brillante
+
+
+def test_condiciones_luz_incluye_normal():
+    assert CONDICIONES_LUZ[0] == "normal"
+    assert "contraluz_3" in CONDICIONES_LUZ
 
 
 def test_nivel_buena_con_luz_suficiente():

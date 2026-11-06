@@ -112,36 +112,13 @@ def transformar(frame, variante: str):
     if variante == "desplazado":
         m = np.float32([[1, 0, 80], [0, 1, 0]])
         return cv2.warpAffine(frame, m, (ancho, alto), borderMode=cv2.BORDER_REPLICATE)
-    if variante.startswith("poca_luz_"):
-        # Poca luz: menos exposición (ganancia baja sobre el pixel ya en gamma) MÁS
-        # ruido del sensor, que es lo que de verdad confunde a MediaPipe: con poca
-        # luz entran pocos fotones y el ruido de lectura pesa frente a la señal. El
-        # oscurecido solo casi no baja la detección; el ruido sí. Nivel 1 tenue, 3 casi a oscuras.
-        nivel = variante[-1]
-        ganancia = {"1": 0.45, "2": 0.26, "3": 0.13}[nivel]
-        sigma = {"1": 4.0, "2": 8.0, "3": 14.0}[nivel]
-        return _con_luz(frame, ganancia, 0.0, sigma)
-    if variante.startswith("contraluz_"):
-        # Contraluz (ventana atrás): el sujeto queda subexpuesto (ganancia baja), la
-        # parte de arriba se quema de blanco (gradiente que baja de brillo) y la zona
-        # oscura trae ruido. Es el caso más común (ventana detrás de la persona).
-        nivel = variante[-1]
-        ganancia = {"1": 0.55, "2": 0.38, "3": 0.24}[nivel]
-        techo = {"1": 120.0, "2": 180.0, "3": 230.0}[nivel]
-        sigma = {"1": 4.0, "2": 8.0, "3": 13.0}[nivel]
-        grad = np.linspace(techo, 0.0, alto, dtype=np.float32)[:, None, None]
-        return _con_luz(frame, ganancia, grad, sigma)
+    if variante.startswith("poca_luz_") or variante.startswith("contraluz_"):
+        # Poca luz / contraluz (3 niveles cada uno): baja la exposición y mete ruido de
+        # sensor, que es lo que de verdad confunde a MediaPipe. La misma función la usa
+        # la app para simular estas condiciones desde la PC (core/mejora_luz.simular_luz).
+        from core.mejora_luz import simular_luz
+        return simular_luz(frame, variante)
     return frame
-
-
-def _con_luz(frame, ganancia, agregado, sigma):
-    """Aplica ganancia + brillo agregado + ruido gaussiano. Semilla por cuadro: reproducible."""
-    import numpy as np
-    out = frame.astype(np.float32) * ganancia + agregado
-    if sigma > 0:
-        rng = np.random.default_rng(int(frame.sum()) & 0xFFFFFFFF)
-        out += rng.normal(0.0, sigma, size=frame.shape).astype(np.float32)
-    return np.clip(out, 0, 255).astype(np.uint8)
 
 
 def extraer_video(ruta_video: Path, variante: str = "base", detector=None) -> tuple[dict, float]:
