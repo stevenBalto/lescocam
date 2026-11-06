@@ -374,7 +374,7 @@ class Motor(QObject):
             if self._modo == MODO_PALABRAS:
                 from core.cuerpo import DetectorCuerpo
                 from core.reconocedor_palabras import ReconocedorPalabras
-                detector = DetectorCuerpo()
+                detector = DetectorCuerpo(recorte=True)   # busca de cerca la mano que falte (problema 3)
                 palabras = ReconocedorPalabras.desde_db()
             else:
                 detector = camara.Detector()

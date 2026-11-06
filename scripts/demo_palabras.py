@@ -69,7 +69,7 @@ def main(argv=None) -> int:
     except RuntimeError:
         print("No se pudo abrir la cámara: cerrá la app de escritorio, que la está usando.")
         return 1
-    detector = DetectorCuerpo()
+    detector = DetectorCuerpo(recorte=True)
     historial: list[str] = []
     inicio = time.monotonic()
     ultima_vista = None

@@ -12,6 +12,15 @@ El frame tiene que llegar ESPEJADO (vista selfie), como en core/camara.py.
 
 `CuadroCuerpo` guarda lo crudo de MediaPipe (coordenadas normalizadas de la
 imagen); los rasgos de la seña se calculan en core/palabras.py.
+
+Recorte (opcional, `recorte=True`, problema 3): si en un frame falta una mano y
+la pose ve esa muñeca, se busca la mano otra vez en un recorte cuadrado
+alrededor de la muñeca (corrido hacia donde apunta el antebrazo) con un
+HandLandmarker en modo IMAGE. De cerca MediaPipe encuentra manos que en el
+cuadro entero se le escapan (juntas, cruzadas o pegadas al cuerpo). Se descarta
+si cae encima de una mano ya detectada, y no se busca la mano de un brazo en
+REPOSO (muñeca bien abajo de los hombros): el motor la ignora igual y buscarla
+en cada cuadro bajaba la cámara de 30 a 19 fps. El formato de salida no cambia.
 """
 from __future__ import annotations
 
@@ -61,7 +70,7 @@ def asegurar_modelo_pose(ruta: Path = RUTA_MODELO_POSE) -> Path:
 class DetectorCuerpo:
     """HandLandmarker (2 manos) + PoseLandmarker, modo VIDEO. Crear una vez y reusar."""
 
-    def __init__(self, confianza: float = 0.5):
+    def __init__(self, confianza: float = 0.5, recorte: bool = False):
         from mediapipe.tasks.python import BaseOptions, vision
         self._manos = vision.HandLandmarker.create_from_options(vision.HandLandmarkerOptions(
             base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
@@ -71,6 +80,12 @@ class DetectorCuerpo:
         self._pose = vision.PoseLandmarker.create_from_options(vision.PoseLandmarkerOptions(
             base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo_pose()).read_bytes()),
             running_mode=vision.RunningMode.VIDEO, num_poses=1))
+        self._recorte = None
+        if recorte:
+            self._recorte = vision.HandLandmarker.create_from_options(vision.HandLandmarkerOptions(
+                base_options=BaseOptions(model_asset_buffer=Path(asegurar_modelo()).read_bytes()),
+                running_mode=vision.RunningMode.IMAGE, num_hands=2,
+                min_hand_detection_confidence=confianza, min_hand_presence_confidence=confianza))
         self._ultimo_ms = -1
 
     def procesar(self, frame_bgr, t: float) -> CuadroCuerpo:
@@ -88,11 +103,75 @@ class DetectorCuerpo:
         pose = None
         if rp.pose_landmarks:
             pose = np.array([[p.x, p.y, p.z, p.visibility] for p in rp.pose_landmarks[0]], dtype=np.float32)
+        if self._recorte is not None and pose is not None and len(manos) < 2:
+            manos = buscar_en_recortes(self._recorte, imagen.numpy_view(), pose, manos)
         return CuadroCuerpo(float(t), (ancho, alto), manos, pose)
 
     def cerrar(self) -> None:
         self._manos.close()
         self._pose.close()
+        if self._recorte is not None:
+            self._recorte.close()
+
+
+# Recorte: lado = RECORTE_LADO anchos de hombro; centro = muñeca + RECORTE_AVANCE * (muñeca - codo).
+RECORTE_LADO = 1.1
+RECORTE_AVANCE = 0.35
+RECORTE_MIN_PX = 64
+DUPLICADA = 0.35        # anchos de hombro: una mano con la muñeca así de cerca de otra es la misma
+LEJOS_DE_MUNECA = 0.6   # anchos de hombro: la mano del recorte tiene que estar cerca de la muñeca buscada
+REPOSO_Y = 0.85         # = core/palabras.Y_REPOSO: muñeca más abajo de los hombros que esto = brazo en reposo
+
+
+def buscar_en_recortes(detector, rgb: np.ndarray, pose: np.ndarray, manos: list) -> list:
+    """Agrega las manos que falten buscándolas en recortes alrededor de las muñecas de la pose.
+
+    detector: HandLandmarker en modo IMAGE. rgb: el frame (alto, ancho, 3). Devuelve la lista
+    de manos (como CuadroCuerpo.manos) con las encontradas al final; las de entrada no cambian.
+    """
+    import mediapipe as mp
+    alto, ancho = rgb.shape[:2]
+    escala = np.array([ancho, alto], dtype=np.float64)
+    w = float(np.linalg.norm((pose[HOMBRO_IZQ, :2] - pose[HOMBRO_DER, :2]) * escala))
+    if w < 20:
+        return manos
+    salida = list(manos)
+    centro_y = float((pose[HOMBRO_IZQ, 1] + pose[HOMBRO_DER, 1]) / 2 * alto)
+    munecas = lambda: [np.asarray(pts[0, :2], dtype=np.float64) * escala for pts, _, _ in salida]
+    for mu, co in ((MUNECA_IZQ, CODO_IZQ), (MUNECA_DER, CODO_DER)):
+        if len(salida) >= 2:
+            break
+        if pose[mu, 3] < 0.5:
+            continue
+        m = pose[mu, :2].astype(np.float64) * escala
+        if not (0 <= m[0] < ancho and 0 <= m[1] < alto):
+            continue
+        if (m[1] - centro_y) / w > REPOSO_Y:
+            continue   # brazo en reposo: no hace falta su mano
+        if any(np.linalg.norm(m - x) < DUPLICADA * w for x in munecas()):
+            continue   # esa muñeca ya tiene su mano
+        c = pose[co, :2].astype(np.float64) * escala
+        centro = m + RECORTE_AVANCE * (m - c)
+        lado = int(min(max(RECORTE_LADO * w, RECORTE_MIN_PX), ancho, alto))
+        x0 = int(np.clip(centro[0] - lado / 2, 0, ancho - lado))
+        y0 = int(np.clip(centro[1] - lado / 2, 0, alto - lado))
+        recorte = np.ascontiguousarray(rgb[y0:y0 + lado, x0:x0 + lado])
+        r = detector.detect(mp.Image(image_format=mp.ImageFormat.SRGB, data=recorte))
+        mejor = None
+        for lm, h in zip(r.hand_landmarks, r.handedness):
+            pts = np.array([[p.x, p.y, p.z] for p in lm], dtype=np.float64)
+            pts[:, 0] = (pts[:, 0] * lado + x0) / ancho
+            pts[:, 1] = (pts[:, 1] * lado + y0) / alto
+            pts[:, 2] = pts[:, 2] * lado / ancho
+            wr = pts[0, :2] * escala
+            if any(np.linalg.norm(wr - x) < DUPLICADA * w for x in munecas()):
+                continue   # es una mano que ya estaba
+            d = float(np.linalg.norm(wr - m))
+            if d < LEJOS_DE_MUNECA * w and (mejor is None or d < mejor[0]):
+                mejor = (d, pts.astype(np.float32), h[0].category_name, float(h[0].score))
+        if mejor is not None:
+            salida.append(mejor[1:])
+    return salida
 
 
 # ---------------------------------------------------------------- cache en arrays (npz)
