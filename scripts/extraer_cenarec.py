@@ -24,6 +24,7 @@ Variantes (para evaluar robustez; se aplican al frame original antes de espejar)
 Uso:
     .venv/bin/python -m scripts.extraer_cenarec                       # palabras_iniciales.txt
     .venv/bin/python -m scripts.extraer_cenarec --todas --procesos 6  # los 1072 videos
+    .venv/bin/python -m scripts.extraer_cenarec --todas --recorte     # con recorte -> extraccion/recorte/ (lo que usa la app)
     .venv/bin/python -m scripts.extraer_cenarec --variante 4x3 cerca lejos
     .venv/bin/python -m scripts.extraer_cenarec --etiquetas HOLA GRACIAS
     .venv/bin/python -m scripts.extraer_cenarec --video data/dictionary/videos/abecedario-lesco.mp4
@@ -75,7 +76,18 @@ def muestra_escala(cat: dict, iniciales: list, n: int, semilla: int = 7) -> list
     return letras + resto[:n]
 
 
+CON_RECORTE = "recorte"   # carpeta de la extracción con DetectorCuerpo(recorte=True) (problema 3); "base" = sin recorte
+
+
+def carpeta_variante(variante: str, recorte: bool) -> str:
+    """Carpeta de extraccion/: "base" sin recorte, "recorte" con recorte; otras variantes + "_recorte"."""
+    if not recorte:
+        return variante
+    return CON_RECORTE if variante == "base" else f"{variante}_{CON_RECORTE}"
+
+
 def ruta_cache(idw: int, variante: str = "base") -> Path:
+    """variante = nombre de la carpeta en extraccion/ ("base", "recorte", "lejos", ...)."""
     return EXTRACCION / variante / f"{int(idw):05d}.npz"
 
 
@@ -150,14 +162,20 @@ def extraer_video(ruta_video: Path, variante: str = "base", detector=None) -> tu
 
 
 def _trabajo(args):
-    idw, etiqueta, archivo, variante, forzar = args
-    destino = ruta_cache(idw, variante)
+    idw, etiqueta, archivo, variante, forzar, *resto = args   # 5 valores (evaluar_luz.py): sin recorte
+    recorte = bool(resto and resto[0])
+    destino = ruta_cache(idw, carpeta_variante(variante, recorte))
     if destino.exists() and not forzar:
         return idw, etiqueta, 0.0, 0, "cache"
     inicio = time.perf_counter()
     try:
         # Un detector por video: el modo VIDEO exige tiempos crecientes y arrastra el seguimiento.
-        datos, fps = extraer_video(VIDEOS / archivo, variante)
+        from core.cuerpo import DetectorCuerpo
+        det = DetectorCuerpo(recorte=recorte)
+        try:
+            datos, fps = extraer_video(VIDEOS / archivo, variante, detector=det)
+        finally:
+            det.cerrar()
     except Exception as e:  # un video roto no frena el resto
         return idw, etiqueta, time.perf_counter() - inicio, 0, f"error: {e}"
     destino.parent.mkdir(parents=True, exist_ok=True)
@@ -179,6 +197,8 @@ def main(argv=None) -> int:
     p.add_argument("--variante", nargs="*", default=["base"], choices=VARIANTES)
     p.add_argument("--procesos", type=int, default=max(1, min(6, (os.cpu_count() or 2) // 2)))
     p.add_argument("--forzar", action="store_true", help="reprocesar aunque haya cache")
+    p.add_argument("--recorte", action="store_true",
+                   help="DetectorCuerpo(recorte=True) (busca la mano que falte junto a la muñeca) -> extraccion/recorte/")
     p.add_argument("--video", type=Path, nargs="*", help="otros videos (no de CENAREC) -> extraccion/otros/")
     a = p.parse_args(argv)
 
@@ -211,7 +231,7 @@ def main(argv=None) -> int:
     etiquetas = [e for e in etiquetas if e in cat]
     if a.max:
         etiquetas = etiquetas[:a.max]
-    trabajos = [(cat[e]["idw"], e, cat[e]["archivo"], v, a.forzar) for v in a.variante for e in etiquetas]
+    trabajos = [(cat[e]["idw"], e, cat[e]["archivo"], v, a.forzar, a.recorte) for v in a.variante for e in etiquetas]
 
     inicio = time.perf_counter()
     hechos, tiempos, frames, errores = 0, [], 0, []

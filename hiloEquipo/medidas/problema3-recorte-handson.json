@@ -1,0 +1,10888 @@
+{
+ "fuente": "handson",
+ "db": "data/dictionary/senas_todas_fuentes.db",
+ "variante": "recorte",
+ "palabras": 1553,
+ "total": {
+  "cuadros": 126897,
+  "0": 12925,
+  "1": 28528,
+  "2": 85444,
+  "mismo_lado": 5846
+ },
+ "porcentaje_ambas": 0.6733,
+ "sobre_meta": 85,
+ "por_palabra": {
+  "A-PESAR-DE [Hands-On 1140906978]": {
+   "cuadros": 68,
+   "0": 8,
+   "1": 20,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "A-PROPOSITO [Hands-On 1138734613]": {
+   "cuadros": 62,
+   "0": 6,
+   "1": 4,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "A-VECES [Hands-On 1138734655]": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "ABANDONAR [Hands-On 1140907194]": {
+   "cuadros": 59,
+   "0": 5,
+   "1": 6,
+   "2": 48,
+   "mismo_lado": 7
+  },
+  "ABANDONAR [Hands-On 1140907248]": {
+   "cuadros": 61,
+   "0": 9,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "ABORTO [Hands-On 1134348794]": {
+   "cuadros": 65,
+   "0": 6,
+   "1": 11,
+   "2": 48,
+   "mismo_lado": 7
+  },
+  "ABORTO [Hands-On 1140907362]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 8,
+   "2": 51,
+   "mismo_lado": 5
+  },
+  "ABRIGO [Hands-On 1135903254]": {
+   "cuadros": 62,
+   "0": 5,
+   "1": 7,
+   "2": 50,
+   "mismo_lado": 5
+  },
+  "ABRIL [Hands-On 1135903301]": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 11,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "ABRIR [Hands-On 1140907405]": {
+   "cuadros": 67,
+   "0": 11,
+   "1": 3,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "ABUSO [Hands-On 1141573560]": {
+   "cuadros": 100,
+   "0": 7,
+   "1": 26,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "ABUSO-FÍSICO [Hands-On 1141573479]": {
+   "cuadros": 140,
+   "0": 6,
+   "1": 29,
+   "2": 105,
+   "mismo_lado": 10
+  },
+  "ABUSO-LABORAL [Hands-On 1141573494]": {
+   "cuadros": 140,
+   "0": 8,
+   "1": 26,
+   "2": 106,
+   "mismo_lado": 0
+  },
+  "ABUSO-SEXUAL [Hands-On 1141573543]": {
+   "cuadros": 153,
+   "0": 16,
+   "1": 95,
+   "2": 42,
+   "mismo_lado": 2
+  },
+  "ACCESIBILIDAD [Hands-On 1144612298]": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 6
+  },
+  "ACCESO [Hands-On 1144604978]": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 5,
+   "2": 65,
+   "mismo_lado": 6
+  },
+  "ACCIDENTE [Hands-On 1138734690]": {
+   "cuadros": 71,
+   "0": 7,
+   "1": 7,
+   "2": 57,
+   "mismo_lado": 4
+  },
+  "ACCIÓN [Hands-On 1140907538]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 15
+  },
+  "ACEITE [Hands-On 1135903381]": {
+   "cuadros": 97,
+   "0": 6,
+   "1": 7,
+   "2": 84,
+   "mismo_lado": 2
+  },
+  "ACEPTAR [Hands-On 1140907611]": {
+   "cuadros": 63,
+   "0": 8,
+   "1": 3,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "ACERCA-DE [Hands-On 1138734710]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 5
+  },
+  "ACOMPANAR [Hands-On 1135063964]": {
+   "cuadros": 91,
+   "0": 7,
+   "1": 28,
+   "2": 56,
+   "mismo_lado": 2
+  },
+  "ACOMPAÑANTE [Hands-On 1144606099]": {
+   "cuadros": 72,
+   "0": 0,
+   "1": 33,
+   "2": 39,
+   "mismo_lado": 2
+  },
+  "ACOMPAÑAR [Hands-On 1138734730]": {
+   "cuadros": 49,
+   "0": 4,
+   "1": 4,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "ACOMPAÑAR [Hands-On 1140907709]": {
+   "cuadros": 72,
+   "0": 8,
+   "1": 20,
+   "2": 44,
+   "mismo_lado": 0
+  },
+  "ACOMPAÑAR [Hands-On 1141573577]": {
+   "cuadros": 88,
+   "0": 3,
+   "1": 31,
+   "2": 54,
+   "mismo_lado": 2
+  },
+  "ACOSTUMBRAR [Hands-On 1140907784]": {
+   "cuadros": 69,
+   "0": 7,
+   "1": 10,
+   "2": 52,
+   "mismo_lado": 5
+  },
+  "ACOSTUMBRARSE [Hands-On 1140907835]": {
+   "cuadros": 69,
+   "0": 7,
+   "1": 10,
+   "2": 52,
+   "mismo_lado": 5
+  },
+  "ACTIVIDAD [Hands-On 1140907885]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 15
+  },
+  "ACTIVO [Hands-On 1140907924]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 15
+  },
+  "ACTUAL [Hands-On 1140908011]": {
+   "cuadros": 55,
+   "0": 4,
+   "1": 4,
+   "2": 47,
+   "mismo_lado": 7
+  },
+  "ACTUALMENTE [Hands-On 1138734752]": {
+   "cuadros": 39,
+   "0": 3,
+   "1": 3,
+   "2": 33,
+   "mismo_lado": 1
+  },
+  "ADAPTACIÓN [Hands-On 1144728742]": {
+   "cuadros": 63,
+   "0": 2,
+   "1": 2,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "ADAPTAR [Hands-On 1141573601]": {
+   "cuadros": 87,
+   "0": 6,
+   "1": 9,
+   "2": 72,
+   "mismo_lado": 2
+  },
+  "ADELANTAR [Hands-On 1140908096]": {
+   "cuadros": 87,
+   "0": 9,
+   "1": 10,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "ADELANTAR [Hands-On 1140908188]": {
+   "cuadros": 62,
+   "0": 7,
+   "1": 7,
+   "2": 48,
+   "mismo_lado": 8
+  },
+  "ADENTRO [Hands-On 1135903418]": {
+   "cuadros": 55,
+   "0": 4,
+   "1": 10,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "ADMINISTRAR [Hands-On 1141573623]": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 7
+  },
+  "ADMITIR [Hands-On 1140908416]": {
+   "cuadros": 63,
+   "0": 8,
+   "1": 3,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "ADMITIR [Hands-On 1140908352]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 25,
+   "2": 27,
+   "mismo_lado": 2
+  },
+  "ADN [Hands-On 1135054527]": {
+   "cuadros": 79,
+   "0": 18,
+   "1": 3,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "ADVERTENCIA [Hands-On 1138734832]": {
+   "cuadros": 78,
+   "0": 7,
+   "1": 27,
+   "2": 44,
+   "mismo_lado": 5
+  },
+  "AFECTAR [Hands-On 1135063869]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 20,
+   "2": 29,
+   "mismo_lado": 16
+  },
+  "AFECTAR [Hands-On 1141573661]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 21,
+   "2": 28,
+   "mismo_lado": 16
+  },
+  "AFECTAR [Hands-On 1141573681]": {
+   "cuadros": 55,
+   "0": 9,
+   "1": 9,
+   "2": 37,
+   "mismo_lado": 7
+  },
+  "AFUERA [Hands-On 1138734851]": {
+   "cuadros": 63,
+   "0": 9,
+   "1": 52,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "AFUERA [Hands-On 1138734873]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 11,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "AGENDA [Hands-On 1135903455]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 18,
+   "2": 67,
+   "mismo_lado": 6
+  },
+  "AGENDAR [Hands-On 1135903480]": {
+   "cuadros": 61,
+   "0": 5,
+   "1": 4,
+   "2": 52,
+   "mismo_lado": 7
+  },
+  "AGRANDAR [Hands-On 1140908564]": {
+   "cuadros": 83,
+   "0": 10,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "AHORA [Hands-On 1138734947]": {
+   "cuadros": 39,
+   "0": 3,
+   "1": 3,
+   "2": 33,
+   "mismo_lado": 1
+  },
+  "AHORRAR [Hands-On 1140908797]": {
+   "cuadros": 63,
+   "0": 12,
+   "1": 7,
+   "2": 44,
+   "mismo_lado": 2
+  },
+  "AIRE [Hands-On 1135903538]": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "AISLAMIENTO [Hands-On 1144718053]": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 9,
+   "2": 73,
+   "mismo_lado": 5
+  },
+  "AISLAMIENTO [Hands-On 1144717623]": {
+   "cuadros": 101,
+   "0": 3,
+   "1": 5,
+   "2": 93,
+   "mismo_lado": 1
+  },
+  "AISLAR [Hands-On 1141573697]": {
+   "cuadros": 72,
+   "0": 12,
+   "1": 10,
+   "2": 50,
+   "mismo_lado": 12
+  },
+  "AISLAR [Hands-On 1141573713]": {
+   "cuadros": 91,
+   "0": 12,
+   "1": 22,
+   "2": 57,
+   "mismo_lado": 11
+  },
+  "AISLAR [Hands-On 1141573736]": {
+   "cuadros": 83,
+   "0": 19,
+   "1": 30,
+   "2": 34,
+   "mismo_lado": 4
+  },
+  "AISLAR-/-AISLADO [Hands-On 1135064981]": {
+   "cuadros": 81,
+   "0": 16,
+   "1": 29,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "AISLAR-AISLADO [Hands-On 1135064126]": {
+   "cuadros": 91,
+   "0": 11,
+   "1": 24,
+   "2": 56,
+   "mismo_lado": 15
+  },
+  "AJUSTAR [Hands-On 1140273651]": {
+   "cuadros": 111,
+   "0": 14,
+   "1": 7,
+   "2": 90,
+   "mismo_lado": 4
+  },
+  "AL-FRENTE [Hands-On 1135903568]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 73,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "AL-PUNTO [Hands-On 1138734969]": {
+   "cuadros": 62,
+   "0": 5,
+   "1": 6,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "ALEGRE [Hands-On 1140908941]": {
+   "cuadros": 59,
+   "0": 10,
+   "1": 2,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "ALEGRÍA [Hands-On 1135903608]": {
+   "cuadros": 74,
+   "0": 6,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "ALFOMBRA [Hands-On 1135903659]": {
+   "cuadros": 104,
+   "0": 3,
+   "1": 11,
+   "2": 90,
+   "mismo_lado": 4
+  },
+  "ALGO [Hands-On 1138735001]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 13,
+   "2": 52,
+   "mismo_lado": 7
+  },
+  "ALGUIEN [Hands-On 1138735033]": {
+   "cuadros": 82,
+   "0": 3,
+   "1": 11,
+   "2": 68,
+   "mismo_lado": 5
+  },
+  "ALGUNO [Hands-On 1138735063]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 13,
+   "2": 52,
+   "mismo_lado": 7
+  },
+  "ALIADO [Hands-On 1135903723]": {
+   "cuadros": 87,
+   "0": 4,
+   "1": 5,
+   "2": 78,
+   "mismo_lado": 4
+  },
+  "ALIANZA [Hands-On 1140273700]": {
+   "cuadros": 122,
+   "0": 16,
+   "1": 24,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "ALIVIAR [Hands-On 1141573752]": {
+   "cuadros": 116,
+   "0": 9,
+   "1": 3,
+   "2": 104,
+   "mismo_lado": 0
+  },
+  "ALIVIO [Hands-On 1138735086]": {
+   "cuadros": 51,
+   "0": 4,
+   "1": 3,
+   "2": 44,
+   "mismo_lado": 2
+  },
+  "ALMOHADA [Hands-On 1135903759]": {
+   "cuadros": 126,
+   "0": 5,
+   "1": 50,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "ALMORZAR [Hands-On 1140908993]": {
+   "cuadros": 88,
+   "0": 12,
+   "1": 19,
+   "2": 57,
+   "mismo_lado": 13
+  },
+  "ALMUERZO [Hands-On 1135903819]": {
+   "cuadros": 96,
+   "0": 10,
+   "1": 43,
+   "2": 43,
+   "mismo_lado": 13
+  },
+  "ALQUILAR [Hands-On 1140909106]": {
+   "cuadros": 89,
+   "0": 10,
+   "1": 6,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "ALZHEIMER [Hands-On 1140909323]": {
+   "cuadros": 100,
+   "0": 17,
+   "1": 61,
+   "2": 22,
+   "mismo_lado": 3
+  },
+  "AMABLE [Hands-On 1140909369]": {
+   "cuadros": 55,
+   "0": 7,
+   "1": 6,
+   "2": 42,
+   "mismo_lado": 1
+  },
+  "AMAR [Hands-On 1140909411]": {
+   "cuadros": 55,
+   "0": 15,
+   "1": 21,
+   "2": 19,
+   "mismo_lado": 3
+  },
+  "AMAR [Hands-On 1140909489]": {
+   "cuadros": 55,
+   "0": 11,
+   "1": 42,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "AMBICIOSO [Hands-On 1140915281]": {
+   "cuadros": 80,
+   "0": 10,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "AMBULANCIA [Hands-On 1144629779]": {
+   "cuadros": 85,
+   "0": 5,
+   "1": 5,
+   "2": 75,
+   "mismo_lado": 2
+  },
+  "AMIGABLE [Hands-On 1135903852]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 14,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "AMIGO [Hands-On 1135903911]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 14,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "AMIGOS [Hands-On 1135059567]": {
+   "cuadros": 95,
+   "0": 13,
+   "1": 3,
+   "2": 79,
+   "mismo_lado": 2
+  },
+  "AMIGOS [Hands-On 1141573779]": {
+   "cuadros": 94,
+   "0": 10,
+   "1": 9,
+   "2": 75,
+   "mismo_lado": 0
+  },
+  "AMISTAD [Hands-On 1135904085]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "ANALGÉSICO [Hands-On 1135058999]": {
+   "cuadros": 160,
+   "0": 12,
+   "1": 14,
+   "2": 134,
+   "mismo_lado": 5
+  },
+  "ANALGÉSICO [Hands-On 1140915338]": {
+   "cuadros": 159,
+   "0": 10,
+   "1": 17,
+   "2": 132,
+   "mismo_lado": 6
+  },
+  "ANALIZAR [Hands-On 1141573789]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 6
+  },
+  "ANALIZAR [Hands-On 1144637107]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 5,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "ANCHO [Hands-On 1140915417]": {
+   "cuadros": 70,
+   "0": 10,
+   "1": 5,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "ANDADERA [Hands-On 1135055637]": {
+   "cuadros": 65,
+   "0": 9,
+   "1": 9,
+   "2": 47,
+   "mismo_lado": 5
+  },
+  "ANDADERA [Hands-On 1140915473]": {
+   "cuadros": 65,
+   "0": 7,
+   "1": 8,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "ANEMIA [Hands-On 1140915542]": {
+   "cuadros": 92,
+   "0": 19,
+   "1": 7,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "ANESTESIA [Hands-On 1135057046]": {
+   "cuadros": 103,
+   "0": 18,
+   "1": 85,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "ANESTESIA [Hands-On 1140915608]": {
+   "cuadros": 100,
+   "0": 15,
+   "1": 85,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "ANESTESIA [Hands-On 1135056963]": {
+   "cuadros": 104,
+   "0": 10,
+   "1": 64,
+   "2": 30,
+   "mismo_lado": 1
+  },
+  "ANESTESIA [Hands-On 1140915654]": {
+   "cuadros": 109,
+   "0": 16,
+   "1": 63,
+   "2": 30,
+   "mismo_lado": 1
+  },
+  "ANGUSTIA [Hands-On 1141573802]": {
+   "cuadros": 75,
+   "0": 5,
+   "1": 3,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "ANSIEDAD [Hands-On 1141573834]": {
+   "cuadros": 100,
+   "0": 10,
+   "1": 4,
+   "2": 86,
+   "mismo_lado": 2
+  },
+  "ANTES [Hands-On 1138735140]": {
+   "cuadros": 65,
+   "0": 7,
+   "1": 56,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "ANTIBIÓTICO [Hands-On 1135058924]": {
+   "cuadros": 109,
+   "0": 11,
+   "1": 62,
+   "2": 36,
+   "mismo_lado": 13
+  },
+  "ANTIBIÓTICO [Hands-On 1140915821]": {
+   "cuadros": 110,
+   "0": 10,
+   "1": 66,
+   "2": 34,
+   "mismo_lado": 9
+  },
+  "ANTICONCEPTIVO [Hands-On 1135054594]": {
+   "cuadros": 124,
+   "0": 13,
+   "1": 55,
+   "2": 56,
+   "mismo_lado": 5
+  },
+  "ANTICONCEPTIVO [Hands-On 1140915904]": {
+   "cuadros": 124,
+   "0": 12,
+   "1": 51,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "ANTIESTAMINICO [Hands-On 1140916064]": {
+   "cuadros": 123,
+   "0": 13,
+   "1": 64,
+   "2": 46,
+   "mismo_lado": 3
+  },
+  "ANTIHISTAMÍNICO [Hands-On 1135058839]": {
+   "cuadros": 121,
+   "0": 11,
+   "1": 65,
+   "2": 45,
+   "mismo_lado": 6
+  },
+  "ANTIINFLAMATORIO [Hands-On 1140916243]": {
+   "cuadros": 115,
+   "0": 8,
+   "1": 16,
+   "2": 91,
+   "mismo_lado": 4
+  },
+  "ANTIÁCIDO [Hands-On 1135062660]": {
+   "cuadros": 136,
+   "0": 14,
+   "1": 87,
+   "2": 35,
+   "mismo_lado": 4
+  },
+  "ANTIÁCIDO [Hands-On 1140915755]": {
+   "cuadros": 136,
+   "0": 12,
+   "1": 88,
+   "2": 36,
+   "mismo_lado": 5
+  },
+  "ANUNCIAR [Hands-On 1140916307]": {
+   "cuadros": 60,
+   "0": 12,
+   "1": 2,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "ANUNCIAR [Hands-On 1140916365]": {
+   "cuadros": 71,
+   "0": 10,
+   "1": 18,
+   "2": 43,
+   "mismo_lado": 3
+  },
+  "AÑOS [Hands-On 1141573815]": {
+   "cuadros": 79,
+   "0": 18,
+   "1": 30,
+   "2": 31,
+   "mismo_lado": 0
+  },
+  "APAGAR [Hands-On 1135904295]": {
+   "cuadros": 70,
+   "0": 6,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 6
+  },
+  "APAGAR [Hands-On 1140916416]": {
+   "cuadros": 55,
+   "0": 13,
+   "1": 2,
+   "2": 40,
+   "mismo_lado": 3
+  },
+  "APLAUDIR [Hands-On 1140916476]": {
+   "cuadros": 66,
+   "0": 9,
+   "1": 18,
+   "2": 39,
+   "mismo_lado": 3
+  },
+  "APLAUDIR [Hands-On 1140916543]": {
+   "cuadros": 69,
+   "0": 15,
+   "1": 0,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "APLICAR [Hands-On 1141573856]": {
+   "cuadros": 92,
+   "0": 7,
+   "1": 22,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "APOYAR [Hands-On 1140273742]": {
+   "cuadros": 82,
+   "0": 14,
+   "1": 7,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "APOYAR [Hands-On 1140916602]": {
+   "cuadros": 55,
+   "0": 10,
+   "1": 6,
+   "2": 39,
+   "mismo_lado": 1
+  },
+  "APOYO [Hands-On 1138735158]": {
+   "cuadros": 84,
+   "0": 7,
+   "1": 7,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "APOYO [Hands-On 1144605631]": {
+   "cuadros": 57,
+   "0": 1,
+   "1": 30,
+   "2": 26,
+   "mismo_lado": 0
+  },
+  "APRENDER [Hands-On 1141573864]": {
+   "cuadros": 113,
+   "0": 12,
+   "1": 18,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "APROBAR [Hands-On 1138735177]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 5,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "APROVECHAR [Hands-On 1141573892]": {
+   "cuadros": 85,
+   "0": 3,
+   "1": 9,
+   "2": 73,
+   "mismo_lado": 6
+  },
+  "APROVECHAR [Hands-On 1135064229]": {
+   "cuadros": 95,
+   "0": 6,
+   "1": 57,
+   "2": 32,
+   "mismo_lado": 3
+  },
+  "APROVECHAR [Hands-On 1141573912]": {
+   "cuadros": 95,
+   "0": 6,
+   "1": 57,
+   "2": 32,
+   "mismo_lado": 4
+  },
+  "ARCHIVO [Hands-On 1140916650]": {
+   "cuadros": 62,
+   "0": 10,
+   "1": 1,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "ARCHIVO [Hands-On 1138735225]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 3,
+   "2": 66,
+   "mismo_lado": 4
+  },
+  "ARCHIVO [Hands-On 1138735252]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 14,
+   "2": 66,
+   "mismo_lado": 14
+  },
+  "ARREGLAR [Hands-On 1140273765]": {
+   "cuadros": 107,
+   "0": 10,
+   "1": 17,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "ARREGLAR [Hands-On 1140916731]": {
+   "cuadros": 67,
+   "0": 7,
+   "1": 14,
+   "2": 46,
+   "mismo_lado": 3
+  },
+  "ARRUGAS [Hands-On 1138735313]": {
+   "cuadros": 87,
+   "0": 8,
+   "1": 7,
+   "2": 72,
+   "mismo_lado": 0
+  },
+  "ARTE [Hands-On 1140916850]": {
+   "cuadros": 68,
+   "0": 13,
+   "1": 18,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "ARTERIA [Hands-On 1135038228]": {
+   "cuadros": 113,
+   "0": 8,
+   "1": 50,
+   "2": 55,
+   "mismo_lado": 0
+  },
+  "ARTISTICO [Hands-On 1140917024]": {
+   "cuadros": 68,
+   "0": 13,
+   "1": 18,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "ARTRITIS [Hands-On 1134609016]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 20
+  },
+  "ASEGURAR [Hands-On 1141573931]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 40,
+   "2": 29,
+   "mismo_lado": 0
+  },
+  "ASESORÍA [Hands-On 1141573948]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 11,
+   "2": 54,
+   "mismo_lado": 7
+  },
+  "ASFIXIA [Hands-On 1135062992]": {
+   "cuadros": 72,
+   "0": 8,
+   "1": 19,
+   "2": 45,
+   "mismo_lado": 5
+  },
+  "ASISTENTE [Hands-On 1144620621]": {
+   "cuadros": 63,
+   "0": 4,
+   "1": 10,
+   "2": 49,
+   "mismo_lado": 2
+  },
+  "ATENCIÓN [Hands-On 1144606499]": {
+   "cuadros": 66,
+   "0": 3,
+   "1": 3,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "ATENDER [Hands-On 1141573963]": {
+   "cuadros": 57,
+   "0": 13,
+   "1": 4,
+   "2": 40,
+   "mismo_lado": 4
+  },
+  "AUDIOGRAMA [Hands-On 1135904956]": {
+   "cuadros": 126,
+   "0": 4,
+   "1": 57,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "AUDITORÍA [Hands-On 1138735352]": {
+   "cuadros": 88,
+   "0": 6,
+   "1": 38,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "AULA [Hands-On 1141573979]": {
+   "cuadros": 75,
+   "0": 13,
+   "1": 3,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "AUMENTAR [Hands-On 1141573992]": {
+   "cuadros": 87,
+   "0": 5,
+   "1": 9,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "AUMENTAR [Hands-On 1141573999]": {
+   "cuadros": 93,
+   "0": 15,
+   "1": 14,
+   "2": 64,
+   "mismo_lado": 1
+  },
+  "AUMENTAR [Hands-On 1141574013]": {
+   "cuadros": 84,
+   "0": 5,
+   "1": 21,
+   "2": 58,
+   "mismo_lado": 5
+  },
+  "AUNQUE [Hands-On 1138735379]": {
+   "cuadros": 80,
+   "0": 3,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "AUNQUE [Hands-On 1140917224]": {
+   "cuadros": 68,
+   "0": 8,
+   "1": 20,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "AUTISMO [Hands-On 1140917283]": {
+   "cuadros": 64,
+   "0": 10,
+   "1": 27,
+   "2": 27,
+   "mismo_lado": 0
+  },
+  "AUTISMO [Hands-On 1144706943]": {
+   "cuadros": 78,
+   "0": 3,
+   "1": 2,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "AUTOCONTROL [Hands-On 1138735408]": {
+   "cuadros": 120,
+   "0": 5,
+   "1": 51,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "AUTOCONTROL [Hands-On 1138735441]": {
+   "cuadros": 76,
+   "0": 1,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "AUTOCUIDADO [Hands-On 1135054349]": {
+   "cuadros": 97,
+   "0": 11,
+   "1": 39,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "AUTOCUIDADO [Hands-On 1141574025]": {
+   "cuadros": 97,
+   "0": 10,
+   "1": 44,
+   "2": 43,
+   "mismo_lado": 1
+  },
+  "AUTOESTIMA [Hands-On 1144738275]": {
+   "cuadros": 91,
+   "0": 2,
+   "1": 42,
+   "2": 47,
+   "mismo_lado": 5
+  },
+  "AUTONOMÍA [Hands-On 1135063115]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 38,
+   "2": 34,
+   "mismo_lado": 4
+  },
+  "AUTORIZACIÓN [Hands-On 1138735463]": {
+   "cuadros": 60,
+   "0": 3,
+   "1": 18,
+   "2": 39,
+   "mismo_lado": 0
+  },
+  "AVANZADO [Hands-On 1140917467]": {
+   "cuadros": 65,
+   "0": 13,
+   "1": 9,
+   "2": 43,
+   "mismo_lado": 7
+  },
+  "AVERIGUAR [Hands-On 1141574045]": {
+   "cuadros": 94,
+   "0": 12,
+   "1": 23,
+   "2": 59,
+   "mismo_lado": 12
+  },
+  "AYUDA [Hands-On 1144622909]": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 7,
+   "2": 74,
+   "mismo_lado": 1
+  },
+  "AYUDARME [Hands-On 1144622384]": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "AYUNO [Hands-On 1138735556]": {
+   "cuadros": 93,
+   "0": 7,
+   "1": 84,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "AYUNO [Hands-On 1138735577]": {
+   "cuadros": 85,
+   "0": 6,
+   "1": 37,
+   "2": 42,
+   "mismo_lado": 2
+  },
+  "AÑO [Hands-On 1140915714]": {
+   "cuadros": 54,
+   "0": 9,
+   "1": 45,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "BAILAR [Hands-On 1140920691]": {
+   "cuadros": 94,
+   "0": 9,
+   "1": 15,
+   "2": 70,
+   "mismo_lado": 27
+  },
+  "BAJO [Hands-On 1140920745]": {
+   "cuadros": 81,
+   "0": 7,
+   "1": 71,
+   "2": 3,
+   "mismo_lado": 1
+  },
+  "BAJO [Hands-On 1140920806]": {
+   "cuadros": 78,
+   "0": 7,
+   "1": 12,
+   "2": 59,
+   "mismo_lado": 6
+  },
+  "BARATO [Hands-On 1140920871]": {
+   "cuadros": 67,
+   "0": 7,
+   "1": 12,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "BARATO [Hands-On 1140920933]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 70,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "BARRERAS [Hands-On 1144604228]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 9,
+   "2": 69,
+   "mismo_lado": 5
+  },
+  "BASTA [Hands-On 1140273793]": {
+   "cuadros": 70,
+   "0": 13,
+   "1": 10,
+   "2": 47,
+   "mismo_lado": 8
+  },
+  "BASTANTE [Hands-On 1140273816]": {
+   "cuadros": 69,
+   "0": 12,
+   "1": 4,
+   "2": 53,
+   "mismo_lado": 5
+  },
+  "BATALLA [Hands-On 1140273850]": {
+   "cuadros": 105,
+   "0": 14,
+   "1": 3,
+   "2": 88,
+   "mismo_lado": 4
+  },
+  "BATERÍA [Hands-On 1135905890]": {
+   "cuadros": 62,
+   "0": 5,
+   "1": 6,
+   "2": 51,
+   "mismo_lado": 9
+  },
+  "BATERÍAS [Hands-On 1135905924]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 9,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "BESO [Hands-On 1135906070]": {
+   "cuadros": 56,
+   "0": 5,
+   "1": 3,
+   "2": 48,
+   "mismo_lado": 1
+  },
+  "BESO [Hands-On 1135906119]": {
+   "cuadros": 59,
+   "0": 9,
+   "1": 50,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "BICICLETA [Hands-On 1135906161]": {
+   "cuadros": 85,
+   "0": 6,
+   "1": 11,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "BIEN [Hands-On 1138737360]": {
+   "cuadros": 51,
+   "0": 6,
+   "1": 44,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "BIEN [Hands-On 1140921124]": {
+   "cuadros": 89,
+   "0": 8,
+   "1": 80,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "BIEN [Hands-On 1140921170]": {
+   "cuadros": 82,
+   "0": 18,
+   "1": 63,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "BIEN [Hands-On 1140921221]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 6,
+   "2": 79,
+   "mismo_lado": 11
+  },
+  "BIGOTE [Hands-On 1138737385]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "BISTURÍ [Hands-On 1135054760]": {
+   "cuadros": 127,
+   "0": 10,
+   "1": 7,
+   "2": 110,
+   "mismo_lado": 3
+  },
+  "BOLA [Hands-On 1135906203]": {
+   "cuadros": 86,
+   "0": 10,
+   "1": 10,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "BOLSA [Hands-On 1135906250]": {
+   "cuadros": 58,
+   "0": 1,
+   "1": 6,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "BORRAR [Hands-On 1140921337]": {
+   "cuadros": 88,
+   "0": 11,
+   "1": 45,
+   "2": 32,
+   "mismo_lado": 2
+  },
+  "BOTELLA [Hands-On 1135906357]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "BRAZO [Hands-On 1138737432]": {
+   "cuadros": 66,
+   "0": 3,
+   "1": 23,
+   "2": 40,
+   "mismo_lado": 8
+  },
+  "BRILLANTE [Hands-On 1140921531]": {
+   "cuadros": 89,
+   "0": 15,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "BRINDAR [Hands-On 1140273910]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 5
+  },
+  "BROMISTA [Hands-On 1140921675]": {
+   "cuadros": 99,
+   "0": 11,
+   "1": 55,
+   "2": 33,
+   "mismo_lado": 12
+  },
+  "BUENAS-NOCHES [Hands-On 1138737449]": {
+   "cuadros": 87,
+   "0": 7,
+   "1": 13,
+   "2": 67,
+   "mismo_lado": 4
+  },
+  "BUENAS-TARDES [Hands-On 1138737472]": {
+   "cuadros": 90,
+   "0": 5,
+   "1": 11,
+   "2": 74,
+   "mismo_lado": 6
+  },
+  "BUENO [Hands-On 1140921802]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 6,
+   "2": 79,
+   "mismo_lado": 11
+  },
+  "BUENOS-DIAS [Hands-On 1135906417]": {
+   "cuadros": 93,
+   "0": 6,
+   "1": 11,
+   "2": 76,
+   "mismo_lado": 0
+  },
+  "BURLISTA [Hands-On 1140922006]": {
+   "cuadros": 99,
+   "0": 11,
+   "1": 55,
+   "2": 33,
+   "mismo_lado": 12
+  },
+  "BÁSICO [Hands-On 1140920982]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 7,
+   "2": 78,
+   "mismo_lado": 4
+  },
+  "CABALLO [Hands-On 1135906525]": {
+   "cuadros": 85,
+   "0": 4,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "CACA [Hands-On 1141574865]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "CADA-UNO [Hands-On 1138737529]": {
+   "cuadros": 88,
+   "0": 3,
+   "1": 83,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "CADA-UNO [Hands-On 1138737574]": {
+   "cuadros": 91,
+   "0": 5,
+   "1": 52,
+   "2": 34,
+   "mismo_lado": 1
+  },
+  "CAFÉ (BEBIDA) [Hands-On 1135906666]": {
+   "cuadros": 68,
+   "0": 7,
+   "1": 5,
+   "2": 56,
+   "mismo_lado": 2
+  },
+  "CAJA [Hands-On 1135906734]": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 8,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "CALENDARIO [Hands-On 1135906801]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 20,
+   "2": 65,
+   "mismo_lado": 6
+  },
+  "CALIDAD-DE-VIDA [Hands-On 1135055299]": {
+   "cuadros": 117,
+   "0": 21,
+   "1": 67,
+   "2": 29,
+   "mismo_lado": 4
+  },
+  "CALIDAD-DE-VIDA [Hands-On 1140922101]": {
+   "cuadros": 117,
+   "0": 20,
+   "1": 66,
+   "2": 31,
+   "mismo_lado": 8
+  },
+  "CALLE [Hands-On 1135906893]": {
+   "cuadros": 48,
+   "0": 2,
+   "1": 3,
+   "2": 43,
+   "mismo_lado": 9
+  },
+  "CALMA [Hands-On 1141574901]": {
+   "cuadros": 73,
+   "0": 6,
+   "1": 2,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "CALMAR [Hands-On 1141574940]": {
+   "cuadros": 73,
+   "0": 6,
+   "1": 2,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "CALOR [Hands-On 1144618786]": {
+   "cuadros": 61,
+   "0": 2,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "CAMBIAR [Hands-On 1141574967]": {
+   "cuadros": 84,
+   "0": 9,
+   "1": 33,
+   "2": 42,
+   "mismo_lado": 4
+  },
+  "CAMBIO [Hands-On 1134607854]": {
+   "cuadros": 87,
+   "0": 13,
+   "1": 30,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "CAMBIO [Hands-On 1141575004]": {
+   "cuadros": 84,
+   "0": 9,
+   "1": 33,
+   "2": 42,
+   "mismo_lado": 4
+  },
+  "CAMISA [Hands-On 1135906957]": {
+   "cuadros": 35,
+   "0": 3,
+   "1": 4,
+   "2": 28,
+   "mismo_lado": 1
+  },
+  "CAMPAMENTO [Hands-On 1138737636]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 4,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "CAMPAÑA [Hands-On 1144641663]": {
+   "cuadros": 70,
+   "0": 6,
+   "1": 30,
+   "2": 34,
+   "mismo_lado": 12
+  },
+  "CANAL [Hands-On 1138737672]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 6,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "CANCELAR [Hands-On 1140922335]": {
+   "cuadros": 81,
+   "0": 10,
+   "1": 14,
+   "2": 57,
+   "mismo_lado": 7
+  },
+  "CANCELAR [Hands-On 1140922399]": {
+   "cuadros": 73,
+   "0": 21,
+   "1": 48,
+   "2": 4,
+   "mismo_lado": 2
+  },
+  "CANCELAR [Hands-On 1140922456]": {
+   "cuadros": 105,
+   "0": 12,
+   "1": 37,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "CANCER [Hands-On 1144734862]": {
+   "cuadros": 76,
+   "0": 1,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "CANDADO [Hands-On 1135907131]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 11,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "CANSADO [Hands-On 1140922618]": {
+   "cuadros": 88,
+   "0": 11,
+   "1": 2,
+   "2": 75,
+   "mismo_lado": 12
+  },
+  "CANSANCIO [Hands-On 1141575057]": {
+   "cuadros": 99,
+   "0": 8,
+   "1": 1,
+   "2": 90,
+   "mismo_lado": 1
+  },
+  "CAPACITACIÓN [Hands-On 1138737701]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 12,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "CAPACITACIÓN [Hands-On 1138737718]": {
+   "cuadros": 72,
+   "0": 5,
+   "1": 4,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "CAPAZ [Hands-On 1140922747]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 12,
+   "2": 52,
+   "mismo_lado": 11
+  },
+  "CAPAZ [Hands-On 1140922804]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 8,
+   "2": 47,
+   "mismo_lado": 2
+  },
+  "CAPITAL [Hands-On 1140922850]": {
+   "cuadros": 95,
+   "0": 11,
+   "1": 19,
+   "2": 65,
+   "mismo_lado": 18
+  },
+  "CAPTURAR [Hands-On 1140924252]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 20
+  },
+  "CARDIOLOGÍA [Hands-On 1144733592]": {
+   "cuadros": 77,
+   "0": 1,
+   "1": 9,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "CARGA [Hands-On 1141575086]": {
+   "cuadros": 85,
+   "0": 24,
+   "1": 8,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "CARIES [Hands-On 1141575111]": {
+   "cuadros": 111,
+   "0": 11,
+   "1": 46,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "CARIÑOSO [Hands-On 1140924305]": {
+   "cuadros": 82,
+   "0": 14,
+   "1": 25,
+   "2": 43,
+   "mismo_lado": 2
+  },
+  "CARIÑOSO [Hands-On 1140924366]": {
+   "cuadros": 84,
+   "0": 7,
+   "1": 19,
+   "2": 58,
+   "mismo_lado": 6
+  },
+  "CARNE [Hands-On 1135907196]": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "CARPETA [Hands-On 1135907266]": {
+   "cuadros": 82,
+   "0": 7,
+   "1": 8,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "CARRETERA [Hands-On 1135907327]": {
+   "cuadros": 83,
+   "0": 7,
+   "1": 2,
+   "2": 74,
+   "mismo_lado": 11
+  },
+  "CARTA [Hands-On 1135907398]": {
+   "cuadros": 65,
+   "0": 3,
+   "1": 11,
+   "2": 51,
+   "mismo_lado": 13
+  },
+  "CARTÓN [Hands-On 1135907472]": {
+   "cuadros": 125,
+   "0": 8,
+   "1": 3,
+   "2": 114,
+   "mismo_lado": 0
+  },
+  "CASA [Hands-On 1135907520]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 9,
+   "2": 51,
+   "mismo_lado": 4
+  },
+  "CASARSE [Hands-On 1140924601]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "CASARSE [Hands-On 1140924649]": {
+   "cuadros": 71,
+   "0": 12,
+   "1": 9,
+   "2": 50,
+   "mismo_lado": 19
+  },
+  "CASARSE [Hands-On 1140924696]": {
+   "cuadros": 77,
+   "0": 14,
+   "1": 63,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "CASI [Hands-On 1135907652]": {
+   "cuadros": 69,
+   "0": 7,
+   "1": 62,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "CASI [Hands-On 1135907702]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 2,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "CASO [Hands-On 1134595269]": {
+   "cuadros": 98,
+   "0": 17,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "CASO [Hands-On 1140273969]": {
+   "cuadros": 70,
+   "0": 11,
+   "1": 6,
+   "2": 53,
+   "mismo_lado": 4
+  },
+  "CASO [Hands-On 1141575152]": {
+   "cuadros": 98,
+   "0": 17,
+   "1": 9,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "CASTIGAR [Hands-On 1140924744]": {
+   "cuadros": 73,
+   "0": 16,
+   "1": 21,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "CAUSA [Hands-On 1140273993]": {
+   "cuadros": 70,
+   "0": 12,
+   "1": 5,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "CEJAS [Hands-On 1138737799]": {
+   "cuadros": 85,
+   "0": 9,
+   "1": 9,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "CELEBRAR [Hands-On 1140924797]": {
+   "cuadros": 75,
+   "0": 16,
+   "1": 12,
+   "2": 47,
+   "mismo_lado": 9
+  },
+  "CENAR [Hands-On 1140924957]": {
+   "cuadros": 107,
+   "0": 9,
+   "1": 51,
+   "2": 47,
+   "mismo_lado": 5
+  },
+  "CENTENARIO [Hands-On 1135907824]": {
+   "cuadros": 111,
+   "0": 6,
+   "1": 67,
+   "2": 38,
+   "mismo_lado": 0
+  },
+  "CENTENARIO [Hands-On 1135907871]": {
+   "cuadros": 100,
+   "0": 7,
+   "1": 48,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "CENTRAL [Hands-On 1140924993]": {
+   "cuadros": 95,
+   "0": 11,
+   "1": 19,
+   "2": 65,
+   "mismo_lado": 18
+  },
+  "CENTRO [Hands-On 1140925034]": {
+   "cuadros": 95,
+   "0": 11,
+   "1": 19,
+   "2": 65,
+   "mismo_lado": 18
+  },
+  "CERCA [Hands-On 1140925102]": {
+   "cuadros": 76,
+   "0": 9,
+   "1": 25,
+   "2": 42,
+   "mismo_lado": 2
+  },
+  "CERCA [Hands-On 1140925163]": {
+   "cuadros": 80,
+   "0": 12,
+   "1": 68,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "CEREBRO [Hands-On 1141575179]": {
+   "cuadros": 112,
+   "0": 9,
+   "1": 50,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "CEREBRO [Hands-On 1135057799]": {
+   "cuadros": 121,
+   "0": 13,
+   "1": 54,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "CEREBRO [Hands-On 1141575228]": {
+   "cuadros": 124,
+   "0": 14,
+   "1": 54,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "CERRAR [Hands-On 1140925193]": {
+   "cuadros": 88,
+   "0": 14,
+   "1": 17,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "CESÁREA [Hands-On 1141575257]": {
+   "cuadros": 81,
+   "0": 7,
+   "1": 19,
+   "2": 55,
+   "mismo_lado": 0
+  },
+  "CHEQUEO [Hands-On 1144638592]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 5,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "CHINEAR [Hands-On 1140925238]": {
+   "cuadros": 82,
+   "0": 14,
+   "1": 25,
+   "2": 43,
+   "mismo_lado": 2
+  },
+  "CHOCOLATE [Hands-On 1135908049]": {
+   "cuadros": 123,
+   "0": 5,
+   "1": 51,
+   "2": 67,
+   "mismo_lado": 4
+  },
+  "CHORIZO [Hands-On 1140925277]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 15
+  },
+  "CINE [Hands-On 1135908316]": {
+   "cuadros": 106,
+   "0": 8,
+   "1": 6,
+   "2": 92,
+   "mismo_lado": 2
+  },
+  "CINTURA [Hands-On 1138737863]": {
+   "cuadros": 35,
+   "0": 1,
+   "1": 0,
+   "2": 34,
+   "mismo_lado": 0
+  },
+  "CIRUGÍA [Hands-On 1135061631]": {
+   "cuadros": 93,
+   "0": 8,
+   "1": 28,
+   "2": 57,
+   "mismo_lado": 5
+  },
+  "CITA [Hands-On 1135908377]": {
+   "cuadros": 61,
+   "0": 5,
+   "1": 5,
+   "2": 51,
+   "mismo_lado": 6
+  },
+  "CITA [Hands-On 1140925312]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 20
+  },
+  "CLARO [Hands-On 1140925350]": {
+   "cuadros": 107,
+   "0": 14,
+   "1": 6,
+   "2": 87,
+   "mismo_lado": 2
+  },
+  "CLASE [Hands-On 1135908449]": {
+   "cuadros": 79,
+   "0": 8,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "CLASIFICAR [Hands-On 1141576687]": {
+   "cuadros": 88,
+   "0": 5,
+   "1": 23,
+   "2": 60,
+   "mismo_lado": 6
+  },
+  "CLIENTE [Hands-On 1135908488]": {
+   "cuadros": 38,
+   "0": 3,
+   "1": 6,
+   "2": 29,
+   "mismo_lado": 2
+  },
+  "CLIMA [Hands-On 1135908537]": {
+   "cuadros": 86,
+   "0": 7,
+   "1": 5,
+   "2": 74,
+   "mismo_lado": 4
+  },
+  "CLÍNICA [Hands-On 1144644730]": {
+   "cuadros": 49,
+   "0": 0,
+   "1": 2,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "COBIJA [Hands-On 1135908608]": {
+   "cuadros": 94,
+   "0": 7,
+   "1": 4,
+   "2": 83,
+   "mismo_lado": 8
+  },
+  "COBRAR [Hands-On 1140925426]": {
+   "cuadros": 65,
+   "0": 9,
+   "1": 17,
+   "2": 39,
+   "mismo_lado": 8
+  },
+  "COCINA [Hands-On 1135908672]": {
+   "cuadros": 61,
+   "0": 3,
+   "1": 25,
+   "2": 33,
+   "mismo_lado": 2
+  },
+  "COCINAR [Hands-On 1135908707]": {
+   "cuadros": 93,
+   "0": 0,
+   "1": 10,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "COCINAR [Hands-On 1140925470]": {
+   "cuadros": 89,
+   "0": 8,
+   "1": 20,
+   "2": 61,
+   "mismo_lado": 4
+  },
+  "CODIFICAR [Hands-On 1140274021]": {
+   "cuadros": 113,
+   "0": 15,
+   "1": 5,
+   "2": 93,
+   "mismo_lado": 3
+  },
+  "CODO [Hands-On 1135908750]": {
+   "cuadros": 65,
+   "0": 8,
+   "1": 16,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "COLCHÓN [Hands-On 1135908834]": {
+   "cuadros": 118,
+   "0": 8,
+   "1": 6,
+   "2": 104,
+   "mismo_lado": 4
+  },
+  "COLEGIO [Hands-On 1134356920]": {
+   "cuadros": 84,
+   "0": 11,
+   "1": 3,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "COLEGIO [Hands-On 1141576700]": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 4
+  },
+  "COLESTEROL [Hands-On 1135055395]": {
+   "cuadros": 111,
+   "0": 10,
+   "1": 10,
+   "2": 91,
+   "mismo_lado": 9
+  },
+  "COLESTEROL [Hands-On 1140925513]": {
+   "cuadros": 111,
+   "0": 9,
+   "1": 12,
+   "2": 90,
+   "mismo_lado": 8
+  },
+  "COLESTEROL [Hands-On 1135055719]": {
+   "cuadros": 114,
+   "0": 12,
+   "1": 62,
+   "2": 40,
+   "mismo_lado": 8
+  },
+  "COLESTEROL [Hands-On 1140925591]": {
+   "cuadros": 115,
+   "0": 13,
+   "1": 61,
+   "2": 41,
+   "mismo_lado": 7
+  },
+  "COLITIS [Hands-On 1135062749]": {
+   "cuadros": 65,
+   "0": 1,
+   "1": 26,
+   "2": 38,
+   "mismo_lado": 2
+  },
+  "COLITIS [Hands-On 1140925717]": {
+   "cuadros": 64,
+   "0": 1,
+   "1": 25,
+   "2": 38,
+   "mismo_lado": 2
+  },
+  "COLUMNA-VERTEBRAL [Hands-On 1138737942]": {
+   "cuadros": 144,
+   "0": 10,
+   "1": 40,
+   "2": 94,
+   "mismo_lado": 12
+  },
+  "COMENTAR [Hands-On 1140926014]": {
+   "cuadros": 83,
+   "0": 13,
+   "1": 22,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "COMENZAR [Hands-On 1141576705]": {
+   "cuadros": 75,
+   "0": 4,
+   "1": 7,
+   "2": 64,
+   "mismo_lado": 4
+  },
+  "COMITÉ [Hands-On 1135908942]": {
+   "cuadros": 79,
+   "0": 8,
+   "1": 4,
+   "2": 67,
+   "mismo_lado": 4
+  },
+  "COMO [Hands-On 1138737965]": {
+   "cuadros": 59,
+   "0": 7,
+   "1": 2,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "COMO [Hands-On 1138737995]": {
+   "cuadros": 58,
+   "0": 4,
+   "1": 6,
+   "2": 48,
+   "mismo_lado": 5
+  },
+  "COMODO [Hands-On 1140926124]": {
+   "cuadros": 84,
+   "0": 12,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "COMPARAR [Hands-On 1140926193]": {
+   "cuadros": 88,
+   "0": 8,
+   "1": 9,
+   "2": 71,
+   "mismo_lado": 5
+  },
+  "COMPARTIR [Hands-On 1138738053]": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 8,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "COMPARTIR [Hands-On 1140926242]": {
+   "cuadros": 90,
+   "0": 5,
+   "1": 9,
+   "2": 76,
+   "mismo_lado": 7
+  },
+  "COMPLEJO [Hands-On 1140926289]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "COMPLICADO [Hands-On 1140926349]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "COMPRAR [Hands-On 1140926409]": {
+   "cuadros": 70,
+   "0": 9,
+   "1": 18,
+   "2": 43,
+   "mismo_lado": 5
+  },
+  "COMPROBANTE [Hands-On 1138738079]": {
+   "cuadros": 125,
+   "0": 4,
+   "1": 19,
+   "2": 102,
+   "mismo_lado": 4
+  },
+  "COMPROBAR [Hands-On 1141576722]": {
+   "cuadros": 78,
+   "0": 10,
+   "1": 27,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "COMPROMETER [Hands-On 1140274057]": {
+   "cuadros": 83,
+   "0": 16,
+   "1": 50,
+   "2": 17,
+   "mismo_lado": 0
+  },
+  "COMPROMETER [Hands-On 1140928875]": {
+   "cuadros": 88,
+   "0": 4,
+   "1": 33,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "COMPROMISO [Hands-On 1140929003]": {
+   "cuadros": 88,
+   "0": 4,
+   "1": 33,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "COMPUTADORA [Hands-On 1135909038]": {
+   "cuadros": 71,
+   "0": 1,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "COMUN [Hands-On 1140929092]": {
+   "cuadros": 92,
+   "0": 8,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 2
+  },
+  "COMUN [Hands-On 1140929170]": {
+   "cuadros": 86,
+   "0": 8,
+   "1": 6,
+   "2": 72,
+   "mismo_lado": 2
+  },
+  "COMUN [Hands-On 1140929244]": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 42,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "COMUNICACIÓN [Hands-On 1144603565]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 16,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "COMUNIDAD [Hands-On 1135059359]": {
+   "cuadros": 80,
+   "0": 9,
+   "1": 3,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "COMUNIDAD [Hands-On 1141576743]": {
+   "cuadros": 77,
+   "0": 13,
+   "1": 3,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "COMUNITARIO [Hands-On 1144641229]": {
+   "cuadros": 78,
+   "0": 3,
+   "1": 2,
+   "2": 73,
+   "mismo_lado": 1
+  },
+  "CON [Hands-On 1138738183]": {
+   "cuadros": 49,
+   "0": 4,
+   "1": 4,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "CON-RESPECTO [Hands-On 1138738154]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 7,
+   "2": 51,
+   "mismo_lado": 8
+  },
+  "CONCENTRACIÓN [Hands-On 1134602789]": {
+   "cuadros": 75,
+   "0": 16,
+   "1": 13,
+   "2": 46,
+   "mismo_lado": 6
+  },
+  "CONCENTRACIÓN [Hands-On 1141576749]": {
+   "cuadros": 75,
+   "0": 18,
+   "1": 11,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "CONDICIÓN [Hands-On 1138738201]": {
+   "cuadros": 87,
+   "0": 3,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 19
+  },
+  "CONDUCIR [Hands-On 1135909125]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "CONDUCIR [Hands-On 1135909198]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 1,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "CONECTAR [Hands-On 1140929326]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "CONECTAR [Hands-On 1140929413]": {
+   "cuadros": 103,
+   "0": 14,
+   "1": 4,
+   "2": 85,
+   "mismo_lado": 9
+  },
+  "CONEJO [Hands-On 1135909275]": {
+   "cuadros": 86,
+   "0": 9,
+   "1": 7,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "CONFIAR [Hands-On 1140929588]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 14,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "CONFIGURAR [Hands-On 1140929671]": {
+   "cuadros": 77,
+   "0": 13,
+   "1": 13,
+   "2": 51,
+   "mismo_lado": 5
+  },
+  "CONFIRMAR [Hands-On 1141576788]": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 6,
+   "2": 81,
+   "mismo_lado": 2
+  },
+  "CONFLICTO [Hands-On 1135060751]": {
+   "cuadros": 64,
+   "0": 10,
+   "1": 10,
+   "2": 44,
+   "mismo_lado": 2
+  },
+  "CONFLICTO [Hands-On 1141576794]": {
+   "cuadros": 65,
+   "0": 8,
+   "1": 23,
+   "2": 34,
+   "mismo_lado": 1
+  },
+  "CONFUNDIR [Hands-On 1140929745]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 22,
+   "2": 42,
+   "mismo_lado": 4
+  },
+  "CONOCER [Hands-On 1140929843]": {
+   "cuadros": 74,
+   "0": 10,
+   "1": 5,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "CONOCIDO [Hands-On 1140929943]": {
+   "cuadros": 74,
+   "0": 10,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "CONSECUENCIAS [Hands-On 1135060212]": {
+   "cuadros": 70,
+   "0": 12,
+   "1": 22,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "CONSECUENCIAS [Hands-On 1141576807]": {
+   "cuadros": 68,
+   "0": 12,
+   "1": 15,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "CONSENTIMIENTO [Hands-On 1138738225]": {
+   "cuadros": 60,
+   "0": 3,
+   "1": 20,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "CONSENTIMIENTO [Hands-On 1144608173]": {
+   "cuadros": 64,
+   "0": 2,
+   "1": 19,
+   "2": 43,
+   "mismo_lado": 5
+  },
+  "CONSTRUCCIÓN [Hands-On 1140930019]": {
+   "cuadros": 82,
+   "0": 16,
+   "1": 5,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "CONSTRUIR [Hands-On 1140930066]": {
+   "cuadros": 82,
+   "0": 16,
+   "1": 5,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "CONSTRUIR [Hands-On 1140930106]": {
+   "cuadros": 75,
+   "0": 17,
+   "1": 4,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "CONSULTA [Hands-On 1138738274]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 8,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "CONSULTA-MÉDICA [Hands-On 1138738250]": {
+   "cuadros": 113,
+   "0": 6,
+   "1": 6,
+   "2": 101,
+   "mismo_lado": 10
+  },
+  "CONSULTAR [Hands-On 1141576812]": {
+   "cuadros": 78,
+   "0": 8,
+   "1": 13,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "CONTACTO [Hands-On 1144621763]": {
+   "cuadros": 71,
+   "0": 0,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "CONTAGIAR [Hands-On 1141576826]": {
+   "cuadros": 99,
+   "0": 3,
+   "1": 7,
+   "2": 89,
+   "mismo_lado": 7
+  },
+  "CONTAGIAR [Hands-On 1141576835]": {
+   "cuadros": 117,
+   "0": 8,
+   "1": 60,
+   "2": 49,
+   "mismo_lado": 2
+  },
+  "CONTAGIAR [Hands-On 1141576841]": {
+   "cuadros": 109,
+   "0": 6,
+   "1": 12,
+   "2": 91,
+   "mismo_lado": 21
+  },
+  "CONTAGIO [Hands-On 1138738286]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "CONTAGIO [Hands-On 1138738313]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 3,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "CONTAR [Hands-On 1140930148]": {
+   "cuadros": 83,
+   "0": 13,
+   "1": 22,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "CONTAR [Hands-On 1140930201]": {
+   "cuadros": 73,
+   "0": 14,
+   "1": 58,
+   "2": 1,
+   "mismo_lado": 0
+  },
+  "CONTENTO [Hands-On 1135909333]": {
+   "cuadros": 74,
+   "0": 4,
+   "1": 5,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "CONTENTO [Hands-On 1140930236]": {
+   "cuadros": 59,
+   "0": 10,
+   "1": 2,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "CONTESTAR [Hands-On 1140930286]": {
+   "cuadros": 68,
+   "0": 9,
+   "1": 23,
+   "2": 36,
+   "mismo_lado": 6
+  },
+  "CONTEXTO [Hands-On 1138738346]": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 4,
+   "2": 83,
+   "mismo_lado": 17
+  },
+  "CONTINUAR [Hands-On 1140930344]": {
+   "cuadros": 85,
+   "0": 16,
+   "1": 10,
+   "2": 59,
+   "mismo_lado": 4
+  },
+  "CONTRACCIONES [Hands-On 1138738380]": {
+   "cuadros": 77,
+   "0": 1,
+   "1": 4,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "CONTRARIO [Hands-On 1140930402]": {
+   "cuadros": 75,
+   "0": 14,
+   "1": 8,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "CONTRATO [Hands-On 1138738443]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 8,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "CONTROL [Hands-On 1144634469]": {
+   "cuadros": 69,
+   "0": 2,
+   "1": 11,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "CONTROL-PRENATAL [Hands-On 1140930467]": {
+   "cuadros": 130,
+   "0": 11,
+   "1": 16,
+   "2": 103,
+   "mismo_lado": 12
+  },
+  "CONTROLAR [Hands-On 1141576847]": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 7
+  },
+  "CONVULSION [Hands-On 1140930525]": {
+   "cuadros": 78,
+   "0": 14,
+   "1": 37,
+   "2": 27,
+   "mismo_lado": 1
+  },
+  "COORDINAR [Hands-On 1140930572]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "COPIAR [Hands-On 1140930624]": {
+   "cuadros": 72,
+   "0": 13,
+   "1": 11,
+   "2": 48,
+   "mismo_lado": 0
+  },
+  "CORAZÓN [Hands-On 1141576856]": {
+   "cuadros": 66,
+   "0": 4,
+   "1": 7,
+   "2": 55,
+   "mismo_lado": 11
+  },
+  "CORRECTO [Hands-On 1140930698]": {
+   "cuadros": 56,
+   "0": 11,
+   "1": 12,
+   "2": 33,
+   "mismo_lado": 0
+  },
+  "CORREGIR [Hands-On 1140930748]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 16,
+   "2": 60,
+   "mismo_lado": 2
+  },
+  "CORREO [Hands-On 1135909397]": {
+   "cuadros": 65,
+   "0": 3,
+   "1": 11,
+   "2": 51,
+   "mismo_lado": 13
+  },
+  "CORREO [Hands-On 1138738519]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 13,
+   "2": 60,
+   "mismo_lado": 7
+  },
+  "CORREO [Hands-On 1138738545]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 21,
+   "2": 60,
+   "mismo_lado": 2
+  },
+  "CORRER [Hands-On 1140930800]": {
+   "cuadros": 85,
+   "0": 8,
+   "1": 7,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "CORRUPCIÓN [Hands-On 1140930879]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 15
+  },
+  "CORTADURA [Hands-On 1140930949]": {
+   "cuadros": 75,
+   "0": 13,
+   "1": 9,
+   "2": 53,
+   "mismo_lado": 1
+  },
+  "CORTAR [Hands-On 1140931013]": {
+   "cuadros": 73,
+   "0": 8,
+   "1": 63,
+   "2": 2,
+   "mismo_lado": 1
+  },
+  "CORTAR [Hands-On 1140931069]": {
+   "cuadros": 68,
+   "0": 10,
+   "1": 10,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "CORTO [Hands-On 1140931121]": {
+   "cuadros": 68,
+   "0": 9,
+   "1": 10,
+   "2": 49,
+   "mismo_lado": 0
+  },
+  "CORTO-PLAZO [Hands-On 1138738569]": {
+   "cuadros": 65,
+   "0": 6,
+   "1": 3,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "COSA [Hands-On 1138738593]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 6
+  },
+  "COSTILLAS [Hands-On 1138738609]": {
+   "cuadros": 60,
+   "0": 1,
+   "1": 0,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "COSTUMBRE [Hands-On 1140931230]": {
+   "cuadros": 69,
+   "0": 7,
+   "1": 10,
+   "2": 52,
+   "mismo_lado": 5
+  },
+  "COVID [Hands-On 1144734123]": {
+   "cuadros": 75,
+   "0": 4,
+   "1": 7,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "CREAR [Hands-On 1140931295]": {
+   "cuadros": 71,
+   "0": 11,
+   "1": 10,
+   "2": 50,
+   "mismo_lado": 4
+  },
+  "CREATIVIDAD [Hands-On 1140931348]": {
+   "cuadros": 86,
+   "0": 19,
+   "1": 15,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "CREATIVO [Hands-On 1140931400]": {
+   "cuadros": 86,
+   "0": 19,
+   "1": 15,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "CRECER [Hands-On 1140931456]": {
+   "cuadros": 76,
+   "0": 15,
+   "1": 55,
+   "2": 6,
+   "mismo_lado": 2
+  },
+  "CRECER [Hands-On 1140931519]": {
+   "cuadros": 83,
+   "0": 10,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "CRECER [Hands-On 1140931596]": {
+   "cuadros": 87,
+   "0": 9,
+   "1": 21,
+   "2": 57,
+   "mismo_lado": 9
+  },
+  "CREMA [Hands-On 1135909464]": {
+   "cuadros": 100,
+   "0": 3,
+   "1": 24,
+   "2": 73,
+   "mismo_lado": 8
+  },
+  "CRISIS [Hands-On 1134605836]": {
+   "cuadros": 85,
+   "0": 2,
+   "1": 15,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "CRISIS [Hands-On 1140931689]": {
+   "cuadros": 84,
+   "0": 3,
+   "1": 12,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "CRISIS [Hands-On 1141576860]": {
+   "cuadros": 90,
+   "0": 8,
+   "1": 6,
+   "2": 76,
+   "mismo_lado": 2
+  },
+  "CRITICAR [Hands-On 1140933687]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 15,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "CRUEL [Hands-On 1135909548]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 8,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "CRUEL [Hands-On 1140933768]": {
+   "cuadros": 74,
+   "0": 16,
+   "1": 4,
+   "2": 54,
+   "mismo_lado": 2
+  },
+  "CUADRADO [Hands-On 1135909633]": {
+   "cuadros": 105,
+   "0": 9,
+   "1": 8,
+   "2": 88,
+   "mismo_lado": 3
+  },
+  "CUAL [Hands-On 1138738665]": {
+   "cuadros": 64,
+   "0": 4,
+   "1": 8,
+   "2": 52,
+   "mismo_lado": 16
+  },
+  "CUAL [Hands-On 1138738705]": {
+   "cuadros": 71,
+   "0": 3,
+   "1": 9,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "CUALES [Hands-On 1138738726]": {
+   "cuadros": 64,
+   "0": 4,
+   "1": 8,
+   "2": 52,
+   "mismo_lado": 16
+  },
+  "CUALQUIERA [Hands-On 1138738789]": {
+   "cuadros": 80,
+   "0": 3,
+   "1": 6,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "CUALQUIERA [Hands-On 1140933837]": {
+   "cuadros": 68,
+   "0": 8,
+   "1": 20,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "CUARENTENA [Hands-On 1140933976]": {
+   "cuadros": 64,
+   "0": 13,
+   "1": 5,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "CUCHILLO [Hands-On 1135909905]": {
+   "cuadros": 74,
+   "0": 4,
+   "1": 10,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "CUENTO [Hands-On 1140934035]": {
+   "cuadros": 83,
+   "0": 13,
+   "1": 22,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "CUERDA [Hands-On 1135909960]": {
+   "cuadros": 65,
+   "0": 5,
+   "1": 9,
+   "2": 51,
+   "mismo_lado": 2
+  },
+  "CUERPO [Hands-On 1135910025]": {
+   "cuadros": 38,
+   "0": 4,
+   "1": 4,
+   "2": 30,
+   "mismo_lado": 1
+  },
+  "CUIDADO [Hands-On 1138738929]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 33,
+   "2": 32,
+   "mismo_lado": 5
+  },
+  "CUIDADO [Hands-On 1140934113]": {
+   "cuadros": 73,
+   "0": 13,
+   "1": 23,
+   "2": 37,
+   "mismo_lado": 2
+  },
+  "CUIDADOR [Hands-On 1144616739]": {
+   "cuadros": 54,
+   "0": 1,
+   "1": 7,
+   "2": 46,
+   "mismo_lado": 6
+  },
+  "CUIDADOSO [Hands-On 1140934166]": {
+   "cuadros": 73,
+   "0": 13,
+   "1": 23,
+   "2": 37,
+   "mismo_lado": 2
+  },
+  "CUIDAR-2 [Hands-On 1140934232]": {
+   "cuadros": 73,
+   "0": 13,
+   "1": 23,
+   "2": 37,
+   "mismo_lado": 2
+  },
+  "CULPA [Hands-On 1140934311]": {
+   "cuadros": 53,
+   "0": 8,
+   "1": 17,
+   "2": 28,
+   "mismo_lado": 2
+  },
+  "CULPABLE [Hands-On 1140934359]": {
+   "cuadros": 53,
+   "0": 9,
+   "1": 17,
+   "2": 27,
+   "mismo_lado": 0
+  },
+  "CULPAR [Hands-On 1135064736]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 26,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "CUMPLEAÑOS [Hands-On 1135910270]": {
+   "cuadros": 113,
+   "0": 6,
+   "1": 21,
+   "2": 86,
+   "mismo_lado": 5
+  },
+  "CUMPLIR [Hands-On 1140274159]": {
+   "cuadros": 83,
+   "0": 16,
+   "1": 44,
+   "2": 23,
+   "mismo_lado": 5
+  },
+  "CUNA [Hands-On 1135910469]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 7,
+   "2": 88,
+   "mismo_lado": 1
+  },
+  "CUÑADO [Hands-On 1140934549]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "CUÑADO [Hands-On 1140934608]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 8,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "CURAR [Hands-On 1141576868]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 23
+  },
+  "CURSO [Hands-On 1135910614]": {
+   "cuadros": 55,
+   "0": 3,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "DANZA [Hands-On 1135918052]": {
+   "cuadros": 88,
+   "0": 3,
+   "1": 11,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "DAÑAR [Hands-On 1147867728]": {
+   "cuadros": 72,
+   "0": 13,
+   "1": 18,
+   "2": 41,
+   "mismo_lado": 6
+  },
+  "DAR [Hands-On 1140274200]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 5
+  },
+  "DAR [Hands-On 1141576873]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "DATO [Hands-On 1138739737]": {
+   "cuadros": 102,
+   "0": 9,
+   "1": 11,
+   "2": 82,
+   "mismo_lado": 3
+  },
+  "DATO [Hands-On 1138739751]": {
+   "cuadros": 93,
+   "0": 7,
+   "1": 7,
+   "2": 79,
+   "mismo_lado": 2
+  },
+  "DE-ACUERDO [Hands-On 1138739773]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 5,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "DEBATIR [Hands-On 1147867109]": {
+   "cuadros": 63,
+   "0": 11,
+   "1": 10,
+   "2": 42,
+   "mismo_lado": 0
+  },
+  "DEBER [Hands-On 1147867713]": {
+   "cuadros": 72,
+   "0": 3,
+   "1": 18,
+   "2": 51,
+   "mismo_lado": 7
+  },
+  "DECIDIDO [Hands-On 1147867616]": {
+   "cuadros": 68,
+   "0": 15,
+   "1": 8,
+   "2": 45,
+   "mismo_lado": 6
+  },
+  "DECIDIR [Hands-On 1147867608]": {
+   "cuadros": 68,
+   "0": 15,
+   "1": 8,
+   "2": 45,
+   "mismo_lado": 6
+  },
+  "DECIDIR [Hands-On 1141576886]": {
+   "cuadros": 82,
+   "0": 13,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 8
+  },
+  "DECIDIR [Hands-On 1141576892]": {
+   "cuadros": 63,
+   "0": 9,
+   "1": 11,
+   "2": 43,
+   "mismo_lado": 12
+  },
+  "DECIDIR [Hands-On 1141576901]": {
+   "cuadros": 66,
+   "0": 5,
+   "1": 12,
+   "2": 49,
+   "mismo_lado": 10
+  },
+  "DECISIÓN [Hands-On 1147867593]": {
+   "cuadros": 68,
+   "0": 15,
+   "1": 8,
+   "2": 45,
+   "mismo_lado": 6
+  },
+  "DECLARAR [Hands-On 1147867578]": {
+   "cuadros": 79,
+   "0": 15,
+   "1": 9,
+   "2": 55,
+   "mismo_lado": 7
+  },
+  "DECORAR [Hands-On 1135928010]": {
+   "cuadros": 92,
+   "0": 9,
+   "1": 9,
+   "2": 74,
+   "mismo_lado": 3
+  },
+  "DEDOS-DE-LA-MANO [Hands-On 1135928104]": {
+   "cuadros": 67,
+   "0": 3,
+   "1": 7,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "DEDOS-DEL-PIE [Hands-On 1135928187]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 2,
+   "2": 70,
+   "mismo_lado": 7
+  },
+  "DEFENDER [Hands-On 1141576917]": {
+   "cuadros": 77,
+   "0": 9,
+   "1": 9,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "DEFENDER [Hands-On 1147867565]": {
+   "cuadros": 67,
+   "0": 15,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 0
+  },
+  "DEJAR [Hands-On 1140274232]": {
+   "cuadros": 72,
+   "0": 7,
+   "1": 20,
+   "2": 45,
+   "mismo_lado": 2
+  },
+  "DELICADO [Hands-On 1147867646]": {
+   "cuadros": 84,
+   "0": 4,
+   "1": 6,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "DELICADO [Hands-On 1147867533]": {
+   "cuadros": 78,
+   "0": 10,
+   "1": 65,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "DELICADO [Hands-On 1147867518]": {
+   "cuadros": 79,
+   "0": 7,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "DELICADO [Hands-On 1147867510]": {
+   "cuadros": 79,
+   "0": 2,
+   "1": 18,
+   "2": 59,
+   "mismo_lado": 10
+  },
+  "DEMANDA [Hands-On 1138739858]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 9,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "DEMANDA [Hands-On 1138739882]": {
+   "cuadros": 87,
+   "0": 3,
+   "1": 11,
+   "2": 73,
+   "mismo_lado": 17
+  },
+  "DEMANDANTE [Hands-On 1138739906]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 30,
+   "2": 39,
+   "mismo_lado": 1
+  },
+  "DEMASIADO [Hands-On 1135928237]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "DEMOSTRAR [Hands-On 1140274296]": {
+   "cuadros": 92,
+   "0": 10,
+   "1": 7,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "DENGUE [Hands-On 1134357608]": {
+   "cuadros": 106,
+   "0": 12,
+   "1": 8,
+   "2": 86,
+   "mismo_lado": 2
+  },
+  "DENGUE [Hands-On 1140934824]": {
+   "cuadros": 106,
+   "0": 11,
+   "1": 9,
+   "2": 86,
+   "mismo_lado": 3
+  },
+  "DENUNCIA [Hands-On 1135060301]": {
+   "cuadros": 73,
+   "0": 15,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "DENUNCIA [Hands-On 1138739930]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 9,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "DENUNCIA [Hands-On 1141576930]": {
+   "cuadros": 74,
+   "0": 15,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "DENUNCIAR [Hands-On 1141576938]": {
+   "cuadros": 74,
+   "0": 15,
+   "1": 6,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "DEPARTAMENTO [Hands-On 1138739948]": {
+   "cuadros": 89,
+   "0": 8,
+   "1": 19,
+   "2": 62,
+   "mismo_lado": 4
+  },
+  "DEPENDE [Hands-On 1147867499]": {
+   "cuadros": 74,
+   "0": 8,
+   "1": 9,
+   "2": 57,
+   "mismo_lado": 0
+  },
+  "DEPENDENCIA [Hands-On 1135058332]": {
+   "cuadros": 76,
+   "0": 7,
+   "1": 9,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "DEPENDENCIA [Hands-On 1141576945]": {
+   "cuadros": 76,
+   "0": 9,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "DEPENDER [Hands-On 1135064818]": {
+   "cuadros": 74,
+   "0": 6,
+   "1": 6,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "DEPENDER [Hands-On 1141576952]": {
+   "cuadros": 76,
+   "0": 9,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "DERECHOS [Hands-On 1144611185]": {
+   "cuadros": 66,
+   "0": 2,
+   "1": 21,
+   "2": 43,
+   "mismo_lado": 0
+  },
+  "DERMATOLOGÍA [Hands-On 1135061806]": {
+   "cuadros": 103,
+   "0": 12,
+   "1": 1,
+   "2": 90,
+   "mismo_lado": 1
+  },
+  "DERMATOLOGÍA [Hands-On 1140934873]": {
+   "cuadros": 103,
+   "0": 10,
+   "1": 10,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "DESAFÍO [Hands-On 1135060384]": {
+   "cuadros": 55,
+   "0": 8,
+   "1": 10,
+   "2": 37,
+   "mismo_lado": 5
+  },
+  "DESAFÍO [Hands-On 1141576958]": {
+   "cuadros": 55,
+   "0": 9,
+   "1": 11,
+   "2": 35,
+   "mismo_lado": 4
+  },
+  "DESAPARECER [Hands-On 1147867491]": {
+   "cuadros": 71,
+   "0": 13,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "DESARROLLAR [Hands-On 1147867473]": {
+   "cuadros": 83,
+   "0": 10,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "DESARROLLO [Hands-On 1144630784]": {
+   "cuadros": 60,
+   "0": 2,
+   "1": 14,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "DESARROLLO [Hands-On 1147867461]": {
+   "cuadros": 83,
+   "0": 10,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "DESAYUNAR [Hands-On 1147867448]": {
+   "cuadros": 116,
+   "0": 15,
+   "1": 59,
+   "2": 42,
+   "mismo_lado": 5
+  },
+  "DESCANSAR [Hands-On 1147867428]": {
+   "cuadros": 90,
+   "0": 15,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "DESCANSAR [Hands-On 1147867406]": {
+   "cuadros": 71,
+   "0": 14,
+   "1": 7,
+   "2": 50,
+   "mismo_lado": 3
+  },
+  "DESCARGAR [Hands-On 1147867394]": {
+   "cuadros": 70,
+   "0": 15,
+   "1": 7,
+   "2": 48,
+   "mismo_lado": 0
+  },
+  "DESCARGAR [Hands-On 1147867376]": {
+   "cuadros": 82,
+   "0": 15,
+   "1": 10,
+   "2": 57,
+   "mismo_lado": 6
+  },
+  "DESCARTE [Hands-On 1138739974]": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 8
+  },
+  "DESCARTE [Hands-On 1138739994]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 3,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "DESCONOCIDO [Hands-On 1147867361]": {
+   "cuadros": 79,
+   "0": 15,
+   "1": 30,
+   "2": 34,
+   "mismo_lado": 3
+  },
+  "DESCONOCIDO [Hands-On 1147867348]": {
+   "cuadros": 72,
+   "0": 15,
+   "1": 5,
+   "2": 52,
+   "mismo_lado": 3
+  },
+  "DESCONTROL [Hands-On 1138740015]": {
+   "cuadros": 116,
+   "0": 2,
+   "1": 5,
+   "2": 109,
+   "mismo_lado": 2
+  },
+  "DESCRIBIR [Hands-On 1147867336]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 10,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "DESDE [Hands-On 1138740072]": {
+   "cuadros": 61,
+   "0": 1,
+   "1": 13,
+   "2": 47,
+   "mismo_lado": 2
+  },
+  "DESEAR [Hands-On 1147867319]": {
+   "cuadros": 79,
+   "0": 11,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "DESEAR [Hands-On 1147867301]": {
+   "cuadros": 67,
+   "0": 9,
+   "1": 56,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "DESFIBRILADOR [Hands-On 1135062877]": {
+   "cuadros": 86,
+   "0": 12,
+   "1": 21,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "DESFIBRILADOR [Hands-On 1140934936]": {
+   "cuadros": 85,
+   "0": 13,
+   "1": 17,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "DESINFECCION [Hands-On 1135054813]": {
+   "cuadros": 133,
+   "0": 13,
+   "1": 80,
+   "2": 40,
+   "mismo_lado": 7
+  },
+  "DESINFECCION [Hands-On 1140935093]": {
+   "cuadros": 134,
+   "0": 14,
+   "1": 77,
+   "2": 43,
+   "mismo_lado": 5
+  },
+  "DESMAYO [Hands-On 1138740093]": {
+   "cuadros": 74,
+   "0": 6,
+   "1": 39,
+   "2": 29,
+   "mismo_lado": 3
+  },
+  "DESMAYO [Hands-On 1140935202]": {
+   "cuadros": 89,
+   "0": 7,
+   "1": 56,
+   "2": 26,
+   "mismo_lado": 11
+  },
+  "DESNUTRICION [Hands-On 1140935326]": {
+   "cuadros": 72,
+   "0": 6,
+   "1": 4,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "DESNUTRICION [Hands-On 1140935259]": {
+   "cuadros": 117,
+   "0": 14,
+   "1": 102,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "DESNUTRIDO [Hands-On 1140935385]": {
+   "cuadros": 117,
+   "0": 14,
+   "1": 102,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "DESNUTRIDO [Hands-On 1135057973]": {
+   "cuadros": 118,
+   "0": 12,
+   "1": 105,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "DESNUTRIDO [Hands-On 1135058077]": {
+   "cuadros": 71,
+   "0": 7,
+   "1": 3,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "DESORDENADO [Hands-On 1147867293]": {
+   "cuadros": 70,
+   "0": 9,
+   "1": 31,
+   "2": 30,
+   "mismo_lado": 8
+  },
+  "DESPERTADOR [Hands-On 1135928448]": {
+   "cuadros": 120,
+   "0": 8,
+   "1": 10,
+   "2": 102,
+   "mismo_lado": 0
+  },
+  "DESPERTADOR [Hands-On 1135928503]": {
+   "cuadros": 124,
+   "0": 6,
+   "1": 67,
+   "2": 51,
+   "mismo_lado": 2
+  },
+  "DESPERTAR [Hands-On 1147867277]": {
+   "cuadros": 88,
+   "0": 19,
+   "1": 7,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "DESPIDO [Hands-On 1140935475]": {
+   "cuadros": 68,
+   "0": 10,
+   "1": 9,
+   "2": 49,
+   "mismo_lado": 4
+  },
+  "DESPRECIO [Hands-On 1140274330]": {
+   "cuadros": 72,
+   "0": 15,
+   "1": 6,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "DETENERSE [Hands-On 1141576962]": {
+   "cuadros": 65,
+   "0": 8,
+   "1": 13,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "DEUDA [Hands-On 1147867696]": {
+   "cuadros": 72,
+   "0": 3,
+   "1": 18,
+   "2": 51,
+   "mismo_lado": 7
+  },
+  "DIABETES [Hands-On 1144736231]": {
+   "cuadros": 63,
+   "0": 1,
+   "1": 9,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "DIARREA [Hands-On 1138740136]": {
+   "cuadros": 91,
+   "0": 2,
+   "1": 34,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "DIBUJAR [Hands-On 1147867267]": {
+   "cuadros": 79,
+   "0": 8,
+   "1": 7,
+   "2": 64,
+   "mismo_lado": 7
+  },
+  "DIFERENCIA [Hands-On 1147867254]": {
+   "cuadros": 67,
+   "0": 13,
+   "1": 1,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "DIFERENCIA [Hands-On 1147867226]": {
+   "cuadros": 65,
+   "0": 13,
+   "1": 7,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "DIFERENTE [Hands-On 1147867240]": {
+   "cuadros": 67,
+   "0": 13,
+   "1": 1,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "DIFERENTE [Hands-On 1147867211]": {
+   "cuadros": 65,
+   "0": 13,
+   "1": 7,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "DIFERENTES [Hands-On 1135929099]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 7,
+   "2": 66,
+   "mismo_lado": 0
+  },
+  "DIFUNDIR [Hands-On 1138740170]": {
+   "cuadros": 81,
+   "0": 7,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "DINÁMICO [Hands-On 1147867184]": {
+   "cuadros": 55,
+   "0": 5,
+   "1": 10,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "DIRECTO [Hands-On 1147867167]": {
+   "cuadros": 76,
+   "0": 7,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "DIRECTO [Hands-On 1147867154]": {
+   "cuadros": 78,
+   "0": 17,
+   "1": 58,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "DISCAPACIDAD [Hands-On 1144705365]": {
+   "cuadros": 86,
+   "0": 0,
+   "1": 23,
+   "2": 63,
+   "mismo_lado": 7
+  },
+  "DISCRIMINACIÓN [Hands-On 1144607053]": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 2,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "DISCURSO [Hands-On 1138740199]": {
+   "cuadros": 67,
+   "0": 9,
+   "1": 58,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "DISCURSO [Hands-On 1138740211]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 67,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "DISCURSO [Hands-On 1138740224]": {
+   "cuadros": 73,
+   "0": 7,
+   "1": 9,
+   "2": 57,
+   "mismo_lado": 5
+  },
+  "DISCUTIR [Hands-On 1147867129]": {
+   "cuadros": 63,
+   "0": 11,
+   "1": 10,
+   "2": 42,
+   "mismo_lado": 0
+  },
+  "DISMINUIR [Hands-On 1141577048]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 6,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "DISMINUIR [Hands-On 1141577067]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 8,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "DISTANCIA [Hands-On 1141577079]": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "DIVERSO [Hands-On 1147867098]": {
+   "cuadros": 82,
+   "0": 17,
+   "1": 20,
+   "2": 45,
+   "mismo_lado": 9
+  },
+  "DIVERTIDO [Hands-On 1135929525]": {
+   "cuadros": 112,
+   "0": 4,
+   "1": 5,
+   "2": 103,
+   "mismo_lado": 0
+  },
+  "DIVIDIR [Hands-On 1147867088]": {
+   "cuadros": 57,
+   "0": 0,
+   "1": 13,
+   "2": 44,
+   "mismo_lado": 3
+  },
+  "DIVIDIR [Hands-On 1147867072]": {
+   "cuadros": 58,
+   "0": 3,
+   "1": 25,
+   "2": 30,
+   "mismo_lado": 2
+  },
+  "DIVIDIR [Hands-On 1147867058]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 5,
+   "2": 44,
+   "mismo_lado": 2
+  },
+  "DIVORCIO [Hands-On 1134609038]": {
+   "cuadros": 102,
+   "0": 3,
+   "1": 9,
+   "2": 90,
+   "mismo_lado": 0
+  },
+  "DIVORCIO [Hands-On 1141577091]": {
+   "cuadros": 102,
+   "0": 4,
+   "1": 6,
+   "2": 92,
+   "mismo_lado": 1
+  },
+  "DIVORCIO [Hands-On 1135059987]": {
+   "cuadros": 104,
+   "0": 8,
+   "1": 8,
+   "2": 88,
+   "mismo_lado": 4
+  },
+  "DIVORCIO [Hands-On 1141577104]": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 10,
+   "2": 86,
+   "mismo_lado": 3
+  },
+  "DOBLE [Hands-On 1138740239]": {
+   "cuadros": 78,
+   "0": 7,
+   "1": 10,
+   "2": 61,
+   "mismo_lado": 27
+  },
+  "DOBLE [Hands-On 1138740254]": {
+   "cuadros": 80,
+   "0": 8,
+   "1": 71,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "DOCTOR [Hands-On 1144647632]": {
+   "cuadros": 61,
+   "0": 2,
+   "1": 2,
+   "2": 57,
+   "mismo_lado": 4
+  },
+  "DOCUMENTOS [Hands-On 1144639114]": {
+   "cuadros": 66,
+   "0": 1,
+   "1": 15,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "DOLOR [Hands-On 1144697962]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 3,
+   "2": 62,
+   "mismo_lado": 5
+  },
+  "DOLOR-CRÓNICO [Hands-On 1135062368]": {
+   "cuadros": 116,
+   "0": 8,
+   "1": 7,
+   "2": 101,
+   "mismo_lado": 2
+  },
+  "DOLOR-CRÓNICO [Hands-On 1140935537]": {
+   "cuadros": 116,
+   "0": 10,
+   "1": 8,
+   "2": 98,
+   "mismo_lado": 0
+  },
+  "DOLOR-DE-CABEZA [Hands-On 1135062821]": {
+   "cuadros": 89,
+   "0": 17,
+   "1": 13,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "DOLOR-DE-CABEZA [Hands-On 1141577115]": {
+   "cuadros": 88,
+   "0": 16,
+   "1": 5,
+   "2": 67,
+   "mismo_lado": 1
+  },
+  "DOLOR-ESTOMACAL [Hands-On 1141577125]": {
+   "cuadros": 103,
+   "0": 2,
+   "1": 1,
+   "2": 100,
+   "mismo_lado": 4
+  },
+  "DOLOR-MENSTRUAL [Hands-On 1138740268]": {
+   "cuadros": 92,
+   "0": 3,
+   "1": 6,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "DONAR [Hands-On 1141577134]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 4
+  },
+  "DORMIR [Hands-On 1147867036]": {
+   "cuadros": 89,
+   "0": 14,
+   "1": 30,
+   "2": 45,
+   "mismo_lado": 10
+  },
+  "DORMIR [Hands-On 1147867021]": {
+   "cuadros": 67,
+   "0": 13,
+   "1": 54,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "DORMIR [Hands-On 1147867005]": {
+   "cuadros": 69,
+   "0": 16,
+   "1": 53,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "DUCHA [Hands-On 1135929764]": {
+   "cuadros": 120,
+   "0": 12,
+   "1": 40,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "DUDA [Hands-On 1147866975]": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 17,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "DUDAR [Hands-On 1147866992]": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 17,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "DUELO [Hands-On 1135044015]": {
+   "cuadros": 109,
+   "0": 7,
+   "1": 7,
+   "2": 95,
+   "mismo_lado": 2
+  },
+  "DUELO [Hands-On 1141577146]": {
+   "cuadros": 105,
+   "0": 6,
+   "1": 3,
+   "2": 96,
+   "mismo_lado": 2
+  },
+  "DURO [Hands-On 1135929878]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 6,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "DURO [Hands-On 1147866945]": {
+   "cuadros": 67,
+   "0": 7,
+   "1": 10,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "DURO [Hands-On 1147866933]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 40,
+   "2": 23,
+   "mismo_lado": 0
+  },
+  "DÉBIL [Hands-On 1147867679]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 6,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "DÉCADA [Hands-On 1135918098]": {
+   "cuadros": 106,
+   "0": 7,
+   "1": 50,
+   "2": 49,
+   "mismo_lado": 1
+  },
+  "DÉFICIT-ATENCIONAL [Hands-On 1138739837]": {
+   "cuadros": 117,
+   "0": 6,
+   "1": 55,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "DÍA [Hands-On 1135928681]": {
+   "cuadros": 106,
+   "0": 5,
+   "1": 9,
+   "2": 92,
+   "mismo_lado": 2
+  },
+  "EDUCACIÓN [Hands-On 1144633154]": {
+   "cuadros": 68,
+   "0": 4,
+   "1": 2,
+   "2": 62,
+   "mismo_lado": 3
+  },
+  "EDUCACIÓN [Hands-On 1144632717]": {
+   "cuadros": 74,
+   "0": 3,
+   "1": 4,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "EDUCADO [Hands-On 1147866902]": {
+   "cuadros": 72,
+   "0": 12,
+   "1": 4,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "EDUCADORES [Hands-On 1141578603]": {
+   "cuadros": 80,
+   "0": 10,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "EDUCAR [Hands-On 1144632373]": {
+   "cuadros": 66,
+   "0": 1,
+   "1": 6,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "EDUCAR [Hands-On 1147866879]": {
+   "cuadros": 67,
+   "0": 15,
+   "1": 4,
+   "2": 48,
+   "mismo_lado": 1
+  },
+  "EJEMPLO [Hands-On 1135929922]": {
+   "cuadros": 84,
+   "0": 6,
+   "1": 71,
+   "2": 7,
+   "mismo_lado": 1
+  },
+  "EJERCICIO [Hands-On 1138740299]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 11,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "EJERCICIO [Hands-On 1141578610]": {
+   "cuadros": 89,
+   "0": 22,
+   "1": 31,
+   "2": 36,
+   "mismo_lado": 16
+  },
+  "EJERCICIO-FÍSICO [Hands-On 1144636536]": {
+   "cuadros": 52,
+   "0": 0,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "EJERCITAR [Hands-On 1141578628]": {
+   "cuadros": 89,
+   "0": 22,
+   "1": 31,
+   "2": 36,
+   "mismo_lado": 16
+  },
+  "EJERCITAR [Hands-On 1141578635]": {
+   "cuadros": 69,
+   "0": 8,
+   "1": 20,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "ELECTRICIDAD [Hands-On 1135929971]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 9,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "ELECTROCARDIOGRAMA [Hands-On 1140935652]": {
+   "cuadros": 141,
+   "0": 14,
+   "1": 22,
+   "2": 105,
+   "mismo_lado": 4
+  },
+  "ELEGANTE [Hands-On 1147866828]": {
+   "cuadros": 51,
+   "0": 12,
+   "1": 8,
+   "2": 31,
+   "mismo_lado": 6
+  },
+  "ELIMINAR [Hands-On 1147866783]": {
+   "cuadros": 67,
+   "0": 9,
+   "1": 11,
+   "2": 47,
+   "mismo_lado": 2
+  },
+  "ELIMINAR [Hands-On 1147866765]": {
+   "cuadros": 45,
+   "0": 15,
+   "1": 5,
+   "2": 25,
+   "mismo_lado": 0
+  },
+  "ELIMINAR [Hands-On 1147866751]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 11,
+   "2": 44,
+   "mismo_lado": 5
+  },
+  "ELIMINAR [Hands-On 1147866733]": {
+   "cuadros": 57,
+   "0": 9,
+   "1": 11,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "ELOTE [Hands-On 1135930051]": {
+   "cuadros": 93,
+   "0": 2,
+   "1": 8,
+   "2": 83,
+   "mismo_lado": 3
+  },
+  "EMBARAZO [Hands-On 1134358685]": {
+   "cuadros": 94,
+   "0": 9,
+   "1": 12,
+   "2": 73,
+   "mismo_lado": 6
+  },
+  "EMBARAZO [Hands-On 1141578649]": {
+   "cuadros": 92,
+   "0": 8,
+   "1": 13,
+   "2": 71,
+   "mismo_lado": 6
+  },
+  "EMOCIONES [Hands-On 1141578666]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 24,
+   "2": 31,
+   "mismo_lado": 0
+  },
+  "EMOCIÓN [Hands-On 1141578660]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 24,
+   "2": 31,
+   "mismo_lado": 0
+  },
+  "EMPATÍA [Hands-On 1135059787]": {
+   "cuadros": 86,
+   "0": 19,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "EMPATÍA [Hands-On 1141578679]": {
+   "cuadros": 84,
+   "0": 17,
+   "1": 8,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "EMPEZAR [Hands-On 1141578682]": {
+   "cuadros": 75,
+   "0": 3,
+   "1": 10,
+   "2": 62,
+   "mismo_lado": 3
+  },
+  "EMPEZAR [Hands-On 1147866710]": {
+   "cuadros": 69,
+   "0": 5,
+   "1": 34,
+   "2": 30,
+   "mismo_lado": 2
+  },
+  "EMPODERAR [Hands-On 1141578688]": {
+   "cuadros": 107,
+   "0": 17,
+   "1": 21,
+   "2": 69,
+   "mismo_lado": 5
+  },
+  "ENCUESTA [Hands-On 1138740314]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 17,
+   "2": 59,
+   "mismo_lado": 4
+  },
+  "ENERGÍA [Hands-On 1135930131]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 6,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "ENFEREMERO [Hands-On 1144645231]": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 4,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "ENFERMEDAD [Hands-On 1144649856]": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "ENFERMEDAD-DE-TRANSMISION-SEXUAL [Hands-On 1140935860]": {
+   "cuadros": 154,
+   "0": 8,
+   "1": 15,
+   "2": 131,
+   "mismo_lado": 17
+  },
+  "ENFERMEDAD-DE-TRANSMISION-SEXUAL [Hands-On 1140935964]": {
+   "cuadros": 136,
+   "0": 14,
+   "1": 8,
+   "2": 114,
+   "mismo_lado": 6
+  },
+  "ENFERMEDAD-TRANSMISION-SEXUAL [Hands-On 1134607563]": {
+   "cuadros": 136,
+   "0": 11,
+   "1": 11,
+   "2": 114,
+   "mismo_lado": 10
+  },
+  "ENFERMO [Hands-On 1144649283]": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "ENFOQUE [Hands-On 1135059198]": {
+   "cuadros": 75,
+   "0": 15,
+   "1": 12,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "ENFOQUE [Hands-On 1141578695]": {
+   "cuadros": 87,
+   "0": 11,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 9
+  },
+  "ENFOQUE [Hands-On 1135038396]": {
+   "cuadros": 87,
+   "0": 10,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 4
+  },
+  "ENFOQUE [Hands-On 1141578701]": {
+   "cuadros": 75,
+   "0": 18,
+   "1": 10,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "ENFRIAR [Hands-On 1141578705]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "ENJUAGAR [Hands-On 1141578711]": {
+   "cuadros": 111,
+   "0": 11,
+   "1": 97,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "ENJUAGAR [Hands-On 1141578719]": {
+   "cuadros": 109,
+   "0": 12,
+   "1": 36,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "ENJUAGAR [Hands-On 1141578726]": {
+   "cuadros": 110,
+   "0": 7,
+   "1": 64,
+   "2": 39,
+   "mismo_lado": 7
+  },
+  "ENORME [Hands-On 1147866674]": {
+   "cuadros": 69,
+   "0": 13,
+   "1": 5,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "ENSAYAR [Hands-On 1138740336]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 13,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "ENSEÑAR [Hands-On 1138740354]": {
+   "cuadros": 72,
+   "0": 5,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "ENSEÑAR [Hands-On 1147866861]": {
+   "cuadros": 67,
+   "0": 15,
+   "1": 4,
+   "2": 48,
+   "mismo_lado": 1
+  },
+  "ENTONCES [Hands-On 1138740403]": {
+   "cuadros": 62,
+   "0": 1,
+   "1": 6,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "ENTONCES [Hands-On 1138740420]": {
+   "cuadros": 44,
+   "0": 3,
+   "1": 2,
+   "2": 39,
+   "mismo_lado": 3
+  },
+  "ENTRADA [Hands-On 1135930253]": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 8
+  },
+  "ENTRAR [Hands-On 1135930300]": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 8
+  },
+  "ENTRAR [Hands-On 1140936170]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 24,
+   "2": 28,
+   "mismo_lado": 4
+  },
+  "ENTRE [Hands-On 1138740448]": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 8,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "ENTREGAR [Hands-On 1135930365]": {
+   "cuadros": 74,
+   "0": 5,
+   "1": 4,
+   "2": 65,
+   "mismo_lado": 4
+  },
+  "ENTREVISTA [Hands-On 1141578742]": {
+   "cuadros": 78,
+   "0": 14,
+   "1": 12,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "ENTREVISTA [Hands-On 1147866569]": {
+   "cuadros": 78,
+   "0": 16,
+   "1": 13,
+   "2": 49,
+   "mismo_lado": 2
+  },
+  "ENTREVISTAR [Hands-On 1147866593]": {
+   "cuadros": 78,
+   "0": 16,
+   "1": 13,
+   "2": 49,
+   "mismo_lado": 2
+  },
+  "ENTROMETIDO [Hands-On 1147868118]": {
+   "cuadros": 74,
+   "0": 6,
+   "1": 21,
+   "2": 47,
+   "mismo_lado": 2
+  },
+  "ENTROMETIDO [Hands-On 1147868100]": {
+   "cuadros": 72,
+   "0": 14,
+   "1": 58,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "ENVIAR [Hands-On 1138740467]": {
+   "cuadros": 74,
+   "0": 5,
+   "1": 16,
+   "2": 53,
+   "mismo_lado": 3
+  },
+  "ENVIAR [Hands-On 1147868089]": {
+   "cuadros": 71,
+   "0": 8,
+   "1": 11,
+   "2": 52,
+   "mismo_lado": 3
+  },
+  "ENVIO [Hands-On 1138740489]": {
+   "cuadros": 77,
+   "0": 6,
+   "1": 17,
+   "2": 54,
+   "mismo_lado": 3
+  },
+  "ENVIO [Hands-On 1138740514]": {
+   "cuadros": 56,
+   "0": 4,
+   "1": 50,
+   "2": 2,
+   "mismo_lado": 1
+  },
+  "EPIDEMIA [Hands-On 1140936258]": {
+   "cuadros": 112,
+   "0": 14,
+   "1": 19,
+   "2": 79,
+   "mismo_lado": 8
+  },
+  "EPILEPSIA [Hands-On 1134363758]": {
+   "cuadros": 72,
+   "0": 14,
+   "1": 36,
+   "2": 22,
+   "mismo_lado": 7
+  },
+  "EPILEPSIA [Hands-On 1140936339]": {
+   "cuadros": 69,
+   "0": 9,
+   "1": 31,
+   "2": 29,
+   "mismo_lado": 8
+  },
+  "EQUIDAD [Hands-On 1144607675]": {
+   "cuadros": 62,
+   "0": 1,
+   "1": 5,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "EQUILIBRAR [Hands-On 1141578753]": {
+   "cuadros": 95,
+   "0": 9,
+   "1": 7,
+   "2": 79,
+   "mismo_lado": 1
+  },
+  "EQUILIBRAR [Hands-On 1141578760]": {
+   "cuadros": 114,
+   "0": 10,
+   "1": 13,
+   "2": 91,
+   "mismo_lado": 15
+  },
+  "EQUIPO [Hands-On 1144614143]": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 5,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "ERGIDO [Hands-On 1141578762]": {
+   "cuadros": 86,
+   "0": 9,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 31
+  },
+  "ESCALERA [Hands-On 1135930416]": {
+   "cuadros": 108,
+   "0": 4,
+   "1": 23,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "ESCALERA [Hands-On 1135930451]": {
+   "cuadros": 114,
+   "0": 5,
+   "1": 105,
+   "2": 4,
+   "mismo_lado": 3
+  },
+  "ESCRIBIR [Hands-On 1147868060]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 4,
+   "2": 55,
+   "mismo_lado": 0
+  },
+  "ESCUELA [Hands-On 1141578769]": {
+   "cuadros": 93,
+   "0": 7,
+   "1": 38,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "ESFORZADO [Hands-On 1147868037]": {
+   "cuadros": 89,
+   "0": 11,
+   "1": 38,
+   "2": 40,
+   "mismo_lado": 0
+  },
+  "ESFUERZO [Hands-On 1147868020]": {
+   "cuadros": 89,
+   "0": 11,
+   "1": 38,
+   "2": 40,
+   "mismo_lado": 0
+  },
+  "ESO [Hands-On 1138740562]": {
+   "cuadros": 60,
+   "0": 4,
+   "1": 55,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "ESO [Hands-On 1138740596]": {
+   "cuadros": 59,
+   "0": 1,
+   "1": 35,
+   "2": 23,
+   "mismo_lado": 3
+  },
+  "ESPACIO [Hands-On 1135930507]": {
+   "cuadros": 91,
+   "0": 6,
+   "1": 4,
+   "2": 81,
+   "mismo_lado": 16
+  },
+  "ESPACIO [Hands-On 1138740636]": {
+   "cuadros": 93,
+   "0": 6,
+   "1": 3,
+   "2": 84,
+   "mismo_lado": 16
+  },
+  "ESPAÑOL [Hands-On 1141578775]": {
+   "cuadros": 68,
+   "0": 10,
+   "1": 18,
+   "2": 40,
+   "mismo_lado": 3
+  },
+  "ESPAÑOL [Hands-On 1141578783]": {
+   "cuadros": 86,
+   "0": 9,
+   "1": 43,
+   "2": 34,
+   "mismo_lado": 5
+  },
+  "ESPECIAL [Hands-On 1141578792]": {
+   "cuadros": 85,
+   "0": 13,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "ESPECIAL [Hands-On 1147868008]": {
+   "cuadros": 78,
+   "0": 5,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 2
+  },
+  "ESPECIALIDAD [Hands-On 1141578798]": {
+   "cuadros": 75,
+   "0": 18,
+   "1": 10,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "ESPECIALIDAD [Hands-On 1135061714]": {
+   "cuadros": 85,
+   "0": 15,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "ESPECIALIDAD [Hands-On 1141578803]": {
+   "cuadros": 85,
+   "0": 13,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "ESPECIALISTA [Hands-On 1138740678]": {
+   "cuadros": 90,
+   "0": 2,
+   "1": 3,
+   "2": 85,
+   "mismo_lado": 4
+  },
+  "ESPERANZA [Hands-On 1138740709]": {
+   "cuadros": 103,
+   "0": 4,
+   "1": 7,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "ESPERANZA [Hands-On 1138740735]": {
+   "cuadros": 93,
+   "0": 5,
+   "1": 10,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "ESPERAR [Hands-On 1138740764]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "ESPERAR [Hands-On 1147867988]": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 9,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "ESPINILLA [Hands-On 1138740824]": {
+   "cuadros": 83,
+   "0": 3,
+   "1": 11,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "ESPOSOS [Hands-On 1140938718]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "ESQUINA [Hands-On 1135930589]": {
+   "cuadros": 86,
+   "0": 1,
+   "1": 41,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "ESTACIÓN [Hands-On 1135930625]": {
+   "cuadros": 87,
+   "0": 4,
+   "1": 8,
+   "2": 75,
+   "mismo_lado": 10
+  },
+  "ESTADISTICAS [Hands-On 1144616307]": {
+   "cuadros": 85,
+   "0": 3,
+   "1": 8,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "ESTANTE [Hands-On 1135930668]": {
+   "cuadros": 168,
+   "0": 10,
+   "1": 17,
+   "2": 141,
+   "mismo_lado": 9
+  },
+  "ESTIMULACIÓN [Hands-On 1144747228]": {
+   "cuadros": 107,
+   "0": 1,
+   "1": 1,
+   "2": 105,
+   "mismo_lado": 6
+  },
+  "ESTIRAMIENTO [Hands-On 1135056892]": {
+   "cuadros": 73,
+   "0": 13,
+   "1": 18,
+   "2": 42,
+   "mismo_lado": 2
+  },
+  "ESTIRAMIENTOS [Hands-On 1135056672]": {
+   "cuadros": 80,
+   "0": 12,
+   "1": 17,
+   "2": 51,
+   "mismo_lado": 14
+  },
+  "ESTIRAMIENTOS [Hands-On 1140939050]": {
+   "cuadros": 70,
+   "0": 11,
+   "1": 9,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "ESTRATEGIA [Hands-On 1141578817]": {
+   "cuadros": 66,
+   "0": 13,
+   "1": 2,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "ESTRECHO [Hands-On 1147867975]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 10
+  },
+  "ESTREÑIMIENTO [Hands-On 1138740880]": {
+   "cuadros": 91,
+   "0": 4,
+   "1": 10,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "ESTRESANTE [Hands-On 1147867956]": {
+   "cuadros": 57,
+   "0": 4,
+   "1": 3,
+   "2": 50,
+   "mismo_lado": 5
+  },
+  "ESTRICTO [Hands-On 1147866918]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 40,
+   "2": 23,
+   "mismo_lado": 0
+  },
+  "ESTRUCTURA [Hands-On 1140939124]": {
+   "cuadros": 75,
+   "0": 17,
+   "1": 4,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "ESTRÉS [Hands-On 1147867936]": {
+   "cuadros": 57,
+   "0": 4,
+   "1": 3,
+   "2": 50,
+   "mismo_lado": 5
+  },
+  "ESTUDIANTE [Hands-On 1135930744]": {
+   "cuadros": 100,
+   "0": 2,
+   "1": 5,
+   "2": 93,
+   "mismo_lado": 13
+  },
+  "ESTUDIANTE [Hands-On 1147867886]": {
+   "cuadros": 87,
+   "0": 6,
+   "1": 7,
+   "2": 74,
+   "mismo_lado": 13
+  },
+  "ESTUDIAR [Hands-On 1147867910]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 10,
+   "2": 57,
+   "mismo_lado": 0
+  },
+  "EVALUACIÓN [Hands-On 1138740916]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 3,
+   "2": 77,
+   "mismo_lado": 4
+  },
+  "EVITAR [Hands-On 1141578826]": {
+   "cuadros": 71,
+   "0": 6,
+   "1": 17,
+   "2": 48,
+   "mismo_lado": 14
+  },
+  "EVITAR [Hands-On 1147867869]": {
+   "cuadros": 65,
+   "0": 8,
+   "1": 13,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "EXAMEN [Hands-On 1135060597]": {
+   "cuadros": 60,
+   "0": 13,
+   "1": 3,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "EXAMEN [Hands-On 1141578833]": {
+   "cuadros": 61,
+   "0": 13,
+   "1": 3,
+   "2": 45,
+   "mismo_lado": 4
+  },
+  "EXAMINAR [Hands-On 1141578838]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 6
+  },
+  "EXCELENTE [Hands-On 1147867849]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 5,
+   "2": 67,
+   "mismo_lado": 1
+  },
+  "EXCLUIR [Hands-On 1141578844]": {
+   "cuadros": 75,
+   "0": 15,
+   "1": 6,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "EXCREMENTO [Hands-On 1141578853]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "EXCURSIÓN [Hands-On 1135059287]": {
+   "cuadros": 66,
+   "0": 13,
+   "1": 2,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "EXCURSIÓN [Hands-On 1141578861]": {
+   "cuadros": 66,
+   "0": 12,
+   "1": 4,
+   "2": 50,
+   "mismo_lado": 1
+  },
+  "EXISTIR [Hands-On 1147867831]": {
+   "cuadros": 62,
+   "0": 8,
+   "1": 9,
+   "2": 45,
+   "mismo_lado": 2
+  },
+  "EXPECTATIVA [Hands-On 1138740957]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "EXPEDIENTE [Hands-On 1140939346]": {
+   "cuadros": 62,
+   "0": 10,
+   "1": 1,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "EXPLICAR [Hands-On 1135064312]": {
+   "cuadros": 99,
+   "0": 13,
+   "1": 23,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "EXPLICAR [Hands-On 1138740978]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "EXPLICAR [Hands-On 1141578880]": {
+   "cuadros": 96,
+   "0": 12,
+   "1": 23,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "EXPLICAR [Hands-On 1147867815]": {
+   "cuadros": 75,
+   "0": 12,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 8
+  },
+  "EXPORTAR [Hands-On 1147867799]": {
+   "cuadros": 65,
+   "0": 12,
+   "1": 10,
+   "2": 43,
+   "mismo_lado": 0
+  },
+  "EXPRESAR [Hands-On 1135063687]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 9,
+   "2": 46,
+   "mismo_lado": 3
+  },
+  "EXPRESAR [Hands-On 1141578887]": {
+   "cuadros": 63,
+   "0": 6,
+   "1": 9,
+   "2": 48,
+   "mismo_lado": 4
+  },
+  "EXPRESAR [Hands-On 1147867792]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "EXPULSAR [Hands-On 1141578898]": {
+   "cuadros": 76,
+   "0": 11,
+   "1": 22,
+   "2": 43,
+   "mismo_lado": 6
+  },
+  "EXPULSAR [Hands-On 1141578905]": {
+   "cuadros": 75,
+   "0": 12,
+   "1": 27,
+   "2": 36,
+   "mismo_lado": 12
+  },
+  "FACTURA [Hands-On 1138741749]": {
+   "cuadros": 63,
+   "0": 5,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 15
+  },
+  "FACTURA [Hands-On 1138741765]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 5,
+   "2": 64,
+   "mismo_lado": 9
+  },
+  "FACTURA [Hands-On 1138741794]": {
+   "cuadros": 94,
+   "0": 7,
+   "1": 7,
+   "2": 80,
+   "mismo_lado": 1
+  },
+  "FACTURAR [Hands-On 1138741825]": {
+   "cuadros": 63,
+   "0": 5,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 15
+  },
+  "FAMILIA [Hands-On 1144628522]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 1,
+   "2": 75,
+   "mismo_lado": 3
+  },
+  "FAMOSO [Hands-On 1140274466]": {
+   "cuadros": 98,
+   "0": 16,
+   "1": 11,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "FATIGA [Hands-On 1141579651]": {
+   "cuadros": 99,
+   "0": 8,
+   "1": 1,
+   "2": 90,
+   "mismo_lado": 1
+  },
+  "FELICIDAD [Hands-On 1135930849]": {
+   "cuadros": 74,
+   "0": 4,
+   "1": 5,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "FELICIDAD [Hands-On 1140939443]": {
+   "cuadros": 59,
+   "0": 10,
+   "1": 2,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "FELIZ [Hands-On 1135930900]": {
+   "cuadros": 74,
+   "0": 5,
+   "1": 3,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "FELIZ [Hands-On 1140274512]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 11,
+   "2": 61,
+   "mismo_lado": 14
+  },
+  "FELIZ [Hands-On 1140939525]": {
+   "cuadros": 59,
+   "0": 10,
+   "1": 2,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "FERIA [Hands-On 1135930959]": {
+   "cuadros": 123,
+   "0": 7,
+   "1": 8,
+   "2": 108,
+   "mismo_lado": 2
+  },
+  "FERTILIDAD [Hands-On 1140939600]": {
+   "cuadros": 101,
+   "0": 16,
+   "1": 35,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "FIEL [Hands-On 1140274611]": {
+   "cuadros": 83,
+   "0": 10,
+   "1": 4,
+   "2": 69,
+   "mismo_lado": 4
+  },
+  "FIESTA [Hands-On 1135931070]": {
+   "cuadros": 91,
+   "0": 9,
+   "1": 6,
+   "2": 76,
+   "mismo_lado": 4
+  },
+  "FIGURA [Hands-On 1138741896]": {
+   "cuadros": 92,
+   "0": 6,
+   "1": 8,
+   "2": 78,
+   "mismo_lado": 4
+  },
+  "FILTRAR [Hands-On 1141579669]": {
+   "cuadros": 75,
+   "0": 5,
+   "1": 19,
+   "2": 51,
+   "mismo_lado": 8
+  },
+  "FINALIZAR [Hands-On 1135931121]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 11,
+   "2": 67,
+   "mismo_lado": 1
+  },
+  "FIRMA [Hands-On 1138741929]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 9,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "FIRMAR [Hands-On 1140274682]": {
+   "cuadros": 30,
+   "0": 2,
+   "1": 10,
+   "2": 18,
+   "mismo_lado": 2
+  },
+  "FISIOTERAPIA [Hands-On 1144732054]": {
+   "cuadros": 77,
+   "0": 1,
+   "1": 1,
+   "2": 75,
+   "mismo_lado": 5
+  },
+  "FLEXIBLE [Hands-On 1140274727]": {
+   "cuadros": 72,
+   "0": 7,
+   "1": 13,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "FLOR [Hands-On 1135931164]": {
+   "cuadros": 107,
+   "0": 1,
+   "1": 34,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "FLUIDO [Hands-On 1140274763]": {
+   "cuadros": 41,
+   "0": 4,
+   "1": 1,
+   "2": 36,
+   "mismo_lado": 0
+  },
+  "FOBIA [Hands-On 1141579695]": {
+   "cuadros": 59,
+   "0": 6,
+   "1": 6,
+   "2": 47,
+   "mismo_lado": 4
+  },
+  "FOBIA [Hands-On 1141579705]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 4,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "FOCO [Hands-On 1135931204]": {
+   "cuadros": 95,
+   "0": 4,
+   "1": 32,
+   "2": 59,
+   "mismo_lado": 3
+  },
+  "FOLDER [Hands-On 1135931246]": {
+   "cuadros": 82,
+   "0": 7,
+   "1": 8,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "FORMULARIO [Hands-On 1138741961]": {
+   "cuadros": 124,
+   "0": 8,
+   "1": 10,
+   "2": 106,
+   "mismo_lado": 1
+  },
+  "FORTALECER [Hands-On 1135931310]": {
+   "cuadros": 69,
+   "0": 4,
+   "1": 15,
+   "2": 50,
+   "mismo_lado": 3
+  },
+  "FORTALECER [Hands-On 1141579711]": {
+   "cuadros": 80,
+   "0": 12,
+   "1": 5,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "FORTALECIMIENTO [Hands-On 1134608339]": {
+   "cuadros": 65,
+   "0": 17,
+   "1": 2,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "FORTALECIMIENTO [Hands-On 1140939719]": {
+   "cuadros": 65,
+   "0": 16,
+   "1": 3,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "FOTO [Hands-On 1135933689]": {
+   "cuadros": 93,
+   "0": 3,
+   "1": 13,
+   "2": 77,
+   "mismo_lado": 2
+  },
+  "FRACTURA [Hands-On 1135055460]": {
+   "cuadros": 115,
+   "0": 7,
+   "1": 24,
+   "2": 84,
+   "mismo_lado": 1
+  },
+  "FRACTURA [Hands-On 1141579719]": {
+   "cuadros": 115,
+   "0": 9,
+   "1": 20,
+   "2": 86,
+   "mismo_lado": 1
+  },
+  "FRAUDE [Hands-On 1140939821]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 14,
+   "2": 55,
+   "mismo_lado": 15
+  },
+  "FRIJOLES [Hands-On 1138742023]": {
+   "cuadros": 79,
+   "0": 3,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 19
+  },
+  "FRITO [Hands-On 1135933783]": {
+   "cuadros": 91,
+   "0": 3,
+   "1": 9,
+   "2": 79,
+   "mismo_lado": 13
+  },
+  "FRUTA [Hands-On 1135933821]": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 87,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "FRUTA [Hands-On 1135933845]": {
+   "cuadros": 102,
+   "0": 5,
+   "1": 8,
+   "2": 89,
+   "mismo_lado": 2
+  },
+  "FRUTA [Hands-On 1135933882]": {
+   "cuadros": 93,
+   "0": 7,
+   "1": 84,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "FRÍO [Hands-On 1140274788]": {
+   "cuadros": 62,
+   "0": 6,
+   "1": 9,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "FRÍO [Hands-On 1141579726]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "FRÍO [Hands-On 1144618411]": {
+   "cuadros": 72,
+   "0": 1,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "FUEGO [Hands-On 1135933928]": {
+   "cuadros": 87,
+   "0": 0,
+   "1": 13,
+   "2": 74,
+   "mismo_lado": 5
+  },
+  "FUENTE-DE-AGUA [Hands-On 1135933962]": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 16,
+   "2": 57,
+   "mismo_lado": 5
+  },
+  "FUERTE [Hands-On 1140274815]": {
+   "cuadros": 82,
+   "0": 19,
+   "1": 9,
+   "2": 54,
+   "mismo_lado": 5
+  },
+  "FUERTE [Hands-On 1140274836]": {
+   "cuadros": 88,
+   "0": 14,
+   "1": 70,
+   "2": 4,
+   "mismo_lado": 2
+  },
+  "FUNCIONAR [Hands-On 1140274860]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 4,
+   "2": 54,
+   "mismo_lado": 7
+  },
+  "FUNCIONAR [Hands-On 1141579753]": {
+   "cuadros": 76,
+   "0": 11,
+   "1": 2,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "FUNCIÓN [Hands-On 1134365283]": {
+   "cuadros": 75,
+   "0": 10,
+   "1": 3,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "FUNCIÓN [Hands-On 1141579743]": {
+   "cuadros": 76,
+   "0": 11,
+   "1": 2,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "FUNDACIÓN [Hands-On 1141579761]": {
+   "cuadros": 89,
+   "0": 12,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "FUNDAR [Hands-On 1141579771]": {
+   "cuadros": 89,
+   "0": 12,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "GANAR [Hands-On 1140276684]": {
+   "cuadros": 69,
+   "0": 16,
+   "1": 51,
+   "2": 2,
+   "mismo_lado": 1
+  },
+  "GANAR [Hands-On 1140276706]": {
+   "cuadros": 64,
+   "0": 8,
+   "1": 13,
+   "2": 43,
+   "mismo_lado": 3
+  },
+  "GARAJE [Hands-On 1135947866]": {
+   "cuadros": 80,
+   "0": 8,
+   "1": 8,
+   "2": 64,
+   "mismo_lado": 1
+  },
+  "GARANTIZAR [Hands-On 1135063521]": {
+   "cuadros": 81,
+   "0": 9,
+   "1": 42,
+   "2": 30,
+   "mismo_lado": 1
+  },
+  "GARANTIZAR [Hands-On 1141579778]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 40,
+   "2": 29,
+   "mismo_lado": 0
+  },
+  "GAS [Hands-On 1135950435]": {
+   "cuadros": 89,
+   "0": 0,
+   "1": 6,
+   "2": 83,
+   "mismo_lado": 2
+  },
+  "GASTAR [Hands-On 1140277353]": {
+   "cuadros": 36,
+   "0": 2,
+   "1": 2,
+   "2": 32,
+   "mismo_lado": 7
+  },
+  "GASTRITIS [Hands-On 1135062289]": {
+   "cuadros": 73,
+   "0": 3,
+   "1": 34,
+   "2": 36,
+   "mismo_lado": 2
+  },
+  "GASTRITIS [Hands-On 1140939961]": {
+   "cuadros": 75,
+   "0": 4,
+   "1": 33,
+   "2": 38,
+   "mismo_lado": 3
+  },
+  "GASTROENTEROLOGÍA [Hands-On 1135060988]": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 71,
+   "2": 25,
+   "mismo_lado": 1
+  },
+  "GASTROENTEROLOGÍA [Hands-On 1140940094]": {
+   "cuadros": 101,
+   "0": 5,
+   "1": 68,
+   "2": 28,
+   "mismo_lado": 5
+  },
+  "GATO [Hands-On 1135950495]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 7
+  },
+  "GENERACION [Hands-On 1138742057]": {
+   "cuadros": 98,
+   "0": 5,
+   "1": 9,
+   "2": 84,
+   "mismo_lado": 0
+  },
+  "GENERAL [Hands-On 1135060464]": {
+   "cuadros": 61,
+   "0": 9,
+   "1": 5,
+   "2": 47,
+   "mismo_lado": 0
+  },
+  "GENERAL [Hands-On 1140278799]": {
+   "cuadros": 88,
+   "0": 12,
+   "1": 18,
+   "2": 58,
+   "mismo_lado": 6
+  },
+  "GENERAL [Hands-On 1141579787]": {
+   "cuadros": 61,
+   "0": 8,
+   "1": 5,
+   "2": 48,
+   "mismo_lado": 0
+  },
+  "GENERAR [Hands-On 1141579796]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "GENETICA [Hands-On 1138742078]": {
+   "cuadros": 102,
+   "0": 4,
+   "1": 8,
+   "2": 90,
+   "mismo_lado": 4
+  },
+  "GENETICA [Hands-On 1138742113]": {
+   "cuadros": 98,
+   "0": 5,
+   "1": 9,
+   "2": 84,
+   "mismo_lado": 0
+  },
+  "GENTE [Hands-On 1135950541]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "GIMNASIO [Hands-On 1141579806]": {
+   "cuadros": 89,
+   "0": 22,
+   "1": 31,
+   "2": 36,
+   "mismo_lado": 16
+  },
+  "GIMNASIO [Hands-On 1135950567]": {
+   "cuadros": 90,
+   "0": 4,
+   "1": 6,
+   "2": 80,
+   "mismo_lado": 10
+  },
+  "GIMNASIO [Hands-On 1135950598]": {
+   "cuadros": 153,
+   "0": 6,
+   "1": 10,
+   "2": 137,
+   "mismo_lado": 10
+  },
+  "GINECOLOGÍA [Hands-On 1135060897]": {
+   "cuadros": 118,
+   "0": 6,
+   "1": 8,
+   "2": 104,
+   "mismo_lado": 3
+  },
+  "GINECOLOGÍA [Hands-On 1141579812]": {
+   "cuadros": 115,
+   "0": 3,
+   "1": 11,
+   "2": 101,
+   "mismo_lado": 5
+  },
+  "GINECOLOGÍA [Hands-On 1144733076]": {
+   "cuadros": 96,
+   "0": 1,
+   "1": 27,
+   "2": 68,
+   "mismo_lado": 2
+  },
+  "GLOBAL [Hands-On 1135950642]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "GLUCOSA [Hands-On 1140940208]": {
+   "cuadros": 108,
+   "0": 13,
+   "1": 51,
+   "2": 44,
+   "mismo_lado": 6
+  },
+  "GLUTEOS [Hands-On 1138742134]": {
+   "cuadros": 62,
+   "0": 6,
+   "1": 9,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "GOLPE [Hands-On 1134606854]": {
+   "cuadros": 65,
+   "0": 11,
+   "1": 15,
+   "2": 39,
+   "mismo_lado": 2
+  },
+  "GOLPE [Hands-On 1140940319]": {
+   "cuadros": 67,
+   "0": 11,
+   "1": 21,
+   "2": 35,
+   "mismo_lado": 0
+  },
+  "GOLPE [Hands-On 1140941278]": {
+   "cuadros": 58,
+   "0": 12,
+   "1": 18,
+   "2": 28,
+   "mismo_lado": 1
+  },
+  "GOLPEAR [Hands-On 1140279132]": {
+   "cuadros": 74,
+   "0": 8,
+   "1": 29,
+   "2": 37,
+   "mismo_lado": 4
+  },
+  "GORRO [Hands-On 1135950672]": {
+   "cuadros": 91,
+   "0": 10,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 2
+  },
+  "GRANDE [Hands-On 1147866642]": {
+   "cuadros": 69,
+   "0": 13,
+   "1": 5,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "GRASA [Hands-On 1134607387]": {
+   "cuadros": 82,
+   "0": 2,
+   "1": 11,
+   "2": 69,
+   "mismo_lado": 4
+  },
+  "GRASAS [Hands-On 1140945581]": {
+   "cuadros": 82,
+   "0": 1,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 4
+  },
+  "GRATIS [Hands-On 1135950697]": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 11,
+   "2": 77,
+   "mismo_lado": 8
+  },
+  "GRAVEDAD [Hands-On 1138742231]": {
+   "cuadros": 72,
+   "0": 7,
+   "1": 3,
+   "2": 62,
+   "mismo_lado": 4
+  },
+  "GRUPO [Hands-On 1144629122]": {
+   "cuadros": 85,
+   "0": 5,
+   "1": 0,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "GUANTE [Hands-On 1135950718]": {
+   "cuadros": 106,
+   "0": 7,
+   "1": 13,
+   "2": 86,
+   "mismo_lado": 2
+  },
+  "GUARDAR [Hands-On 1140279861]": {
+   "cuadros": 84,
+   "0": 14,
+   "1": 34,
+   "2": 36,
+   "mismo_lado": 13
+  },
+  "GUERRA [Hands-On 1140279896]": {
+   "cuadros": 104,
+   "0": 12,
+   "1": 5,
+   "2": 87,
+   "mismo_lado": 2
+  },
+  "GUIAR [Hands-On 1140279947]": {
+   "cuadros": 90,
+   "0": 2,
+   "1": 11,
+   "2": 77,
+   "mismo_lado": 16
+  },
+  "GUÍA [Hands-On 1144716858]": {
+   "cuadros": 78,
+   "0": 2,
+   "1": 3,
+   "2": 73,
+   "mismo_lado": 0
+  },
+  "HABIL [Hands-On 1140280077]": {
+   "cuadros": 106,
+   "0": 9,
+   "1": 38,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "HABILIDAD [Hands-On 1140945674]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 12,
+   "2": 52,
+   "mismo_lado": 11
+  },
+  "HABITACIÓN [Hands-On 1135950746]": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 7,
+   "2": 81,
+   "mismo_lado": 4
+  },
+  "HABITAT [Hands-On 1138742294]": {
+   "cuadros": 113,
+   "0": 5,
+   "1": 4,
+   "2": 104,
+   "mismo_lado": 22
+  },
+  "HABLAR [Hands-On 1140280162]": {
+   "cuadros": 65,
+   "0": 12,
+   "1": 51,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "HABLAR [Hands-On 1140280132]": {
+   "cuadros": 88,
+   "0": 15,
+   "1": 3,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "HACER [Hands-On 1141579830]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "HACER [Hands-On 1140280195]": {
+   "cuadros": 77,
+   "0": 5,
+   "1": 17,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "HACER [Hands-On 1140280225]": {
+   "cuadros": 74,
+   "0": 12,
+   "1": 16,
+   "2": 46,
+   "mismo_lado": 6
+  },
+  "HASTA [Hands-On 1138742333]": {
+   "cuadros": 56,
+   "0": 2,
+   "1": 5,
+   "2": 49,
+   "mismo_lado": 6
+  },
+  "HECES [Hands-On 1141579838]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "HEMORRAGIA [Hands-On 1140945776]": {
+   "cuadros": 93,
+   "0": 11,
+   "1": 9,
+   "2": 73,
+   "mismo_lado": 7
+  },
+  "HEREDITARIO [Hands-On 1138742369]": {
+   "cuadros": 84,
+   "0": 9,
+   "1": 18,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "HERMANA [Hands-On 1140280299]": {
+   "cuadros": 83,
+   "0": 5,
+   "1": 18,
+   "2": 60,
+   "mismo_lado": 4
+  },
+  "HERMANO [Hands-On 1140280330]": {
+   "cuadros": 89,
+   "0": 3,
+   "1": 32,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "HERMANOS [Hands-On 1138742394]": {
+   "cuadros": 58,
+   "0": 5,
+   "1": 12,
+   "2": 41,
+   "mismo_lado": 3
+  },
+  "HERMANOS [Hands-On 1141579845]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 27,
+   "2": 28,
+   "mismo_lado": 2
+  },
+  "HERRAMIENTA [Hands-On 1135950935]": {
+   "cuadros": 114,
+   "0": 6,
+   "1": 10,
+   "2": 98,
+   "mismo_lado": 10
+  },
+  "HIJA [Hands-On 1140280362]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 10,
+   "2": 66,
+   "mismo_lado": 4
+  },
+  "HIJO [Hands-On 1140280397]": {
+   "cuadros": 81,
+   "0": 6,
+   "1": 6,
+   "2": 69,
+   "mismo_lado": 3
+  },
+  "HILO-DENTAL [Hands-On 1144743232]": {
+   "cuadros": 90,
+   "0": 4,
+   "1": 4,
+   "2": 82,
+   "mismo_lado": 1
+  },
+  "HINCHAZÓN [Hands-On 1135053906]": {
+   "cuadros": 110,
+   "0": 3,
+   "1": 11,
+   "2": 96,
+   "mismo_lado": 7
+  },
+  "HINCHAZÓN [Hands-On 1141579862]": {
+   "cuadros": 107,
+   "0": 2,
+   "1": 9,
+   "2": 96,
+   "mismo_lado": 4
+  },
+  "HISTORIAL [Hands-On 1135950970]": {
+   "cuadros": 114,
+   "0": 8,
+   "1": 52,
+   "2": 54,
+   "mismo_lado": 3
+  },
+  "HISTORIAL [Hands-On 1135951011]": {
+   "cuadros": 121,
+   "0": 6,
+   "1": 53,
+   "2": 62,
+   "mismo_lado": 3
+  },
+  "HONESTO [Hands-On 1140280462]": {
+   "cuadros": 58,
+   "0": 2,
+   "1": 8,
+   "2": 48,
+   "mismo_lado": 11
+  },
+  "HONGO [Hands-On 1140280490]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 6
+  },
+  "HORA [Hands-On 1138742485]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 64,
+   "2": 21,
+   "mismo_lado": 2
+  },
+  "HORA [Hands-On 1138742509]": {
+   "cuadros": 62,
+   "0": 3,
+   "1": 5,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "HORARIO [Hands-On 1135951161]": {
+   "cuadros": 89,
+   "0": 3,
+   "1": 19,
+   "2": 67,
+   "mismo_lado": 6
+  },
+  "HORARIO [Hands-On 1135951128]": {
+   "cuadros": 119,
+   "0": 5,
+   "1": 16,
+   "2": 98,
+   "mismo_lado": 9
+  },
+  "HORMONAS [Hands-On 1135053824]": {
+   "cuadros": 74,
+   "0": 15,
+   "1": 19,
+   "2": 40,
+   "mismo_lado": 8
+  },
+  "HORRIBLE [Hands-On 1140280526]": {
+   "cuadros": 79,
+   "0": 13,
+   "1": 1,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "HORRIBLE [Hands-On 1140280551]": {
+   "cuadros": 83,
+   "0": 15,
+   "1": 68,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "HORROR [Hands-On 1135951187]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "HOSPITAL [Hands-On 1144645867]": {
+   "cuadros": 64,
+   "0": 0,
+   "1": 0,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "HOTEL [Hands-On 1135951212]": {
+   "cuadros": 85,
+   "0": 6,
+   "1": 7,
+   "2": 72,
+   "mismo_lado": 2
+  },
+  "HUELLA-DIGITAL [Hands-On 1138742541]": {
+   "cuadros": 107,
+   "0": 7,
+   "1": 37,
+   "2": 63,
+   "mismo_lado": 10
+  },
+  "HUEVO [Hands-On 1135951425]": {
+   "cuadros": 85,
+   "0": 4,
+   "1": 7,
+   "2": 74,
+   "mismo_lado": 3
+  },
+  "HUEVO-DURO [Hands-On 1135951308]": {
+   "cuadros": 112,
+   "0": 5,
+   "1": 6,
+   "2": 101,
+   "mismo_lado": 0
+  },
+  "HUEVO-FRITO [Hands-On 1135951361]": {
+   "cuadros": 101,
+   "0": 4,
+   "1": 5,
+   "2": 92,
+   "mismo_lado": 0
+  },
+  "HUEVO-REVUELTO [Hands-On 1135951384]": {
+   "cuadros": 114,
+   "0": 5,
+   "1": 8,
+   "2": 101,
+   "mismo_lado": 10
+  },
+  "HUMANIDAD [Hands-On 1138742572]": {
+   "cuadros": 41,
+   "0": 4,
+   "1": 5,
+   "2": 32,
+   "mismo_lado": 0
+  },
+  "HUMANIDAD [Hands-On 1138742595]": {
+   "cuadros": 40,
+   "0": 4,
+   "1": 5,
+   "2": 31,
+   "mismo_lado": 1
+  },
+  "HUMEDAD [Hands-On 1138742623]": {
+   "cuadros": 79,
+   "0": 3,
+   "1": 4,
+   "2": 72,
+   "mismo_lado": 18
+  },
+  "HUMEDO [Hands-On 1140280571]": {
+   "cuadros": 78,
+   "0": 10,
+   "1": 3,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "IDENTIDAD [Hands-On 1141581307]": {
+   "cuadros": 59,
+   "0": 8,
+   "1": 39,
+   "2": 12,
+   "mismo_lado": 0
+  },
+  "IDENTIFICAR [Hands-On 1141581315]": {
+   "cuadros": 59,
+   "0": 8,
+   "1": 39,
+   "2": 12,
+   "mismo_lado": 0
+  },
+  "IGLESIA [Hands-On 1135951978]": {
+   "cuadros": 98,
+   "0": 5,
+   "1": 10,
+   "2": 83,
+   "mismo_lado": 3
+  },
+  "IGUALDAD [Hands-On 1140946132]": {
+   "cuadros": 92,
+   "0": 7,
+   "1": 8,
+   "2": 77,
+   "mismo_lado": 6
+  },
+  "IMAGEN [Hands-On 1138742671]": {
+   "cuadros": 92,
+   "0": 7,
+   "1": 7,
+   "2": 78,
+   "mismo_lado": 4
+  },
+  "IMAGINAR [Hands-On 1140280758]": {
+   "cuadros": 111,
+   "0": 19,
+   "1": 42,
+   "2": 50,
+   "mismo_lado": 3
+  },
+  "IMAGINAR [Hands-On 1140280791]": {
+   "cuadros": 87,
+   "0": 15,
+   "1": 71,
+   "2": 1,
+   "mismo_lado": 0
+  },
+  "IMPEDIR [Hands-On 1141581330]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "IMPEDIR [Hands-On 1141581340]": {
+   "cuadros": 61,
+   "0": 12,
+   "1": 16,
+   "2": 33,
+   "mismo_lado": 1
+  },
+  "IMPORTANTE [Hands-On 1140280834]": {
+   "cuadros": 68,
+   "0": 14,
+   "1": 21,
+   "2": 33,
+   "mismo_lado": 6
+  },
+  "IMPORTAR [Hands-On 1140280863]": {
+   "cuadros": 68,
+   "0": 14,
+   "1": 21,
+   "2": 33,
+   "mismo_lado": 6
+  },
+  "IMPOSIBLE [Hands-On 1140280886]": {
+   "cuadros": 69,
+   "0": 13,
+   "1": 19,
+   "2": 37,
+   "mismo_lado": 0
+  },
+  "IMPRIMIR [Hands-On 1140280909]": {
+   "cuadros": 27,
+   "0": 1,
+   "1": 5,
+   "2": 21,
+   "mismo_lado": 7
+  },
+  "INCLUIR [Hands-On 1141581345]": {
+   "cuadros": 94,
+   "0": 9,
+   "1": 8,
+   "2": 77,
+   "mismo_lado": 4
+  },
+  "INCLUSIÓN [Hands-On 1144611759]": {
+   "cuadros": 60,
+   "0": 3,
+   "1": 33,
+   "2": 24,
+   "mismo_lado": 5
+  },
+  "INCOMODO [Hands-On 1140281014]": {
+   "cuadros": 83,
+   "0": 7,
+   "1": 23,
+   "2": 53,
+   "mismo_lado": 1
+  },
+  "INCONSCIENTE [Hands-On 1138742701]": {
+   "cuadros": 101,
+   "0": 6,
+   "1": 47,
+   "2": 48,
+   "mismo_lado": 1
+  },
+  "INCORPORAR [Hands-On 1140281058]": {
+   "cuadros": 87,
+   "0": 6,
+   "1": 16,
+   "2": 65,
+   "mismo_lado": 16
+  },
+  "INCORRECTO [Hands-On 1140281097]": {
+   "cuadros": 71,
+   "0": 10,
+   "1": 32,
+   "2": 29,
+   "mismo_lado": 1
+  },
+  "INDEPENDENCIA [Hands-On 1140281165]": {
+   "cuadros": 85,
+   "0": 17,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 6
+  },
+  "INDEPENDIENTE [Hands-On 1140281204]": {
+   "cuadros": 85,
+   "0": 17,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 6
+  },
+  "INFERTILIDAD [Hands-On 1135056260]": {
+   "cuadros": 100,
+   "0": 9,
+   "1": 34,
+   "2": 57,
+   "mismo_lado": 9
+  },
+  "INFERTILIDAD [Hands-On 1140946337]": {
+   "cuadros": 100,
+   "0": 10,
+   "1": 43,
+   "2": 47,
+   "mismo_lado": 4
+  },
+  "INFIEL [Hands-On 1140281240]": {
+   "cuadros": 75,
+   "0": 9,
+   "1": 28,
+   "2": 38,
+   "mismo_lado": 4
+  },
+  "INFLAMACION [Hands-On 1140946443]": {
+   "cuadros": 61,
+   "0": 13,
+   "1": 9,
+   "2": 39,
+   "mismo_lado": 7
+  },
+  "INFORMAR-2 [Hands-On 1138742731]": {
+   "cuadros": 71,
+   "0": 9,
+   "1": 19,
+   "2": 43,
+   "mismo_lado": 2
+  },
+  "INFORMARME [Hands-On 1138742761]": {
+   "cuadros": 72,
+   "0": 11,
+   "1": 16,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "INFORME [Hands-On 1134606301]": {
+   "cuadros": 87,
+   "0": 19,
+   "1": 3,
+   "2": 65,
+   "mismo_lado": 4
+  },
+  "INICIAR [Hands-On 1141581362]": {
+   "cuadros": 75,
+   "0": 4,
+   "1": 7,
+   "2": 64,
+   "mismo_lado": 4
+  },
+  "INMUNIDAD [Hands-On 1138742780]": {
+   "cuadros": 94,
+   "0": 5,
+   "1": 46,
+   "2": 43,
+   "mismo_lado": 5
+  },
+  "INSATISFECHO [Hands-On 1140281286]": {
+   "cuadros": 83,
+   "0": 7,
+   "1": 12,
+   "2": 64,
+   "mismo_lado": 28
+  },
+  "INSCRIPCIÓN [Hands-On 1138742813]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 6,
+   "2": 74,
+   "mismo_lado": 1
+  },
+  "INSOMNIO [Hands-On 1140946569]": {
+   "cuadros": 115,
+   "0": 8,
+   "1": 16,
+   "2": 91,
+   "mismo_lado": 5
+  },
+  "INSTRUCCIÓN [Hands-On 1138742848]": {
+   "cuadros": 91,
+   "0": 6,
+   "1": 6,
+   "2": 79,
+   "mismo_lado": 2
+  },
+  "INTEGRAL [Hands-On 1135952039]": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 16,
+   "2": 65,
+   "mismo_lado": 3
+  },
+  "INTEGRAR [Hands-On 1141581367]": {
+   "cuadros": 94,
+   "0": 9,
+   "1": 8,
+   "2": 77,
+   "mismo_lado": 4
+  },
+  "INTEGRAR-INCLUIR [Hands-On 1135063773]": {
+   "cuadros": 79,
+   "0": 12,
+   "1": 7,
+   "2": 60,
+   "mismo_lado": 3
+  },
+  "INTENCIÓN [Hands-On 1138742872]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "INTENTAR [Hands-On 1140281379]": {
+   "cuadros": 87,
+   "0": 10,
+   "1": 5,
+   "2": 72,
+   "mismo_lado": 7
+  },
+  "INTERACCIÓN [Hands-On 1138742898]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 17,
+   "2": 78,
+   "mismo_lado": 14
+  },
+  "INTERACTUAR [Hands-On 1138742922]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 17,
+   "2": 78,
+   "mismo_lado": 13
+  },
+  "INTERACTUAR [Hands-On 1140281408]": {
+   "cuadros": 84,
+   "0": 7,
+   "1": 20,
+   "2": 57,
+   "mismo_lado": 10
+  },
+  "INTERCAMBIAR [Hands-On 1140281430]": {
+   "cuadros": 82,
+   "0": 8,
+   "1": 20,
+   "2": 54,
+   "mismo_lado": 14
+  },
+  "INTERCAMBIO [Hands-On 1138742948]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 14,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "INTERESANTE [Hands-On 1141581381]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 7
+  },
+  "INTERESAR [Hands-On 1140281476]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 17,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "INTERMEDIO [Hands-On 1140282255]": {
+   "cuadros": 65,
+   "0": 5,
+   "1": 24,
+   "2": 36,
+   "mismo_lado": 4
+  },
+  "INTERNACIONAL [Hands-On 1140283199]": {
+   "cuadros": 86,
+   "0": 19,
+   "1": 20,
+   "2": 47,
+   "mismo_lado": 4
+  },
+  "INTERNAR [Hands-On 1141581385]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 18,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "INTERPRETACIÓN [Hands-On 1144609942]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 4,
+   "2": 81,
+   "mismo_lado": 0
+  },
+  "INTERPRETAR [Hands-On 1140283240]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 33,
+   "2": 33,
+   "mismo_lado": 5
+  },
+  "INTERPRETE [Hands-On 1140283274]": {
+   "cuadros": 57,
+   "0": 4,
+   "1": 17,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "INTERPRETE [Hands-On 1144610498]": {
+   "cuadros": 73,
+   "0": 3,
+   "1": 7,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "INTERRUMPIR [Hands-On 1140283308]": {
+   "cuadros": 69,
+   "0": 12,
+   "1": 40,
+   "2": 17,
+   "mismo_lado": 13
+  },
+  "INTERÉS [Hands-On 1141581373]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 6,
+   "2": 58,
+   "mismo_lado": 7
+  },
+  "INTRODUCCIÓN [Hands-On 1141581396]": {
+   "cuadros": 75,
+   "0": 4,
+   "1": 7,
+   "2": 64,
+   "mismo_lado": 4
+  },
+  "INTUBACIÓN [Hands-On 1135056749]": {
+   "cuadros": 121,
+   "0": 5,
+   "1": 84,
+   "2": 32,
+   "mismo_lado": 2
+  },
+  "INTUBAR [Hands-On 1141581411]": {
+   "cuadros": 120,
+   "0": 3,
+   "1": 88,
+   "2": 29,
+   "mismo_lado": 3
+  },
+  "INVADIR [Hands-On 1140283328]": {
+   "cuadros": 49,
+   "0": 4,
+   "1": 13,
+   "2": 32,
+   "mismo_lado": 1
+  },
+  "INVESTIGAR [Hands-On 1141581416]": {
+   "cuadros": 94,
+   "0": 12,
+   "1": 23,
+   "2": 59,
+   "mismo_lado": 12
+  },
+  "INVIERNO [Hands-On 1135952066]": {
+   "cuadros": 107,
+   "0": 5,
+   "1": 8,
+   "2": 94,
+   "mismo_lado": 4
+  },
+  "IRRESPONSABLE [Hands-On 1140283426]": {
+   "cuadros": 68,
+   "0": 13,
+   "1": 16,
+   "2": 39,
+   "mismo_lado": 3
+  },
+  "IRSE [Hands-On 1141581425]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 23,
+   "2": 42,
+   "mismo_lado": 5
+  },
+  "JABÓN [Hands-On 1135952122]": {
+   "cuadros": 67,
+   "0": 5,
+   "1": 62,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "JABÓN [Hands-On 1135952145]": {
+   "cuadros": 78,
+   "0": 5,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "JARABE-PARA-LA-TOS [Hands-On 1144744538]": {
+   "cuadros": 109,
+   "0": 3,
+   "1": 62,
+   "2": 44,
+   "mismo_lado": 0
+  },
+  "JARDÍN [Hands-On 1135952170]": {
+   "cuadros": 84,
+   "0": 3,
+   "1": 7,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "JARRA [Hands-On 1135952191]": {
+   "cuadros": 116,
+   "0": 9,
+   "1": 56,
+   "2": 51,
+   "mismo_lado": 2
+  },
+  "JUGAR [Hands-On 1140283714]": {
+   "cuadros": 67,
+   "0": 4,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "JUGUETE [Hands-On 1135952364]": {
+   "cuadros": 103,
+   "0": 8,
+   "1": 6,
+   "2": 89,
+   "mismo_lado": 0
+  },
+  "JUNTOS [Hands-On 1138744214]": {
+   "cuadros": 49,
+   "0": 3,
+   "1": 5,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "JUSTO [Hands-On 1140283802]": {
+   "cuadros": 62,
+   "0": 9,
+   "1": 20,
+   "2": 33,
+   "mismo_lado": 2
+  },
+  "JUZGAR [Hands-On 1140283832]": {
+   "cuadros": 78,
+   "0": 24,
+   "1": 17,
+   "2": 37,
+   "mismo_lado": 5
+  },
+  "LACTANCIA [Hands-On 1141581451]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 2,
+   "2": 64,
+   "mismo_lado": 16
+  },
+  "LADRON [Hands-On 1140283856]": {
+   "cuadros": 75,
+   "0": 14,
+   "1": 26,
+   "2": 35,
+   "mismo_lado": 3
+  },
+  "LAGO [Hands-On 1135952561]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 4,
+   "2": 81,
+   "mismo_lado": 2
+  },
+  "LANA [Hands-On 1135952665]": {
+   "cuadros": 108,
+   "0": 2,
+   "1": 9,
+   "2": 97,
+   "mismo_lado": 3
+  },
+  "LAPTOP [Hands-On 1135952851]": {
+   "cuadros": 62,
+   "0": 3,
+   "1": 6,
+   "2": 53,
+   "mismo_lado": 1
+  },
+  "LARGO-PLAZO [Hands-On 1138744255]": {
+   "cuadros": 75,
+   "0": 5,
+   "1": 3,
+   "2": 67,
+   "mismo_lado": 5
+  },
+  "LAVADO-DE-MANOS [Hands-On 1138744280]": {
+   "cuadros": 87,
+   "0": 5,
+   "1": 31,
+   "2": 51,
+   "mismo_lado": 9
+  },
+  "LAVADORA [Hands-On 1135952906]": {
+   "cuadros": 119,
+   "0": 5,
+   "1": 70,
+   "2": 44,
+   "mismo_lado": 3
+  },
+  "LAVAR [Hands-On 1135952970]": {
+   "cuadros": 81,
+   "0": 5,
+   "1": 50,
+   "2": 26,
+   "mismo_lado": 3
+  },
+  "LECHE [Hands-On 1135953060]": {
+   "cuadros": 71,
+   "0": 6,
+   "1": 64,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "LEER [Hands-On 1140283965]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 11,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "LEMA [Hands-On 1141581459]": {
+   "cuadros": 70,
+   "0": 20,
+   "1": 3,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "LENGUA [Hands-On 1135953099]": {
+   "cuadros": 34,
+   "0": 3,
+   "1": 30,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "LENGUA-DE-SEÑAS [Hands-On 1144609271]": {
+   "cuadros": 110,
+   "0": 2,
+   "1": 5,
+   "2": 103,
+   "mismo_lado": 7
+  },
+  "LENGUAJE [Hands-On 1138744322]": {
+   "cuadros": 103,
+   "0": 5,
+   "1": 45,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "LENTES [Hands-On 1135953178]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 14,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "LENTES-DE-SOL [Hands-On 1135953119]": {
+   "cuadros": 119,
+   "0": 8,
+   "1": 64,
+   "2": 47,
+   "mismo_lado": 0
+  },
+  "LESCO [Hands-On 1138744347]": {
+   "cuadros": 70,
+   "0": 7,
+   "1": 12,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "LESIONADO [Hands-On 1138744382]": {
+   "cuadros": 58,
+   "0": 6,
+   "1": 5,
+   "2": 47,
+   "mismo_lado": 2
+  },
+  "LESIÓN [Hands-On 1138744365]": {
+   "cuadros": 58,
+   "0": 6,
+   "1": 4,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "LEVANTAR [Hands-On 1140284092]": {
+   "cuadros": 56,
+   "0": 9,
+   "1": 9,
+   "2": 38,
+   "mismo_lado": 4
+  },
+  "LIBRE [Hands-On 1140284162]": {
+   "cuadros": 100,
+   "0": 12,
+   "1": 25,
+   "2": 63,
+   "mismo_lado": 2
+  },
+  "LIBRO [Hands-On 1135953215]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 42,
+   "2": 31,
+   "mismo_lado": 0
+  },
+  "LIGERO [Hands-On 1140284188]": {
+   "cuadros": 71,
+   "0": 3,
+   "1": 7,
+   "2": 61,
+   "mismo_lado": 8
+  },
+  "LIMITAR [Hands-On 1141581466]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "LIMPIAR [Hands-On 1140284272]": {
+   "cuadros": 91,
+   "0": 7,
+   "1": 20,
+   "2": 64,
+   "mismo_lado": 14
+  },
+  "LIMPIO [Hands-On 1140284321]": {
+   "cuadros": 91,
+   "0": 7,
+   "1": 20,
+   "2": 64,
+   "mismo_lado": 14
+  },
+  "LISTA [Hands-On 1138744416]": {
+   "cuadros": 91,
+   "0": 6,
+   "1": 5,
+   "2": 80,
+   "mismo_lado": 2
+  },
+  "LISTA-DE-ESPERA [Hands-On 1138744394]": {
+   "cuadros": 112,
+   "0": 8,
+   "1": 6,
+   "2": 98,
+   "mismo_lado": 0
+  },
+  "LISTO [Hands-On 1140284356]": {
+   "cuadros": 38,
+   "0": 3,
+   "1": 6,
+   "2": 29,
+   "mismo_lado": 3
+  },
+  "LIVIANO [Hands-On 1140284403]": {
+   "cuadros": 71,
+   "0": 3,
+   "1": 7,
+   "2": 61,
+   "mismo_lado": 8
+  },
+  "LLAMAR [Hands-On 1138744457]": {
+   "cuadros": 70,
+   "0": 11,
+   "1": 58,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "LLAMAR [Hands-On 1140284494]": {
+   "cuadros": 79,
+   "0": 3,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "LLAMAR [Hands-On 1140284528]": {
+   "cuadros": 73,
+   "0": 18,
+   "1": 55,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "LLAMAR [Hands-On 1140284548]": {
+   "cuadros": 96,
+   "0": 20,
+   "1": 76,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "LLAMAR [Hands-On 1140284586]": {
+   "cuadros": 51,
+   "0": 2,
+   "1": 6,
+   "2": 43,
+   "mismo_lado": 4
+  },
+  "LLENAR [Hands-On 1140284607]": {
+   "cuadros": 75,
+   "0": 8,
+   "1": 12,
+   "2": 55,
+   "mismo_lado": 12
+  },
+  "LLENAR [Hands-On 1140284632]": {
+   "cuadros": 87,
+   "0": 14,
+   "1": 72,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "LLEVAR [Hands-On 1140284661]": {
+   "cuadros": 81,
+   "0": 5,
+   "1": 30,
+   "2": 46,
+   "mismo_lado": 5
+  },
+  "LLORAR [Hands-On 1135063422]": {
+   "cuadros": 96,
+   "0": 10,
+   "1": 29,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "LLORAR [Hands-On 1140284695]": {
+   "cuadros": 102,
+   "0": 23,
+   "1": 49,
+   "2": 30,
+   "mismo_lado": 4
+  },
+  "LLORAR [Hands-On 1141581470]": {
+   "cuadros": 96,
+   "0": 12,
+   "1": 24,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "LOGRAR [Hands-On 1134367458]": {
+   "cuadros": 76,
+   "0": 20,
+   "1": 5,
+   "2": 51,
+   "mismo_lado": 5
+  },
+  "LOGRAR [Hands-On 1140284869]": {
+   "cuadros": 115,
+   "0": 17,
+   "1": 10,
+   "2": 88,
+   "mismo_lado": 2
+  },
+  "LOGRAR [Hands-On 1141581482]": {
+   "cuadros": 76,
+   "0": 19,
+   "1": 11,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "LUCHAR [Hands-On 1140284982]": {
+   "cuadros": 92,
+   "0": 8,
+   "1": 21,
+   "2": 63,
+   "mismo_lado": 4
+  },
+  "LUCHAR [Hands-On 1140285027]": {
+   "cuadros": 110,
+   "0": 10,
+   "1": 23,
+   "2": 77,
+   "mismo_lado": 7
+  },
+  "LUCHAR [Hands-On 1140285070]": {
+   "cuadros": 105,
+   "0": 10,
+   "1": 6,
+   "2": 89,
+   "mismo_lado": 3
+  },
+  "LUMINOSO [Hands-On 1140285365]": {
+   "cuadros": 87,
+   "0": 16,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 4
+  },
+  "LÁMPARA [Hands-On 1135952618]": {
+   "cuadros": 110,
+   "0": 10,
+   "1": 18,
+   "2": 82,
+   "mismo_lado": 0
+  },
+  "MALEDUCADO [Hands-On 1140286877]": {
+   "cuadros": 126,
+   "0": 11,
+   "1": 45,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "MAMOGRAFIA [Hands-On 1138744521]": {
+   "cuadros": 63,
+   "0": 3,
+   "1": 14,
+   "2": 46,
+   "mismo_lado": 6
+  },
+  "MANDAR [Hands-On 1138744541]": {
+   "cuadros": 74,
+   "0": 5,
+   "1": 16,
+   "2": 53,
+   "mismo_lado": 3
+  },
+  "MANDAR [Hands-On 1140286922]": {
+   "cuadros": 72,
+   "0": 15,
+   "1": 53,
+   "2": 4,
+   "mismo_lado": 4
+  },
+  "MANIPULAR [Hands-On 1141581490]": {
+   "cuadros": 80,
+   "0": 12,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "MANOS [Hands-On 1144747950]": {
+   "cuadros": 80,
+   "0": 1,
+   "1": 1,
+   "2": 78,
+   "mismo_lado": 5
+  },
+  "MANTEL [Hands-On 1135954447]": {
+   "cuadros": 113,
+   "0": 4,
+   "1": 8,
+   "2": 101,
+   "mismo_lado": 12
+  },
+  "MANTENER [Hands-On 1141581498]": {
+   "cuadros": 82,
+   "0": 6,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 2
+  },
+  "MANTENER [Hands-On 1141581504]": {
+   "cuadros": 78,
+   "0": 13,
+   "1": 17,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "MAÑANA [Hands-On 1135954387]": {
+   "cuadros": 85,
+   "0": 6,
+   "1": 75,
+   "2": 4,
+   "mismo_lado": 4
+  },
+  "MAÑANA [Hands-On 1135954425]": {
+   "cuadros": 76,
+   "0": 9,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 3
+  },
+  "MARAVILLOSO [Hands-On 1140286949]": {
+   "cuadros": 88,
+   "0": 16,
+   "1": 7,
+   "2": 65,
+   "mismo_lado": 0
+  },
+  "MARCHAR [Hands-On 1135954508]": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 8,
+   "2": 79,
+   "mismo_lado": 1
+  },
+  "MASAJE [Hands-On 1138744555]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 8,
+   "2": 64,
+   "mismo_lado": 1
+  },
+  "MASCOTA [Hands-On 1135954606]": {
+   "cuadros": 94,
+   "0": 9,
+   "1": 46,
+   "2": 39,
+   "mismo_lado": 5
+  },
+  "MATAR [Hands-On 1140287628]": {
+   "cuadros": 86,
+   "0": 13,
+   "1": 12,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "MATRICULAR [Hands-On 1140288150]": {
+   "cuadros": 86,
+   "0": 7,
+   "1": 11,
+   "2": 68,
+   "mismo_lado": 21
+  },
+  "MAYOR [Hands-On 1140288187]": {
+   "cuadros": 88,
+   "0": 15,
+   "1": 9,
+   "2": 64,
+   "mismo_lado": 4
+  },
+  "MAYOR [Hands-On 1140288222]": {
+   "cuadros": 86,
+   "0": 16,
+   "1": 67,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "MAYOR [Hands-On 1140288267]": {
+   "cuadros": 93,
+   "0": 15,
+   "1": 6,
+   "2": 72,
+   "mismo_lado": 3
+  },
+  "MEDIAS [Hands-On 1135954642]": {
+   "cuadros": 88,
+   "0": 5,
+   "1": 35,
+   "2": 48,
+   "mismo_lado": 4
+  },
+  "MEDICACION [Hands-On 1135054897]": {
+   "cuadros": 105,
+   "0": 4,
+   "1": 12,
+   "2": 89,
+   "mismo_lado": 7
+  },
+  "MEDICAMENTO [Hands-On 1134608531]": {
+   "cuadros": 122,
+   "0": 12,
+   "1": 55,
+   "2": 55,
+   "mismo_lado": 13
+  },
+  "MEDICAMENTO [Hands-On 1141581515]": {
+   "cuadros": 122,
+   "0": 10,
+   "1": 59,
+   "2": 53,
+   "mismo_lado": 10
+  },
+  "MEDICINA [Hands-On 1144648157]": {
+   "cuadros": 61,
+   "0": 2,
+   "1": 3,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "MEDICINA [Hands-On 1144647230]": {
+   "cuadros": 50,
+   "0": 2,
+   "1": 5,
+   "2": 43,
+   "mismo_lado": 4
+  },
+  "MEDICINA-DEL-DEPORTE [Hands-On 1134607124]": {
+   "cuadros": 102,
+   "0": 11,
+   "1": 27,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "MEDICINA-GENERAL [Hands-On 1144731627]": {
+   "cuadros": 96,
+   "0": 1,
+   "1": 12,
+   "2": 83,
+   "mismo_lado": 1
+  },
+  "MEDIR [Hands-On 1140288305]": {
+   "cuadros": 85,
+   "0": 9,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "MEDIR [Hands-On 1141581528]": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 9,
+   "2": 68,
+   "mismo_lado": 0
+  },
+  "MEDIR [Hands-On 1141581532]": {
+   "cuadros": 88,
+   "0": 12,
+   "1": 76,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "MEDITACIÓN [Hands-On 1140946897]": {
+   "cuadros": 105,
+   "0": 8,
+   "1": 10,
+   "2": 87,
+   "mismo_lado": 4
+  },
+  "MEDITACIÓN [Hands-On 1144634068]": {
+   "cuadros": 65,
+   "0": 2,
+   "1": 3,
+   "2": 60,
+   "mismo_lado": 3
+  },
+  "MEDITACIÓN [Hands-On 1144633605]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 92,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "MEJORAR [Hands-On 1140288351]": {
+   "cuadros": 96,
+   "0": 15,
+   "1": 28,
+   "2": 53,
+   "mismo_lado": 0
+  },
+  "MENOPAUSIA [Hands-On 1135054073]": {
+   "cuadros": 94,
+   "0": 13,
+   "1": 69,
+   "2": 12,
+   "mismo_lado": 8
+  },
+  "MENOPAUSIA [Hands-On 1140946983]": {
+   "cuadros": 95,
+   "0": 15,
+   "1": 69,
+   "2": 11,
+   "mismo_lado": 5
+  },
+  "MENOR [Hands-On 1140288373]": {
+   "cuadros": 82,
+   "0": 11,
+   "1": 16,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "MENOR [Hands-On 1140288402]": {
+   "cuadros": 100,
+   "0": 12,
+   "1": 10,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "MENOR [Hands-On 1140288429]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 53,
+   "2": 2,
+   "mismo_lado": 1
+  },
+  "MENSAJE [Hands-On 1144621184]": {
+   "cuadros": 78,
+   "0": 3,
+   "1": 7,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "MENTIROSO [Hands-On 1140288484]": {
+   "cuadros": 93,
+   "0": 10,
+   "1": 42,
+   "2": 41,
+   "mismo_lado": 3
+  },
+  "MESA [Hands-On 1135954682]": {
+   "cuadros": 89,
+   "0": 6,
+   "1": 4,
+   "2": 79,
+   "mismo_lado": 9
+  },
+  "META [Hands-On 1138744592]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "METRO [Hands-On 1135954703]": {
+   "cuadros": 74,
+   "0": 2,
+   "1": 11,
+   "2": 61,
+   "mismo_lado": 18
+  },
+  "MIEDO [Hands-On 1141581544]": {
+   "cuadros": 65,
+   "0": 10,
+   "1": 4,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "MIGRAÑA [Hands-On 1135062590]": {
+   "cuadros": 85,
+   "0": 19,
+   "1": 5,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "MIGRAÑA [Hands-On 1140947108]": {
+   "cuadros": 85,
+   "0": 21,
+   "1": 3,
+   "2": 61,
+   "mismo_lado": 3
+  },
+  "MIL [Hands-On 1135954758]": {
+   "cuadros": 72,
+   "0": 7,
+   "1": 7,
+   "2": 58,
+   "mismo_lado": 6
+  },
+  "MILENIO [Hands-On 1135954784]": {
+   "cuadros": 114,
+   "0": 8,
+   "1": 36,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "MILLÓN [Hands-On 1135954807]": {
+   "cuadros": 89,
+   "0": 6,
+   "1": 8,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "MINUTO [Hands-On 1138744657]": {
+   "cuadros": 65,
+   "0": 2,
+   "1": 17,
+   "2": 46,
+   "mismo_lado": 0
+  },
+  "MITAD [Hands-On 1135954901]": {
+   "cuadros": 67,
+   "0": 3,
+   "1": 28,
+   "2": 36,
+   "mismo_lado": 7
+  },
+  "MOCHILA [Hands-On 1135954927]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 16,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "MODA [Hands-On 1140288514]": {
+   "cuadros": 91,
+   "0": 10,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 8
+  },
+  "MODA [Hands-On 1140288548]": {
+   "cuadros": 88,
+   "0": 10,
+   "1": 20,
+   "2": 58,
+   "mismo_lado": 3
+  },
+  "MODELO [Hands-On 1140288574]": {
+   "cuadros": 89,
+   "0": 10,
+   "1": 20,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "MODERNO [Hands-On 1140288611]": {
+   "cuadros": 91,
+   "0": 9,
+   "1": 11,
+   "2": 71,
+   "mismo_lado": 8
+  },
+  "MODIFICAR [Hands-On 1140288641]": {
+   "cuadros": 113,
+   "0": 15,
+   "1": 6,
+   "2": 92,
+   "mismo_lado": 3
+  },
+  "MODIFICAR [Hands-On 1140288692]": {
+   "cuadros": 107,
+   "0": 9,
+   "1": 16,
+   "2": 82,
+   "mismo_lado": 0
+  },
+  "MOJADO [Hands-On 1135954956]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 43,
+   "2": 22,
+   "mismo_lado": 2
+  },
+  "MOLESTAR [Hands-On 1140288726]": {
+   "cuadros": 77,
+   "0": 9,
+   "1": 11,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "MOMENTO [Hands-On 1135954976]": {
+   "cuadros": 61,
+   "0": 4,
+   "1": 18,
+   "2": 39,
+   "mismo_lado": 1
+  },
+  "MORTALIDAD [Hands-On 1138744727]": {
+   "cuadros": 119,
+   "0": 5,
+   "1": 58,
+   "2": 56,
+   "mismo_lado": 16
+  },
+  "MOSTRAR [Hands-On 1140288823]": {
+   "cuadros": 92,
+   "0": 10,
+   "1": 8,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "MOTIVAR [Hands-On 1140288858]": {
+   "cuadros": 86,
+   "0": 18,
+   "1": 11,
+   "2": 57,
+   "mismo_lado": 6
+  },
+  "MUCHO [Hands-On 1135955018]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "MUCHOS [Hands-On 1140288896]": {
+   "cuadros": 69,
+   "0": 12,
+   "1": 4,
+   "2": 53,
+   "mismo_lado": 5
+  },
+  "MUDAR [Hands-On 1140288928]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 13,
+   "2": 62,
+   "mismo_lado": 6
+  },
+  "MUDAR [Hands-On 1140288954]": {
+   "cuadros": 73,
+   "0": 15,
+   "1": 13,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "MUERTE [Hands-On 1144617513]": {
+   "cuadros": 68,
+   "0": 1,
+   "1": 6,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "MUESTRA [Hands-On 1138744799]": {
+   "cuadros": 76,
+   "0": 7,
+   "1": 8,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "MUESTREME [Hands-On 1138744819]": {
+   "cuadros": 73,
+   "0": 6,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 4
+  },
+  "MULETAS [Hands-On 1138744833]": {
+   "cuadros": 19,
+   "0": 0,
+   "1": 1,
+   "2": 18,
+   "mismo_lado": 2
+  },
+  "MUNDIAL [Hands-On 1135955060]": {
+   "cuadros": 78,
+   "0": 4,
+   "1": 2,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "MUNDIAL [Hands-On 1140288983]": {
+   "cuadros": 84,
+   "0": 13,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 8
+  },
+  "MUNDIAL [Hands-On 1140289022]": {
+   "cuadros": 113,
+   "0": 16,
+   "1": 16,
+   "2": 81,
+   "mismo_lado": 4
+  },
+  "MUNDO [Hands-On 1135955089]": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 8,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "MUÑECA [Hands-On 1135955160]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 13,
+   "2": 65,
+   "mismo_lado": 5
+  },
+  "MUÑECA-DE-JUGUETE [Hands-On 1135955128]": {
+   "cuadros": 74,
+   "0": 3,
+   "1": 15,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "MUY [Hands-On 1135955201]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "MÓDULO [Hands-On 1138744691]": {
+   "cuadros": 76,
+   "0": 4,
+   "1": 8,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "MÚSCULO [Hands-On 1144745092]": {
+   "cuadros": 85,
+   "0": 2,
+   "1": 12,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "MÚSICA [Hands-On 1135955179]": {
+   "cuadros": 80,
+   "0": 3,
+   "1": 12,
+   "2": 65,
+   "mismo_lado": 4
+  },
+  "NACER [Hands-On 1140289138]": {
+   "cuadros": 31,
+   "0": 4,
+   "1": 1,
+   "2": 26,
+   "mismo_lado": 5
+  },
+  "NACER [Hands-On 1140289188]": {
+   "cuadros": 86,
+   "0": 11,
+   "1": 23,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "NACIONAL [Hands-On 1140950134]": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 42,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "NACIONAL [Hands-On 1144615864]": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 21,
+   "2": 45,
+   "mismo_lado": 3
+  },
+  "NADA [Hands-On 1138744857]": {
+   "cuadros": 70,
+   "0": 6,
+   "1": 5,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "NADAR [Hands-On 1135955232]": {
+   "cuadros": 91,
+   "0": 8,
+   "1": 38,
+   "2": 45,
+   "mismo_lado": 16
+  },
+  "NADIE [Hands-On 1138744873]": {
+   "cuadros": 85,
+   "0": 3,
+   "1": 4,
+   "2": 78,
+   "mismo_lado": 0
+  },
+  "NARANJA [Hands-On 1135955270]": {
+   "cuadros": 78,
+   "0": 7,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 2
+  },
+  "NARRACION [Hands-On 1140950553]": {
+   "cuadros": 83,
+   "0": 13,
+   "1": 22,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "NARRAR [Hands-On 1140950628]": {
+   "cuadros": 83,
+   "0": 13,
+   "1": 22,
+   "2": 48,
+   "mismo_lado": 6
+  },
+  "NATURAL [Hands-On 1144615024]": {
+   "cuadros": 67,
+   "0": 1,
+   "1": 21,
+   "2": 45,
+   "mismo_lado": 3
+  },
+  "NECIO [Hands-On 1140289321]": {
+   "cuadros": 75,
+   "0": 8,
+   "1": 9,
+   "2": 58,
+   "mismo_lado": 3
+  },
+  "NECIO [Hands-On 1140289273]": {
+   "cuadros": 72,
+   "0": 14,
+   "1": 58,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "NEGATIVO [Hands-On 1140289348]": {
+   "cuadros": 71,
+   "0": 14,
+   "1": 10,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "NEGOCIAR [Hands-On 1140289381]": {
+   "cuadros": 92,
+   "0": 11,
+   "1": 12,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "NEGOCIO [Hands-On 1140289429]": {
+   "cuadros": 92,
+   "0": 11,
+   "1": 12,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "NEUMOLOGÍA [Hands-On 1140950841]": {
+   "cuadros": 113,
+   "0": 11,
+   "1": 9,
+   "2": 93,
+   "mismo_lado": 4
+  },
+  "NEUMONÍA [Hands-On 1135062182]": {
+   "cuadros": 123,
+   "0": 14,
+   "1": 68,
+   "2": 41,
+   "mismo_lado": 2
+  },
+  "NEUMONÍA [Hands-On 1140950950]": {
+   "cuadros": 124,
+   "0": 14,
+   "1": 70,
+   "2": 40,
+   "mismo_lado": 8
+  },
+  "NEUROLOGÍA [Hands-On 1135061083]": {
+   "cuadros": 97,
+   "0": 12,
+   "1": 11,
+   "2": 74,
+   "mismo_lado": 3
+  },
+  "NEUROLOGÍA [Hands-On 1140951044]": {
+   "cuadros": 96,
+   "0": 8,
+   "1": 14,
+   "2": 74,
+   "mismo_lado": 5
+  },
+  "NEVAR [Hands-On 1135955389]": {
+   "cuadros": 109,
+   "0": 6,
+   "1": 7,
+   "2": 96,
+   "mismo_lado": 4
+  },
+  "NIETOS [Hands-On 1140289559]": {
+   "cuadros": 81,
+   "0": 17,
+   "1": 3,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "NIEVE [Hands-On 1135955428]": {
+   "cuadros": 109,
+   "0": 6,
+   "1": 7,
+   "2": 96,
+   "mismo_lado": 4
+  },
+  "NINGUNA [Hands-On 1138744897]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 6,
+   "2": 59,
+   "mismo_lado": 3
+  },
+  "NIÑOS [Hands-On 1141581565]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 9,
+   "2": 71,
+   "mismo_lado": 5
+  },
+  "NIVEL [Hands-On 1138744922]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "NO-IMPORTA [Hands-On 1140951127]": {
+   "cuadros": 68,
+   "0": 8,
+   "1": 20,
+   "2": 40,
+   "mismo_lado": 2
+  },
+  "NO-PODER [Hands-On 1140289595]": {
+   "cuadros": 71,
+   "0": 6,
+   "1": 9,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "NOCHE [Hands-On 1135955453]": {
+   "cuadros": 64,
+   "0": 8,
+   "1": 3,
+   "2": 53,
+   "mismo_lado": 1
+  },
+  "NOMBRE [Hands-On 1135955514]": {
+   "cuadros": 74,
+   "0": 4,
+   "1": 13,
+   "2": 57,
+   "mismo_lado": 10
+  },
+  "NORMAL [Hands-On 1140951217]": {
+   "cuadros": 103,
+   "0": 7,
+   "1": 42,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "NOVIOS [Hands-On 1135059084]": {
+   "cuadros": 69,
+   "0": 10,
+   "1": 27,
+   "2": 32,
+   "mismo_lado": 1
+  },
+  "NOVIOS [Hands-On 1141581569]": {
+   "cuadros": 66,
+   "0": 8,
+   "1": 25,
+   "2": 33,
+   "mismo_lado": 1
+  },
+  "NUBE [Hands-On 1135955645]": {
+   "cuadros": 82,
+   "0": 5,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "NUEVO [Hands-On 1140289665]": {
+   "cuadros": 81,
+   "0": 16,
+   "1": 18,
+   "2": 47,
+   "mismo_lado": 0
+  },
+  "NUTRICIONISTA [Hands-On 1144730153]": {
+   "cuadros": 58,
+   "0": 1,
+   "1": 31,
+   "2": 26,
+   "mismo_lado": 5
+  },
+  "NÚMERO [Hands-On 1135955678]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 9,
+   "2": 64,
+   "mismo_lado": 8
+  },
+  "OBJETIVO [Hands-On 1138755659]": {
+   "cuadros": 62,
+   "0": 4,
+   "1": 6,
+   "2": 52,
+   "mismo_lado": 0
+  },
+  "OBJETO [Hands-On 1138755700]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 8
+  },
+  "OBSERVAR [Hands-On 1140290149]": {
+   "cuadros": 77,
+   "0": 13,
+   "1": 16,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "OBSTETRICIA [Hands-On 1141581573]": {
+   "cuadros": 119,
+   "0": 10,
+   "1": 28,
+   "2": 81,
+   "mismo_lado": 12
+  },
+  "ODIAR [Hands-On 1140290188]": {
+   "cuadros": 71,
+   "0": 17,
+   "1": 4,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "ODIO [Hands-On 1135059484]": {
+   "cuadros": 61,
+   "0": 9,
+   "1": 6,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "ODIO [Hands-On 1141581583]": {
+   "cuadros": 59,
+   "0": 6,
+   "1": 6,
+   "2": 47,
+   "mismo_lado": 4
+  },
+  "OFICINA [Hands-On 1138755735]": {
+   "cuadros": 78,
+   "0": 4,
+   "1": 20,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "OFRECER [Hands-On 1140290246]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 9,
+   "2": 55,
+   "mismo_lado": 4
+  },
+  "OFRECER [Hands-On 1140290283]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 30,
+   "2": 43,
+   "mismo_lado": 4
+  },
+  "OFTALMOLOGÍA [Hands-On 1140951448]": {
+   "cuadros": 106,
+   "0": 12,
+   "1": 66,
+   "2": 28,
+   "mismo_lado": 1
+  },
+  "OMELETTE [Hands-On 1135955774]": {
+   "cuadros": 108,
+   "0": 4,
+   "1": 9,
+   "2": 95,
+   "mismo_lado": 17
+  },
+  "ONCOLOGÍA [Hands-On 1135061195]": {
+   "cuadros": 105,
+   "0": 12,
+   "1": 17,
+   "2": 76,
+   "mismo_lado": 3
+  },
+  "ONCOLOGÍA [Hands-On 1140951486]": {
+   "cuadros": 106,
+   "0": 13,
+   "1": 16,
+   "2": 77,
+   "mismo_lado": 0
+  },
+  "OPCIÓN [Hands-On 1138755793]": {
+   "cuadros": 68,
+   "0": 8,
+   "1": 9,
+   "2": 51,
+   "mismo_lado": 2
+  },
+  "OPERACIÓN [Hands-On 1141581593]": {
+   "cuadros": 93,
+   "0": 9,
+   "1": 28,
+   "2": 56,
+   "mismo_lado": 5
+  },
+  "OPORTUNIDAD [Hands-On 1141581598]": {
+   "cuadros": 58,
+   "0": 10,
+   "1": 2,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "OPTIMISTA [Hands-On 1140290413]": {
+   "cuadros": 112,
+   "0": 13,
+   "1": 51,
+   "2": 48,
+   "mismo_lado": 0
+  },
+  "ORALISTA [Hands-On 1134606401]": {
+   "cuadros": 83,
+   "0": 11,
+   "1": 45,
+   "2": 27,
+   "mismo_lado": 2
+  },
+  "ORALISTA [Hands-On 1141581605]": {
+   "cuadros": 84,
+   "0": 12,
+   "1": 44,
+   "2": 28,
+   "mismo_lado": 1
+  },
+  "ORDEN [Hands-On 1140290449]": {
+   "cuadros": 64,
+   "0": 10,
+   "1": 7,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "ORDENADO [Hands-On 1140290486]": {
+   "cuadros": 64,
+   "0": 9,
+   "1": 6,
+   "2": 49,
+   "mismo_lado": 2
+  },
+  "ORGANIZAR [Hands-On 1140290523]": {
+   "cuadros": 78,
+   "0": 15,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "ORGANIZAR [Hands-On 1144625936]": {
+   "cuadros": 64,
+   "0": 0,
+   "1": 5,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "ORIENTACIÓN [Hands-On 1141581612]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 11,
+   "2": 54,
+   "mismo_lado": 7
+  },
+  "ORIENTAR [Hands-On 1141581622]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 11,
+   "2": 54,
+   "mismo_lado": 7
+  },
+  "OSCURO [Hands-On 1140290631]": {
+   "cuadros": 86,
+   "0": 13,
+   "1": 28,
+   "2": 45,
+   "mismo_lado": 3
+  },
+  "OSTEOPOROSIS [Hands-On 1140951514]": {
+   "cuadros": 111,
+   "0": 12,
+   "1": 62,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "OSTETRICIA [Hands-On 1135061518]": {
+   "cuadros": 119,
+   "0": 9,
+   "1": 23,
+   "2": 87,
+   "mismo_lado": 7
+  },
+  "PACIENTE [Hands-On 1141582386]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 7,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "PACIENTES [Hands-On 1141582394]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 7,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "PAGAR [Hands-On 1140291637]": {
+   "cuadros": 72,
+   "0": 14,
+   "1": 9,
+   "2": 49,
+   "mismo_lado": 10
+  },
+  "PAGAR [Hands-On 1140291663]": {
+   "cuadros": 66,
+   "0": 14,
+   "1": 19,
+   "2": 33,
+   "mismo_lado": 7
+  },
+  "PAGO [Hands-On 1138755840]": {
+   "cuadros": 68,
+   "0": 7,
+   "1": 8,
+   "2": 53,
+   "mismo_lado": 11
+  },
+  "PAPAS [Hands-On 1135060672]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 76,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "PAPEL [Hands-On 1138755863]": {
+   "cuadros": 64,
+   "0": 8,
+   "1": 6,
+   "2": 50,
+   "mismo_lado": 4
+  },
+  "PAPEL [Hands-On 1144642044]": {
+   "cuadros": 66,
+   "0": 1,
+   "1": 15,
+   "2": 50,
+   "mismo_lado": 6
+  },
+  "PARA-QUÉ [Hands-On 1138755890]": {
+   "cuadros": 87,
+   "0": 10,
+   "1": 76,
+   "2": 1,
+   "mismo_lado": 0
+  },
+  "PARA-QUÉ [Hands-On 1138755936]": {
+   "cuadros": 58,
+   "0": 7,
+   "1": 4,
+   "2": 47,
+   "mismo_lado": 12
+  },
+  "PARAR [Hands-On 1141582444]": {
+   "cuadros": 65,
+   "0": 8,
+   "1": 13,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "PARAR [Hands-On 1141582454]": {
+   "cuadros": 86,
+   "0": 9,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 29
+  },
+  "PARED [Hands-On 1135960030]": {
+   "cuadros": 83,
+   "0": 5,
+   "1": 10,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "PAREJA [Hands-On 1135059147]": {
+   "cuadros": 59,
+   "0": 11,
+   "1": 13,
+   "2": 35,
+   "mismo_lado": 4
+  },
+  "PAREJA [Hands-On 1141582460]": {
+   "cuadros": 57,
+   "0": 10,
+   "1": 12,
+   "2": 35,
+   "mismo_lado": 2
+  },
+  "PAREJA [Hands-On 1134605596]": {
+   "cuadros": 69,
+   "0": 10,
+   "1": 27,
+   "2": 32,
+   "mismo_lado": 1
+  },
+  "PAREJA [Hands-On 1141582470]": {
+   "cuadros": 66,
+   "0": 8,
+   "1": 25,
+   "2": 33,
+   "mismo_lado": 1
+  },
+  "PASILLO [Hands-On 1135960138]": {
+   "cuadros": 85,
+   "0": 7,
+   "1": 8,
+   "2": 70,
+   "mismo_lado": 7
+  },
+  "PASTA-DENTAL [Hands-On 1144727689]": {
+   "cuadros": 97,
+   "0": 3,
+   "1": 40,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "PECAS [Hands-On 1138756010]": {
+   "cuadros": 80,
+   "0": 6,
+   "1": 10,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "PEDIATRA [Hands-On 1141582485]": {
+   "cuadros": 142,
+   "0": 9,
+   "1": 88,
+   "2": 45,
+   "mismo_lado": 1
+  },
+  "PEDIATRÍA [Hands-On 1144732666]": {
+   "cuadros": 76,
+   "0": 1,
+   "1": 39,
+   "2": 36,
+   "mismo_lado": 1
+  },
+  "PEDIR [Hands-On 1140291833]": {
+   "cuadros": 90,
+   "0": 13,
+   "1": 51,
+   "2": 26,
+   "mismo_lado": 4
+  },
+  "PEGAR [Hands-On 1140291870]": {
+   "cuadros": 68,
+   "0": 17,
+   "1": 8,
+   "2": 43,
+   "mismo_lado": 0
+  },
+  "PEGAR [Hands-On 1140291895]": {
+   "cuadros": 68,
+   "0": 13,
+   "1": 24,
+   "2": 31,
+   "mismo_lado": 22
+  },
+  "PEGAR [Hands-On 1140291916]": {
+   "cuadros": 81,
+   "0": 14,
+   "1": 11,
+   "2": 56,
+   "mismo_lado": 5
+  },
+  "PELEAR [Hands-On 1140291938]": {
+   "cuadros": 67,
+   "0": 18,
+   "1": 7,
+   "2": 42,
+   "mismo_lado": 2
+  },
+  "PELÍCULA [Hands-On 1135960222]": {
+   "cuadros": 106,
+   "0": 8,
+   "1": 7,
+   "2": 91,
+   "mismo_lado": 1
+  },
+  "PENALIZAR [Hands-On 1140951722]": {
+   "cuadros": 73,
+   "0": 16,
+   "1": 21,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "PEOR [Hands-On 1140292033]": {
+   "cuadros": 82,
+   "0": 16,
+   "1": 13,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "PEQUEÑO [Hands-On 1140292059]": {
+   "cuadros": 61,
+   "0": 13,
+   "1": 5,
+   "2": 43,
+   "mismo_lado": 0
+  },
+  "PEQUEÑO [Hands-On 1140292084]": {
+   "cuadros": 59,
+   "0": 13,
+   "1": 46,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "PEQUEÑO [Hands-On 1140292106]": {
+   "cuadros": 60,
+   "0": 11,
+   "1": 46,
+   "2": 3,
+   "mismo_lado": 2
+  },
+  "PERDER [Hands-On 1140292132]": {
+   "cuadros": 76,
+   "0": 8,
+   "1": 10,
+   "2": 58,
+   "mismo_lado": 9
+  },
+  "PERDER [Hands-On 1144623835]": {
+   "cuadros": 65,
+   "0": 4,
+   "1": 2,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "PERFECTO [Hands-On 1140292270]": {
+   "cuadros": 94,
+   "0": 13,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "PERMISO [Hands-On 1138756157]": {
+   "cuadros": 60,
+   "0": 3,
+   "1": 20,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "PERO [Hands-On 1138756186]": {
+   "cuadros": 68,
+   "0": 6,
+   "1": 8,
+   "2": 54,
+   "mismo_lado": 3
+  },
+  "PERO [Hands-On 1138756206]": {
+   "cuadros": 60,
+   "0": 5,
+   "1": 54,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "PERRO-GUÍA [Hands-On 1134369535]": {
+   "cuadros": 94,
+   "0": 10,
+   "1": 40,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "PERSONAS [Hands-On 1135960271]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 0
+  },
+  "PERSPECTIVA [Hands-On 1134606072]": {
+   "cuadros": 87,
+   "0": 10,
+   "1": 11,
+   "2": 66,
+   "mismo_lado": 4
+  },
+  "PESADO [Hands-On 1140292944]": {
+   "cuadros": 76,
+   "0": 10,
+   "1": 57,
+   "2": 9,
+   "mismo_lado": 9
+  },
+  "PESADO [Hands-On 1140293190]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 7,
+   "2": 42,
+   "mismo_lado": 3
+  },
+  "PESAR [Hands-On 1141582538]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 10,
+   "2": 66,
+   "mismo_lado": 8
+  },
+  "PESO [Hands-On 1144643759]": {
+   "cuadros": 70,
+   "0": 1,
+   "1": 2,
+   "2": 67,
+   "mismo_lado": 5
+  },
+  "PESTAÑAS [Hands-On 1138756229]": {
+   "cuadros": 81,
+   "0": 11,
+   "1": 9,
+   "2": 61,
+   "mismo_lado": 2
+  },
+  "PICAZÓN [Hands-On 1138756255]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 7,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "PIEDRA [Hands-On 1135960324]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 6,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "PIEL [Hands-On 1138756291]": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 40,
+   "2": 28,
+   "mismo_lado": 2
+  },
+  "PIEL [Hands-On 1144745631]": {
+   "cuadros": 96,
+   "0": 2,
+   "1": 6,
+   "2": 88,
+   "mismo_lado": 0
+  },
+  "PLAGA [Hands-On 1140951850]": {
+   "cuadros": 112,
+   "0": 14,
+   "1": 18,
+   "2": 80,
+   "mismo_lado": 9
+  },
+  "PLANCHA-DE-ROPA [Hands-On 1135960404]": {
+   "cuadros": 85,
+   "0": 1,
+   "1": 12,
+   "2": 72,
+   "mismo_lado": 5
+  },
+  "PLANETA-TIERRA [Hands-On 1135960425]": {
+   "cuadros": 92,
+   "0": 3,
+   "1": 9,
+   "2": 80,
+   "mismo_lado": 4
+  },
+  "PLANIFICACIÓN [Hands-On 1144627017]": {
+   "cuadros": 64,
+   "0": 0,
+   "1": 5,
+   "2": 59,
+   "mismo_lado": 0
+  },
+  "PLANIFICAR [Hands-On 1140293243]": {
+   "cuadros": 79,
+   "0": 13,
+   "1": 11,
+   "2": 55,
+   "mismo_lado": 7
+  },
+  "PLATANO-MADURO [Hands-On 1140293281]": {
+   "cuadros": 83,
+   "0": 9,
+   "1": 5,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "PLATO [Hands-On 1135960479]": {
+   "cuadros": 56,
+   "0": 3,
+   "1": 6,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "POBLACION [Hands-On 1141582556]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 25,
+   "2": 48,
+   "mismo_lado": 12
+  },
+  "POBRE [Hands-On 1140293332]": {
+   "cuadros": 78,
+   "0": 14,
+   "1": 4,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "POBRE [Hands-On 1140293354]": {
+   "cuadros": 81,
+   "0": 13,
+   "1": 22,
+   "2": 46,
+   "mismo_lado": 7
+  },
+  "PODER [Hands-On 1140293437]": {
+   "cuadros": 69,
+   "0": 13,
+   "1": 6,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "PODER [Hands-On 1135960541]": {
+   "cuadros": 87,
+   "0": 8,
+   "1": 15,
+   "2": 64,
+   "mismo_lado": 8
+  },
+  "PODER [Hands-On 1140293454]": {
+   "cuadros": 93,
+   "0": 20,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 5
+  },
+  "PODER [Hands-On 1140293484]": {
+   "cuadros": 89,
+   "0": 17,
+   "1": 14,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "POLLITO [Hands-On 1138756374]": {
+   "cuadros": 73,
+   "0": 5,
+   "1": 67,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "POPULAR [Hands-On 1140293538]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 5
+  },
+  "POR-ESO [Hands-On 1138756432]": {
+   "cuadros": 74,
+   "0": 9,
+   "1": 48,
+   "2": 17,
+   "mismo_lado": 3
+  },
+  "POR-FAVOR [Hands-On 1138756454]": {
+   "cuadros": 79,
+   "0": 4,
+   "1": 24,
+   "2": 51,
+   "mismo_lado": 11
+  },
+  "PORTON [Hands-On 1135960587]": {
+   "cuadros": 68,
+   "0": 9,
+   "1": 8,
+   "2": 51,
+   "mismo_lado": 2
+  },
+  "POSPONER [Hands-On 1140293564]": {
+   "cuadros": 87,
+   "0": 16,
+   "1": 43,
+   "2": 28,
+   "mismo_lado": 9
+  },
+  "PRACTICAR [Hands-On 1138756538]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 12,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "PRACTICAR [Hands-On 1140293610]": {
+   "cuadros": 81,
+   "0": 9,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 3
+  },
+  "PRECAUCION [Hands-On 1138756570]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 33,
+   "2": 32,
+   "mismo_lado": 5
+  },
+  "PREPARAR [Hands-On 1140293878]": {
+   "cuadros": 77,
+   "0": 14,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 5
+  },
+  "PREPARAR [Hands-On 1144626487]": {
+   "cuadros": 65,
+   "0": 0,
+   "1": 4,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "PRESENTAR [Hands-On 1140293673]": {
+   "cuadros": 92,
+   "0": 10,
+   "1": 7,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "PRESENTE [Hands-On 1138756629]": {
+   "cuadros": 39,
+   "0": 3,
+   "1": 2,
+   "2": 34,
+   "mismo_lado": 1
+  },
+  "PRESIÓN [Hands-On 1141582569]": {
+   "cuadros": 103,
+   "0": 8,
+   "1": 37,
+   "2": 58,
+   "mismo_lado": 10
+  },
+  "PRESTAR [Hands-On 1138756646]": {
+   "cuadros": 84,
+   "0": 3,
+   "1": 17,
+   "2": 64,
+   "mismo_lado": 2
+  },
+  "PRESTARME [Hands-On 1138756677]": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 8,
+   "2": 73,
+   "mismo_lado": 4
+  },
+  "PRESUPUESTO [Hands-On 1138756699]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 3,
+   "2": 72,
+   "mismo_lado": 4
+  },
+  "PREVENCION [Hands-On 1135055006]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 36,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "PREVENIR [Hands-On 1135064037]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 36,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "PRIMERO [Hands-On 1140293920]": {
+   "cuadros": 63,
+   "0": 12,
+   "1": 50,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "PRIMERO [Hands-On 1140293941]": {
+   "cuadros": 75,
+   "0": 6,
+   "1": 8,
+   "2": 61,
+   "mismo_lado": 7
+  },
+  "PRIMEROS-AUXILIOS-AUXILIOS [Hands-On 1135062939]": {
+   "cuadros": 89,
+   "0": 11,
+   "1": 38,
+   "2": 40,
+   "mismo_lado": 3
+  },
+  "PRIMEROS-AUXILIOS-AUXILIOS [Hands-On 1140951906]": {
+   "cuadros": 90,
+   "0": 16,
+   "1": 33,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "PRIMOS [Hands-On 1140293963]": {
+   "cuadros": 75,
+   "0": 13,
+   "1": 7,
+   "2": 55,
+   "mismo_lado": 1
+  },
+  "PRIORIDAD [Hands-On 1138756715]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 10,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "PRIORIDAD [Hands-On 1138756743]": {
+   "cuadros": 76,
+   "0": 11,
+   "1": 63,
+   "2": 2,
+   "mismo_lado": 2
+  },
+  "PRIORIDAD [Hands-On 1138756764]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 15,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "PROBAR [Hands-On 1141582583]": {
+   "cuadros": 78,
+   "0": 10,
+   "1": 27,
+   "2": 41,
+   "mismo_lado": 1
+  },
+  "PROBLEMA [Hands-On 1134609119]": {
+   "cuadros": 85,
+   "0": 2,
+   "1": 15,
+   "2": 68,
+   "mismo_lado": 3
+  },
+  "PROBLEMA [Hands-On 1140951945]": {
+   "cuadros": 84,
+   "0": 3,
+   "1": 12,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "PROBLEMA [Hands-On 1141582590]": {
+   "cuadros": 90,
+   "0": 8,
+   "1": 6,
+   "2": 76,
+   "mismo_lado": 2
+  },
+  "PROCESO [Hands-On 1140951983]": {
+   "cuadros": 87,
+   "0": 9,
+   "1": 10,
+   "2": 68,
+   "mismo_lado": 4
+  },
+  "PRODUCIR [Hands-On 1141582598]": {
+   "cuadros": 73,
+   "0": 9,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "PRODUCTO [Hands-On 1138756785]": {
+   "cuadros": 71,
+   "0": 4,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 6
+  },
+  "PROFESOR [Hands-On 1135061891]": {
+   "cuadros": 82,
+   "0": 12,
+   "1": 5,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "PROFESORES [Hands-On 1141582606]": {
+   "cuadros": 80,
+   "0": 10,
+   "1": 6,
+   "2": 64,
+   "mismo_lado": 3
+  },
+  "PROFUNDIDAD [Hands-On 1140294057]": {
+   "cuadros": 77,
+   "0": 10,
+   "1": 31,
+   "2": 36,
+   "mismo_lado": 0
+  },
+  "PROFUNDO [Hands-On 1140294089]": {
+   "cuadros": 77,
+   "0": 10,
+   "1": 31,
+   "2": 36,
+   "mismo_lado": 0
+  },
+  "PROGRAMA [Hands-On 1138756824]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 11,
+   "2": 70,
+   "mismo_lado": 4
+  },
+  "PROMESA [Hands-On 1140294121]": {
+   "cuadros": 83,
+   "0": 16,
+   "1": 38,
+   "2": 29,
+   "mismo_lado": 11
+  },
+  "PROMESA [Hands-On 1140952040]": {
+   "cuadros": 88,
+   "0": 4,
+   "1": 33,
+   "2": 51,
+   "mismo_lado": 3
+  },
+  "PROMETER [Hands-On 1140294148]": {
+   "cuadros": 84,
+   "0": 17,
+   "1": 51,
+   "2": 16,
+   "mismo_lado": 1
+  },
+  "PROMOVER [Hands-On 1140294175]": {
+   "cuadros": 86,
+   "0": 17,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 7
+  },
+  "PRONÓSTICO [Hands-On 1138756849]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 18,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "PROPONER [Hands-On 1140294225]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 30,
+   "2": 43,
+   "mismo_lado": 4
+  },
+  "PROPUESTA [Hands-On 1140294252]": {
+   "cuadros": 80,
+   "0": 8,
+   "1": 28,
+   "2": 44,
+   "mismo_lado": 5
+  },
+  "PROSPERAR [Hands-On 1140952093]": {
+   "cuadros": 87,
+   "0": 9,
+   "1": 21,
+   "2": 57,
+   "mismo_lado": 9
+  },
+  "PROTECCIÓN-SOLAR [Hands-On 1135057468]": {
+   "cuadros": 139,
+   "0": 13,
+   "1": 86,
+   "2": 40,
+   "mismo_lado": 3
+  },
+  "PROTEGER [Hands-On 1135063606]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 36,
+   "2": 37,
+   "mismo_lado": 1
+  },
+  "PROYECCIÓN [Hands-On 1138756887]": {
+   "cuadros": 82,
+   "0": 7,
+   "1": 17,
+   "2": 58,
+   "mismo_lado": 3
+  },
+  "PRUEBA-AUDITIVA [Hands-On 1134608213]": {
+   "cuadros": 109,
+   "0": 19,
+   "1": 52,
+   "2": 38,
+   "mismo_lado": 1
+  },
+  "PRUEBA-AUDITIVA [Hands-On 1140952236]": {
+   "cuadros": 107,
+   "0": 19,
+   "1": 50,
+   "2": 38,
+   "mismo_lado": 2
+  },
+  "PRUEBA-DE-EMBARAZO [Hands-On 1140952290]": {
+   "cuadros": 122,
+   "0": 11,
+   "1": 40,
+   "2": 71,
+   "mismo_lado": 16
+  },
+  "PRUEBA-DE-ESFUERZO [Hands-On 1135056440]": {
+   "cuadros": 106,
+   "0": 15,
+   "1": 56,
+   "2": 35,
+   "mismo_lado": 4
+  },
+  "PRUEBAS [Hands-On 1134370507]": {
+   "cuadros": 87,
+   "0": 10,
+   "1": 45,
+   "2": 32,
+   "mismo_lado": 2
+  },
+  "PRUEBAS [Hands-On 1141582610]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 44,
+   "2": 32,
+   "mismo_lado": 0
+  },
+  "PRUEBAS [Hands-On 1141582615]": {
+   "cuadros": 61,
+   "0": 13,
+   "1": 3,
+   "2": 45,
+   "mismo_lado": 4
+  },
+  "PSICOLOGÍA [Hands-On 1144713593]": {
+   "cuadros": 59,
+   "0": 2,
+   "1": 8,
+   "2": 49,
+   "mismo_lado": 1
+  },
+  "PSICÓLOGO [Hands-On 1144714183]": {
+   "cuadros": 82,
+   "0": 3,
+   "1": 3,
+   "2": 76,
+   "mismo_lado": 9
+  },
+  "PSIQUIATRA [Hands-On 1135061277]": {
+   "cuadros": 135,
+   "0": 10,
+   "1": 38,
+   "2": 87,
+   "mismo_lado": 14
+  },
+  "PSIQUIATRA [Hands-On 1141582619]": {
+   "cuadros": 137,
+   "0": 9,
+   "1": 54,
+   "2": 74,
+   "mismo_lado": 14
+  },
+  "PSIQUIATRÍA [Hands-On 1140952523]": {
+   "cuadros": 136,
+   "0": 12,
+   "1": 70,
+   "2": 54,
+   "mismo_lado": 4
+  },
+  "PULMONES [Hands-On 1138756909]": {
+   "cuadros": 109,
+   "0": 8,
+   "1": 48,
+   "2": 53,
+   "mismo_lado": 4
+  },
+  "PULMÓN [Hands-On 1141582627]": {
+   "cuadros": 121,
+   "0": 27,
+   "1": 42,
+   "2": 52,
+   "mismo_lado": 6
+  },
+  "PULSO [Hands-On 1138756950]": {
+   "cuadros": 92,
+   "0": 4,
+   "1": 85,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "PULSO [Hands-On 1138756978]": {
+   "cuadros": 40,
+   "0": 2,
+   "1": 23,
+   "2": 15,
+   "mismo_lado": 2
+  },
+  "PUNTARENAS [Hands-On 1140294306]": {
+   "cuadros": 71,
+   "0": 8,
+   "1": 49,
+   "2": 14,
+   "mismo_lado": 11
+  },
+  "PUNTO-DE-VISTA [Hands-On 1141582635]": {
+   "cuadros": 87,
+   "0": 11,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 9
+  },
+  "PUNTUAL [Hands-On 1140294338]": {
+   "cuadros": 85,
+   "0": 16,
+   "1": 9,
+   "2": 60,
+   "mismo_lado": 4
+  },
+  "PURÉ [Hands-On 1138757011]": {
+   "cuadros": 75,
+   "0": 9,
+   "1": 10,
+   "2": 56,
+   "mismo_lado": 9
+  },
+  "PÉRDIDA-AUDITIVA [Hands-On 1144741126]": {
+   "cuadros": 86,
+   "0": 2,
+   "1": 5,
+   "2": 79,
+   "mismo_lado": 4
+  },
+  "PÚBLICO [Hands-On 1140294275]": {
+   "cuadros": 93,
+   "0": 10,
+   "1": 9,
+   "2": 74,
+   "mismo_lado": 12
+  },
+  "QUEDAR [Hands-On 1140294360]": {
+   "cuadros": 66,
+   "0": 12,
+   "1": 4,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "QUEDAR [Hands-On 1140294387]": {
+   "cuadros": 69,
+   "0": 7,
+   "1": 16,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "QUEMADURA [Hands-On 1140952582]": {
+   "cuadros": 90,
+   "0": 9,
+   "1": 14,
+   "2": 67,
+   "mismo_lado": 10
+  },
+  "QUIERO [Hands-On 1140294457]": {
+   "cuadros": 69,
+   "0": 12,
+   "1": 6,
+   "2": 51,
+   "mismo_lado": 6
+  },
+  "QUITAR [Hands-On 1138758453]": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 8,
+   "2": 65,
+   "mismo_lado": 6
+  },
+  "QUIZ [Hands-On 1141582647]": {
+   "cuadros": 70,
+   "0": 14,
+   "1": 6,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "QUÉ [Hands-On 1138758289]": {
+   "cuadros": 55,
+   "0": 7,
+   "1": 45,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "QUÉ [Hands-On 1138758299]": {
+   "cuadros": 51,
+   "0": 5,
+   "1": 5,
+   "2": 41,
+   "mismo_lado": 4
+  },
+  "QUÉ-HACE [Hands-On 1138758325]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 13,
+   "2": 60,
+   "mismo_lado": 15
+  },
+  "QUÍMICO [Hands-On 1138758425]": {
+   "cuadros": 76,
+   "0": 2,
+   "1": 16,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "RADIOLOGÍA [Hands-On 1135061363]": {
+   "cuadros": 98,
+   "0": 16,
+   "1": 5,
+   "2": 77,
+   "mismo_lado": 3
+  },
+  "RADIOLOGÍA [Hands-On 1140957207]": {
+   "cuadros": 95,
+   "0": 12,
+   "1": 6,
+   "2": 77,
+   "mismo_lado": 3
+  },
+  "RECHAZAR [Hands-On 1140295130]": {
+   "cuadros": 67,
+   "0": 6,
+   "1": 31,
+   "2": 30,
+   "mismo_lado": 2
+  },
+  "RECIBIR [Hands-On 1140295167]": {
+   "cuadros": 82,
+   "0": 9,
+   "1": 7,
+   "2": 66,
+   "mismo_lado": 5
+  },
+  "RECOGER [Hands-On 1140296200]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 13,
+   "2": 51,
+   "mismo_lado": 1
+  },
+  "RECORDAR [Hands-On 1140296239]": {
+   "cuadros": 81,
+   "0": 8,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "RECUPERACIÓN [Hands-On 1141582661]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "RECUPERAR [Hands-On 1141582671]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 23
+  },
+  "RECUPERAR [Hands-On 1141582665]": {
+   "cuadros": 71,
+   "0": 9,
+   "1": 6,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "RECURRENTE [Hands-On 1141582676]": {
+   "cuadros": 99,
+   "0": 7,
+   "1": 12,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "REDUCIR [Hands-On 1141582685]": {
+   "cuadros": 77,
+   "0": 4,
+   "1": 4,
+   "2": 69,
+   "mismo_lado": 0
+  },
+  "REFRIGERADORA [Hands-On 1135960682]": {
+   "cuadros": 114,
+   "0": 4,
+   "1": 58,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "REFUERZO [Hands-On 1138758546]": {
+   "cuadros": 85,
+   "0": 10,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "REFUERZO [Hands-On 1138758571]": {
+   "cuadros": 71,
+   "0": 1,
+   "1": 9,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "REGALAR [Hands-On 1140296371]": {
+   "cuadros": 72,
+   "0": 11,
+   "1": 7,
+   "2": 54,
+   "mismo_lado": 2
+  },
+  "REGISTRO [Hands-On 1138758604]": {
+   "cuadros": 88,
+   "0": 7,
+   "1": 6,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "REGISTRO [Hands-On 1138758642]": {
+   "cuadros": 71,
+   "0": 3,
+   "1": 7,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "REGULAR [Hands-On 1141582692]": {
+   "cuadros": 72,
+   "0": 4,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 7
+  },
+  "REHABILITAR [Hands-On 1141582701]": {
+   "cuadros": 82,
+   "0": 12,
+   "1": 21,
+   "2": 49,
+   "mismo_lado": 10
+  },
+  "RELACIONADO [Hands-On 1138758669]": {
+   "cuadros": 59,
+   "0": 2,
+   "1": 5,
+   "2": 52,
+   "mismo_lado": 6
+  },
+  "RELACIONES-SEXUALES [Hands-On 1140957311]": {
+   "cuadros": 71,
+   "0": 12,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "RELACIÓN [Hands-On 1135059852]": {
+   "cuadros": 76,
+   "0": 14,
+   "1": 11,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "RELACIÓN [Hands-On 1135960719]": {
+   "cuadros": 94,
+   "0": 3,
+   "1": 7,
+   "2": 84,
+   "mismo_lado": 2
+  },
+  "RELACIÓN [Hands-On 1141582706]": {
+   "cuadros": 76,
+   "0": 15,
+   "1": 10,
+   "2": 51,
+   "mismo_lado": 0
+  },
+  "RELAJACIÓN [Hands-On 1140957375]": {
+   "cuadros": 70,
+   "0": 4,
+   "1": 5,
+   "2": 61,
+   "mismo_lado": 5
+  },
+  "RELAJAR [Hands-On 1141582711]": {
+   "cuadros": 77,
+   "0": 6,
+   "1": 5,
+   "2": 66,
+   "mismo_lado": 25
+  },
+  "RENUNCIAR [Hands-On 1140296520]": {
+   "cuadros": 85,
+   "0": 9,
+   "1": 8,
+   "2": 68,
+   "mismo_lado": 14
+  },
+  "RENUNCIAR [Hands-On 1141582720]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 5,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "REPASO [Hands-On 1138758693]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 10,
+   "2": 65,
+   "mismo_lado": 4
+  },
+  "REPETIR [Hands-On 1140296612]": {
+   "cuadros": 65,
+   "0": 14,
+   "1": 4,
+   "2": 47,
+   "mismo_lado": 3
+  },
+  "REPORTE [Hands-On 1138758720]": {
+   "cuadros": 71,
+   "0": 9,
+   "1": 19,
+   "2": 43,
+   "mismo_lado": 2
+  },
+  "REPOSO [Hands-On 1138758754]": {
+   "cuadros": 64,
+   "0": 6,
+   "1": 9,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "REPOSO [Hands-On 1138758780]": {
+   "cuadros": 67,
+   "0": 4,
+   "1": 9,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "REQUISITO [Hands-On 1138758804]": {
+   "cuadros": 87,
+   "0": 3,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 14
+  },
+  "RESACA [Hands-On 1138758830]": {
+   "cuadros": 136,
+   "0": 9,
+   "1": 9,
+   "2": 118,
+   "mismo_lado": 15
+  },
+  "RESCATE [Hands-On 1144729669]": {
+   "cuadros": 63,
+   "0": 0,
+   "1": 7,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "RESERVAR [Hands-On 1140957437]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 11,
+   "2": 62,
+   "mismo_lado": 20
+  },
+  "RESONANCIA-MAGNÉTICA [Hands-On 1140957489]": {
+   "cuadros": 81,
+   "0": 13,
+   "1": 19,
+   "2": 49,
+   "mismo_lado": 15
+  },
+  "RESPETUOSO [Hands-On 1140296702]": {
+   "cuadros": 74,
+   "0": 10,
+   "1": 31,
+   "2": 33,
+   "mismo_lado": 3
+  },
+  "RESPONDER [Hands-On 1140296741]": {
+   "cuadros": 74,
+   "0": 10,
+   "1": 33,
+   "2": 31,
+   "mismo_lado": 2
+  },
+  "RESPONSABILIDAD [Hands-On 1134606181]": {
+   "cuadros": 81,
+   "0": 14,
+   "1": 15,
+   "2": 52,
+   "mismo_lado": 4
+  },
+  "RESPONSABILIDAD [Hands-On 1140296793]": {
+   "cuadros": 80,
+   "0": 17,
+   "1": 3,
+   "2": 60,
+   "mismo_lado": 0
+  },
+  "RESPONSABILIDAD [Hands-On 1141582733]": {
+   "cuadros": 79,
+   "0": 11,
+   "1": 18,
+   "2": 50,
+   "mismo_lado": 3
+  },
+  "RESPONSABLE [Hands-On 1140296864]": {
+   "cuadros": 80,
+   "0": 18,
+   "1": 1,
+   "2": 61,
+   "mismo_lado": 0
+  },
+  "RESPONSABLE [Hands-On 1141582741]": {
+   "cuadros": 79,
+   "0": 11,
+   "1": 19,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "RESPUESTA [Hands-On 1140957526]": {
+   "cuadros": 68,
+   "0": 9,
+   "1": 23,
+   "2": 36,
+   "mismo_lado": 6
+  },
+  "RESTAR [Hands-On 1140296883]": {
+   "cuadros": 81,
+   "0": 9,
+   "1": 15,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "RESUMEN [Hands-On 1138758866]": {
+   "cuadros": 71,
+   "0": 6,
+   "1": 6,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "RETIRAR [Hands-On 1141582746]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 23,
+   "2": 42,
+   "mismo_lado": 5
+  },
+  "RETIRAR [Hands-On 1141582755]": {
+   "cuadros": 58,
+   "0": 9,
+   "1": 5,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "RETIRAR [Hands-On 1141582758]": {
+   "cuadros": 74,
+   "0": 8,
+   "1": 61,
+   "2": 5,
+   "mismo_lado": 1
+  },
+  "RETIRAR [Hands-On 1141582763]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 17,
+   "2": 47,
+   "mismo_lado": 4
+  },
+  "RETIRO [Hands-On 1141582770]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 23,
+   "2": 42,
+   "mismo_lado": 5
+  },
+  "RETO [Hands-On 1141582775]": {
+   "cuadros": 55,
+   "0": 9,
+   "1": 11,
+   "2": 35,
+   "mismo_lado": 4
+  },
+  "RETRASO [Hands-On 1138758888]": {
+   "cuadros": 73,
+   "0": 3,
+   "1": 7,
+   "2": 63,
+   "mismo_lado": 0
+  },
+  "RETROALIMENTACION [Hands-On 1138758914]": {
+   "cuadros": 95,
+   "0": 7,
+   "1": 27,
+   "2": 61,
+   "mismo_lado": 14
+  },
+  "REUNIR [Hands-On 1141582784]": {
+   "cuadros": 73,
+   "0": 12,
+   "1": 3,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "REUNIÓN [Hands-On 1134607652]": {
+   "cuadros": 73,
+   "0": 12,
+   "1": 3,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "REUNIÓN [Hands-On 1141582780]": {
+   "cuadros": 73,
+   "0": 12,
+   "1": 3,
+   "2": 58,
+   "mismo_lado": 1
+  },
+  "REVISAR [Hands-On 1141582788]": {
+   "cuadros": 78,
+   "0": 9,
+   "1": 6,
+   "2": 63,
+   "mismo_lado": 6
+  },
+  "REVISAR [Hands-On 1140296927]": {
+   "cuadros": 85,
+   "0": 12,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 7
+  },
+  "REVISAR [Hands-On 1140296960]": {
+   "cuadros": 96,
+   "0": 10,
+   "1": 6,
+   "2": 80,
+   "mismo_lado": 2
+  },
+  "REVISIÓN [Hands-On 1144637861]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 5,
+   "2": 68,
+   "mismo_lado": 1
+  },
+  "REVISTA [Hands-On 1135960798]": {
+   "cuadros": 82,
+   "0": 7,
+   "1": 8,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "RICO [Hands-On 1140296995]": {
+   "cuadros": 72,
+   "0": 12,
+   "1": 6,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "ROBAR [Hands-On 1140297039]": {
+   "cuadros": 75,
+   "0": 13,
+   "1": 29,
+   "2": 33,
+   "mismo_lado": 3
+  },
+  "RUIDO [Hands-On 1144698425]": {
+   "cuadros": 86,
+   "0": 2,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 2
+  },
+  "RÁPIDO [Hands-On 1140294999]": {
+   "cuadros": 59,
+   "0": 12,
+   "1": 46,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "SABANA [Hands-On 1135960856]": {
+   "cuadros": 120,
+   "0": 6,
+   "1": 10,
+   "2": 104,
+   "mismo_lado": 3
+  },
+  "SALIR [Hands-On 1138758989]": {
+   "cuadros": 69,
+   "0": 3,
+   "1": 8,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "SALIR [Hands-On 1140297677]": {
+   "cuadros": 82,
+   "0": 11,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 1
+  },
+  "SALIR [Hands-On 1140297736]": {
+   "cuadros": 75,
+   "0": 16,
+   "1": 59,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "SALIVA [Hands-On 1135056600]": {
+   "cuadros": 99,
+   "0": 11,
+   "1": 9,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "SALIVA [Hands-On 1140957564]": {
+   "cuadros": 99,
+   "0": 11,
+   "1": 6,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "SALIVA [Hands-On 1135056515]": {
+   "cuadros": 105,
+   "0": 11,
+   "1": 94,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "SALUD [Hands-On 1144650419]": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "SALUDABLE [Hands-On 1144644221]": {
+   "cuadros": 72,
+   "0": 2,
+   "1": 3,
+   "2": 67,
+   "mismo_lado": 3
+  },
+  "SALVAR [Hands-On 1140297782]": {
+   "cuadros": 77,
+   "0": 17,
+   "1": 14,
+   "2": 46,
+   "mismo_lado": 2
+  },
+  "SAN-JOSE [Hands-On 1140297817]": {
+   "cuadros": 81,
+   "0": 11,
+   "1": 5,
+   "2": 65,
+   "mismo_lado": 12
+  },
+  "SANAR [Hands-On 1141582792]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 9,
+   "2": 63,
+   "mismo_lado": 23
+  },
+  "SANDALIA [Hands-On 1135960894]": {
+   "cuadros": 67,
+   "0": 4,
+   "1": 8,
+   "2": 55,
+   "mismo_lado": 2
+  },
+  "SATISFECHO [Hands-On 1140297875]": {
+   "cuadros": 78,
+   "0": 11,
+   "1": 5,
+   "2": 62,
+   "mismo_lado": 1
+  },
+  "SECUESTRAR [Hands-On 1141582809]": {
+   "cuadros": 71,
+   "0": 9,
+   "1": 6,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "SEDANTE [Hands-On 1135055062]": {
+   "cuadros": 109,
+   "0": 7,
+   "1": 44,
+   "2": 58,
+   "mismo_lado": 21
+  },
+  "SEDE [Hands-On 1138759031]": {
+   "cuadros": 63,
+   "0": 7,
+   "1": 43,
+   "2": 13,
+   "mismo_lado": 10
+  },
+  "SEGUIMIENTO [Hands-On 1141582818]": {
+   "cuadros": 67,
+   "0": 11,
+   "1": 22,
+   "2": 34,
+   "mismo_lado": 0
+  },
+  "SEGUIR [Hands-On 1140957672]": {
+   "cuadros": 85,
+   "0": 16,
+   "1": 10,
+   "2": 59,
+   "mismo_lado": 4
+  },
+  "SEGUNDO [Hands-On 1138759097]": {
+   "cuadros": 58,
+   "0": 2,
+   "1": 8,
+   "2": 48,
+   "mismo_lado": 3
+  },
+  "SEGURIDAD [Hands-On 1140298008]": {
+   "cuadros": 82,
+   "0": 10,
+   "1": 18,
+   "2": 54,
+   "mismo_lado": 1
+  },
+  "SEGURIDAD [Hands-On 1144639592]": {
+   "cuadros": 79,
+   "0": 1,
+   "1": 40,
+   "2": 38,
+   "mismo_lado": 0
+  },
+  "SEGURO [Hands-On 1134608770]": {
+   "cuadros": 81,
+   "0": 10,
+   "1": 40,
+   "2": 31,
+   "mismo_lado": 0
+  },
+  "SEGURO [Hands-On 1140298071]": {
+   "cuadros": 82,
+   "0": 12,
+   "1": 16,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "SEGURO [Hands-On 1141582825]": {
+   "cuadros": 79,
+   "0": 10,
+   "1": 40,
+   "2": 29,
+   "mismo_lado": 0
+  },
+  "SENCILLO [Hands-On 1140298317]": {
+   "cuadros": 76,
+   "0": 11,
+   "1": 8,
+   "2": 57,
+   "mismo_lado": 0
+  },
+  "SENCILLO [Hands-On 1140298193]": {
+   "cuadros": 76,
+   "0": 10,
+   "1": 10,
+   "2": 56,
+   "mismo_lado": 0
+  },
+  "SENCILLO-2MP [Hands-On 1140298252]": {
+   "cuadros": 74,
+   "0": 13,
+   "1": 5,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "SENTAR [Hands-On 1140298495]": {
+   "cuadros": 85,
+   "0": 11,
+   "1": 37,
+   "2": 37,
+   "mismo_lado": 2
+  },
+  "SENTARSE [Hands-On 1140298540]": {
+   "cuadros": 85,
+   "0": 11,
+   "1": 37,
+   "2": 37,
+   "mismo_lado": 2
+  },
+  "SEÑA [Hands-On 1141582829]": {
+   "cuadros": 64,
+   "0": 15,
+   "1": 16,
+   "2": 33,
+   "mismo_lado": 7
+  },
+  "SEÑAL [Hands-On 1140298118]": {
+   "cuadros": 92,
+   "0": 10,
+   "1": 7,
+   "2": 75,
+   "mismo_lado": 1
+  },
+  "SEÑAR [Hands-On 1141582832]": {
+   "cuadros": 64,
+   "0": 15,
+   "1": 16,
+   "2": 33,
+   "mismo_lado": 7
+  },
+  "SEPTIEMBRE [Hands-On 1135960994]": {
+   "cuadros": 79,
+   "0": 7,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "SERVICIO [Hands-On 1144602773]": {
+   "cuadros": 74,
+   "0": 3,
+   "1": 6,
+   "2": 65,
+   "mismo_lado": 12
+  },
+  "SESIÓN [Hands-On 1135055774]": {
+   "cuadros": 72,
+   "0": 18,
+   "1": 4,
+   "2": 50,
+   "mismo_lado": 4
+  },
+  "SESIÓN [Hands-On 1141582857]": {
+   "cuadros": 72,
+   "0": 18,
+   "1": 5,
+   "2": 49,
+   "mismo_lado": 4
+  },
+  "SEXO [Hands-On 1140957695]": {
+   "cuadros": 82,
+   "0": 17,
+   "1": 62,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "SEXO [Hands-On 1135056012]": {
+   "cuadros": 82,
+   "0": 17,
+   "1": 64,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "SEXO [Hands-On 1135056167]": {
+   "cuadros": 69,
+   "0": 12,
+   "1": 7,
+   "2": 50,
+   "mismo_lado": 1
+  },
+  "SEXUAL [Hands-On 1140957727]": {
+   "cuadros": 82,
+   "0": 18,
+   "1": 61,
+   "2": 3,
+   "mismo_lado": 3
+  },
+  "SEXUAL [Hands-On 1140957763]": {
+   "cuadros": 71,
+   "0": 12,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "SEXUALIDAD [Hands-On 1135056085]": {
+   "cuadros": 75,
+   "0": 16,
+   "1": 13,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "SEXUALIDAD [Hands-On 1140957793]": {
+   "cuadros": 75,
+   "0": 15,
+   "1": 14,
+   "2": 46,
+   "mismo_lado": 0
+  },
+  "SIGNIFICADO [Hands-On 1140298646]": {
+   "cuadros": 87,
+   "0": 9,
+   "1": 8,
+   "2": 70,
+   "mismo_lado": 3
+  },
+  "SIGNIFICAR [Hands-On 1140298690]": {
+   "cuadros": 86,
+   "0": 7,
+   "1": 10,
+   "2": 69,
+   "mismo_lado": 2
+  },
+  "SILLA-DE-RUEDAS [Hands-On 1144706607]": {
+   "cuadros": 73,
+   "0": 0,
+   "1": 1,
+   "2": 72,
+   "mismo_lado": 0
+  },
+  "SIMPLE [Hands-On 1140298861]": {
+   "cuadros": 69,
+   "0": 11,
+   "1": 9,
+   "2": 49,
+   "mismo_lado": 4
+  },
+  "SIMPÁTICO [Hands-On 1140298787]": {
+   "cuadros": 92,
+   "0": 15,
+   "1": 3,
+   "2": 74,
+   "mismo_lado": 3
+  },
+  "SIMPÁTICO [Hands-On 1140298728]": {
+   "cuadros": 86,
+   "0": 13,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 2
+  },
+  "SINCERO [Hands-On 1140298923]": {
+   "cuadros": 75,
+   "0": 14,
+   "1": 5,
+   "2": 56,
+   "mismo_lado": 4
+  },
+  "SINÓNIMO [Hands-On 1140957908]": {
+   "cuadros": 86,
+   "0": 6,
+   "1": 10,
+   "2": 70,
+   "mismo_lado": 0
+  },
+  "SISTEMA [Hands-On 1144640697]": {
+   "cuadros": 78,
+   "0": 3,
+   "1": 5,
+   "2": 70,
+   "mismo_lado": 12
+  },
+  "SITUACIÓN [Hands-On 1135059420]": {
+   "cuadros": 98,
+   "0": 17,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 3
+  },
+  "SITUACIÓN [Hands-On 1141582865]": {
+   "cuadros": 98,
+   "0": 17,
+   "1": 9,
+   "2": 72,
+   "mismo_lado": 1
+  },
+  "SOBRAR [Hands-On 1140298971]": {
+   "cuadros": 76,
+   "0": 7,
+   "1": 11,
+   "2": 58,
+   "mismo_lado": 9
+  },
+  "SOBRE [Hands-On 1138759245]": {
+   "cuadros": 55,
+   "0": 3,
+   "1": 13,
+   "2": 39,
+   "mismo_lado": 4
+  },
+  "SOBRE [Hands-On 1138759267]": {
+   "cuadros": 102,
+   "0": 4,
+   "1": 14,
+   "2": 84,
+   "mismo_lado": 7
+  },
+  "SOBRE [Hands-On 1138759286]": {
+   "cuadros": 59,
+   "0": 2,
+   "1": 5,
+   "2": 52,
+   "mismo_lado": 6
+  },
+  "SOBREVIVIR [Hands-On 1138759308]": {
+   "cuadros": 113,
+   "0": 13,
+   "1": 16,
+   "2": 84,
+   "mismo_lado": 6
+  },
+  "SOCIABLE [Hands-On 1138759330]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 16,
+   "2": 79,
+   "mismo_lado": 14
+  },
+  "SOCIABLE [Hands-On 1140299036]": {
+   "cuadros": 102,
+   "0": 12,
+   "1": 8,
+   "2": 82,
+   "mismo_lado": 2
+  },
+  "SOCIAL [Hands-On 1138759362]": {
+   "cuadros": 99,
+   "0": 4,
+   "1": 17,
+   "2": 78,
+   "mismo_lado": 15
+  },
+  "SOCIAL [Hands-On 1140299082]": {
+   "cuadros": 102,
+   "0": 12,
+   "1": 6,
+   "2": 84,
+   "mismo_lado": 1
+  },
+  "SOCIAL [Hands-On 1144623433]": {
+   "cuadros": 80,
+   "0": 0,
+   "1": 4,
+   "2": 76,
+   "mismo_lado": 1
+  },
+  "SOLIDARIDAD [Hands-On 1135961090]": {
+   "cuadros": 87,
+   "0": 3,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 2
+  },
+  "SOLIDARIO [Hands-On 1140299130]": {
+   "cuadros": 122,
+   "0": 14,
+   "1": 21,
+   "2": 87,
+   "mismo_lado": 3
+  },
+  "SOLIDO [Hands-On 1135961133]": {
+   "cuadros": 59,
+   "0": 4,
+   "1": 6,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "SOLUCIÓN [Hands-On 1135961182]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 7,
+   "2": 71,
+   "mismo_lado": 4
+  },
+  "SOLUCIÓN [Hands-On 1141582869]": {
+   "cuadros": 70,
+   "0": 12,
+   "1": 10,
+   "2": 48,
+   "mismo_lado": 2
+  },
+  "SOMBRERO [Hands-On 1135961206]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 11,
+   "2": 53,
+   "mismo_lado": 1
+  },
+  "SONDA-NASOGÁSTRICA [Hands-On 1135057196]": {
+   "cuadros": 138,
+   "0": 13,
+   "1": 82,
+   "2": 43,
+   "mismo_lado": 2
+  },
+  "SONDA-OROGÁSTRICA [Hands-On 1135054246]": {
+   "cuadros": 135,
+   "0": 14,
+   "1": 71,
+   "2": 50,
+   "mismo_lado": 1
+  },
+  "SONDA-URETRAL [Hands-On 1135055547]": {
+   "cuadros": 138,
+   "0": 16,
+   "1": 78,
+   "2": 44,
+   "mismo_lado": 4
+  },
+  "SOPA [Hands-On 1135961227]": {
+   "cuadros": 76,
+   "0": 3,
+   "1": 13,
+   "2": 60,
+   "mismo_lado": 6
+  },
+  "SOPORTE [Hands-On 1138759393]": {
+   "cuadros": 85,
+   "0": 10,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 0
+  },
+  "SOPORTE [Hands-On 1140299395]": {
+   "cuadros": 82,
+   "0": 12,
+   "1": 10,
+   "2": 60,
+   "mismo_lado": 1
+  },
+  "SUAVE [Hands-On 1140299458]": {
+   "cuadros": 73,
+   "0": 11,
+   "1": 8,
+   "2": 54,
+   "mismo_lado": 6
+  },
+  "SUBIR [Hands-On 1140299501]": {
+   "cuadros": 83,
+   "0": 15,
+   "1": 13,
+   "2": 55,
+   "mismo_lado": 3
+  },
+  "SUBIR [Hands-On 1140299563]": {
+   "cuadros": 81,
+   "0": 12,
+   "1": 12,
+   "2": 57,
+   "mismo_lado": 7
+  },
+  "SUBIR [Hands-On 1140299626]": {
+   "cuadros": 77,
+   "0": 13,
+   "1": 64,
+   "2": 0,
+   "mismo_lado": 0
+  },
+  "SUCEDER [Hands-On 1140299729]": {
+   "cuadros": 70,
+   "0": 12,
+   "1": 5,
+   "2": 53,
+   "mismo_lado": 4
+  },
+  "SUCESO [Hands-On 1140299799]": {
+   "cuadros": 70,
+   "0": 11,
+   "1": 5,
+   "2": 54,
+   "mismo_lado": 2
+  },
+  "SUDORACIÓN [Hands-On 1135054953]": {
+   "cuadros": 85,
+   "0": 16,
+   "1": 5,
+   "2": 64,
+   "mismo_lado": 1
+  },
+  "SUDORACIÓN [Hands-On 1140957969]": {
+   "cuadros": 84,
+   "0": 16,
+   "1": 2,
+   "2": 66,
+   "mismo_lado": 4
+  },
+  "SUDORACIÓN [Hands-On 1135060122]": {
+   "cuadros": 77,
+   "0": 15,
+   "1": 32,
+   "2": 30,
+   "mismo_lado": 2
+  },
+  "SUDORACIÓN [Hands-On 1140958030]": {
+   "cuadros": 76,
+   "0": 15,
+   "1": 29,
+   "2": 32,
+   "mismo_lado": 3
+  },
+  "SUEGROS [Hands-On 1140299861]": {
+   "cuadros": 74,
+   "0": 12,
+   "1": 5,
+   "2": 57,
+   "mismo_lado": 2
+  },
+  "SUELO [Hands-On 1135961257]": {
+   "cuadros": 89,
+   "0": 3,
+   "1": 28,
+   "2": 58,
+   "mismo_lado": 8
+  },
+  "SUFRIR [Hands-On 1135064572]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 27,
+   "2": 46,
+   "mismo_lado": 14
+  },
+  "SUFRIR [Hands-On 1140299918]": {
+   "cuadros": 68,
+   "0": 11,
+   "1": 25,
+   "2": 32,
+   "mismo_lado": 4
+  },
+  "SUFRIR [Hands-On 1141582903]": {
+   "cuadros": 80,
+   "0": 7,
+   "1": 26,
+   "2": 47,
+   "mismo_lado": 13
+  },
+  "SUMA [Hands-On 1140299976]": {
+   "cuadros": 72,
+   "0": 15,
+   "1": 5,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "SUMAR [Hands-On 1140300033]": {
+   "cuadros": 77,
+   "0": 16,
+   "1": 5,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "SUPERAR [Hands-On 1140300090]": {
+   "cuadros": 99,
+   "0": 26,
+   "1": 69,
+   "2": 4,
+   "mismo_lado": 2
+  },
+  "SUPERAR [Hands-On 1140300143]": {
+   "cuadros": 82,
+   "0": 11,
+   "1": 13,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "SUPERAR [Hands-On 1140300190]": {
+   "cuadros": 73,
+   "0": 15,
+   "1": 2,
+   "2": 56,
+   "mismo_lado": 2
+  },
+  "SUPERVISAR [Hands-On 1138759434]": {
+   "cuadros": 88,
+   "0": 6,
+   "1": 36,
+   "2": 46,
+   "mismo_lado": 3
+  },
+  "SUPERVISAR [Hands-On 1140300232]": {
+   "cuadros": 87,
+   "0": 17,
+   "1": 40,
+   "2": 30,
+   "mismo_lado": 2
+  },
+  "SUSPENDER [Hands-On 1140958128]": {
+   "cuadros": 73,
+   "0": 16,
+   "1": 21,
+   "2": 36,
+   "mismo_lado": 3
+  },
+  "SUSTITUIR [Hands-On 1140300297]": {
+   "cuadros": 97,
+   "0": 8,
+   "1": 18,
+   "2": 71,
+   "mismo_lado": 8
+  },
+  "SÍNTESIS [Hands-On 1138759219]": {
+   "cuadros": 72,
+   "0": 6,
+   "1": 7,
+   "2": 59,
+   "mismo_lado": 1
+  },
+  "SÍNTOMA [Hands-On 1135961057]": {
+   "cuadros": 122,
+   "0": 5,
+   "1": 62,
+   "2": 55,
+   "mismo_lado": 6
+  },
+  "TAL-VEZ [Hands-On 1138759457]": {
+   "cuadros": 73,
+   "0": 2,
+   "1": 10,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "TALENTO [Hands-On 1140958173]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 12,
+   "2": 52,
+   "mismo_lado": 11
+  },
+  "TALLER [Hands-On 1141582917]": {
+   "cuadros": 89,
+   "0": 15,
+   "1": 8,
+   "2": 66,
+   "mismo_lado": 2
+  },
+  "TAMBIÉN [Hands-On 1138759478]": {
+   "cuadros": 63,
+   "0": 5,
+   "1": 54,
+   "2": 4,
+   "mismo_lado": 2
+  },
+  "TAMBIÉN [Hands-On 1138759498]": {
+   "cuadros": 58,
+   "0": 5,
+   "1": 12,
+   "2": 41,
+   "mismo_lado": 3
+  },
+  "TAMPON [Hands-On 1138759521]": {
+   "cuadros": 102,
+   "0": 2,
+   "1": 12,
+   "2": 88,
+   "mismo_lado": 1
+  },
+  "TARDE [Hands-On 1135961372]": {
+   "cuadros": 90,
+   "0": 0,
+   "1": 89,
+   "2": 1,
+   "mismo_lado": 0
+  },
+  "TARDE [Hands-On 1135961415]": {
+   "cuadros": 89,
+   "0": 8,
+   "1": 7,
+   "2": 74,
+   "mismo_lado": 5
+  },
+  "TECHO [Hands-On 1135961469]": {
+   "cuadros": 89,
+   "0": 13,
+   "1": 13,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "TELEVISIÓN [Hands-On 1135961512]": {
+   "cuadros": 85,
+   "0": 4,
+   "1": 20,
+   "2": 61,
+   "mismo_lado": 1
+  },
+  "TEMA [Hands-On 1141582926]": {
+   "cuadros": 70,
+   "0": 20,
+   "1": 3,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "TEMPRANA [Hands-On 1144625410]": {
+   "cuadros": 62,
+   "0": 3,
+   "1": 18,
+   "2": 41,
+   "mismo_lado": 3
+  },
+  "TEMPRANO [Hands-On 1135961526]": {
+   "cuadros": 84,
+   "0": 2,
+   "1": 7,
+   "2": 75,
+   "mismo_lado": 7
+  },
+  "TERAPIA [Hands-On 1141582937]": {
+   "cuadros": 82,
+   "0": 11,
+   "1": 4,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "TERAPIA [Hands-On 1141582947]": {
+   "cuadros": 72,
+   "0": 12,
+   "1": 28,
+   "2": 32,
+   "mismo_lado": 5
+  },
+  "TERAPIA-DE-GRUPO [Hands-On 1140958246]": {
+   "cuadros": 126,
+   "0": 13,
+   "1": 29,
+   "2": 84,
+   "mismo_lado": 3
+  },
+  "TERMINAR [Hands-On 1135961625]": {
+   "cuadros": 81,
+   "0": 6,
+   "1": 4,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "TERMÓMETRO [Hands-On 1135053983]": {
+   "cuadros": 103,
+   "0": 34,
+   "1": 31,
+   "2": 38,
+   "mismo_lado": 3
+  },
+  "TERRIBLE [Hands-On 1135961678]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "TEST [Hands-On 1141582957]": {
+   "cuadros": 70,
+   "0": 14,
+   "1": 6,
+   "2": 50,
+   "mismo_lado": 0
+  },
+  "TESTICULOS [Hands-On 1138759663]": {
+   "cuadros": 63,
+   "0": 4,
+   "1": 5,
+   "2": 54,
+   "mismo_lado": 2
+  },
+  "TIERNO [Hands-On 1135961705]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 15,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "TIERRA(MATERIAL) [Hands-On 1135961735]": {
+   "cuadros": 81,
+   "0": 3,
+   "1": 7,
+   "2": 71,
+   "mismo_lado": 4
+  },
+  "TIGRE [Hands-On 1135961773]": {
+   "cuadros": 86,
+   "0": 5,
+   "1": 10,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "TIQUETE [Hands-On 1138759694]": {
+   "cuadros": 103,
+   "0": 6,
+   "1": 9,
+   "2": 88,
+   "mismo_lado": 1
+  },
+  "TOCAR [Hands-On 1135961926]": {
+   "cuadros": 75,
+   "0": 3,
+   "1": 6,
+   "2": 66,
+   "mismo_lado": 1
+  },
+  "TODO-EL-DÍA [Hands-On 1138759732]": {
+   "cuadros": 116,
+   "0": 7,
+   "1": 10,
+   "2": 99,
+   "mismo_lado": 3
+  },
+  "TODOS [Hands-On 1135962010]": {
+   "cuadros": 99,
+   "0": 6,
+   "1": 37,
+   "2": 56,
+   "mismo_lado": 3
+  },
+  "TOMOGRAFÍA [Hands-On 1140958552]": {
+   "cuadros": 81,
+   "0": 13,
+   "1": 19,
+   "2": 49,
+   "mismo_lado": 15
+  },
+  "TORRE [Hands-On 1135962132]": {
+   "cuadros": 62,
+   "0": 3,
+   "1": 16,
+   "2": 43,
+   "mismo_lado": 0
+  },
+  "TRABAJAR [Hands-On 1135962156]": {
+   "cuadros": 77,
+   "0": 5,
+   "1": 5,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "TRABAJO [Hands-On 1141582960]": {
+   "cuadros": 75,
+   "0": 11,
+   "1": 10,
+   "2": 54,
+   "mismo_lado": 0
+  },
+  "TRADUCIR [Hands-On 1135962175]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 22,
+   "2": 63,
+   "mismo_lado": 11
+  },
+  "TRAER [Hands-On 1135962191]": {
+   "cuadros": 71,
+   "0": 5,
+   "1": 7,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "TRAER [Hands-On 1135962225]": {
+   "cuadros": 68,
+   "0": 3,
+   "1": 6,
+   "2": 59,
+   "mismo_lado": 4
+  },
+  "TRAMPA [Hands-On 1135962256]": {
+   "cuadros": 69,
+   "0": 4,
+   "1": 4,
+   "2": 61,
+   "mismo_lado": 11
+  },
+  "TRAMPOSO [Hands-On 1135962277]": {
+   "cuadros": 103,
+   "0": 5,
+   "1": 9,
+   "2": 89,
+   "mismo_lado": 3
+  },
+  "TRANQUILO [Hands-On 1135962311]": {
+   "cuadros": 82,
+   "0": 8,
+   "1": 2,
+   "2": 72,
+   "mismo_lado": 7
+  },
+  "TRANSFUSIÓN-DE-SANGRE [Hands-On 1140958612]": {
+   "cuadros": 125,
+   "0": 9,
+   "1": 27,
+   "2": 89,
+   "mismo_lado": 3
+  },
+  "TRASTORNO-ALIMENTICIO [Hands-On 1140958677]": {
+   "cuadros": 130,
+   "0": 10,
+   "1": 81,
+   "2": 39,
+   "mismo_lado": 4
+  },
+  "TRASTORNO-DE-PÁNICO [Hands-On 1135058406]": {
+   "cuadros": 81,
+   "0": 0,
+   "1": 2,
+   "2": 79,
+   "mismo_lado": 1
+  },
+  "TRASTORNO-DE-PÁNICO [Hands-On 1140958756]": {
+   "cuadros": 82,
+   "0": 0,
+   "1": 0,
+   "2": 82,
+   "mismo_lado": 4
+  },
+  "TRATAMIENTO [Hands-On 1140958799]": {
+   "cuadros": 81,
+   "0": 11,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 8
+  },
+  "TRAUMA [Hands-On 1141582972]": {
+   "cuadros": 74,
+   "0": 17,
+   "1": 56,
+   "2": 1,
+   "mismo_lado": 1
+  },
+  "TRAUMA [Hands-On 1141582978]": {
+   "cuadros": 91,
+   "0": 14,
+   "1": 51,
+   "2": 26,
+   "mismo_lado": 0
+  },
+  "TRAVIESO [Hands-On 1135962342]": {
+   "cuadros": 66,
+   "0": 7,
+   "1": 7,
+   "2": 52,
+   "mismo_lado": 2
+  },
+  "TREN [Hands-On 1135962363]": {
+   "cuadros": 83,
+   "0": 2,
+   "1": 13,
+   "2": 68,
+   "mismo_lado": 2
+  },
+  "TRISTE [Hands-On 1135962399]": {
+   "cuadros": 76,
+   "0": 6,
+   "1": 3,
+   "2": 67,
+   "mismo_lado": 3
+  },
+  "TRISTEZA [Hands-On 1135962432]": {
+   "cuadros": 77,
+   "0": 7,
+   "1": 4,
+   "2": 66,
+   "mismo_lado": 3
+  },
+  "TÉRMINO [Hands-On 1138759637]": {
+   "cuadros": 81,
+   "0": 6,
+   "1": 6,
+   "2": 69,
+   "mismo_lado": 1
+  },
+  "UNIDO [Hands-On 1135962534]": {
+   "cuadros": 85,
+   "0": 3,
+   "1": 8,
+   "2": 74,
+   "mismo_lado": 2
+  },
+  "UNIDO [Hands-On 1135962576]": {
+   "cuadros": 92,
+   "0": 2,
+   "1": 5,
+   "2": 85,
+   "mismo_lado": 1
+  },
+  "UNIDO [Hands-On 1135962596]": {
+   "cuadros": 87,
+   "0": 3,
+   "1": 6,
+   "2": 78,
+   "mismo_lado": 2
+  },
+  "UNIR [Hands-On 1140958943]": {
+   "cuadros": 103,
+   "0": 14,
+   "1": 4,
+   "2": 85,
+   "mismo_lado": 9
+  },
+  "UNIVERSAL [Hands-On 1135962613]": {
+   "cuadros": 80,
+   "0": 4,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "UNIVERSAL [Hands-On 1144717208]": {
+   "cuadros": 89,
+   "0": 4,
+   "1": 12,
+   "2": 73,
+   "mismo_lado": 4
+  },
+  "UNIVERSO [Hands-On 1135962639]": {
+   "cuadros": 78,
+   "0": 6,
+   "1": 15,
+   "2": 57,
+   "mismo_lado": 1
+  },
+  "UÑA [Hands-On 1144746142]": {
+   "cuadros": 104,
+   "0": 5,
+   "1": 6,
+   "2": 93,
+   "mismo_lado": 0
+  },
+  "UROLOGÍA [Hands-On 1135061448]": {
+   "cuadros": 101,
+   "0": 14,
+   "1": 51,
+   "2": 36,
+   "mismo_lado": 1
+  },
+  "UROLOGÍA [Hands-On 1140959004]": {
+   "cuadros": 99,
+   "0": 12,
+   "1": 51,
+   "2": 36,
+   "mismo_lado": 2
+  },
+  "USUARIO [Hands-On 1138760148]": {
+   "cuadros": 100,
+   "0": 7,
+   "1": 15,
+   "2": 78,
+   "mismo_lado": 10
+  },
+  "VACACIONES [Hands-On 1135962674]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 2
+  },
+  "VACUNA [Hands-On 1141582984]": {
+   "cuadros": 81,
+   "0": 2,
+   "1": 77,
+   "2": 2,
+   "mismo_lado": 1
+  },
+  "VAGINA [Hands-On 1138760177]": {
+   "cuadros": 80,
+   "0": 2,
+   "1": 8,
+   "2": 70,
+   "mismo_lado": 2
+  },
+  "VAGO [Hands-On 1135962714]": {
+   "cuadros": 58,
+   "0": 5,
+   "1": 8,
+   "2": 45,
+   "mismo_lado": 2
+  },
+  "VAGO [Hands-On 1135962736]": {
+   "cuadros": 58,
+   "0": 5,
+   "1": 4,
+   "2": 49,
+   "mismo_lado": 3
+  },
+  "VALIDAR [Hands-On 1135043237]": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 6,
+   "2": 81,
+   "mismo_lado": 2
+  },
+  "VALIDAR [Hands-On 1141582986]": {
+   "cuadros": 92,
+   "0": 5,
+   "1": 6,
+   "2": 81,
+   "mismo_lado": 2
+  },
+  "VALIENTE [Hands-On 1135962749]": {
+   "cuadros": 87,
+   "0": 6,
+   "1": 16,
+   "2": 65,
+   "mismo_lado": 10
+  },
+  "VALIENTE [Hands-On 1135962773]": {
+   "cuadros": 69,
+   "0": 4,
+   "1": 15,
+   "2": 50,
+   "mismo_lado": 3
+  },
+  "VARICELA [Hands-On 1135062519]": {
+   "cuadros": 103,
+   "0": 14,
+   "1": 52,
+   "2": 37,
+   "mismo_lado": 0
+  },
+  "VARICELA [Hands-On 1140959060]": {
+   "cuadros": 103,
+   "0": 14,
+   "1": 51,
+   "2": 38,
+   "mismo_lado": 1
+  },
+  "VARIOS [Hands-On 1135962828]": {
+   "cuadros": 75,
+   "0": 2,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "VARIOS [Hands-On 1135962862]": {
+   "cuadros": 68,
+   "0": 5,
+   "1": 5,
+   "2": 58,
+   "mismo_lado": 0
+  },
+  "VASECTOMIA [Hands-On 1138760211]": {
+   "cuadros": 91,
+   "0": 2,
+   "1": 9,
+   "2": 80,
+   "mismo_lado": 0
+  },
+  "VASO [Hands-On 1135962908]": {
+   "cuadros": 75,
+   "0": 3,
+   "1": 13,
+   "2": 59,
+   "mismo_lado": 2
+  },
+  "VECINO [Hands-On 1135962929]": {
+   "cuadros": 90,
+   "0": 5,
+   "1": 6,
+   "2": 79,
+   "mismo_lado": 0
+  },
+  "VEGETALES [Hands-On 1138760273]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 55,
+   "2": 10,
+   "mismo_lado": 4
+  },
+  "VELA [Hands-On 1135962968]": {
+   "cuadros": 86,
+   "0": 4,
+   "1": 8,
+   "2": 74,
+   "mismo_lado": 0
+  },
+  "VENCER [Hands-On 1140300359]": {
+   "cuadros": 73,
+   "0": 15,
+   "1": 2,
+   "2": 56,
+   "mismo_lado": 1
+  },
+  "VENENO [Hands-On 1144743663]": {
+   "cuadros": 65,
+   "0": 2,
+   "1": 13,
+   "2": 50,
+   "mismo_lado": 2
+  },
+  "VERDURAS [Hands-On 1138760392]": {
+   "cuadros": 70,
+   "0": 5,
+   "1": 55,
+   "2": 10,
+   "mismo_lado": 4
+  },
+  "VERIFICAR [Hands-On 1138760421]": {
+   "cuadros": 84,
+   "0": 8,
+   "1": 5,
+   "2": 71,
+   "mismo_lado": 1
+  },
+  "VERIFICAR [Hands-On 1138760459]": {
+   "cuadros": 86,
+   "0": 7,
+   "1": 20,
+   "2": 59,
+   "mismo_lado": 5
+  },
+  "VERSIÓN [Hands-On 1141582994]": {
+   "cuadros": 87,
+   "0": 11,
+   "1": 11,
+   "2": 65,
+   "mismo_lado": 9
+  },
+  "VIDA [Hands-On 1135963062]": {
+   "cuadros": 59,
+   "0": 9,
+   "1": 4,
+   "2": 46,
+   "mismo_lado": 1
+  },
+  "VIDA [Hands-On 1144617962]": {
+   "cuadros": 48,
+   "0": 0,
+   "1": 1,
+   "2": 47,
+   "mismo_lado": 1
+  },
+  "VIRAL [Hands-On 1138760495]": {
+   "cuadros": 81,
+   "0": 7,
+   "1": 4,
+   "2": 70,
+   "mismo_lado": 1
+  },
+  "VISION [Hands-On 1138760530]": {
+   "cuadros": 83,
+   "0": 8,
+   "1": 18,
+   "2": 57,
+   "mismo_lado": 3
+  },
+  "VISITA [Hands-On 1144613552]": {
+   "cuadros": 70,
+   "0": 2,
+   "1": 5,
+   "2": 63,
+   "mismo_lado": 1
+  },
+  "VISITAR [Hands-On 1135963174]": {
+   "cuadros": 79,
+   "0": 6,
+   "1": 6,
+   "2": 67,
+   "mismo_lado": 0
+  },
+  "VITAMINAS [Hands-On 1134596761]": {
+   "cuadros": 111,
+   "0": 8,
+   "1": 51,
+   "2": 52,
+   "mismo_lado": 1
+  },
+  "VIVIR [Hands-On 1135963192]": {
+   "cuadros": 66,
+   "0": 6,
+   "1": 7,
+   "2": 53,
+   "mismo_lado": 6
+  },
+  "YA [Hands-On 1138760557]": {
+   "cuadros": 39,
+   "0": 3,
+   "1": 2,
+   "2": 34,
+   "mismo_lado": 1
+  },
+  "YESO [Hands-On 1135055840]": {
+   "cuadros": 131,
+   "0": 24,
+   "1": 54,
+   "2": 53,
+   "mismo_lado": 2
+  },
+  "ZAPATO [Hands-On 1135963245]": {
+   "cuadros": 70,
+   "0": 2,
+   "1": 24,
+   "2": 44,
+   "mismo_lado": 1
+  },
+  "ZONA [Hands-On 1135963276]": {
+   "cuadros": 81,
+   "0": 2,
+   "1": 67,
+   "2": 12,
+   "mismo_lado": 4
+  },
+  "ZONA [Hands-On 1138760578]": {
+   "cuadros": 94,
+   "0": 8,
+   "1": 1,
+   "2": 85,
+   "mismo_lado": 18
+  },
+  "ÚLTIMO [Hands-On 1135962480]": {
+   "cuadros": 80,
+   "0": 5,
+   "1": 6,
+   "2": 69,
+   "mismo_lado": 1
+  }
+ }
+}

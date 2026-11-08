@@ -56,7 +56,7 @@ Las 4 fases están cerradas. Queda a cargo de Steven:
    - [ ] Tanda 1: VERDE, HOLA, NOMBRE, GRACIAS, AÑO, JUEVES, SÍ, CUÁNTO, NO, ENTENDER
    - [ ] Tanda 2: PAN, MAMÁ, BEBÉ, NIÑO, AMARILLO, SÁBADO, HOY, QUÉ-PASAR, COMER, IR
    - [ ] Tanda 3: HIJA, POR-FAVOR, CÓMO, CASA, FRUTA, COSTA-RICA, QUERER, MAL, AYUDAR, TRABAJAR
-2. **Cuando Johan agregue los videos de palabras** (no antes: para no re-extraer ni regenerar cada vez), hacer la lista de abajo «Pendiente para cuando estén todos los videos».
+2. - [x] ~~**Cuando Johan agregue los videos de palabras**, hacer la lista de abajo «Pendiente para cuando estén todos los videos».~~ ✅ 2026-11-07 (ver abajo).
 3. - [ ] Probar en vivo: HOLA en modo palabras y «Mano para deletrear» con un zurdo.
 4. - [ ] Hablar con Johan del modo único letras + palabras (ver «Extra»).
 
@@ -64,10 +64,15 @@ Las 4 fases están cerradas. Queda a cargo de Steven:
 
 Para no re-extraer y re-entrenar cada vez que se agregan videos, esto se hace **una sola vez**, cuando estén todos los materiales juntos:
 
-- [ ] Re-extraer **todos** los videos con `DetectorCuerpo(recorte=True)` (la versión que no busca en brazos en reposo) y volver a medir las bimanuales: `scripts/probar_deteccion.py --muestra 598 --config recorte_v2` (la medición de 93,5 % es de la versión anterior del recorte, sin el ajuste de reposo).
-- [ ] Coordinar con Christian (problema 1): que su entrenamiento use la misma extracción con recorte que la app. Ya se le avisó del cambio; falta su decisión.
-- [ ] Regenerar `data/reference/senas.db` (y la base completa) desde la extracción con recorte, para que plantillas y cámara pasen por el mismo detector.
-- [ ] Volver a medir la fase 3 (cara) con la extracción nueva y con el banco de prueba completo (las 4 personas): es donde la cara debería notarse. Probar también `PESO_CARA` 2 y `CARA_RADIO` 0,9.
+- [x] ~~Re-extraer **todos** los videos con `DetectorCuerpo(recorte=True)` y volver a medir las bimanuales.~~ ✅ 2026-11-07 — CENAREC (1072 videos, `extraer_cenarec.py --recorte` → `extraccion/recorte/`) y Hands-On (2161 de 2281 videos a 540p, `extraer_handson.py` → `handson/extraccion/recorte/`). Resultados (`medir_dos_manos.py`, en `hiloEquipo/medidas/`):
+  - **CENAREC**, señas de dos manos: ambas manos **90,2 %** (antes 83,1 %; meta ≥ 90 % ✅). Contando solo cuadros con los dos brazos levantados (`--brazos-arriba`): 85,9 % → **93,7 %**. Lo que se pierde respecto del 93,5 % de la fase 2 son manos en la cintura (el ajuste de reposo, que hace el recorte más rápido); el reconocimiento no cambia (top-1 99,2 %).
+  - **Hands-On**, palabras de dos manos: 67,3 % en bruto, pero no es el detector: Hands-On hace algunas de esas palabras con una sola mano, la 2.ª repetición está grabada **de perfil** y el encuadre corta en la cintura. Con los dos brazos levantados: **83,9 %**; muestra de 300 videos sin y con recorte: 80,5 % → 83,6 %. 1.ª repetición (de frente) 88,9 %, 2.ª (de perfil) 78,4 %.
+  - 120 videos de Hands-On no se pueden bajar (Vimeo 401): lista en `medidas/handson-videos-no-descargados.md`, para pedírselos a Hands-On.
+- [ ] Coordinar con Christian (problema 1): que su entrenamiento use la misma extracción con recorte que la app. Ya se le avisó del cambio (aviso en `README.md`, actualizado); falta su decisión.
+- [x] ~~Regenerar `data/reference/senas.db` (y la base completa) desde la extracción con recorte.~~ ✅ 2026-11-07 — `senas.db` = 85 palabras, extracción con recorte, **solo CENAREC**. Banco de prueba (120 tomas, 2 personas): top-1 33,3 % → 31,7 % (2 tomas, ruido), aceptación errónea 0 %. **Con plantillas de Hands-On (`--handson`) empeora**: top-1 29,2 %, errónea **3,3 %** (meta ≤ 2 %), así que no entran a la app. Base completa (afuera de git): `data/dictionary/senas_todas_fuentes.db` (2306 palabras, CENAREC + Hands-On, para medir).
+- [x] ~~Volver a medir la fase 3 (cara) con la extracción nueva; probar `PESO_CARA` 2.~~ ✅ 2026-11-07 — entre personas (plantillas de CENAREC, prueba con Hands-On y al revés, 406 palabras en común, `scripts/evaluar_fuentes.py`): peso de la cara 0, 1 y 2 dan lo mismo (top-1 ~21 % y ~26 %). La cara no ayuda ni estorba; se deja `PESO_CARA = 1`. Falta medirla con el banco de las 4 personas cuando esté completo. Resultado en `medidas/problema3-fuentes-cara.json`.
+
+**Para Christian (problema 1):** el reconocimiento **entre personas** es bajo: con plantillas de una persona y prueba con otra, top-1 ~21–26 % y aceptadas mal ~4–6 %. Probé si la mano en reposo más alta de Hands-On lo explicaba (bajar el umbral de reposo a 0,7/0,6/0,5): no mejora, se deja 0,85. El problema de fondo es la variación entre personas, que es lo que ataca el problema 1.
 
 ## Notas
 

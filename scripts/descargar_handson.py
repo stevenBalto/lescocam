@@ -17,6 +17,7 @@ Uso:
     .venv/bin/python -m scripts.descargar_handson --letras A B      # solo esas
     .venv/bin/python -m scripts.descargar_handson --letras A --max 20   # prueba con 20
     .venv/bin/python -m scripts.descargar_handson --solo-lista      # arma el catálogo sin bajar
+    .venv/bin/python -m scripts.descargar_handson --alto 540        # internet lento: 540p (~2 GB en vez de 7,8)
 """
 from __future__ import annotations
 
@@ -104,13 +105,15 @@ def descargar(ydl, vimeo_id: str, destino: Path) -> None:
         raise RuntimeError("el archivo quedó vacío o incompleto")
 
 
-def crear_descargador():
+def crear_descargador(alto: int = 0):
+    """alto: resolución máxima (0 = la mejor). Con internet lento, 540 baja ~4 veces menos que 1080
+    y alcanza para los landmarks (los videos de CENAREC son de 360)."""
     import yt_dlp
     from yt_dlp.networking.impersonate import ImpersonateTarget
     return yt_dlp.YoutubeDL({
         "quiet": True,
         "no_warnings": True,
-        "format": "bv",     # solo imagen
+        "format": f"bv[height<={alto}]/bv" if alto else "bv",     # solo imagen
         "http_headers": {"Referer": BASE},
         "impersonate": ImpersonateTarget("chrome"),
         "retries": 3,
@@ -123,11 +126,13 @@ def main(argv=None) -> int:
     p.add_argument("--letras", nargs="+", default=list(string.ascii_uppercase), help="letras a procesar, en orden")
     p.add_argument("--max", type=int, default=0, help="bajar como mucho N videos nuevos en total (0 = todos)")
     p.add_argument("--solo-lista", action="store_true", help="solo armar el catálogo, sin bajar videos")
+    p.add_argument("--alto", type=int, default=0,
+                   help="resolución máxima, p. ej. 540 (0 = la mejor, 1080): con internet lento baja ~4 veces menos")
     a = p.parse_args(argv)
 
     VIDEOS.mkdir(parents=True, exist_ok=True)
     cat = leer_catalogo()
-    ydl = None if a.solo_lista else crear_descargador()
+    ydl = None if a.solo_lista else crear_descargador(a.alto)
     nuevos = 0
     fallos: list[tuple[str, str, str]] = []
     for letra in (l.upper() for l in a.letras):

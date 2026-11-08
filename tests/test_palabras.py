@@ -330,3 +330,11 @@ def test_plantilla_negativa_no_se_dice(formas):
     palabra, conf, top = comp.clasificar(P.descriptores(cuadros))
     assert palabra is None and top[0][0] == "LETRA-B" and conf > 0.9
     assert comp.clasificar(P.descriptores(palabra_cuadros(sena(formas, forma="L"))))[0] == "ARCO-L"
+
+
+def test_clave_palabra_junta_la_misma_palabra_de_dos_fuentes():
+    from scripts.construir_palabras import clave_palabra
+    assert clave_palabra("Café (bebida)") == clave_palabra("CAFÉ") == clave_palabra("café 2") == "CAFÉ"
+    assert clave_palabra("por favor") == clave_palabra("POR-FAVOR") == "POR-FAVOR"
+    assert clave_palabra("autocontrol 1") == clave_palabra("autocontrol 2") == "AUTOCONTROL"
+    assert clave_palabra("apuñalear") == "APUÑALEAR"

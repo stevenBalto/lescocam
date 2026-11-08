@@ -1,0 +1,656 @@
+{
+ "total": {
+  "n": 120,
+  "top1": 0.31666666666666665,
+  "top3": 0.5,
+  "aceptada_bien": 0.15,
+  "aceptacion_erronea": 0.0,
+  "no_dice_nada": 0.85,
+  "sin_sena": 0.025
+ },
+ "persona": {
+  "christian-paniagua": {
+   "n": 60,
+   "top1": 0.16666666666666666,
+   "top3": 0.25,
+   "aceptada_bien": 0.06666666666666667,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.9333333333333333,
+   "sin_sena": 0.0
+  },
+  "reyman-barquero": {
+   "n": 60,
+   "top1": 0.4666666666666667,
+   "top3": 0.75,
+   "aceptada_bien": 0.23333333333333334,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.7666666666666667,
+   "sin_sena": 0.05
+  }
+ },
+ "camara": {
+  "iphone13": {
+   "n": 60,
+   "top1": 0.16666666666666666,
+   "top3": 0.25,
+   "aceptada_bien": 0.06666666666666667,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.9333333333333333,
+   "sin_sena": 0.0
+  },
+  "laptop-windows": {
+   "n": 60,
+   "top1": 0.4666666666666667,
+   "top3": 0.75,
+   "aceptada_bien": 0.23333333333333334,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.7666666666666667,
+   "sin_sena": 0.05
+  }
+ },
+ "luz": {
+  "baja": {
+   "n": 20,
+   "top1": 0.35,
+   "top3": 0.8,
+   "aceptada_bien": 0.2,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.8,
+   "sin_sena": 0.0
+  },
+  "buena": {
+   "n": 80,
+   "top1": 0.2625,
+   "top3": 0.375,
+   "aceptada_bien": 0.0875,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.9125,
+   "sin_sena": 0.0375
+  },
+  "media": {
+   "n": 20,
+   "top1": 0.5,
+   "top3": 0.7,
+   "aceptada_bien": 0.35,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.65,
+   "sin_sena": 0.0
+  }
+ },
+ "distancia": {
+  "lejos": {
+   "n": 20,
+   "top1": 0.5,
+   "top3": 0.7,
+   "aceptada_bien": 0.35,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.65,
+   "sin_sena": 0.0
+  },
+  "media": {
+   "n": 100,
+   "top1": 0.28,
+   "top3": 0.46,
+   "aceptada_bien": 0.11,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.89,
+   "sin_sena": 0.03
+  }
+ },
+ "angulo": {
+  "frente": {
+   "n": 100,
+   "top1": 0.31,
+   "top3": 0.44,
+   "aceptada_bien": 0.14,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.86,
+   "sin_sena": 0.03
+  },
+  "lado": {
+   "n": 20,
+   "top1": 0.35,
+   "top3": 0.8,
+   "aceptada_bien": 0.2,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.8,
+   "sin_sena": 0.0
+  }
+ },
+ "palabra": {
+  "ABUELO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "ADIÓS/SALUDAR": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 1.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.0,
+   "sin_sena": 0.0
+  },
+  "AHORA": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "AYER": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "AYUDAR": {
+   "n": 4,
+   "top1": 0.5,
+   "top3": 0.75,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "AZUL": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "BAÑO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "BIENVENIDO": {
+   "n": 2,
+   "top1": 0.5,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "BLANCO": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 1.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.0,
+   "sin_sena": 0.0
+  },
+  "BUENO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "CAFÉ (BEBIDA)": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "CARNE": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.5
+  },
+  "CASA": {
+   "n": 4,
+   "top1": 0.5,
+   "top3": 0.5,
+   "aceptada_bien": 0.5,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.5,
+   "sin_sena": 0.0
+  },
+  "COMER": {
+   "n": 4,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "DOCTOR": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "DORMIR": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "DÍA": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 1.0
+  },
+  "DÓNDE": {
+   "n": 2,
+   "top1": 0.5,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "ESCUELA": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "ESPOSO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "ESTUDIAR": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "GRACIAS": {
+   "n": 4,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.5,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.5,
+   "sin_sena": 0.0
+  },
+  "GUSTAR": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 1.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.0,
+   "sin_sena": 0.0
+  },
+  "HERMANO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "HIJO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.5,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "HOLA": {
+   "n": 4,
+   "top1": 0.75,
+   "top3": 1.0,
+   "aceptada_bien": 0.75,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.25,
+   "sin_sena": 0.0
+  },
+  "HOMBRE": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "HOY": {
+   "n": 4,
+   "top1": 0.5,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "LECHE": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "LUNES": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "MAMÁ": {
+   "n": 4,
+   "top1": 0.25,
+   "top3": 0.5,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "MARTES": {
+   "n": 2,
+   "top1": 0.5,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "MAÑANA": {
+   "n": 2,
+   "top1": 0.5,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "MUJER": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "NECESITAR": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "NIÑO": {
+   "n": 4,
+   "top1": 0.5,
+   "top3": 0.5,
+   "aceptada_bien": 0.25,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.75,
+   "sin_sena": 0.0
+  },
+  "NO": {
+   "n": 4,
+   "top1": 0.25,
+   "top3": 0.5,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "PAPÁ": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "PERSONA": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "POLLO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "POR-FAVOR": {
+   "n": 4,
+   "top1": 0.0,
+   "top3": 0.75,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "QUERER": {
+   "n": 4,
+   "top1": 0.0,
+   "top3": 0.25,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "ROJO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 1.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "SEÑA": {
+   "n": 2,
+   "top1": 0.5,
+   "top3": 0.5,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "SORDO": {
+   "n": 2,
+   "top1": 0.0,
+   "top3": 0.0,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "SÍ": {
+   "n": 4,
+   "top1": 0.5,
+   "top3": 0.75,
+   "aceptada_bien": 0.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 1.0,
+   "sin_sena": 0.0
+  },
+  "VENIR": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 1.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.0,
+   "sin_sena": 0.0
+  },
+  "VIERNES": {
+   "n": 2,
+   "top1": 1.0,
+   "top3": 1.0,
+   "aceptada_bien": 1.0,
+   "aceptacion_erronea": 0.0,
+   "no_dice_nada": 0.0,
+   "sin_sena": 0.0
+  }
+ },
+ "confusiones": [
+  [
+   "SÍ",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "NO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "MAMÁ",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "ABUELO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "MUJER",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "NIÑO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "SORDO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "LUNES",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "AHORA",
+   "NOCHE (sin aceptar)",
+   2
+  ],
+  [
+   "ROJO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "LECHE",
+   "HOLA (sin aceptar)",
+   2
+  ],
+  [
+   "CAFÉ (BEBIDA)",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "BAÑO",
+   "HOY (sin aceptar)",
+   2
+  ],
+  [
+   "QUERER",
+   "NOCHE (sin aceptar)",
+   2
+  ],
+  [
+   "ESPOSO",
+   "CASA (sin aceptar)",
+   2
+  ],
+  [
+   "PERSONA",
+   "HUEVO (sin aceptar)",
+   2
+  ],
+  [
+   "NECESITAR",
+   "SÍ (sin aceptar)",
+   2
+  ],
+  [
+   "POR-FAVOR",
+   "HUEVO (sin aceptar)",
+   2
+  ],
+  [
+   "POLLO",
+   "SÍ (sin aceptar)",
+   2
+  ],
+  [
+   "HOMBRE",
+   "CUANDO (sin aceptar)",
+   2
+  ]
+ ]
+}

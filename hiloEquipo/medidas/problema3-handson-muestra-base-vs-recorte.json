@@ -1,0 +1,22 @@
+{
+ "base": {
+  "videos": 300,
+  "cuadros": 24551,
+  "porcentaje_ambas": 0.6543
+ },
+ "recorte": {
+  "videos": 300,
+  "cuadros": 24551,
+  "porcentaje_ambas": 0.6797
+ },
+ "base brazos_arriba": {
+  "videos": 300,
+  "cuadros": 18724,
+  "porcentaje_ambas": 0.8052
+ },
+ "recorte brazos_arriba": {
+  "videos": 300,
+  "cuadros": 18724,
+  "porcentaje_ambas": 0.8355
+ }
+}
