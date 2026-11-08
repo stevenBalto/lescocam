@@ -174,6 +174,43 @@ def buscar_en_recortes(detector, rgb: np.ndarray, pose: np.ndarray, manos: list)
     return salida
 
 
+# ---------------------------------------------------------------- dibujo (ayuda visual en la app)
+
+CARA = tuple(range(11))     # nariz, ojos, orejas y boca (puntos 0 a 10 de la pose)
+CONEXIONES_CUERPO = ((HOMBRO_IZQ, HOMBRO_DER), (HOMBRO_IZQ, CODO_IZQ), (CODO_IZQ, MUNECA_IZQ),
+                     (HOMBRO_DER, CODO_DER), (CODO_DER, MUNECA_DER), (BOCA_IZQ, BOCA_DER))
+VISIBLE_MIN = 0.5
+
+
+def dibujar_cuerpo(frame_bgr, pose: Optional[np.ndarray]) -> None:
+    """Dibuja la cara (nariz, ojos, orejas, boca), hombros, codos y muñecas de la pose.
+
+    Es solo para ver en vivo que la cámara encuentra la cara y los brazos: el motor de
+    palabras usa la nariz y los hombros (core/palabras.py). Los puntos poco visibles no se dibujan.
+    """
+    if pose is None:
+        return
+    import cv2
+    alto, ancho = frame_bgr.shape[:2]
+
+    def punto(i):
+        x, y, _, vis = pose[i]
+        if not (np.isfinite(x) and np.isfinite(y)) or vis < VISIBLE_MIN:
+            return None
+        return int(x * ancho), int(y * alto)
+
+    for a, b in CONEXIONES_CUERPO:
+        pa, pb = punto(a), punto(b)
+        if pa and pb:
+            cv2.line(frame_bgr, pa, pb, (90, 200, 90), 2, cv2.LINE_AA)
+    for i in CARA + (HOMBRO_IZQ, HOMBRO_DER, CODO_IZQ, CODO_DER, MUNECA_IZQ, MUNECA_DER):
+        p = punto(i)
+        if p:
+            radio = 6 if i == NARIZ else 4
+            color = (0, 215, 255) if i in CARA else (90, 200, 90)   # cara amarilla, brazos verdes (BGR)
+            cv2.circle(frame_bgr, p, radio, color, -1, cv2.LINE_AA)
+
+
 # ---------------------------------------------------------------- cache en arrays (npz)
 
 def a_arrays(cuadros: list[CuadroCuerpo]) -> dict:

@@ -82,3 +82,22 @@ def test_brazo_en_reposo_no_busca():
     det = _Falso()
     salida = buscar_en_recortes(det, rgb, pose, [_mano_en(0.58, 0.55)])
     assert len(salida) == 1 and det.recortes == []
+
+
+def test_dibujar_cuerpo_pinta_cara_y_brazos_y_tolera_sin_pose():
+    from core.cuerpo import dibujar_cuerpo
+    frame = np.zeros((360, 640, 3), dtype=np.uint8)
+    dibujar_cuerpo(frame, None)
+    assert frame.sum() == 0
+    pose = _pose()
+    dibujar_cuerpo(frame, pose)
+    assert frame.sum() > 0
+
+
+def test_dibujar_cuerpo_salta_puntos_poco_visibles():
+    from core.cuerpo import dibujar_cuerpo
+    frame = np.zeros((360, 640, 3), dtype=np.uint8)
+    pose = _pose()
+    pose[:, 3] = 0.1
+    dibujar_cuerpo(frame, pose)
+    assert frame.sum() == 0

@@ -389,7 +389,7 @@ class Motor(QObject):
             cap = camara.abrir_camara(indice)
             palabras = None
             if self._modo == MODO_PALABRAS:
-                from core.cuerpo import DetectorCuerpo
+                from core.cuerpo import DetectorCuerpo, dibujar_cuerpo
                 from core.reconocedor_palabras import ReconocedorPalabras
                 detector = DetectorCuerpo(recorte=True)   # busca de cerca la mano que falte (problema 3)
                 palabras = ReconocedorPalabras.desde_db()
@@ -438,6 +438,8 @@ class Motor(QObject):
                     presente = bool(manos)
                 if presente:
                     ultima_mano, avisado = ahora, False
+                if palabras is not None and self._puntos:
+                    dibujar_cuerpo(frame, cuerpo.pose)   # cara, hombros y brazos (debajo de las manos)
                 if manos and self._puntos:
                     for m in manos:
                         camara.dibujar_mano(frame, m)
