@@ -30,9 +30,10 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
   **Cambio de contrato con la app móvil:** hay que implementar en Dart el giro de 180° (nariz más de 0.05 del alto bajo los hombros), el reposo relativo (ventana de 10 s, percentil 90, −0.15, recortado a [0.5, 0.85], sin muñeca = 9), los pesos de `meta`, el margen relativo y el control de duración. Una `senas.db` v2 ya no carga con este motor. **Avisar al equipo.**
   Lo que más falta (para las fases siguientes): aceptar más palabras correctas (top-1 64 % pero se dice bien solo 28 %), y más plantillas de otras personas (Hands-On) o el modelo de la fase 4. Steven conserva 13 % sin seña (tomas largas o sin volver al reposo).
 
-- [ ] **Fase 3 — Datos de ASL Citizen**
+- [x] **Fase 3 — Datos de ASL Citizen** *(cerrada 2026-11-11)*
   Descargar (~43 GB; leer los videos directo del zip o borrar el zip después, hay ~137 GB libres). Confirmar que la licencia (solo investigación no comercial) aplica a nuestro caso. Extraer landmarks de una muestra de ~15 mil videos en el **formato v1** (ver `README.md`).
   **Hecho cuando:** hay un archivo de landmarks listo para entrenar.
+  **Evidencia:** licencia aceptada por Christian. Zip completo (45 924 134 223 bytes). 15 000 videos (12 278 train, 2 722 val; el split test no se toca), 2 731 glosas, 41 firmantes, 0 errores, 2 h 02 min. `data/dictionary/asl_citizen/landmarks_v1.npz`: 674 722 cuadros, 190 MB, cuerpo en 99.88 % de los cuadros, alguna mano en 43 %, dos manos en 20 %. Scripts `extraer_asl_citizen.py` y `construir_landmarks_asl.py` con 17 tests (suite 355). Todo `data/dictionary/` está ignorado por git. **Obligación de la licencia:** al terminar la investigación se borra `data/dictionary/asl_citizen/` (zip, extracción y `landmarks_v1.npz`).
 
 - [ ] **Fase 4 — Entrenar el modelo**
   Embedding sobre landmarks, entrenado en la RTX A500 de Christian. Reconocimiento por búsqueda vectorial contra las plantillas del CENAREC.
