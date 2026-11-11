@@ -6,8 +6,9 @@ pose) y otras plantillas (data/reference/senas.db). Una app elige el modo; los
 dos no corren a la vez (el de palabras es más caro: ~30 ms por frame contra ~20).
 
 Inicio y fin de una seña (core/palabras.Segmentador):
-  - En REPOSO: los dos brazos descansan (muñeca más de Y_REPOSO anchos de hombro
-    debajo de los hombros, o fuera de cuadro / no detectada).
+  - En REPOSO: los dos brazos descansan (muñeca por debajo del umbral de reposo de
+    ese brazo, que desde la v3 es RELATIVO a cada persona y como mucho Y_REPOSO
+    anchos de hombro bajo los hombros; o fuera de cuadro / no detectada).
   - Arranca cuando algún brazo sale del reposo T_ARRANQUE s seguidos (la seña
     guarda PREVIOS s de antes) y termina cuando los dos vuelven T_FIN s
     seguidos. Muy corta (< DURACION_MIN) o muy larga (> DURACION_MAX, p. ej.
@@ -17,7 +18,7 @@ Inicio y fin de una seña (core/palabras.Segmentador):
     ver "Siguiente paso" en el hilo de backend (pausa de la mano + ventana deslizante).
 
 `actualizar(cuadro_cuerpo, ahora)` devuelve la palabra reconocida en este frame
-(o None). Si la mejor no pasa umbral y margen no dice nada.
+(o None). Si la mejor no pasa umbral, margen relativo y control de duración no dice nada.
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ from pathlib import Path
 from typing import Optional
 
 from core.cuerpo import CuadroCuerpo
-from core.palabras import ComparadorPalabras, CuadroPalabra, Segmentador, cuadro_palabra, descriptores
+from core.palabras import ComparadorPalabras, CuadroPalabra, Segmentador, cuadro_palabra, descriptores, duracion
 
 
 class ReconocedorPalabras:
@@ -63,6 +64,6 @@ class ReconocedorPalabras:
         return self._clasificar(sena) if sena else None
 
     def _clasificar(self, sena: list) -> Optional[str]:
-        palabra, conf, top = self.comparador.clasificar(descriptores(sena, self.mano))
+        palabra, conf, top = self.comparador.clasificar(descriptores(sena, self.mano), duracion=duracion(sena))
         self.ultima = (palabra, conf, top)
         return palabra

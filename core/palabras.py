@@ -6,6 +6,14 @@ video de CENAREC) y una seña nueva se compara con todas por DTW.
 
   1. Por frame, core/cuerpo.DetectorCuerpo da hasta 2 manos y la pose.
      `cuadro_palabra()` arma un `CuadroPalabra`:
+       - (v3) si la imagen llega GIRADA 180° (celular o cámara al revés: la nariz
+         visible queda DEBAJO de la línea de los hombros, `cabeza_abajo`: nariz.y menos
+         el promedio de y de los dos hombros > MARGEN_CABEZA_ABAJO, con la nariz
+         visible (>= VISIBILIDAD_MIN); se evalúa en cada cuadro, ANTES de mirar si se
+         ven los hombros), pose y
+         manos se giran antes de todo: (x, y) -> (1 - x, 1 - y) en coordenadas
+         normalizadas (z igual). Un giro no es un espejo: la mano no cambia de lado.
+         Así venían 55 de las 60 tomas del iPhone del banco de prueba;
        - referencia del cuerpo: centro de los hombros (pose 11, 12) y ancho de
          hombros W, en píxeles con la corrección de proporción (x*ancho, y*alto);
        - dos BRAZOS por posición en la imagen: 0 = el del hombro de la izquierda
@@ -17,11 +25,26 @@ video de CENAREC) y una seña nueva se compara con todas por DTW.
          rasgos de core/rasgos.py + ejes "y" y "z" del marco de la palma (6), con
          el vector de landmarks.py espejado si es el brazo 0 (como una "Left").
   2. `Segmentador` corta la seña usando el REPOSO: un brazo descansa si no se ve
-     su muñeca o si está más de Y_REPOSO anchos de hombro debajo de los hombros
-     (manos juntas a la cintura o fuera de cuadro). La seña arranca cuando algún
-     brazo sale del reposo T_ARRANQUE s seguidos y termina cuando los dos vuelven
-     T_FIN s seguidos. Lo mismo corta las dos repeticiones de cada video y la
-     cámara en vivo.
+     su muñeca o si está más abajo que su UMBRAL de reposo (en anchos de hombro
+     debajo de los hombros). La seña arranca cuando algún brazo sale del reposo
+     T_ARRANQUE s seguidos y termina cuando los dos vuelven T_FIN s seguidos. Lo
+     mismo corta las dos repeticiones de cada video y la cámara en vivo.
+     Reposo RELATIVO (v3; antes el umbral era Y_REPOSO fijo para todos): por
+     brazo, el Segmentador guarda la altura de la muñeca de los últimos
+     VENTANA_REPOSO s (sin muñeca = ABAJO) y en cada cuadro calcula
+         nivel  = alturas ordenadas[(n - 1) * PERCENTIL_REPOSO // 100]
+         umbral = min(max(nivel - DELTA_REPOSO, Y_REPOSO_MIN), Y_REPOSO)
+     y lo deja en `cuadro.reposo` (lo usan también actividad() y el descriptor).
+     Detalles para reimplementarlo igual: la ventana incluye el cuadro actual y solo
+     la alimentan los cuadros que dieron CuadroPalabra (sin cuerpo no aporta); se
+     descartan los cuadros con t - t_más_viejo > VENTANA_REPOSO (estricto: uno a
+     exactamente 10.0 s se queda); no se vacía al cortar por hueco, solo en
+     reiniciar(); el umbral se calcula ya con el valor del cuadro actual dentro; una
+     muñeca fuera de [0, 1] o con visibilidad < VISIBILIDAD_MIN cuenta como ausente
+     (ABAJO = 9).
+     Con las manos fuera de cuadro o bien abajo (CENAREC, casi todas las cámaras)
+     queda Y_REPOSO; con las manos apoyadas a la vista más arriba (escritorio,
+     cámara baja) el umbral sube con ellas y la seña se corta igual.
   3. `descriptor()` lleva la seña a forma canónica y a MUESTRAS puntos parejos en
      el tiempo:
        - mano DOMINANTE (`espejos_posibles`): en una seña de UNA mano, la que
@@ -49,9 +72,24 @@ video de CENAREC) y una seña nueva se compara con todas por DTW.
        no dominante: lo mismo x PESO_NO_DOMINANTE, y la marca activa x PESO_ACTIVA
   4. `dtw_lote()`: el mismo DTW de core/movimiento.dtw (banda de Sakoe-Chiba,
      pasos simétricos, dividido por n + m) contra todas las plantillas a la vez.
-     confianza = 1 - distancia / DISTANCIA_MAX; se acepta la mejor palabra si pasa
-     UMBRAL y le saca MARGEN a la segunda, y si no es una plantilla NEGATIVA
-     (categoría "letra": letras deletreadas). Si no, "nada": nunca inventa.
+     confianza = 1 - distancia / DISTANCIA_MAX; se acepta la mejor palabra (d1) si
+       - pasa UMBRAL (d1 <= (1 - UMBRAL) * DISTANCIA_MAX),
+       - (v3) margen RELATIVO: la 2.ª palabra está a d2 >= MARGEN * d1 (antes una
+         resta de confianzas fija),
+       - (v3) la seña dura al menos DURACION_RELATIVA_MIN x la plantilla más corta
+         de esa palabra (duración de la plantilla = fin - inicio en senas.db): un
+         pedazo de seña no se dice como palabra,
+       - y no es una plantilla NEGATIVA (categoría "letra": letras deletreadas).
+     Si no, "nada": nunca inventa. Con d1 = d2 = 0 (dos palabras idénticas) tampoco
+     se dice nada.
+
+Versión 3 del descriptor (VERSION_DESCRIPTOR): giro de 180°, reposo relativo,
+PESO_FORMA 0.5 -> 1.0, PESO_NO_DOMINANTE 0.7 -> 1.0, margen relativo y control de
+duración, DISTANCIA_MAX 3 -> 5 (cambia la confianza mostrada: 1 - d / 5). Las
+columnas de senas.db no cambian (83), pero la app tiene que
+implementar todo lo marcado "v3" para dar los mismos números; por eso senas.db
+de la v2 no se carga con este motor ni al revés. Medido con scripts/evaluar_banco.py
+(ajustado con dos personas y validado con las otras dos).
 
 Todo es aritmética simple (medianas, interpolación lineal, normas, DTW con dos
 bucles) para poder reimplementarlo igual en Dart. Constantes medidas con
@@ -68,11 +106,13 @@ from core.cuerpo import HOMBRO_DER, HOMBRO_IZQ, MUNECA_DER, MUNECA_IZQ, NARIZ, C
 from core.landmarks import NUM_LANDMARKS, WRIST, corregir_proporcion, normalizar_puntos
 from core.rasgos import NUM_RASGOS, marco_palma, rasgos
 
-VERSION_DESCRIPTOR = 2   # 2: + posición respecto de la cara (2 columnas por mano)
+VERSION_DESCRIPTOR = 3   # 2: + posición respecto de la cara; 3: giro 180°, reposo relativo, pesos, margen relativo
 
 # --- Cuerpo ---
 VISIBILIDAD_MIN = 0.5      # hombros con menos visibilidad = no hay cuerpo en el frame
 W_MIN = 20.0               # ancho de hombros mínimo en píxeles
+GIRAR_CABEZA_ABAJO = True  # imagen girada 180° (nariz debajo de los hombros) -> se gira antes de describir
+MARGEN_CABEZA_ABAJO = 0.05  # la nariz tiene que estar más de esto (fracción del alto) bajo la línea de los hombros
 
 # --- Segmentación (posiciones en anchos de hombro, tiempos en segundos) ---
 Y_REPOSO = 0.85            # muñeca más abajo que esto (desde los hombros) = descansa (CENAREC: reposo 0.93-1.33, señas suben a <= 0.67)
@@ -82,14 +122,22 @@ PREVIOS = 0.15             # la seña arranca un poco antes (la mano ya venía s
 DURACION_MIN = 0.35
 DURACION_MAX = 4.0         # más largo = no es una palabra (deletreo, la mano quieta arriba)
 HUECO_MAX = 0.5            # sin cuerpo más tiempo que esto corta la seña
+# Reposo RELATIVO (v3): cada brazo descansa donde descansa esa persona con esa cámara. Nivel de reposo =
+# percentil PERCENTIL_REPOSO de la altura de la muñeca en los últimos VENTANA_REPOSO s (sin muñeca = ABAJO);
+# umbral = nivel - DELTA_REPOSO, entre Y_REPOSO_MIN y Y_REPOSO (nunca más exigente que el umbral fijo).
+VENTANA_REPOSO = 10.0
+PERCENTIL_REPOSO = 90
+DELTA_REPOSO = 0.15
+Y_REPOSO_MIN = 0.5
+ABAJO = 9.0                # altura que cuenta un brazo sin muñeca (fuera de cuadro = abajo del todo)
 
 # --- Descriptor ---
 MUESTRAS = 24
 FRACCION_ACTIVA = 0.25     # la no dominante tiene que estar fuera del reposo este tanto de la seña
 PESO_POSICION = 2.0
-PESO_FORMA = 0.5
+PESO_FORMA = 1.0           # v3: 0.5 -> 1.0 (la posición pesaba demasiado frente a la forma con otras personas)
 PESO_EJES = 0.5
-PESO_NO_DOMINANTE = 0.7
+PESO_NO_DOMINANTE = 1.0    # v3: 0.7 -> 1.0
 PESO_ACTIVA = 1.0
 PESO_CARA = 1.0
 CARA_MODO = "cerca"           # "resta" (muñeca - nariz), "cerca" (solo cerca de la cara), "cerca_y"
@@ -102,9 +150,11 @@ COLUMNAS = 2 * BLOQUE + 1
 # --- Comparación ---
 BANDA = 0.25
 PREFILTRO = 150            # con más plantillas, el DTW se hace solo con las 150 más cercanas en línea recta
-DISTANCIA_MAX = 3.0
-UMBRAL = 0.5
-MARGEN = 0.05
+DISTANCIA_MAX = 5.0        # v3: 3.0 -> 5.0 (con PESO_FORMA 1.0 las distancias son más grandes)
+UMBRAL = 0.5               # confianza mínima: distancia <= (1 - UMBRAL) * DISTANCIA_MAX = 2.5
+MARGEN = 1.18              # v3: margen RELATIVO: la 2.ª palabra tiene que estar >= MARGEN x la distancia de la 1.ª
+DURACION_RELATIVA_MIN = 0.5  # la seña dura al menos esto x la plantilla más corta de la palabra (si se conoce):
+                             # un pedazo de seña (el comienzo o el final) no se dice como otra palabra
 
 
 @dataclass
@@ -115,6 +165,8 @@ class CuadroPalabra:
     muneca: list                        # [ (2,) píxeles o None ] por brazo 0, 1
     forma: list                         # [ (37,) o None ] por brazo 0, 1
     nariz: Optional[np.ndarray] = None  # (2,) píxeles
+    reposo: Optional[tuple] = None      # (umbral brazo 0, brazo 1) en anchos de hombro; lo pone el Segmentador
+                                        # (reposo relativo). None = Y_REPOSO fijo
 
 
 def _px(p, frame) -> np.ndarray:
@@ -135,11 +187,37 @@ def forma_mano(puntos, brazo: int, frame) -> Optional[np.ndarray]:
     return np.concatenate([r, base[1], base[2]])
 
 
+def cabeza_abajo(pose: np.ndarray) -> bool:
+    """La imagen está girada 180° (celular o cámara al revés): la nariz se ve DEBAJO de los hombros.
+
+    Con un MARGEN (MARGEN_CABEZA_ABAJO, en fracción del alto de la imagen): así una persona
+    agachada o una pose ruidosa no hacen saltar el giro entre cuadros de la misma seña.
+    Medido en las 240 tomas del banco: de pie la nariz queda >= 0.145 POR ENCIMA de la línea
+    de los hombros (y_nariz - y_hombros <= -0.145) y con la imagen girada >= 0.27 por debajo."""
+    if pose[NARIZ, 3] < VISIBILIDAD_MIN:
+        return False
+    return pose[NARIZ, 1] - (pose[HOMBRO_IZQ, 1] + pose[HOMBRO_DER, 1]) / 2 > MARGEN_CABEZA_ABAJO
+
+
+def _girar_180(puntos: np.ndarray) -> np.ndarray:
+    """(x, y) normalizados -> (1 - x, 1 - y): la imagen girada 180° (z y visibilidad no cambian)."""
+    p = np.array(puntos, dtype=np.float64)
+    p[:, 0] = 1.0 - p[:, 0]
+    p[:, 1] = 1.0 - p[:, 1]
+    return p
+
+
 def cuadro_palabra(c: CuadroCuerpo) -> Optional[CuadroPalabra]:
-    """CuadroPalabra de un frame, o None si no se ve el cuerpo (hombros)."""
+    """CuadroPalabra de un frame, o None si no se ve el cuerpo (hombros).
+
+    Si la imagen llega girada 180° (cabeza_abajo), pose y manos se giran antes de
+    todo (un giro no cambia la mano de lado: no es un espejo)."""
     if c.pose is None:
         return None
-    pose, frame = c.pose, c.frame
+    pose, frame, manos_crudas = c.pose, c.frame, c.manos[:2]
+    if GIRAR_CABEZA_ABAJO and cabeza_abajo(pose):
+        pose = _girar_180(pose)
+        manos_crudas = [(_girar_180(pts), lado, score) for pts, lado, score in manos_crudas]
     if pose[HOMBRO_IZQ, 3] < VISIBILIDAD_MIN or pose[HOMBRO_DER, 3] < VISIBILIDAD_MIN:
         return None
     hi, hd = _px(pose[HOMBRO_IZQ], frame), _px(pose[HOMBRO_DER], frame)
@@ -156,7 +234,7 @@ def cuadro_palabra(c: CuadroCuerpo) -> Optional[CuadroPalabra]:
     ref = [m if m is not None else _px(pose[k], frame) for m, k in zip(munecas_pose, indices)]
 
     muneca, forma = list(munecas_pose), [None, None]
-    manos = [(np.asarray(pts, dtype=np.float64), _px(pts[WRIST], frame)) for pts, _, _ in c.manos[:2]]
+    manos = [(np.asarray(pts, dtype=np.float64), _px(pts[WRIST], frame)) for pts, _, _ in manos_crudas]
     if len(manos) == 2:
         directo = np.linalg.norm(manos[0][1] - ref[0]) + np.linalg.norm(manos[1][1] - ref[1])
         cruzado = np.linalg.norm(manos[0][1] - ref[1]) + np.linalg.norm(manos[1][1] - ref[0])
@@ -175,13 +253,33 @@ def cuadro_palabra(c: CuadroCuerpo) -> Optional[CuadroPalabra]:
 
 # ---------------------------------------------------------------- reposo y segmentación
 
+def altura(c: CuadroPalabra, brazo: int) -> float:
+    """Altura de la muñeca debajo de los hombros en anchos de hombro (ABAJO si no se ve)."""
+    m = c.muneca[brazo]
+    return ABAJO if m is None else float((m[1] - c.centro[1]) / c.ancho)
+
+
+def umbral_reposo(alturas: Sequence[float]) -> float:
+    """Umbral de reposo de un brazo a partir de sus alturas recientes (reposo relativo).
+
+    nivel = alturas ordenadas[(n - 1) * PERCENTIL_REPOSO // 100] (sin interpolar, igual en Dart);
+    umbral = nivel - DELTA_REPOSO, recortado a [Y_REPOSO_MIN, Y_REPOSO]. Si el brazo casi siempre
+    está fuera de cuadro o bien abajo (CENAREC, la mayoría de las cámaras), queda Y_REPOSO."""
+    if not alturas:
+        return Y_REPOSO
+    orden = sorted(alturas)
+    nivel = orden[(len(orden) - 1) * PERCENTIL_REPOSO // 100]
+    return float(min(max(nivel - DELTA_REPOSO, Y_REPOSO_MIN), Y_REPOSO))
+
+
 def brazo_en_reposo(c: CuadroPalabra, brazo: int, centro=None, ancho=None) -> bool:
     m = c.muneca[brazo]
     if m is None:
         return True
     centro = c.centro if centro is None else centro
     ancho = c.ancho if ancho is None else ancho
-    return (m[1] - centro[1]) / ancho > Y_REPOSO
+    umbral = Y_REPOSO if c.reposo is None else c.reposo[brazo]
+    return (m[1] - centro[1]) / ancho > umbral
 
 
 def en_reposo(c: Optional[CuadroPalabra]) -> bool:
@@ -193,15 +291,21 @@ class Segmentador:
 
     actualizar(cuadro, t) en cada frame (cuadro None = sin cuerpo). Devuelve la
     lista de cuadros de la seña cuando termina, o None. `activo` = hay una seña en curso.
+
+    relativo=True (reposo relativo): a cada cuadro le pone `reposo` = el umbral de
+    cada brazo según dónde descansó ese brazo en los últimos VENTANA_REPOSO s
+    (umbral_reposo). relativo=False: Y_REPOSO fijo (como antes de la v3).
     """
 
     def __init__(self, arranque=T_ARRANQUE, fin=T_FIN, previos=PREVIOS, duracion_min=DURACION_MIN,
-                 duracion_max=DURACION_MAX, hueco_max=HUECO_MAX):
+                 duracion_max=DURACION_MAX, hueco_max=HUECO_MAX, relativo=True):
         self.arranque, self.fin, self.previos = arranque, fin, previos
         self.duracion_min, self.duracion_max, self.hueco_max = duracion_min, duracion_max, hueco_max
+        self.relativo = relativo
         self.reiniciar()
 
     def reiniciar(self) -> None:
+        self._alturas: tuple = ([], [])    # (t, altura) recientes por brazo (reposo relativo)
         self._historia: list = []          # cuadros recientes en reposo (para PREVIOS)
         self._sena: Optional[list] = None
         self._fuera_desde: Optional[float] = None
@@ -226,7 +330,22 @@ class Segmentador:
         self._ultimo_t = cuadro.t
         return self._paso(cuadro)
 
+    def _marcar_reposo(self, c: CuadroPalabra) -> None:
+        """Pone en el cuadro el umbral de reposo de cada brazo (ventana de VENTANA_REPOSO s hasta este cuadro)."""
+        if not self.relativo:
+            c.reposo = None
+            return
+        umbrales = []
+        for b in (0, 1):
+            ventana = self._alturas[b]
+            ventana.append((c.t, altura(c, b)))
+            while ventana and c.t - ventana[0][0] > VENTANA_REPOSO:
+                ventana.pop(0)
+            umbrales.append(umbral_reposo([y for _, y in ventana]))
+        c.reposo = tuple(umbrales)
+
     def _paso(self, c: CuadroPalabra) -> Optional[list]:
+        self._marcar_reposo(c)
         reposo = en_reposo(c)
         if self._sena is None:
             if reposo:
@@ -287,6 +406,12 @@ def segmentar(cuadros: Sequence[Optional[CuadroPalabra]], tiempos: Sequence[floa
     if s:
         salida.append(s)
     return salida
+
+
+def duracion(cuadros: Sequence[Optional[CuadroPalabra]]) -> float:
+    """Segundos entre el primer y el último cuadro de una seña (0 si no hay dos)."""
+    ts = [c.t for c in cuadros if c is not None]
+    return float(ts[-1] - ts[0]) if len(ts) > 1 else 0.0
 
 
 # ---------------------------------------------------------------- descriptor
@@ -436,18 +561,34 @@ class ComparadorPalabras:
     las letras deletreadas de CENAREC). Las que no son "palabra" sirven de
     NEGATIVAS: si la seña se parece más a una letra deletreada que a cualquier
     palabra, no se dice nada.
+
+    margen: RELATIVO (v3): se acepta si distancia de la 2.ª palabra >= margen x
+    distancia de la 1.ª (antes era una resta de confianzas, 0.05; con personas
+    distintas a CENAREC las distancias crecen y una resta fija callaba casi todo).
+    duraciones: segundos de cada plantilla (fin - inicio en senas.db), opcional.
+    Si están y clasificar() recibe la duración de la seña, no se acepta una seña
+    que dure menos de DURACION_RELATIVA_MIN x la plantilla más corta de la palabra.
     """
 
     def __init__(self, etiquetas: Sequence[str], descriptores: Sequence[np.ndarray], umbral: float = UMBRAL,
                  margen: float = MARGEN, banda: float = BANDA, categorias: Optional[dict] = None,
-                 prefiltro: Optional[int] = PREFILTRO):
+                 prefiltro: Optional[int] = PREFILTRO, duraciones: Optional[Sequence[Optional[float]]] = None,
+                 duracion_relativa: float = DURACION_RELATIVA_MIN):
         if len(etiquetas) != len(descriptores) or not etiquetas:
             raise ValueError("Hacen falta plantillas (etiqueta, descriptor)")
+        if duraciones is not None and len(duraciones) != len(etiquetas):
+            raise ValueError("duraciones: una por plantilla")
         self.umbral, self.margen, self.banda, self.prefiltro = umbral, margen, banda, prefiltro
+        self.duracion_relativa = duracion_relativa
         self._etiquetas = list(etiquetas)
         self._plantillas = np.stack([np.asarray(d, dtype=np.float64) for d in descriptores])
         self.categorias = {e: (categorias or {}).get(e, "palabra") for e in self._etiquetas}
         self.palabras = sorted(e for e in set(self._etiquetas) if self.categorias[e] == "palabra")
+        # palabra -> duración de su plantilla más corta (segundos)
+        self.duracion_min: dict[str, float] = {}
+        for e, d in zip(self._etiquetas, duraciones or []):
+            if d is not None and d > 0:
+                self.duracion_min[e] = min(float(d), self.duracion_min.get(e, np.inf))
 
     def distancias(self, candidatos) -> dict:
         """palabra -> distancia de su plantilla más cercana (la mejor de los candidatos).
@@ -475,13 +616,20 @@ class ComparadorPalabras:
         orden = sorted(dist.items(), key=lambda p: p[1])[:k]
         return [(e, float(confianza(x))) for e, x in orden]
 
-    def clasificar(self, candidatos) -> tuple[Optional[str], float, list]:
-        """(palabra o None, confianza, top-5). None si no pasa umbral y margen: nunca inventa."""
+    def clasificar(self, candidatos, duracion: Optional[float] = None) -> tuple[Optional[str], float, list]:
+        """(palabra o None, confianza, top-5). None si no pasa umbral, margen y duración: nunca inventa.
+
+        duracion: segundos de la seña (último cuadro - primero), para el control de DURACION_RELATIVA_MIN."""
         if candidatos is None or (isinstance(candidatos, list) and not candidatos):
             return None, 0.0, []
-        top = self.mejores(candidatos, 5)
-        palabra, conf = top[0]
-        segunda = top[1][1] if len(top) > 1 else 0.0
-        if conf < self.umbral or conf - segunda < self.margen or self.categorias[palabra] != "palabra":
+        dist = self.distancias(candidatos)
+        orden = sorted(dist.items(), key=lambda p: p[1])
+        top = [(e, float(confianza(x))) for e, x in orden[:5]]
+        palabra, d1 = orden[0]
+        d2 = orden[1][1] if len(orden) > 1 else np.inf
+        conf = top[0][1]
+        corta = (duracion is not None and palabra in self.duracion_min
+                 and duracion < self.duracion_relativa * self.duracion_min[palabra])
+        if conf < self.umbral or d2 < self.margen * d1 or d2 == 0 or corta or self.categorias[palabra] != "palabra":
             return None, conf, top
         return palabra, conf, top

@@ -39,13 +39,14 @@ import numpy as np
 
 from core import palabras as P
 from scripts.construir_palabras import cargar_video
-from scripts.extraer_cenarec import EXTRACCION, LISTA, catalogo, leer_lista, ruta_cache
+from scripts.extraer_cenarec import CON_RECORTE, EXTRACCION, LISTA, carpeta_variante, catalogo, leer_lista, ruta_cache
 
 VARIANTES_VIDEO = ("15fps", "4x3", "cerca", "lejos", "giro", "desplazado", "espejo")
 VARIANTES_ELEGIDAS = None   # --variantes
 VELOCIDADES = {"rapido": 1.3, "lento": 0.7}
 ABECEDARIO = EXTRACCION / "otros" / "abecedario-lesco.npz"
 SEMILLA = 7
+RECORTE = True   # --extraccion recorte (lo que usa la app y senas.db) o base (sin recorte)
 
 
 # ---------------------------------------------------------------- carga (en paralelo)
@@ -59,8 +60,9 @@ def _cargar(args):
 def cargar(etiquetas, variante="base", procesos=6) -> dict:
     """etiqueta -> (cuadros, tiempos) de las que tienen cache de esa variante."""
     cat = catalogo()
-    trabajos = [(e, ruta_cache(cat[e]["idw"], variante)) for e in etiquetas
-                if e in cat and ruta_cache(cat[e]["idw"], variante).exists()]
+    carpeta = carpeta_variante(variante, RECORTE)
+    trabajos = [(e, ruta_cache(cat[e]["idw"], carpeta)) for e in etiquetas
+                if e in cat and ruta_cache(cat[e]["idw"], carpeta).exists()]
     with Pool(procesos) as pool:
         return {e: (c, t) for e, c, t in pool.imap_unordered(_cargar, trabajos, chunksize=4)}
 
@@ -81,15 +83,16 @@ def con_velocidad(cuadros, tiempos, factor: float, fps: float = 30.0):
 # ---------------------------------------------------------------- piezas
 
 def referencias(senas: dict, rep: int, pesos=None):
-    """(etiquetas, descriptores) con la repetición `rep` de cada palabra (diestra, como senas.db)."""
-    etq, desc = [], []
+    """(etiquetas, descriptores, duraciones) con la repetición `rep` de cada palabra (diestra, como senas.db)."""
+    etq, desc, dur = [], [], []
     for e, reps in senas.items():
         if len(reps) > rep:
             d = P.descriptor(reps[rep], P.espejos_posibles(reps[rep], "derecha")[0], pesos=pesos)
             if d is not None:
                 etq.append(e)
                 desc.append(d)
-    return etq, desc
+                dur.append(P.duracion(reps[rep]))
+    return etq, desc, dur
 
 
 NEGATIVAS_LETRAS: dict = {}   # etiqueta LETRA-X -> repeticiones (si se usa --letras)
@@ -97,7 +100,7 @@ NEGATIVAS_LETRAS: dict = {}   # etiqueta LETRA-X -> repeticiones (si se usa --le
 
 def comparador(senas: dict, rep: int, pesos=None, prefiltro=P.PREFILTRO) -> P.ComparadorPalabras:
     """Comparador con la repetición `rep` de cada palabra (+ las letras deletreadas como negativas si hay)."""
-    etq, desc = referencias(senas, rep, pesos)
+    etq, desc, dur = referencias(senas, rep, pesos)
     categorias = {}
     for e, reps in NEGATIVAS_LETRAS.items():
         for s in reps:
@@ -105,8 +108,9 @@ def comparador(senas: dict, rep: int, pesos=None, prefiltro=P.PREFILTRO) -> P.Co
             if d is not None:
                 etq.append(e)
                 desc.append(d)
+                dur.append(P.duracion(s))
                 categorias[e] = "letra"
-    return P.ComparadorPalabras(etq, desc, categorias=categorias, prefiltro=prefiltro)
+    return P.ComparadorPalabras(etq, desc, categorias=categorias, prefiltro=prefiltro, duraciones=dur)
 
 
 def elegir_reps(senas_video: list) -> list:
@@ -168,7 +172,7 @@ def probar(comp: P.ComparadorPalabras, verdad, sena, res: Resultado, mano="auto"
     if not cand:
         res.agregar(verdad, [], None)
         return
-    palabra, _, top = comp.clasificar(cand)
+    palabra, _, top = comp.clasificar(cand, duracion=P.duracion(sena))
     res.agregar(verdad, top, palabra)
 
 
@@ -268,7 +272,7 @@ def negativas(senas, pesos, comp=None, mostrar=True) -> dict:
         cand = P.descriptores(s, pesos=pesos) if len(s) >= 2 else []
         cuenta[tipo] += 1
         if cand:
-            palabra, conf, top = comp.clasificar(cand)
+            palabra, conf, top = comp.clasificar(cand, duracion=P.duracion(s))
             confs.setdefault(tipo, []).append((top[0][1], top[0][1] - top[1][1]))
             aceptadas[tipo] += palabra is not None
             if palabra is not None:
@@ -309,7 +313,8 @@ def negativas(senas, pesos, comp=None, mostrar=True) -> dict:
 def escala(iniciales, procesos, pesos):
     print("\n== 4. Escala (plantillas de más palabras) ==")
     cat = catalogo()
-    todas = sorted(e for e in cat if ruta_cache(cat[e]["idw"]).exists() and e not in NEGATIVAS_LETRAS)
+    carpeta = carpeta_variante("base", RECORTE)
+    todas = sorted(e for e in cat if ruta_cache(cat[e]["idw"], carpeta).exists() and e not in NEGATIVAS_LETRAS)
     if len(todas) <= len(iniciales):
         print("Hay cache solo de las iniciales: correr scripts/extraer_cenarec.py --todas")
         return
@@ -367,11 +372,13 @@ def umbrales(res_validas: list, neg_senas, pesos):
     n_neg = sum(1 for tipo, _, _ in piezas if tipo != "letra")
     n_letras = sum(1 for tipo, _, _ in piezas if tipo == "letra")
     for u in (0.4, 0.5, 0.6, 0.7):
-        for m in (0.0, 0.03, 0.05, 0.1):
-            bien = sum(t[0][1] >= u and t[0][1] - t[1][1] >= m and t[0][0] == v for v, t, _ in filas)
-            mal = sum(t[0][1] >= u and t[0][1] - t[1][1] >= m and t[0][0] != v for v, t, _ in filas)
-            neg = sum(t[0][1] >= u and t[0][1] - t[1][1] >= m for t in negs)
-            let = sum(t[0][1] >= u and t[0][1] - t[1][1] >= m for t in letras)
+        for m in (1.0, 1.1, P.MARGEN, 1.25):
+            # Margen relativo (v3): distancia de la 2.ª >= m x la de la 1.ª (distancia = (1 - conf) x DISTANCIA_MAX).
+            pasa = lambda t: t[0][1] >= u and (1 - t[1][1]) >= m * (1 - t[0][1])
+            bien = sum(pasa(t) and t[0][0] == v for v, t, _ in filas)
+            mal = sum(pasa(t) and t[0][0] != v for v, t, _ in filas)
+            neg = sum(pasa(t) for t in negs)
+            let = sum(pasa(t) for t in letras)
             print(f"{u:7.2f} {m:7.2f} {100 * bien / len(filas):6.1f}% {100 * mal / len(filas):5.1f}% "
                   f"{neg:6d}/{n_neg} {let:4d}/{n_letras}")
 
@@ -381,7 +388,7 @@ def velocidad(datos_base, senas):
     from core.cuerpo import desde_arrays
     cat = catalogo()
     e = sorted(datos_base)[0]
-    crudos = desde_arrays(np.load(ruta_cache(cat[e]["idw"])))
+    crudos = desde_arrays(np.load(ruta_cache(cat[e]["idw"], carpeta_variante("base", RECORTE))))
     inicio = time.perf_counter()
     seg = P.Segmentador()
     for c in crudos:
@@ -409,9 +416,13 @@ def main(argv=None) -> int:
     p.add_argument("--solo", nargs="*", choices=("cruzada", "variantes", "negativas", "escala", "umbrales", "velocidad"))
     p.add_argument("--pesos", nargs="+", type=float, help="posición forma ejes no_dominante activa [cara]")
     p.add_argument("--procesos", type=int, default=6)
+    p.add_argument("--extraccion", choices=(CON_RECORTE, "base"), default=CON_RECORTE,
+                   help="carpeta de extraccion/: recorte (como senas.db y la app) o base (sin recorte)")
     p.add_argument("--sin-letras", action="store_true",
                    help="no usar las letras deletreadas de CENAREC (LETRA-*) como plantillas negativas")
     a = p.parse_args(argv)
+    global RECORTE
+    RECORTE = a.extraccion == CON_RECORTE
     secciones = set(a.solo or ("cruzada", "variantes", "negativas", "escala", "umbrales", "velocidad"))
     pesos = tuple(a.pesos) if a.pesos else None
 

@@ -54,7 +54,7 @@ def evaluar_cuadros(cuadros: list, etiqueta: str, comparador: P.ComparadorPalabr
     candidatos = P.descriptores(sena, "auto")
     if not candidatos:
         return vacio
-    aceptada, conf, _ = comparador.clasificar(candidatos)
+    aceptada, conf, _ = comparador.clasificar(candidatos, duracion=P.duracion(sena))
     top = [(e, c) for e, c in comparador.mejores(candidatos, MEJORES) if comparador.categorias.get(e) == "palabra"]
     return {**base, "hubo_sena": True, "aceptada": aceptada, "confianza": float(conf), "top": top[:5]}
 

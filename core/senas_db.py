@@ -18,7 +18,8 @@ descriptores en vivo (core/palabras.py). Formato (FORMATO_DB = 1):
              categoria TEXT: "palabra" o "letra" (letra deletreada: plantilla NEGATIVA, si gana no se dice nada),
              idw INTEGER (ficha de CENAREC o NULL), manos INTEGER (1 o 2), fuente TEXT)
     plantillas(id INTEGER PRIMARY KEY, palabra_id INTEGER -> palabras.id,
-               repeticion INTEGER (1, 2...), fuente TEXT, inicio REAL, fin REAL (segundos en el video),
+               repeticion INTEGER (1, 2...), fuente TEXT, inicio REAL, fin REAL (segundos en el video;
+               desde version_descriptor 3, fin - inicio = duración de la plantilla para DURACION_RELATIVA_MIN),
                datos BLOB)
 
 `datos` = muestras x columnas int16 little-endian, fila por fila. Cada fila
@@ -35,6 +36,8 @@ descriptores en vivo (core/palabras.py). Formato (FORMATO_DB = 1):
 
 Para comparar: descriptor = datos / escala * pesos (columna a columna) y DTW
 (core/palabras.dtw_lote). Es el mismo número que da core.palabras.descriptor().
+La aceptación (umbral, margen RELATIVO d2 >= MARGEN x d1, duración mínima) y el
+reposo relativo están en `constantes` y en el encabezado de core/palabras.py.
 
 Por qué SQLite y no JSON: binario chico (int16), se agregan o borran palabras
 sin reescribir todo, se puede consultar por etiqueta y sqflite lo lee en Flutter.
@@ -97,7 +100,8 @@ def pesos_columnas(pesos=None) -> np.ndarray:
 def constantes() -> dict:
     nombres = ("Y_REPOSO", "T_ARRANQUE", "T_FIN", "PREVIOS", "DURACION_MIN", "DURACION_MAX", "HUECO_MAX",
                "VISIBILIDAD_MIN", "W_MIN", "MUESTRAS", "FRACCION_ACTIVA", "BANDA", "DISTANCIA_MAX", "UMBRAL",
-               "MARGEN", "CARA_MODO", "CARA_RADIO", "NARIZ_TIPICA")
+               "MARGEN", "CARA_MODO", "CARA_RADIO", "NARIZ_TIPICA", "GIRAR_CABEZA_ABAJO", "VENTANA_REPOSO",
+               "PERCENTIL_REPOSO", "DELTA_REPOSO", "Y_REPOSO_MIN", "ABAJO", "DURACION_RELATIVA_MIN", "MARGEN_CABEZA_ABAJO")
     return {n: getattr(P, n) for n in nombres}
 
 
@@ -166,19 +170,26 @@ def leer(ruta: Path | str = RUTA_DB) -> dict:
             raise VersionIncompatible(f"{ruta}: plantillas {muestras}x{columnas}, el motor usa {P.MUESTRAS}x{P.COLUMNAS}")
         palabras = {fila[0]: {"idw": fila[1], "manos": fila[2], "categoria": fila[3]}
                     for fila in con.execute("SELECT etiqueta, idw, manos, categoria FROM palabras")}
-        plantillas = [(e, desde_blob(d, muestras, columnas)) for e, d in con.execute(
-            "SELECT p.etiqueta, t.datos FROM plantillas t JOIN palabras p ON p.id = t.palabra_id "
-            "ORDER BY p.etiqueta, t.repeticion")]
+        filas = list(con.execute(
+            "SELECT p.etiqueta, t.datos, t.inicio, t.fin FROM plantillas t JOIN palabras p ON p.id = t.palabra_id "
+            "ORDER BY p.etiqueta, t.repeticion"))
     finally:
         con.close()
-    return {"meta": meta, "plantillas": plantillas, "palabras": palabras}
+    plantillas = [(e, desde_blob(d, muestras, columnas)) for e, d, _, _ in filas]
+    # Duración de cada plantilla (fin - inicio), en el mismo orden; None si no se guardó.
+    duraciones = [float(f) - float(i) if i is not None and f is not None else None for _, _, i, f in filas]
+    return {"meta": meta, "plantillas": plantillas, "duraciones": duraciones, "palabras": palabras}
 
 
 def comparador(ruta: Path | str = RUTA_DB, pesos=None, etiquetas: Optional[set] = None, **kw) -> P.ComparadorPalabras:
-    """ComparadorPalabras con las plantillas de senas.db (pesos aplicados una sola vez, al cargar)."""
+    """ComparadorPalabras con las plantillas de senas.db (pesos aplicados una sola vez, al cargar).
+
+    Le pasa la duración de cada plantilla (inicio/fin) para el control de DURACION_RELATIVA_MIN."""
     datos = leer(ruta)
     w = pesos_columnas(pesos)
-    plantillas = [(e, c) for e, c in datos["plantillas"] if etiquetas is None or e in etiquetas]
+    elegidas = [k for k, (e, _) in enumerate(datos["plantillas"]) if etiquetas is None or e in etiquetas]
+    plantillas = [datos["plantillas"][k] for k in elegidas]
     categorias = {e: d["categoria"] for e, d in datos["palabras"].items()}
+    kw.setdefault("duraciones", [datos["duraciones"][k] for k in elegidas])
     return P.ComparadorPalabras([e for e, _ in plantillas], [c * w for _, c in plantillas], categorias=categorias,
                                 **kw)
