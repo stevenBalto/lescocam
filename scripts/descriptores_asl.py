@@ -35,10 +35,13 @@ from core import palabras as P
 from core.cuerpo import desde_arrays
 from scripts.construir_landmarks_asl import CARPETA, SALIDA as LANDMARKS, cargar
 from scripts.construir_palabras import PESOS_CRUDOS
+from scripts.entrada_modelo import entradas
 
 SALIDA = CARPETA / "descriptores_v3.npz"
+SALIDA_PUNTOS = CARPETA / "descriptores_v3p.npz"   # --con-puntos: + 21 puntos de cada mano (209 columnas)
 
 _LM = None
+_PUNTOS = False
 
 
 def sena_de(cuadros: list, tiempos: list) -> tuple[list | None, str]:
@@ -52,44 +55,42 @@ def sena_de(cuadros: list, tiempos: list) -> tuple[list | None, str]:
     return None, "nada"
 
 
-def describir(cuadros: list, tiempos: list) -> tuple[list, str, float]:
-    """([(espejo, descriptor crudo)], cómo, duración) de un video ya en CuadroPalabra."""
+def describir(cuadros: list, tiempos: list, con_puntos: bool = False) -> tuple[list, str, float]:
+    """([(espejo, entrada del modelo)], cómo, duración) de un video ya en CuadroPalabra."""
     sena, como = sena_de(cuadros, tiempos)
     if sena is None:
         return [], como, 0.0
-    salida = []
-    for e in P.espejos_posibles(sena, "auto"):
-        d = P.descriptor(sena, e, pesos=PESOS_CRUDOS)
-        if d is not None:
-            salida.append((e, d.astype(np.float32)))
+    salida = entradas(sena, "auto", con_puntos)
     return salida, (como if salida else "nada"), P.duracion(sena)
 
 
-def _iniciar(ruta: str) -> None:
-    global _LM
-    _LM = cargar(Path(ruta))
+def _iniciar(ruta: str, con_puntos: bool = False) -> None:
+    global _LM, _PUNTOS
+    _LM, _PUNTOS = cargar(Path(ruta)), con_puntos
 
 
 def _trabajo(i: int):
     cuerpo = desde_arrays(_LM.video(i))
     cuadros = [P.cuadro_palabra(c) for c in cuerpo]
-    variantes, como, dur = describir(cuadros, [c.t for c in cuerpo])
+    variantes, como, dur = describir(cuadros, [c.t for c in cuerpo], _PUNTOS)
     return i, variantes, como, dur
 
 
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--landmarks", type=Path, default=LANDMARKS)
-    p.add_argument("--salida", type=Path, default=SALIDA)
+    p.add_argument("--salida", type=Path, default=None, help=f"por defecto {SALIDA.name} o, con puntos, {SALIDA_PUNTOS.name}")
+    p.add_argument("--con-puntos", action="store_true", help="agregar los 21 puntos de cada mano (209 columnas)")
     p.add_argument("--procesos", type=int, default=4)
     p.add_argument("--max", type=int, default=0, help="solo los primeros N videos (prueba)")
     a = p.parse_args(argv)
+    a.salida = a.salida or (SALIDA_PUNTOS if a.con_puntos else SALIDA)
 
     lm = cargar(a.landmarks)
     n = min(len(lm), a.max) if a.max else len(lm)
     inicio = time.perf_counter()
     filas, comos, sin = [], Counter(), 0
-    with Pool(a.procesos, initializer=_iniciar, initargs=(str(a.landmarks),)) as pool:
+    with Pool(a.procesos, initializer=_iniciar, initargs=(str(a.landmarks), a.con_puntos)) as pool:
         for k, (i, variantes, como, dur) in enumerate(pool.imap_unordered(_trabajo, range(n), chunksize=16), 1):
             comos[como] += 1
             for e, d in variantes:
@@ -100,7 +101,7 @@ def main(argv=None) -> int:
     idx = np.array([f[0] for f in filas], dtype=np.int32)
     resumen = {"videos": n, "descriptores": len(filas), "como": dict(comos),
                "videos_con_descriptor": int(len(set(idx.tolist()))),
-               "muestras": P.MUESTRAS, "columnas": P.COLUMNAS, "version_descriptor": P.VERSION_DESCRIPTOR,
+               "muestras": P.MUESTRAS, "columnas": int(filas[0][2].shape[1]) if filas else 0, "con_puntos": a.con_puntos, "version_descriptor": P.VERSION_DESCRIPTOR,
                "pesos": list(PESOS_CRUDOS)}
     a.salida.parent.mkdir(parents=True, exist_ok=True)
     tmp = a.salida.with_suffix(".tmp.npz")

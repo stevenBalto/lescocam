@@ -167,6 +167,8 @@ class CuadroPalabra:
     nariz: Optional[np.ndarray] = None  # (2,) píxeles
     reposo: Optional[tuple] = None      # (umbral brazo 0, brazo 1) en anchos de hombro; lo pone el Segmentador
                                         # (reposo relativo). None = Y_REPOSO fijo
+    puntos: Optional[list] = None       # [ (63,) o None ] por brazo: los 21 puntos normalizados (puntos_mano).
+                                        # Solo para el modelo de la fase 4 del problema 1; el descriptor no los usa.
 
 
 def _px(p, frame) -> np.ndarray:
@@ -185,6 +187,15 @@ def forma_mano(puntos, brazo: int, frame) -> Optional[np.ndarray]:
     if r is None or base is None:
         return None
     return np.concatenate([r, base[1], base[2]])
+
+
+def puntos_mano(puntos, brazo: int, frame) -> Optional[np.ndarray]:
+    """Los 21 puntos de la mano normalizados (63,) como en forma_mano (el brazo 0 espejado como "Left")."""
+    try:
+        return np.asarray(normalizar_puntos(corregir_proporcion(puntos, frame), "Left" if brazo == 0 else "Right"),
+                          dtype=np.float64).reshape(-1)
+    except ValueError:
+        return None
 
 
 def cabeza_abajo(pose: np.ndarray) -> bool:
@@ -233,7 +244,7 @@ def cuadro_palabra(c: CuadroCuerpo) -> Optional[CuadroPalabra]:
         munecas_pose.append(_px(p, frame) if dentro and p[3] >= VISIBILIDAD_MIN else None)
     ref = [m if m is not None else _px(pose[k], frame) for m, k in zip(munecas_pose, indices)]
 
-    muneca, forma = list(munecas_pose), [None, None]
+    muneca, forma, pts_mano = list(munecas_pose), [None, None], [None, None]
     manos = [(np.asarray(pts, dtype=np.float64), _px(pts[WRIST], frame)) for pts, _, _ in manos_crudas]
     if len(manos) == 2:
         directo = np.linalg.norm(manos[0][1] - ref[0]) + np.linalg.norm(manos[1][1] - ref[1])
@@ -247,8 +258,10 @@ def cuadro_palabra(c: CuadroCuerpo) -> Optional[CuadroPalabra]:
     for brazo, (pts, w) in asignacion:
         muneca[brazo] = w
         forma[brazo] = forma_mano(pts, brazo, frame)
+        if forma[brazo] is not None:
+            pts_mano[brazo] = puntos_mano(pts, brazo, frame)
     nariz = _px(pose[NARIZ], frame) if pose[NARIZ, 3] >= VISIBILIDAD_MIN else None
-    return CuadroPalabra(c.t, (hi + hd) / 2, ancho, muneca, forma, nariz)
+    return CuadroPalabra(c.t, (hi + hd) / 2, ancho, muneca, forma, nariz, puntos=pts_mano)
 
 
 # ---------------------------------------------------------------- reposo y segmentación

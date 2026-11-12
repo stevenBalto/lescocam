@@ -107,6 +107,10 @@ def aumentar(x: torch.Tensor, gen: torch.Generator) -> torch.Tensor:
     # ruido de MediaPipe, solo donde hay datos (la no dominante inactiva sigue en 0)
     ruido = 0.03 * n(b, t, c)
     ruido[:, :, B:2 * B] *= activa
+    if c > P.COLUMNAS:                               # con puntos: dominante (63) y no dominante (63)
+        mitad = P.COLUMNAS + (c - P.COLUMNAS) // 2
+        y[:, :, mitad:] = y[:, :, mitad:] * activa
+        ruido[:, :, mitad:] *= activa
     ruido[:, :, ACTIVA] = 0
     return y + ruido
 
@@ -168,8 +172,9 @@ def evaluar_dtw_y_fusion(modelo, x, video, glosas, gal, con, dev, maximo: int = 
             vids = np.random.default_rng(semilla).choice(vids, maximo, replace=False)
         con = con[np.isin(video[con], vids)]
     w = senas_db.pesos_columnas().astype(np.float64)
-    plantillas = x[gal].astype(np.float64) * w
-    d = np.stack([P.dtw_lote(x[i].astype(np.float64) * w, plantillas) for i in con])
+    k = P.COLUMNAS                                   # el DTW del motor usa solo el descriptor
+    plantillas = x[gal, :, :k].astype(np.float64) * w
+    d = np.stack([P.dtw_lote(x[i, :, :k].astype(np.float64) * w, plantillas) for i in con])
     sd, clases = sim_por_glosa(-d, glosas[gal])
     se, _ = sim_por_glosa(embeber(modelo, x[con], dev) @ embeber(modelo, x[gal], dev).T, glosas[gal])
     return {str(a): top1_por_video(a * zfilas(se) + (1 - a) * zfilas(sd), video[con], glosas[con], clases)
@@ -228,7 +233,11 @@ def main(argv=None) -> int:
     gal_a, _ = galeria_y_consultas(video, glosas, firmantes, conocidas & (part == "train"), a.semilla)
     con_a = np.nonzero(conocidas & (part == "val") & np.isin(glosas, glosas[gal_a]))[0]
     gal_b, con_b = galeria_y_consultas(video, glosas, firmantes, np.isin(glosas, list(nuevas)), a.semilla)
-    cx, ce = cenarec(a.db)
+    if x.shape[2] == P.COLUMNAS:
+        cx, ce = cenarec(a.db)
+    else:                                            # con puntos: las plantillas salen del cache de CENAREC
+        from scripts.entrada_modelo import plantillas_cenarec
+        cx, ce = plantillas_cenarec(True)
 
     modelo = ModeloSenas(columnas=x.shape[2], ancho=a.ancho, bloques=a.bloques, abandono=a.abandono).to(dev)
     xe = torch.from_numpy(x[ent]).float()
@@ -277,7 +286,7 @@ def main(argv=None) -> int:
              "C_cenarec": evaluar_cenarec(embeber(modelo, cx, dev), ce)}
     print("DTW de referencia (motor actual) ...", flush=True)
     w = senas_db.pesos_columnas().astype(np.float64)
-    cw = cx.astype(np.float64) * w
+    cw = cx[:, :, :P.COLUMNAS].astype(np.float64) * w
     dist_c = np.stack([P.dtw_lote(c, cw) for c in cw])
     final["dtw"] = {"C_cenarec": evaluar_cenarec(None, ce, dist_c)}
     final["B_dtw_y_fusion"] = evaluar_dtw_y_fusion(modelo, x, video, glosas, gal_b, con_b, dev, a.dtw_max, semilla=a.semilla)
