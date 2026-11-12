@@ -8,9 +8,9 @@ Si el usuario dice «Hola chat, póngamonos al hilo del proyecto para avanzar» 
 
 Al cerrar cada fase del plan es obligatorio tacharla, hacer commit, `git pull` y `git push` antes de seguir con la fase siguiente.
 
-## Banco de prueba de los compañeros (obligatorio)
+## Banco de prueba: ronda dos (obligatorio)
 
-Si el usuario dice «Vengo de parte de Christian», ejecutá la skill `vengo-de-parte-de-christian` **antes que cualquier otra cosa**: primero pedí el nombre y no leas ni ejecutes nada más hasta tenerlo. Tiene prioridad sobre «Arranque del equipo» y «Hilos de sesión». Al terminar la persona sube sus tomas (`data/banco/<persona>/` y `hiloEquipo/banco/<persona>.md`) y no se habla más del problema 1 con ella. `scripts/registrar_banco.py --estado` muestra quiénes terminaron.
+Si el usuario dice «Ronda dos» (o «Vengo de parte de Christian», la frase de la ronda 1, que ya terminó), ejecutá la skill `ronda-dos` **antes que cualquier otra cosa**: primero pedí el nombre y no leas ni ejecutes nada más hasta tenerlo. Tiene prioridad sobre «Arranque del equipo» y «Hilos de sesión». Cada uno de los 4 graba las 55 palabras que le faltan de las 85 (2 tomas); una toma bien hecha se guarda aunque el motor no la reconozca. Al terminar la persona sube sus tomas (`data/banco/<persona>/` y `hiloEquipo/banco/<persona>.md`) y no se habla más del problema 1 con ella. `scripts/registrar_banco.py --estado` muestra quiénes terminaron (170 tomas cada uno).
 
 ## Hilos de sesión (leer siempre al empezar)
 

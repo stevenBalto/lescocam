@@ -1,4 +1,4 @@
-"""Banco de prueba de palabras (problema 1, fase 1): tomas de webcam SOLO para medir.
+"""Banco de prueba de palabras (problema 1, fases 1 y 5): tomas de webcam para medir.
 
 Cada toma es un .npz con los landmarks crudos de DetectorCuerpo (formato v1 de
 core/cuerpo.a_arrays: manos, lado, score, pose, t, frame) más metadatos:
@@ -15,11 +15,19 @@ Ubicación: data/banco/<persona>/<NN>_<ETIQUETA>_<k>.npz  (NN = orden de la pala
 esa persona, data/reference/banco/<nombre>.txt; k = número de toma). Cada toma pesa ~100 KB: el banco
 SÍ se versiona (el límite del hook es 5 MB por archivo).
 
-Reparto (85 palabras iniciales): cada persona graba 30 = 12 del NÚCLEO común (las graban las 4, para
-comparar firmantes con las mismas palabras) + 18 propias. Cada lista va en 3 tandas de 10 (4 del núcleo
-+ 6 propias), y con --plan cada tanda cambia luz, distancia y ángulo (ver PLAN).
+Reparto (85 palabras iniciales):
+  Ronda 1 (fase 1): cada persona grabó 30 = 12 del NÚCLEO común (las grabaron las 4, para comparar
+      firmantes con las mismas palabras) + 18 propias, en 3 tandas de 10 (4 del núcleo + 6 propias).
+  Ronda 2 (fase 5): cada persona graba las 55 que le faltaban (tandas 4 a 9), así las 85 quedan
+      grabadas por las 4. Van al final de la misma lista, después de la marca "RONDA 2": el orden de
+      las primeras 30 no cambia y las tomas viejas conservan su número.
+Con --plan cada tanda de 10 cambia luz, distancia y ángulo (ver PLAN; se repite cada 3 tandas).
 
-NUNCA se usan como plantillas ni para entrenar: el banco existe para medir.
+Para qué sirven: medir. Desde la ronda 2, además, las tomas de una persona sirven de PLANTILLA para
+medir a las OTRAS (dejando una persona afuera: nunca se mide a alguien con sus propias tomas). No
+entran a senas.db ni se usan para entrenar hasta que se decida con esa medición.
+Por eso una toma bien hecha se guarda aunque el motor no la reconozca: repetir solo las que fallan
+inflaría el resultado.
 Se guardan landmarks, no video: no queda la cara de nadie.
 """
 from __future__ import annotations
@@ -67,9 +75,16 @@ def lista_de(persona: str, carpeta: Path = LISTAS) -> Path:
 
 
 def plan_de(indice: int) -> tuple[tuple[str, str, str], str, int]:
-    """((luz, distancia, angulo), instrucción, número de tanda 1..3) de la palabra `indice` (desde 0) de la lista."""
-    t = min(indice // PALABRAS_POR_TANDA, len(PLAN) - 1)
-    return PLAN[t][0], PLAN[t][1], t + 1
+    """((luz, distancia, angulo), instrucción, número de tanda desde 1) de la palabra `indice` (desde 0) de la lista.
+
+    Las condiciones se repiten cada len(PLAN) tandas (la tanda 4 es como la 1, la 5 como la 2...)."""
+    t = indice // PALABRAS_POR_TANDA
+    return PLAN[t % len(PLAN)][0], PLAN[t % len(PLAN)][1], t + 1
+
+
+def tandas(palabras: int) -> int:
+    """Cuántas tandas tiene una lista de `palabras` palabras (la última puede quedar corta)."""
+    return max(1, -(-palabras // PALABRAS_POR_TANDA))
 
 
 def limpiar_persona(nombre: str) -> str:
@@ -91,6 +106,17 @@ def _nombre(orden: int, etiqueta: str, toma: int) -> str:
 
 def carpeta_persona(persona: str, raiz: Path = CARPETA) -> Path:
     return raiz / limpiar_persona(persona)
+
+
+def otras_carpetas(persona: str, raiz: Path = CARPETA) -> list[str]:
+    """Carpetas del banco con el mismo nombre de pila pero otro nombre ('steven' si grabó como 'Steven Baltodano').
+    Si hay alguna, la persona está por partir sus tomas en dos carpetas: hay que usar el nombre de antes."""
+    propia = limpiar_persona(persona)
+    pila = propia.replace("_", "-").split("-")[0]
+    if not raiz.exists():
+        return []
+    return sorted(c.name for c in raiz.iterdir()
+                  if c.is_dir() and c.name != propia and c.name.replace("_", "-").split("-")[0] == pila)
 
 
 def contar_tomas(persona: str, orden: int, raiz: Path = CARPETA) -> int:

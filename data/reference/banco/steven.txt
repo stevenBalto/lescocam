@@ -1,6 +1,6 @@
 # Banco de prueba de Steven (problema 1, fase 1): 30 palabras en 3 tandas de 10.
 # Cada tanda = 4 palabras del NÚCLEO común (las graban los 4) + 6 propias.
-# Mismo formato que palabras_iniciales.txt. Las tomas son SOLO de prueba: nunca plantillas ni entrenamiento.
+# Mismo formato que palabras_iniciales.txt. Ronda 1 (fase 1): las primeras 30. Ronda 2 (fase 5): las otras 55, al final (ver core/banco.py).
 # Palabra de reserva del equipo (por si falla un video): LESCO.
 
 # Tanda 1
@@ -38,3 +38,74 @@ QUERER
 MAL
 AYUDAR
 TRABAJAR
+
+# ===== RONDA 2 (2026-11-12): las 55 palabras que le faltaban a Steven de las 85 =====
+# Con las 85 grabadas por los 4, las tomas de una persona sirven de plantilla para medir a LAS OTRAS
+# (dejando una persona afuera). Nunca se mide a alguien con sus propias tomas.
+
+# Tanda 4
+HOMBRE
+MUJER
+SORDO
+PROFESOR
+DOCTOR
+LUNES
+MARTES
+MIÉRCOLES
+VIERNES
+DOMINGO
+
+# Tanda 5
+AYER
+MAÑANA
+AHORA
+DÍA
+SEMANA
+NOCHE
+ROJO
+AZUL
+NEGRO
+BLANCO
+
+# Tanda 6
+LECHE
+CAFÉ (BEBIDA)
+CARNE
+HUEVO
+POLLO
+ESCUELA
+BAÑO
+HOSPITAL
+VENIR
+NECESITAR
+
+# Tanda 7
+SABER
+ESTUDIAR
+HABLAR
+VER
+DORMIR
+GUSTAR
+DÓNDE
+CUANDO
+QUIÉN
+LESCO
+
+# Tanda 8
+SEÑA
+ADIÓS/SALUDAR
+PERMISO
+BIENVENIDO
+ESTAR-BIEN
+BUENO
+FAMILIA
+PAPÁ
+HERMANO
+HIJO
+
+# Tanda 9
+ABUELO
+TÍO
+PRIMO
+ESPOSO
+PERSONA

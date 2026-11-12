@@ -1,6 +1,6 @@
 # Banco de prueba de Christian (problema 1, fase 1): 30 palabras. Incluye las 12 del NÚCLEO común.
 # Cada persona imita el video de CENAREC de estas palabras con scripts/grabar_banco.py.
-# Las tomas son SOLO de prueba: nunca plantillas ni datos de entrenamiento.
+# Ronda 1 (fase 1): las primeras 30. Ronda 2 (fase 5): las otras 55, al final (ver core/banco.py).
 # Mismo formato que palabras_iniciales.txt (etiqueta tal como en el catálogo de CENAREC).
 
 # Saludos y cortesía
@@ -48,3 +48,74 @@ QUERER
 AYUDAR
 ESTUDIAR
 DORMIR
+
+# ===== RONDA 2 (2026-11-12): las 55 palabras que le faltaban a Christian de las 85 =====
+# Con las 85 grabadas por los 4, las tomas de una persona sirven de plantilla para medir a LAS OTRAS
+# (dejando una persona afuera). Nunca se mide a alguien con sus propias tomas.
+
+# Tanda 4
+ADIÓS/SALUDAR
+PERMISO
+BIENVENIDO
+ESTAR-BIEN
+MAL
+FAMILIA
+HIJO
+HIJA
+TÍO
+PRIMO
+
+# Tanda 5
+ESPOSO
+PERSONA
+HOMBRE
+BEBÉ
+PROFESOR
+MARTES
+MIÉRCOLES
+JUEVES
+VIERNES
+SÁBADO
+
+# Tanda 6
+DOMINGO
+MAÑANA
+DÍA
+SEMANA
+AÑO
+NOCHE
+VERDE
+AMARILLO
+NEGRO
+BLANCO
+
+# Tanda 7
+PAN
+CARNE
+FRUTA
+HUEVO
+POLLO
+HOSPITAL
+COSTA-RICA
+IR
+VENIR
+NECESITAR
+
+# Tanda 8
+ENTENDER
+SABER
+HABLAR
+VER
+TRABAJAR
+GUSTAR
+QUÉ-PASAR
+CÓMO
+DÓNDE
+CUANDO
+
+# Tanda 9
+QUIÉN
+CUÁNTO
+LESCO
+SEÑA
+NOMBRE

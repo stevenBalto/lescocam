@@ -1,6 +1,7 @@
 """Revisa el banco de prueba de una persona y deja constancia en hiloEquipo/banco/<nombre>.md.
 
-Comprueba que estén las 30 palabras de su lista con todas sus tomas, que cada toma diga con qué cámara se
+Comprueba que estén todas las palabras de su lista (las 30 de la ronda 1 y las 55 de la ronda 2) con todas
+sus tomas, que cada toma diga con qué cámara se
 grabó y que no haya tomas de palabras ajenas. Si está completo mide el motor actual con sus tomas
 (scripts/evaluar_banco.py) y escribe el registro: fecha, cámara, sistema, tomas, condiciones y resultado.
 Cada persona escribe SOLO su archivo, así no hay conflictos al hacer push.
@@ -73,7 +74,7 @@ def registro_md(r: dict, metricas: Optional[dict], hoy: Optional[str] = None) ->
             f"- **Luz:** {_tabla(r['luz'])}\n- **Distancia:** {_tabla(r['distancia'])}\n- **Ángulo:** {_tabla(r['angulo'])}\n\n"
             f"## Palabras\n\n{', '.join(r['lista'])}\n\n"
             f"## Resultado del motor actual con estas tomas\n\n{resultado}\n"
-            "Las tomas son solo de prueba: nunca plantillas ni entrenamiento. Datos en `data/banco/"
+            "Las tomas son para medir; sirven de plantilla solo para medir a las otras personas. Datos en `data/banco/"
             f"{r['persona']}/`.\n")
 
 

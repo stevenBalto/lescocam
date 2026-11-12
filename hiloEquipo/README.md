@@ -34,7 +34,9 @@ Después:
 - [x] ~~**Fase 2 — Nombre de la fase**~~ ✅ 2026-11-05 — evidencia: top-1 = 91 % en el banco de prueba
 ```
 
-## Banco de prueba (problema 1, fase 1)
+## Banco de prueba (problema 1)
+
+**Ronda 2 (fase 5, abierta):** los 4 graban las 55 palabras que les faltan de las 85. Se arranca diciéndole a Claude: **«Ronda dos»** (skill `ronda-dos`). Lo de abajo es la ronda 1, que terminó el 2026-11-11.
 
 Steven, Reyman y Johan graban 30 palabras cada uno. Se arranca diciéndole a Claude: **«Vengo de parte de Christian»** (skill `vengo-de-parte-de-christian`). Pide tu nombre, te muestra tus 30 palabras y los pasos, abre el grabador y al final registra tus tomas y te deja listo el push. Solo subís `data/banco/<tu carpeta>/` y `hiloEquipo/banco/<tu nombre>.md`.
 

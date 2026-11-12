@@ -47,8 +47,17 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
 - [ ] **Fase 5 — Integrar y medir**
   Conectar el modelo al motor y medir contra el banco de prueba.
   **Hecho cuando:** ≥ 95 % top-1 con ≤ 2 % de aceptaciones erróneas. Si no se llega, se itera sobre la fase que más pese.
+  **Avance (2026-11-12, sigue abierta; la meta de 95 % no se cambia):**
+  - Motor sin modelo (lo que hoy puede ir en la app): `DURACION_MAX` 4 → 6 s, top-1 64.2 → 67.1 %, aceptación errónea 0.4 %.
+  - Modelo entrenado con ASL Citizen + DTW: top-1 ~80 % (un modelo 75–83 % según la semilla; ensamble de 4: 80.8 %), top-3 95 %. Aceptando solo cuando DTW y modelo coinciden, la aceptación errónea baja de 5 % a 2.1 % (ensamble 0.8 %).
+  - **El modelo de ASL Citizen no va en el producto** (licencia de Microsoft: solo investigación). Decisión de Christian: nada del producto depende de Microsoft; queda como herramienta de laboratorio.
+  - Medido y descartado: rasgos nuevos a mano para el DTW, normalizar por persona, meter las palabras LESCO en el entrenamiento, PopSign solo (250 señas: ~65 %).
+  - **Lo que sigue — ronda 2 del banco:** cada uno de los 4 graba las 55 palabras que le faltan (frase «Ronda dos», skill `ronda-dos`). Con las 85 grabadas por los 4 se mide a cada persona con las tomas de las otras 3 como plantilla (en las 12 del núcleo eso sube el DTW de 82 a 92 %, sin licencia de por medio). Una toma bien hecha se guarda aunque el motor no la reconozca. Estado: `scripts/registrar_banco.py --estado` (170 tomas por persona).
 
 ## Notas
 
+- **Producto inicial (Christian, 2026-11-12):** no son las 85 palabras; la idea es llegar a todas las del CENAREC (1072) y Hands-On (~2100). Las 85 son el banco con el que se mide.
+- Señas encadenadas sin bajar las manos: todavía no se pueden; queda pendiente.
+
 - Si Steven cambia el detector (problema 3), hay que re-extraer en la fase 3.
-- Pista opcional (cualquiera con tiempo): avatar 3D para generar variedad de cuerpo y cámara pasando por el detector real.
+- Pista opcional (cualquiera con tiempo): avatar 3D para generar variedad de cuerpo y cámara pasando por el detector real. Christian (2026-11-12): se deja como alternativa para después del producto inicial, para sumar vocabulario.

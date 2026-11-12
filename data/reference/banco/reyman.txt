@@ -1,6 +1,6 @@
 # Banco de prueba de Reyman (problema 1, fase 1): 30 palabras en 3 tandas de 10.
 # Cada tanda = 4 palabras del NÚCLEO común (las graban los 4) + 6 propias.
-# Mismo formato que palabras_iniciales.txt. Las tomas son SOLO de prueba: nunca plantillas ni entrenamiento.
+# Mismo formato que palabras_iniciales.txt. Ronda 1 (fase 1): las primeras 30. Ronda 2 (fase 5): las otras 55, al final (ver core/banco.py).
 # Palabra de reserva del equipo (por si falla un video): LESCO.
 
 # Tanda 1
@@ -38,3 +38,74 @@ QUERER
 MAÑANA
 AYUDAR
 VENIR
+
+# ===== RONDA 2 (2026-11-12): las 55 palabras que le faltaban a Reyman de las 85 =====
+# Con las 85 grabadas por los 4, las tomas de una persona sirven de plantilla para medir a LAS OTRAS
+# (dejando una persona afuera). Nunca se mide a alguien con sus propias tomas.
+
+# Tanda 4
+VERDE
+AMARILLO
+NEGRO
+LECHE
+CAFÉ (BEBIDA)
+PAN
+FRUTA
+HUEVO
+ESCUELA
+BAÑO
+
+# Tanda 5
+HOSPITAL
+COSTA-RICA
+IR
+ENTENDER
+SABER
+ESTUDIAR
+HABLAR
+VER
+DORMIR
+TRABAJAR
+
+# Tanda 6
+QUÉ-PASAR
+CÓMO
+CUANDO
+QUIÉN
+CUÁNTO
+LESCO
+NOMBRE
+PERMISO
+ESTAR-BIEN
+BUENO
+
+# Tanda 7
+MAL
+FAMILIA
+PAPÁ
+HERMANO
+HIJA
+ABUELO
+TÍO
+PRIMO
+MUJER
+BEBÉ
+
+# Tanda 8
+SORDO
+PROFESOR
+DOCTOR
+LUNES
+MIÉRCOLES
+JUEVES
+SÁBADO
+DOMINGO
+AYER
+AHORA
+
+# Tanda 9
+SEMANA
+AÑO
+NOCHE
+ROJO
+AZUL

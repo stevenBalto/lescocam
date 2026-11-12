@@ -1,6 +1,6 @@
 # Banco de prueba de Johan (problema 1, fase 1): 30 palabras en 3 tandas de 10.
 # Cada tanda = 4 palabras del NÚCLEO común (las graban los 4) + 6 propias.
-# Mismo formato que palabras_iniciales.txt. Las tomas son SOLO de prueba: nunca plantillas ni entrenamiento.
+# Mismo formato que palabras_iniciales.txt. Ronda 1 (fase 1): las primeras 30. Ronda 2 (fase 5): las otras 55, al final (ver core/banco.py).
 # Palabra de reserva del equipo (por si falla un video): LESCO.
 
 # Tanda 1
@@ -38,3 +38,74 @@ QUERER
 SEMANA
 AYUDAR
 VER
+
+# ===== RONDA 2 (2026-11-12): las 55 palabras que le faltaban a Johan de las 85 =====
+# Con las 85 grabadas por los 4, las tomas de una persona sirven de plantilla para medir a LAS OTRAS
+# (dejando una persona afuera). Nunca se mide a alguien con sus propias tomas.
+
+# Tanda 4
+NECESITAR
+ENTENDER
+ESTUDIAR
+DORMIR
+TRABAJAR
+GUSTAR
+QUÉ-PASAR
+CÓMO
+DÓNDE
+CUÁNTO
+
+# Tanda 5
+LESCO
+SEÑA
+NOMBRE
+ADIÓS/SALUDAR
+BIENVENIDO
+BUENO
+MAL
+PAPÁ
+HERMANO
+HIJO
+
+# Tanda 6
+HIJA
+ABUELO
+ESPOSO
+PERSONA
+HOMBRE
+MUJER
+BEBÉ
+SORDO
+DOCTOR
+LUNES
+
+# Tanda 7
+MARTES
+JUEVES
+VIERNES
+SÁBADO
+AYER
+MAÑANA
+AHORA
+DÍA
+AÑO
+ROJO
+
+# Tanda 8
+AZUL
+VERDE
+AMARILLO
+BLANCO
+LECHE
+CAFÉ (BEBIDA)
+PAN
+CARNE
+FRUTA
+POLLO
+
+# Tanda 9
+ESCUELA
+BAÑO
+COSTA-RICA
+IR
+VENIR

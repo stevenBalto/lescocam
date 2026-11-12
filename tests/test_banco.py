@@ -55,9 +55,10 @@ def test_listas_de_las_cuatro_personas():
     from scripts.extraer_cenarec import leer_lista
     iniciales = set(leer_lista())
     todas = {p: banco.leer_lista(banco.lista_de(p)) for p in banco.PERSONAS}
-    for p, lista in todas.items():
-        assert len(lista) == 30 and len(set(lista)) == 30, p
-        assert set(lista) <= iniciales, p
+    for p, lista in todas.items():                             # ronda 2: las 85, cada una una sola vez
+        assert len(lista) == 85 and set(lista) == iniciales, p
+    assert len({tuple(l[30:40]) for l in todas.values()}) == 4   # cada persona arranca la ronda 2 en otro punto
+    todas = {p: l[:30] for p, l in todas.items()}              # ronda 1: las primeras 30 no cambian
     cuenta = Counter(e for l in todas.values() for e in l)
     nucleo = {e for e, n in cuenta.items() if n == 4}
     assert len(nucleo) == 12                                   # las graban los 4
@@ -67,6 +68,17 @@ def test_listas_de_las_cuatro_personas():
         for t in range(3):
             tanda = todas[p][t * 10:(t + 1) * 10]
             assert sum(e in nucleo for e in tanda) == 4, (p, t)
+
+
+def test_otras_carpetas_avisa_si_la_persona_cambia_de_nombre(tmp_path):
+    banco.guardar_toma(_cuadros(), "HOLA", 1, "Steven Baltodano", "buena", "media", "frente", tmp_path)
+    banco.guardar_toma(_cuadros(), "HOLA", 1, "Reyman Barquero", "buena", "media", "frente", tmp_path)
+    assert banco.otras_carpetas("Steven Baltodano", tmp_path) == []
+    assert banco.otras_carpetas("Steven", tmp_path) == ["steven-baltodano"]
+    assert banco.otras_carpetas("steven_b", tmp_path) == ["steven-baltodano"]
+    assert banco.otras_carpetas("Stevenson Perez", tmp_path) == []      # otro nombre de pila
+    assert banco.otras_carpetas("Ana", tmp_path / "no-existe") == []
+    assert grabar_banco.main(["Steven", "--camara-nombre", "x", "--destino", str(tmp_path)]) == 1   # no abre la cámara
 
 
 def test_lista_de_por_nombre_de_pila():
@@ -84,6 +96,9 @@ def test_plan_por_tandas():
     assert banco.plan_de(0)[0] == ("buena", "media", "frente") and banco.plan_de(0)[2] == 1
     assert banco.plan_de(9)[2] == 1 and banco.plan_de(10)[2] == 2 and banco.plan_de(20)[2] == 3
     assert banco.plan_de(29)[0] == ("baja", "media", "lado")
+    assert banco.plan_de(30)[0] == banco.plan_de(0)[0] and banco.plan_de(30)[2] == 4   # ronda 2: se repite cada 3 tandas
+    assert banco.plan_de(84)[0] == banco.plan_de(20)[0] and banco.plan_de(84)[2] == 9
+    assert banco.tandas(30) == 3 and banco.tandas(85) == 9 and banco.tandas(0) == 1
     for cond, _ in banco.PLAN:
         assert cond[0] in banco.LUCES and cond[1] in banco.DISTANCIAS and cond[2] in banco.ANGULOS
 

@@ -1,11 +1,11 @@
-"""Graba el banco de prueba de palabras (problema 1, fase 1) imitando los videos de CENAREC.
+"""Graba el banco de prueba de palabras (problema 1, fases 1 y 5) imitando los videos de CENAREC.
 
-Las tomas son SOLO para medir (nunca plantillas ni entrenamiento). No hace falta
-saber LESCO: se mira el video de la izquierda y se imita. Se guardan landmarks
-(manos + pose, formato v1), no video. Formato y ubicación: core/banco.py.
+Las tomas son para medir (y, desde la ronda 2, de plantilla para medir a las otras personas; ver
+core/banco.py). No hace falta saber LESCO: se mira el video de la izquierda y se imita. Se guardan
+landmarks (manos + pose, formato v1), no video. Formato y ubicación: core/banco.py.
 
-Cada persona tiene su lista de 30 palabras (data/reference/banco/<nombre>.txt): 12 del núcleo común
-(las graban los 4) + 18 propias, en 3 tandas de 10. Por cada palabra se graban --tomas tomas.
+Cada persona tiene su lista (data/reference/banco/<nombre>.txt): las 30 de la ronda 1 (12 del núcleo
+común + 18 propias) y las 55 de la ronda 2, en tandas de 10. Por cada palabra se graban --tomas tomas.
 Cada toma dura CAPTURA_S segundos: empezar con las manos abajo (en reposo), hacer
 la seña UNA vez y volver a bajar las manos. No se muestra si el motor la reconoce
 (para no elegir solo las buenas); solo se avisa si no se ve el cuerpo.
@@ -140,6 +140,11 @@ def main(argv=None) -> int:
         print("Ninguna palabra coincide con la lista del banco.")
         return 1
     persona = banco.limpiar_persona(a.persona)
+    otras = banco.otras_carpetas(persona, a.destino)
+    if otras:
+        print(f"Ya hay tomas tuyas con otro nombre en {a.destino / otras[0]}.\n"
+              f"  Usá el mismo nombre de la vez pasada (así quedan todas en una sola carpeta): \"{otras[0]}\"")
+        return 1
     orden = {p: todas.index(p) + 1 for p in palabras}
     cat = catalogo()
     faltan = [p for p in palabras if p not in cat]
@@ -187,7 +192,7 @@ def main(argv=None) -> int:
             etiqueta = palabras[i]
             if a.plan and i != i_previa:
                 (luz, distancia, angulo), instruccion, n_tanda = banco.plan_de(todas.index(etiqueta))
-                tanda_txt = f"TANDA {n_tanda}/3: {instruccion}"
+                tanda_txt = f"TANDA {n_tanda}/{banco.tandas(len(todas))}: {instruccion}"
             i_previa = i
             hechas = banco.contar_tomas(persona, orden[etiqueta], a.destino)
 
