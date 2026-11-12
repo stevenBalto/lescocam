@@ -1,0 +1,15 @@
+# Solo para entrenar el modelo de señas (problema 1, fase 4). La app y el escritorio NO lo necesitan.
+# Auditado con pip-audit (2026-11-11). torch viene del índice de PyTorch con CUDA 13:
+#   .venv/Scripts/pip install -r requirements-train.txt --extra-index-url https://download.pytorch.org/whl/cu130
+# (setuptools >= 84.1.0: las anteriores tienen fallas conocidas; torch 2.11 exigía < 82, por eso 2.14.1)
+-r requirements.txt
+torch==2.14.1+cu130
+setuptools==84.2.1
+filelock==4.2.9
+fsspec==2026.9.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+mpmath==1.3.0
+networkx==3.7
+sympy==1.14.0
+typing_extensions==4.16.0

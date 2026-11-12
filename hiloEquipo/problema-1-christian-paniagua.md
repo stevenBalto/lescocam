@@ -35,9 +35,14 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
   **Hecho cuando:** hay un archivo de landmarks listo para entrenar.
   **Evidencia:** licencia aceptada por Christian. Zip completo (45 924 134 223 bytes). 15 000 videos (12 278 train, 2 722 val; el split test no se toca), 2 731 glosas, 41 firmantes, 0 errores, 2 h 02 min. `data/dictionary/asl_citizen/landmarks_v1.npz`: 674 722 cuadros, 190 MB, cuerpo en 99.88 % de los cuadros, alguna mano en 43 %, dos manos en 20 %. Scripts `extraer_asl_citizen.py` y `construir_landmarks_asl.py` con 17 tests (suite 355). Todo `data/dictionary/` está ignorado por git. **Obligación de la licencia:** al terminar la investigación se borra `data/dictionary/asl_citizen/` (zip, extracción y `landmarks_v1.npz`).
 
-- [ ] **Fase 4 — Entrenar el modelo**
+- [x] **Fase 4 — Entrenar el modelo** *(cerrada 2026-11-11)*
   Embedding sobre landmarks, entrenado en la RTX A500 de Christian. Reconocimiento por búsqueda vectorial contra las plantillas del CENAREC.
   **Hecho cuando:** el modelo entrena y reconoce señas del CENAREC por similitud.
+  **Evidencia:** entrada = el mismo descriptor v3 crudo del motor (24 × 83), sacado con el `Segmentador` de 14 950 videos de ASL (`scripts/descriptores_asl.py`). Red convolucional de 0,44 M parámetros, ArcFace, vector de 128 (`scripts/modelo_senas.py`, `scripts/entrenar_embedding.py`); entrena en ~20 s en la RTX A500 (PyTorch 2.14.1 CUDA 13, `requirements-train.txt`). Resultados:
+  - CENAREC (cada repetición contra las demás): modelo **100 %**, DTW actual 98.8 %.
+  - 410 glosas que el modelo nunca vio, con personas que no vio, 1 video de referencia por glosa (lo más parecido a LESCO): DTW 38 %, modelo 44 %, **modelo + DTW 47 %** (800 consultas al azar; top-5 59 % → 67 %).
+  - Con más épocas sobreajusta (la pérdida va a ~0); el límite actual son los datos (~4 videos por glosa). Si la fase 5 no llega, extraer los ~28 mil videos de train que faltan de ASL Citizen (~4 h).
+  Modelo en `data/dictionary/asl_citizen/modelo/` (ignorado por git; no se distribuye hasta revisar la licencia).
 
 - [ ] **Fase 5 — Integrar y medir**
   Conectar el modelo al motor y medir contra el banco de prueba.
