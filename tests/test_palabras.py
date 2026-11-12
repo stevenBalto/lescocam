@@ -157,8 +157,14 @@ def test_corta_las_dos_repeticiones(formas):
 def test_descarta_muy_cortas_y_muy_largas(formas):
     corta = reposo(0, 1.0) + sena(formas, 1.0, duracion=0.2) + reposo(1.2, 1.0)
     assert P.segmentar(palabra_cuadros(corta), [c.t for c in corta]) == []
-    larga = reposo(0, 1.0) + sena(formas, 1.0, duracion=P.DURACION_MAX + 1.5) + reposo(6.5, 1.0)
+    larga = reposo(0, 1.0) + sena(formas, 1.0, duracion=P.DURACION_MAX + 1.5) + reposo(1.0 + P.DURACION_MAX + 1.5, 1.0)
     assert P.segmentar(palabra_cuadros(larga), [c.t for c in larga]) == []
+
+
+def test_sena_larga_bajo_el_maximo_si_se_segmenta(formas):
+    d = P.DURACION_MAX - 1.0
+    flujo = reposo(0, 1.0) + sena(formas, 1.0, duracion=d) + reposo(1.0 + d, 1.0)
+    assert len(P.segmentar(palabra_cuadros(flujo), [c.t for c in flujo])) == 1
 
 
 def test_sin_cuerpo_mucho_rato_corta_la_sena(formas):

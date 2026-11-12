@@ -173,6 +173,106 @@ def test_metricas():
     assert EB.metricas([], pu) == {"n": 0}
 
 
+def _fila(dtw, modelo, etiqueta="hola"):
+    return {"etiqueta": etiqueta, "grupo": 0, "persona": "p", "duracion": 1.0,
+            "puntajes": {"dtw": np.array(dtw, float), "modelo": np.array(modelo, float)}}
+
+
+def test_decisiones_coinciden():
+    pu = fake()
+    # etiquetas: hola, gracias, A
+    f_si = _fila([5, 1, 0], [4, 1, 0])           # los dos y la suma eligen hola
+    f_no = _fila([5, 1, 0], [0, 4, 1])           # dtw hola, modelo gracias
+    f_suma = _fila([5, 4, 0], [0, 4, 1], "gracias")   # dtw hola, modelo gracias
+    r = EB.decisiones([f_si, f_no, f_suma], pu, 0.5)
+    assert r[0]["coinciden"] is True and r[0]["mejor"] == "hola"
+    assert r[1]["coinciden"] is False
+    assert r[2]["coinciden"] is False
+    # con peso 0.5 la suma puede diferir de ambos aunque dtw y modelo coincidan entre si
+    f_dif = _fila([3, 1, 2], [3, 1, 2])
+    assert EB.decisiones([f_dif], pu, 0.5)[0]["coinciden"] is True
+    sin = {"etiqueta": "hola", "grupo": 0, "persona": "p", "duracion": 0.0, "puntajes": None}
+    assert EB.decisiones([sin], pu, 0.5)[0]["hubo_sena"] is False
+
+
+def test_aceptada_coincidir():
+    pu = fake()
+    no = dec()
+    no["coinciden"] = False
+    assert EB.aceptada(no, pu, 1.0, 0.5, coincidir=True) is None
+    assert EB.aceptada(no, pu, 1.0, 0.5, coincidir=False) == "hola"
+    assert EB.aceptada(no, pu, 1.0, 0.5) == "hola"
+    si = dec()
+    si["coinciden"] = True
+    assert EB.aceptada(si, pu, 1.0, 0.5, coincidir=True) == "hola"
+    assert EB.aceptada(dec(), pu, 1.0, 0.5, coincidir=True) == "hola"    # clave ausente = True
+
+
+def test_metricas_y_ajustar_con_coincidir():
+    pu = fake()
+    mal = dec(mejor="gracias", s1=3.0)
+    mal["coinciden"] = False
+    bien = dec(s1=2.0)
+    bien["coinciden"] = True
+    no_coincide_bien = dec(s1=2.0)
+    no_coincide_bien["coinciden"] = False
+    ds = [mal, bien, no_coincide_bien]
+    r = EB.metricas(ds, pu, 1.0, 0.5, coincidir=True)
+    assert r["aceptada_bien"] == pytest.approx(1 / 3) and r["aceptacion_erronea"] == 0
+    r = EB.metricas(ds, pu, 1.0, 0.5, coincidir=False)
+    assert r["aceptada_bien"] == pytest.approx(2 / 3) and r["aceptacion_erronea"] == pytest.approx(1 / 3)
+    # ajustar con tope 0: sin coincidir el umbral tiene que subir sobre 3.0 para evitar el error;
+    # con coincidir el error ya no cuenta y el umbral baja a 2.0
+    assert EB.ajustar(ds, pu, 0.0, coincidir=True)[0] == pytest.approx(2.0)
+    assert EB.metricas(ds, pu, *EB.ajustar(ds, pu, 0.0, coincidir=False), False)["aceptacion_erronea"] == 0
+
+
+def test_ajustar_y_validaciones_sin_tomas():
+    pu = fake()
+    assert EB.ajustar([], pu, 0.01) == (np.inf, 0.0)
+    assert EB._json({"u": np.inf, "l": [1.0, float("nan")], "n": 3}) == {"u": None, "l": [1.0, None], "n": 3}
+
+
+def _persona(nombre, s1_bien, s1_mal):
+    r = _mezcla(0, s1_bien, s1_mal)
+    for d in r:
+        d["persona"] = nombre
+    return r
+
+
+def test_validacion_por_persona_ajusta_solo_con_las_demas():
+    pu = fake()
+    # a y b: bien 2.0 / mal 1.0 -> umbral 2.0. c: bien 1.5 / mal 1.0 (si se usara c el umbral bajaria a 1.5)
+    ds = _persona("a", 2.0, 1.0) + _persona("b", 2.0, 1.0) + _persona("c", 1.5, 1.0)
+    r = EB.validacion_por_persona(ds, pu, 0.0)
+    assert r["c"]["umbral"] == pytest.approx(2.0)                 # sale de a+b
+    assert r["c"]["validacion"]["aceptada_bien"] == 0              # 2.0 rechaza las de 1.5
+    assert r["a"]["umbral"] == pytest.approx(1.5)                  # sale de b+c, no de a
+    assert r["a"]["validacion"]["aceptada_bien"] == 0.5
+    for p in "abc":
+        assert {"umbral", "margen", "validacion"} <= set(r[p])
+    v = r["validacion_total"]
+    assert v["n"] == len(ds) == 12
+    assert v["aceptacion_erronea"] == 0
+    assert v["aceptada_bien"] == pytest.approx(4 / 12)
+
+
+def test_validacion_por_persona_con_coincidir():
+    pu = fake()
+    ds = _persona("a", 2.0, 1.0) + _persona("b", 2.0, 1.0)
+    for d in ds:
+        d["coinciden"] = d["mejor"] == "hola"
+    r = EB.validacion_por_persona(ds, pu, 0.0, coincidir=True)
+    assert r["validacion_total"]["n"] == 8 and r["validacion_total"]["aceptacion_erronea"] == 0
+    assert r["a"]["umbral"] <= 2.0
+
+
+def test_validacion_cruzada_sin_argumento_coincidir_igual():
+    pu = fake()
+    ds = _mezcla(0, 2.0, 1.0) + _mezcla(1, 1.8, 1.0)
+    assert EB.validacion_cruzada(ds, pu, 0.0) == EB.validacion_cruzada(ds, pu, 0.0, coincidir=False)
+
+
 def _mezcla(grupo, s1_bien, s1_mal):
     return [dec(grupo=grupo, s1=s1_bien), dec(grupo=grupo, s1=s1_bien),
             dec(grupo=grupo, mejor="gracias", s1=s1_mal), dec(grupo=grupo, mejor="gracias", s1=s1_mal)]

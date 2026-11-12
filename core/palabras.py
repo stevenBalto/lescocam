@@ -120,7 +120,11 @@ T_ARRANQUE = 0.10          # tanto tiempo fuera del reposo = empieza la seña
 T_FIN = 0.25               # tanto tiempo los dos brazos en reposo = terminó
 PREVIOS = 0.15             # la seña arranca un poco antes (la mano ya venía subiendo)
 DURACION_MIN = 0.35
-DURACION_MAX = 4.0         # más largo = no es una palabra (deletreo, la mano quieta arriba)
+DURACION_MAX = 6.0         # más largo = no es una palabra (deletreo, la mano quieta arriba). 4 -> 6 (2026-11-12):
+                           # en el banco 8 de las 10 tomas "sin seña" tenían las manos arriba entre 4 y 6 s;
+                           # con 6 (solo DTW): top-1 64.2 -> 67.1 %, sin seña 4.2 -> 0.4 %, aceptación errónea igual
+                           # (0.4 %). Pendiente: medirlo con deletreo real (una letra sostenida 4-6 s ahora llega al
+                           # comparador; la frenan el umbral y el margen, no hay control de duración máxima)
 HUECO_MAX = 0.5            # sin cuerpo más tiempo que esto corta la seña
 # Reposo RELATIVO (v3): cada brazo descansa donde descansa esa persona con esa cámara. Nivel de reposo =
 # percentil PERCENTIL_REPOSO de la altura de la muñeca en los últimos VENTANA_REPOSO s (sin muñeca = ABAJO);

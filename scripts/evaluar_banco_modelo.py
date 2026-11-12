@@ -12,9 +12,16 @@ Por etiqueta vale su mejor plantilla y la mejor variante de espejo de la toma.
 
 ACEPTAR (decir la palabra): la mejor etiqueta tiene que ser una palabra (no una letra), su puntaje
 >= UMBRAL, ventaja sobre la 2.ª >= MARGEN y la duración no menor que DURACION_RELATIVA_MIN x la
-plantilla más corta. UMBRAL y MARGEN se AJUSTAN con dos personas y se VALIDAN con las otras dos
-(christian+steven <-> reyman+johan): el número que vale es el de validación. Criterio de ajuste:
-la mayor tasa de "dice bien" con aceptación errónea <= --tope-erronea en las personas de ajuste.
+plantilla más corta. En la suma, además, el DTW y el modelo tienen que COINCIDIR en la primera
+(--sin-coincidir lo quita): con los dos de acuerdo la aceptación errónea baja de ~5 % a ~1 %.
+UMBRAL y MARGEN se AJUSTAN con unas personas y se VALIDAN con otras; el número que vale es el
+de validación. Dos formas:
+    por persona   se ajusta con todas menos una y se valida con esa (una ronda por persona): la
+                  que vale, usa más tomas para ajustar y no depende de cómo se armen los grupos
+    por grupos    christian+steven <-> reyman+johan (la de antes; un grupo fácil ajusta umbrales
+                  flojos para el difícil)
+Criterio de ajuste: la mayor tasa de "dice bien" con aceptación errónea <= --tope-erronea en las
+personas de ajuste.
 
 Uso:
     .venv/Scripts/python -m scripts.evaluar_banco_modelo
@@ -121,7 +128,9 @@ def decisiones(filas: list[dict], puntuador: Puntuador, peso: float) -> list[dic
             s = combinar(f["puntajes"], peso)
             orden = np.argsort(-s)
             pal = [i for i in orden if puntuador.es_palabra[i]]
+            p = f["puntajes"]
             d.update(top=[puntuador.etiquetas[i] for i in pal[:3]], mejor=puntuador.etiquetas[orden[0]],
+                     coinciden=bool(int(np.argmax(p["dtw"])) == int(np.argmax(p["modelo"])) == int(orden[0])),
                      s1=float(s[orden[0]]), ventaja=float(s[orden[0]] - s[orden[1]]),
                      corta=_corta(puntuador, puntuador.etiquetas[orden[0]], f["duracion"]))
         salida.append(d)
@@ -133,53 +142,95 @@ def _corta(puntuador: Puntuador, palabra: str, duracion: float) -> bool:
     return minimo is not None and duracion < P.DURACION_RELATIVA_MIN * minimo
 
 
-def aceptada(d: dict, puntuador: Puntuador, umbral: float, margen: float) -> Optional[str]:
+def aceptada(d: dict, puntuador: Puntuador, umbral: float, margen: float, coincidir: bool = False) -> Optional[str]:
+    """La palabra que se diría, o None. coincidir=True: además el DTW y el modelo eligen la misma."""
     if not d["hubo_sena"] or d["corta"] or puntuador.categorias[d["mejor"]] != "palabra":
+        return None
+    if coincidir and not d.get("coinciden", True):
         return None
     return d["mejor"] if d["s1"] >= umbral and d["ventaja"] >= margen else None
 
 
-def metricas(ds: list[dict], puntuador: Puntuador, umbral: float = np.inf, margen: float = 0.0) -> dict:
+def metricas(ds: list[dict], puntuador: Puntuador, umbral: float = np.inf, margen: float = 0.0,
+             coincidir: bool = False) -> dict:
     n = len(ds)
     if not n:
         return {"n": 0}
     top1 = sum(1 for d in ds if d["hubo_sena"] and d["top"][0] == d["etiqueta"])
     top3 = sum(1 for d in ds if d["hubo_sena"] and d["etiqueta"] in d["top"])
-    dichas = [aceptada(d, puntuador, umbral, margen) for d in ds]
+    dichas = [aceptada(d, puntuador, umbral, margen, coincidir) for d in ds]
     bien = sum(1 for d, a in zip(ds, dichas) if a == d["etiqueta"])
     mal = sum(1 for d, a in zip(ds, dichas) if a is not None and a != d["etiqueta"])
     return {"n": n, "top1": top1 / n, "top3": top3 / n, "aceptada_bien": bien / n, "aceptacion_erronea": mal / n}
 
 
-def ajustar(ds: list[dict], puntuador: Puntuador, tope: float) -> tuple[float, float]:
-    """(umbral, margen) con más 'dice bien' y errónea <= tope en estas tomas."""
+def ajustar(ds: list[dict], puntuador: Puntuador, tope: float, coincidir: bool = False) -> tuple[float, float]:
+    """(umbral, margen) con más 'dice bien' y errónea <= tope en estas tomas. Sin tomas: (inf, 0) = no aceptar nada."""
     con = [d for d in ds if d["hubo_sena"]]
+    if not con:
+        return np.inf, 0.0
     umbrales = sorted({float(np.floor(d["s1"] * 1000) / 1000) for d in con}) or [np.inf]   # floor: el umbral no rechaza su toma
     margenes = np.unique(np.quantile([d["ventaja"] for d in con], np.linspace(0, 0.95, 40))) if con else [0.0]
     mejor = (-1.0, -1.0, np.inf, 0.0)
     for m in margenes:
         for u in umbrales[::max(1, len(umbrales) // 120)]:
-            r = metricas(ds, puntuador, u, m)
+            r = metricas(ds, puntuador, u, m, coincidir)
             if r["aceptacion_erronea"] <= tope and (r["aceptada_bien"], -u) > (mejor[0], mejor[1]):
                 mejor = (r["aceptada_bien"], -u, u, float(m))
     return mejor[2], mejor[3]
 
 
-def validacion_cruzada(ds: list[dict], puntuador: Puntuador, tope: float) -> dict:
+def _total(validadas: list, puntuador: Puntuador, coincidir: bool) -> dict:
+    n = len(validadas)
+    bien = sum(1 for d, u, m in validadas if aceptada(d, puntuador, u, m, coincidir) == d["etiqueta"])
+    mal = sum(1 for d, u, m in validadas if aceptada(d, puntuador, u, m, coincidir) not in (None, d["etiqueta"]))
+    return {"n": n, "aceptada_bien": bien / max(n, 1), "aceptacion_erronea": mal / max(n, 1)}
+
+
+def validacion_cruzada(ds: list[dict], puntuador: Puntuador, tope: float, coincidir: bool = False) -> dict:
     """Ajusta con un grupo, mide con el otro, y al revés; suma las tomas de validación."""
     resultado, validadas = {}, []
     for g in (0, 1):
         ajuste = [d for d in ds if d["grupo"] == g]
         valida = [d for d in ds if d["grupo"] == 1 - g]
-        u, m = ajustar(ajuste, puntuador, tope)
+        u, m = ajustar(ajuste, puntuador, tope, coincidir)
         validadas += [(d, u, m) for d in valida]
-        resultado[f"ajuste_{'+'.join(GRUPOS[g])}"] = {"umbral": u, "margen": m, "ajuste": metricas(ajuste, puntuador, u, m),
-                                                      "validacion": metricas(valida, puntuador, u, m)}
-    n = len(validadas)
-    bien = sum(1 for d, u, m in validadas if aceptada(d, puntuador, u, m) == d["etiqueta"])
-    mal = sum(1 for d, u, m in validadas if aceptada(d, puntuador, u, m) not in (None, d["etiqueta"]))
-    resultado["validacion_total"] = {"n": n, "aceptada_bien": bien / max(n, 1), "aceptacion_erronea": mal / max(n, 1)}
+        resultado[f"ajuste_{'+'.join(GRUPOS[g])}"] = {"umbral": u, "margen": m,
+                                                      "ajuste": metricas(ajuste, puntuador, u, m, coincidir),
+                                                      "validacion": metricas(valida, puntuador, u, m, coincidir)}
+    resultado["validacion_total"] = _total(validadas, puntuador, coincidir)
     return resultado
+
+
+def validacion_por_persona(ds: list[dict], puntuador: Puntuador, tope: float, coincidir: bool = False) -> dict:
+    """Una ronda por persona: se ajusta con todas las demás y se valida con ella (nunca con sus propias tomas).
+
+    Entran todas las personas del banco (también las que no están en GRUPOS). "mas_estricto" = el umbral
+    y el margen más altos de las rondas: lo que conviene dejar fijo en el motor."""
+    resultado, validadas = {}, []
+    for persona in sorted({d["persona"] for d in ds}):
+        ajuste = [d for d in ds if d["persona"] != persona]
+        valida = [d for d in ds if d["persona"] == persona]
+        u, m = ajustar(ajuste, puntuador, tope, coincidir)
+        validadas += [(d, u, m) for d in valida]
+        resultado[persona] = {"umbral": u, "margen": m, "validacion": metricas(valida, puntuador, u, m, coincidir)}
+    resultado["validacion_total"] = _total(validadas, puntuador, coincidir)
+    rondas = [r for k, r in resultado.items() if k != "validacion_total" and np.isfinite(r["umbral"])]
+    if rondas:
+        u, m = max(r["umbral"] for r in rondas), max(r["margen"] for r in rondas)
+        resultado["mas_estricto"] = {"umbral": u, "margen": m, "todas": metricas(ds, puntuador, u, m, coincidir)}
+    return resultado
+
+
+def _json(o):
+    """inf y nan no son JSON válido: van como null."""
+    if isinstance(o, dict):
+        return {k: _json(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_json(v) for v in o]
+    if isinstance(o, (float, np.floating)):
+        return float(o) if np.isfinite(o) else None
+    return o
 
 
 def main(argv=None) -> int:
@@ -189,6 +240,7 @@ def main(argv=None) -> int:
     p.add_argument("--modelo", type=Path, default=MODELO)
     p.add_argument("--peso", type=float, default=0.5, help="peso del modelo en la suma (0 = solo DTW, 1 = solo modelo)")
     p.add_argument("--tope-erronea", type=float, default=0.01, help="errónea máxima al ajustar umbral y margen")
+    p.add_argument("--sin-coincidir", action="store_true", help="en la suma, no exigir que DTW y modelo elijan la misma")
     p.add_argument("--json", type=Path)
     a = p.parse_args(argv)
 
@@ -204,15 +256,19 @@ def main(argv=None) -> int:
         r = {"total": metricas(ds, puntuador), "por_persona": {}}
         for persona in sorted({d["persona"] for d in ds}):
             r["por_persona"][persona] = metricas([d for d in ds if d["persona"] == persona], puntuador)
-        r["validacion_cruzada"] = validacion_cruzada(ds, puntuador, a.tope_erronea)
+        coincidir = 0.0 < peso < 1.0 and not a.sin_coincidir
+        r["coincidir"] = coincidir
+        r["validacion_por_persona"] = validacion_por_persona(ds, puntuador, a.tope_erronea, coincidir)
+        r["validacion_cruzada"] = validacion_cruzada(ds, puntuador, a.tope_erronea, coincidir)
         resumen[nombre] = r
-        t, v = r["total"], r["validacion_cruzada"]["validacion_total"]
-        print(f"{nombre:<10} top1 {t['top1']:6.1%}  top3 {t['top3']:6.1%} | validación cruzada: dice bien "
-              f"{v['aceptada_bien']:6.1%}  ERRÓNEA {v['aceptacion_erronea']:5.1%}")
+        t, v, g = r["total"], r["validacion_por_persona"]["validacion_total"], r["validacion_cruzada"]["validacion_total"]
+        print(f"{nombre:<10} top1 {t['top1']:6.1%}  top3 {t['top3']:6.1%} | por persona: dice bien {v['aceptada_bien']:6.1%}  "
+              f"ERRÓNEA {v['aceptacion_erronea']:5.1%} | por grupos: dice bien {g['aceptada_bien']:6.1%}  "
+              f"ERRÓNEA {g['aceptacion_erronea']:5.1%}")
         for persona, m in r["por_persona"].items():
             print(f"    {persona:<22} top1 {m['top1']:6.1%}  top3 {m['top3']:6.1%}")
     if a.json:
-        a.json.write_text(json.dumps(resumen, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        a.json.write_text(json.dumps(_json(resumen), ensure_ascii=False, indent=1, allow_nan=False) + "\n", encoding="utf-8")
     return 0
 
 
