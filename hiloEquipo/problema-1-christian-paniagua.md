@@ -62,6 +62,8 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
     3. top-1 lo más alto posible, sin meta fija (hoy 77.5 %).
   - **Comportamiento:** el motor dice la palabra solo cuando está seguro. Cuando duda, muestra 3 opciones.
   - **Hoy:** el método del producto da top-3 ~90 %, así que no se cumple todavía. Lo que falta: modelo propio, datos con licencia libre y más personas.
+  - **Hecho (2026-11-13):** el motor dice la palabra si está seguro y, si duda, la escribe como «dudosa» con 3 opciones (`UMBRAL_OPCIONES` 0.4); Terminar y Reproducir piden corregirlas antes. Con plantillas CENAREC: útil 86.9 % (dice bien 30.6 % + 3 opciones con la correcta 56.3 %), errónea 0.4 %. **Avisar al equipo de la app móvil.**
+  - **Datos para el modelo del producto — Slovo** (lengua de señas rusa, 194 personas, 1000 señas + «no_event»; aprobado por Christian): licencia propia basada en CC BY-SA 4.0, **permite uso comercial**; hay que dar el crédito y, si el modelo va en la app, publicar sus pesos con licencia compatible con BY-SA. Descartados por licencia: WLASL («No commercial usage»), AUTSL («Commercial use… not allowed»). LSFB: licencia sin verificar. Extracción: `scripts/extraer_slovo.py` → `data/dictionary/slovo/` (ignorado por git).
 
 ## Notas
 
