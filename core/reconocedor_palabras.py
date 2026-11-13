@@ -19,6 +19,10 @@ Inicio y fin de una seña (core/palabras.Segmentador):
 
 `actualizar(cuadro_cuerpo, ahora)` devuelve la palabra reconocida en este frame
 (o None). Si la mejor no pasa umbral, margen relativo y control de duración no dice nada.
+
+Cuando una seña termina sin aceptarse, `opciones` trae las palabras más cercanas para que la
+persona elija (o "ninguna"); `senas` cuenta las señas terminadas, para saber que hay opciones nuevas.
+Ver UMBRAL_OPCIONES en core/palabras.py.
 """
 from __future__ import annotations
 
@@ -36,6 +40,8 @@ class ReconocedorPalabras:
         self.segmentador = segmentador or Segmentador()
         self.mano = mano
         self.ultima: Optional[tuple] = None   # (palabra o None, confianza, top-5) de la última seña, para mostrar
+        self.opciones: list[str] = []         # de la última seña: para elegir si no se aceptó (vacía si se aceptó)
+        self.senas = 0                        # señas terminadas y clasificadas (sube con cada una)
 
     @classmethod
     def desde_db(cls, ruta: Path | str | None = None, mano: str = "auto") -> "ReconocedorPalabras":
@@ -64,6 +70,8 @@ class ReconocedorPalabras:
         return self._clasificar(sena) if sena else None
 
     def _clasificar(self, sena: list) -> Optional[str]:
-        palabra, conf, top = self.comparador.clasificar(descriptores(sena, self.mano), duracion=duracion(sena))
-        self.ultima = (palabra, conf, top)
-        return palabra
+        d = self.comparador.decidir(descriptores(sena, self.mano), duracion=duracion(sena))
+        self.ultima = (d.palabra, d.confianza, d.top)
+        self.opciones = d.opciones
+        self.senas += 1
+        return d.palabra

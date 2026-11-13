@@ -45,11 +45,23 @@ Item {
                  palabras: [["Hola"], ["Christian"]], borrar: "03b", terminar: "04" }
     })
     // Con texto real (teclado o señas) se deja el ejemplo del prototipo y se muestra lo escrito.
+    readonly property bool eligiendo: Escrito.real && Escrito.seleccion >= 0
+        && Escrito.seleccion < Escrito.palabras.length
+        && Escrito.palabras[Escrito.seleccion][1] === "dudosa"
+    // La palabra seleccionada, leída con guarda: al quitarla, `palabras` cambia antes que `seleccion`.
+    readonly property var palabraSel: eligiendo ? Escrito.palabras[Escrito.seleccion] : undefined
+    readonly property var opcionesSel: palabraSel ? (palabraSel[3] || []) : []
     readonly property var d: Escrito.real
-        ? ({ hint: Escrito.palabras.length || Escrito.borrador !== ""
+        ? ({ hint: palabraSel
+                   ? "¿Era «" + palabraSel[0].toUpperCase() + "»? Elija la correcta, «Ninguna» o deletréela"
+                   : Escrito.hayDudosa ? "Toque una palabra con ola para corregirla"
+                   : Escrito.palabras.length || Escrito.borrador !== ""
                    ? "Escriba con el teclado o haga señas · Espacio separa palabras"
                    : "Escriba con el teclado o haga su primera seña…",
-             palabras: Escrito.palabras, terminar: "01b" })
+             palabras: Escrito.palabras.map(function (x, i) {
+                 return [x[0], (i === Escrito.seleccion && x[1] === "dudosa") ? "caja" : x[1], "", x[3], i]
+             }),
+             terminar: "01b" })
         : (datos[Nav.pantalla] || datos["02"])
     readonly property real tamHint: Tema.escala === 0 ? 13 : Tema.tamNota
     readonly property real tamPalabra: Tema.tamTitulo
@@ -70,6 +82,13 @@ Item {
             cierraPalabra.stop()
             Escrito.confirmarBorrador()
             Escrito.agregar(palabra, "")
+        }
+        // Una seña terminó sin aceptarse con seguridad: se escribe la primera opción como dudosa.
+        function onOpcionesPalabra(opciones) {
+            if (Nav.camaraPausada || !vista.visible) return
+            cierraPalabra.stop()
+            Escrito.confirmarBorrador()
+            Escrito.agregarDudosa(opciones)
         }
     }
     Timer {
@@ -157,6 +176,8 @@ Item {
                             texto: modelData[0]
                             estilo: modelData[1] || ""
                             destino: modelData[2] || ""
+                            tocable: Escrito.real && (modelData[1] === "dudosa" || modelData[1] === "caja")
+                            onTocada: Escrito.seleccionar(Escrito.seleccion === modelData[4] ? -1 : modelData[4])
                             tamLetra: vista.tamPalabra
                         }
                     }
@@ -221,7 +242,7 @@ Item {
             Row {
                 x: 2
                 spacing: 8
-                visible: vista.d.panel === "leyenda"
+                visible: vista.d.panel === "leyenda" || (Escrito.real && Escrito.hayDudosa)
                 Rectangle { width: 14; height: 3; radius: 2; color: Tema.acentoNaranja; anchors.verticalCenter: parent.verticalCenter }
                 Texto { text: "Dudosa: tóquela para corregir"; color: Tema.textoSecundario; tam: 12.5; alto: 1.2 }
             }
@@ -232,20 +253,36 @@ Item {
                 height: alternativas.height + 20
                 radius: 16
                 color: Tema.fondoTarjeta
-                visible: vista.d.panel === "alternativas"
+                visible: vista.d.panel === "alternativas" || vista.eligiendo
                 Flow {
                     id: alternativas
                     x: 12; y: 10
                     width: parent.width - 24
                     spacing: 6
-                    Alternativa { texto: "YO"; sena: "sena-indice-mediana.svg"; destino: "03y" }
-                    Alternativa { texto: "SOY"; sena: "sena-indice-chica.svg"; destino: "03b" }
-                    Alternativa { texto: "SER"; sena: "sena-v-chica.svg"; destino: "03c" }
+                    Alternativa { visible: !Escrito.real; texto: "YO"; sena: "sena-indice-mediana.svg"; destino: "03y" }
+                    Alternativa { visible: !Escrito.real; texto: "SOY"; sena: "sena-indice-chica.svg"; destino: "03b" }
+                    Alternativa { visible: !Escrito.real; texto: "SER"; sena: "sena-v-chica.svg"; destino: "03c" }
+                    Repeater {   // opciones reales de la seña dudosa
+                        model: Escrito.real ? vista.opcionesSel : []
+                        Alternativa {
+                            texto: String(modelData).toUpperCase()
+                            onElegida: Escrito.elegir(Escrito.seleccion, modelData)
+                        }
+                    }
+                    Boton {
+                        visible: Escrito.real
+                        texto: "Ninguna"
+                        alto: 36
+                        onClic: Escrito.quitar(Escrito.seleccion)
+                    }
                     Boton {
                         texto: "Deletrear"
                         icono: "deletrear"
                         alto: 36
-                        onClic: Nav.ir("03d")
+                        onClic: {
+                            if (Escrito.real) { Escrito.quitar(Escrito.seleccion); entrada.forceActiveFocus() }
+                            else Nav.ir("03d")
+                        }
                     }
                 }
             }
@@ -349,6 +386,8 @@ Item {
         property string estilo
         property string destino
         property real tamLetra: 30
+        property bool tocable: false
+        signal tocada()
         readonly property bool caja: estilo === "caja"
 
         width: letras.implicitWidth + (caja ? 8 : 0)
@@ -382,9 +421,9 @@ Item {
         }
         MouseArea {
             anchors.fill: parent
-            enabled: p.destino !== ""
+            enabled: p.destino !== "" || p.tocable
             cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-            onClicked: Nav.ir(p.destino)
+            onClicked: if (p.destino !== "") Nav.ir(p.destino); else p.tocada()
         }
     }
 
@@ -394,6 +433,8 @@ Item {
         property string texto
         property string sena
         property string destino
+        signal elegida()
+        function activar() { if (destino !== "") Nav.ir(destino); else elegida() }
 
         width: fila.implicitWidth + 20
         height: 40.8
@@ -423,11 +464,12 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 6
             Item {
+                visible: alt.sena !== ""
                 width: 24; height: 28.8
                 anchors.verticalCenter: parent.verticalCenter
                 Image {
                     width: 24; height: parent.height * 1.0653
-                    source: Qt.resolvedUrl("../../assets/imagenes/" + alt.sena)
+                    source: alt.sena !== "" ? Qt.resolvedUrl("../../assets/imagenes/" + alt.sena) : ""
                     sourceSize: Qt.size(width * 3, height * 3)
                 }
             }
@@ -445,9 +487,9 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            onClicked: Nav.ir(alt.destino)
+            onClicked: alt.activar()
         }
-        Keys.onReturnPressed: Nav.ir(destino)
-        Keys.onSpacePressed: Nav.ir(destino)
+        Keys.onReturnPressed: activar()
+        Keys.onSpacePressed: activar()
     }
 }

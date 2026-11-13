@@ -43,6 +43,16 @@ def texto_palabra(etiqueta: str) -> str:
     return texto.replace("-", " ").strip().lower()
 
 
+def textos_opciones(etiquetas) -> list:
+    """Opciones del motor → textos sin repetir («INFORMAR» e «INFORMAR-2» son la misma palabra escrita)."""
+    salida = []
+    for e in etiquetas:
+        t = texto_palabra(e)
+        if t not in salida:
+            salida.append(t)
+    return salida
+
+
 class _Punto:
     """Punto x, y (normalizado) para dibujar las manos del modo palabra con camara.dibujar_mano."""
     __slots__ = ("x", "y")
@@ -77,6 +87,9 @@ class Motor(QObject):
     hablandoCambio = Signal()
     letraReconocida = Signal(str)
     palabraReconocida = Signal(str)
+    # Modo palabras: la seña terminó sin aceptarse pero hay palabras cercanas (core/palabras.UMBRAL_OPCIONES).
+    # Lista de textos (la más probable primero) para mostrar como palabra dudosa con alternativas.
+    opcionesPalabra = Signal(list)
     sinManos = Signal()
     nivelLuzCambio = Signal()
     simulacionLuzCambio = Signal()
@@ -424,9 +437,12 @@ class Motor(QObject):
                 frame, nivel_luz, _pedir_luz, _ = medidor.antes_de_detectar(frame)
                 if palabras is not None:
                     cuerpo = detector.procesar(frame, ahora)
+                    senas_antes = palabras.senas
                     palabra = palabras.actualizar(cuerpo, ahora)
                     if palabra:
                         self.palabraReconocida.emit(texto_palabra(palabra))
+                    elif palabras.senas != senas_antes and palabras.opciones:
+                        self.opcionesPalabra.emit(textos_opciones(palabras.opciones))
                     manos = [camara.Mano([_Punto(*p[:2]) for p in pts], lado, None, cuerpo.frame)
                              for pts, lado, _ in cuerpo.manos]
                     # Entre señas los brazos descansan abajo (a veces fuera de cuadro):

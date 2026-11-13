@@ -98,7 +98,7 @@ scripts/evaluar_palabras.py. El almacenamiento está en core/senas_db.py.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional, Sequence
+from typing import NamedTuple, Optional, Sequence
 
 import numpy as np
 
@@ -159,6 +159,13 @@ UMBRAL = 0.5               # confianza mínima: distancia <= (1 - UMBRAL) * DIST
 MARGEN = 1.18              # v3: margen RELATIVO: la 2.ª palabra tiene que estar >= MARGEN x la distancia de la 1.ª
 DURACION_RELATIVA_MIN = 0.5  # la seña dura al menos esto x la plantilla más corta de la palabra (si se conoce):
                              # un pedazo de seña (el comienzo o el final) no se dice como otra palabra
+# Opciones (2026-11-13, problema 1 fase 5): si no se acepta, se muestran las OPCIONES palabras más
+# cercanas para que la persona elija (o "ninguna"), siempre que la mejor tenga al menos esta confianza
+# (distancia <= 3.0). Banco de 680 tomas con plantillas CENAREC: dice bien 30.6 %, errónea 0.4 %,
+# 3 opciones con la correcta 56.3 %, sin la correcta 10.4 %, nada 2.2 %. La confianza NO separa una
+# seña que no está en el vocabulario (con 0.4 igual da opciones el 96 % de las veces): por eso "ninguna".
+UMBRAL_OPCIONES = 0.4
+OPCIONES = 3
 
 
 @dataclass
@@ -590,13 +597,15 @@ class ComparadorPalabras:
     def __init__(self, etiquetas: Sequence[str], descriptores: Sequence[np.ndarray], umbral: float = UMBRAL,
                  margen: float = MARGEN, banda: float = BANDA, categorias: Optional[dict] = None,
                  prefiltro: Optional[int] = PREFILTRO, duraciones: Optional[Sequence[Optional[float]]] = None,
-                 duracion_relativa: float = DURACION_RELATIVA_MIN):
+                 duracion_relativa: float = DURACION_RELATIVA_MIN, umbral_opciones: float = UMBRAL_OPCIONES,
+                 opciones: int = OPCIONES):
         if len(etiquetas) != len(descriptores) or not etiquetas:
             raise ValueError("Hacen falta plantillas (etiqueta, descriptor)")
         if duraciones is not None and len(duraciones) != len(etiquetas):
             raise ValueError("duraciones: una por plantilla")
         self.umbral, self.margen, self.banda, self.prefiltro = umbral, margen, banda, prefiltro
         self.duracion_relativa = duracion_relativa
+        self.umbral_opciones, self.opciones = umbral_opciones, opciones
         self._etiquetas = list(etiquetas)
         self._plantillas = np.stack([np.asarray(d, dtype=np.float64) for d in descriptores])
         self.categorias = {e: (categorias or {}).get(e, "palabra") for e in self._etiquetas}
@@ -637,8 +646,16 @@ class ComparadorPalabras:
         """(palabra o None, confianza, top-5). None si no pasa umbral, margen y duración: nunca inventa.
 
         duracion: segundos de la seña (último cuadro - primero), para el control de DURACION_RELATIVA_MIN."""
+        d = self.decidir(candidatos, duracion)
+        return d.palabra, d.confianza, d.top
+
+    def decidir(self, candidatos, duracion: Optional[float] = None) -> "Decision":
+        """Como clasificar(), más las opciones para elegir cuando no se acepta (ver UMBRAL_OPCIONES).
+
+        opciones: vacía si se aceptó una palabra, si no hubo seña, si la mejor no llega a
+        umbral_opciones o si la mejor es una negativa (no "palabra": p. ej. una letra deletreada)."""
         if candidatos is None or (isinstance(candidatos, list) and not candidatos):
-            return None, 0.0, []
+            return Decision(None, 0.0, [], [])
         dist = self.distancias(candidatos)
         orden = sorted(dist.items(), key=lambda p: p[1])
         top = [(e, float(confianza(x))) for e, x in orden[:5]]
@@ -647,6 +664,18 @@ class ComparadorPalabras:
         conf = top[0][1]
         corta = (duracion is not None and palabra in self.duracion_min
                  and duracion < self.duracion_relativa * self.duracion_min[palabra])
-        if conf < self.umbral or d2 < self.margen * d1 or d2 == 0 or corta or self.categorias[palabra] != "palabra":
-            return None, conf, top
-        return palabra, conf, top
+        es_palabra = self.categorias[palabra] == "palabra"
+        if conf < self.umbral or d2 < self.margen * d1 or d2 == 0 or corta or not es_palabra:
+            opciones = []
+            if es_palabra and conf >= self.umbral_opciones:
+                opciones = [e for e, _ in orden if self.categorias[e] == "palabra"][:self.opciones]
+            return Decision(None, conf, top, opciones)
+        return Decision(palabra, conf, top, [])
+
+
+class Decision(NamedTuple):
+    """Resultado de ComparadorPalabras.decidir()."""
+    palabra: Optional[str]      # la aceptada, o None
+    confianza: float            # de la mejor (aunque no se acepte)
+    top: list                   # [(etiqueta, confianza)] las 5 más cercanas
+    opciones: list              # palabras para elegir si no se aceptó (ver UMBRAL_OPCIONES); vacía si no aplica

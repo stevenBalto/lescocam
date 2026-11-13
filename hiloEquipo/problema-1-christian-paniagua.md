@@ -52,7 +52,16 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
   - Modelo entrenado con ASL Citizen + DTW: top-1 ~80 % (un modelo 75–83 % según la semilla; ensamble de 4: 80.8 %), top-3 95 %. Aceptando solo cuando DTW y modelo coinciden, la aceptación errónea baja de 5 % a 2.1 % (ensamble 0.8 %).
   - **El modelo de ASL Citizen no va en el producto** (licencia de Microsoft: solo investigación). Decisión de Christian: nada del producto depende de Microsoft; queda como herramienta de laboratorio.
   - Medido y descartado: rasgos nuevos a mano para el DTW, normalizar por persona, meter las palabras LESCO en el entrenamiento, PopSign solo (250 señas: ~65 %).
-  - **Lo que sigue — ronda 2 del banco:** cada uno de los 4 graba las 55 palabras que le faltan (frase «Ronda dos», skill `ronda-dos`). Con las 85 grabadas por los 4 se mide a cada persona con las tomas de las otras 3 como plantilla (en las 12 del núcleo eso sube el DTW de 82 a 92 %, sin licencia de por medio). Una toma bien hecha se guarda aunque el motor no la reconozca. Estado: `scripts/registrar_banco.py --estado` (170 tomas por persona).
+  - Ronda 2 del banco hecha (2026-11-13): las 85 palabras por los 4, 680 tomas. Midiendo cada persona con las tomas de las otras 3 (`scripts/evaluar_banco_cruzado.py`): motor DTW 70.4 % top-1 / 88.2 % top-3; DTW con plantillas del equipo 72.4 / 90.1 %; modelo desde cero con tomas del equipo + DTW 77.5 %; laboratorio (ASL) 85.3 / 96.3 %.
+  - **Techo del banco ~93 % top-1:** ni la otra toma de la misma persona como plantilla llega a 95 % (DTW 88.8 %, modelo de laboratorio 93.2 %). Detalle en `hiloBackend/2026-11-13-fase-5-ronda-2-y-techo-del-banco.md`.
+
+  **Propuesta de criterio reescrito (falta el visto bueno de Christian):** 95 % top-1 no se puede medir en este banco: su techo es ~93 %. Se mantiene el 95 %, medido así:
+  - **Hecho cuando**, con un método que pueda ir en el producto (nada de ASL Citizen) y dejando afuera a la persona que se mide:
+    1. **top-3 ≥ 95 %** (la correcta está entre las 3 opciones que se muestran),
+    2. **aceptación errónea ≤ 2 %**,
+    3. top-1 lo más alto posible, sin meta fija (hoy 77.5 %).
+  - **Comportamiento:** el motor dice la palabra solo cuando está seguro. Cuando duda, muestra 3 opciones.
+  - **Hoy:** el método del producto da top-3 ~90 %, así que no se cumple todavía. Lo que falta: modelo propio, datos con licencia libre y más personas.
 
 ## Notas
 
