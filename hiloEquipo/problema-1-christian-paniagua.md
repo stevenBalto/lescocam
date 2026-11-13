@@ -55,7 +55,7 @@ El motor trabaja en landmarks, no en imágenes. Entonces la variedad que necesit
   - Ronda 2 del banco hecha (2026-11-13): las 85 palabras por los 4, 680 tomas. Midiendo cada persona con las tomas de las otras 3 (`scripts/evaluar_banco_cruzado.py`): motor DTW 70.4 % top-1 / 88.2 % top-3; DTW con plantillas del equipo 72.4 / 90.1 %; modelo desde cero con tomas del equipo + DTW 77.5 %; laboratorio (ASL) 85.3 / 96.3 %.
   - **Techo del banco ~93 % top-1:** ni la otra toma de la misma persona como plantilla llega a 95 % (DTW 88.8 %, modelo de laboratorio 93.2 %). Detalle en `hiloBackend/2026-11-13-fase-5-ronda-2-y-techo-del-banco.md`.
 
-  **Propuesta de criterio reescrito (falta el visto bueno de Christian):** 95 % top-1 no se puede medir en este banco: su techo es ~93 %. Se mantiene el 95 %, medido así:
+  **Criterio reescrito (aprobado por Christian, 2026-11-13):** 95 % top-1 no se puede medir en este banco: su techo es ~93 %. Se mantiene el 95 %, medido así:
   - **Hecho cuando**, con un método que pueda ir en el producto (nada de ASL Citizen) y dejando afuera a la persona que se mide:
     1. **top-3 ≥ 95 %** (la correcta está entre las 3 opciones que se muestran),
     2. **aceptación errónea ≤ 2 %**,

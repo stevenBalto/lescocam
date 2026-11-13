@@ -17,6 +17,18 @@ QtObject {
         return p.join(" ")
     }
 
+    // Aviso «corrija las palabras con ola»: lo enciende exigirCorregidas() y lo muestra Escribir.
+    property bool avisarDudosa: false
+
+    // Antes de terminar, hablar o enviar el texto: devuelve true si se puede seguir. Con palabras
+    // dudosas sin corregir devuelve false, selecciona la primera (abre sus alternativas) y activa el aviso.
+    function exigirCorregidas() {
+        if (!real || !hayDudosa) { avisarDudosa = false; return true }
+        seleccionar(palabras.findIndex(function (x) { return x[1] === "dudosa" }))
+        avisarDudosa = true
+        return false
+    }
+
     function iniciar() { real = true }
 
     // Cierra la palabra en curso. Con `estilo` "dudosa" se marca para corregir.
@@ -73,5 +85,5 @@ QtObject {
         palabras = texto.split(/\s+/).filter(function (p) { return p !== "" }).map(function (p) { return [p, ""] })
     }
 
-    function limpiar() { palabras = []; borrador = ""; seleccion = -1; real = false }
+    function limpiar() { avisarDudosa = false; palabras = []; borrador = ""; seleccion = -1; real = false }
 }

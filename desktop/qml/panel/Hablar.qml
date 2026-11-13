@@ -482,7 +482,8 @@ Item {
                 width: vista.resto(filaVoz.width, bCopiar.width + bMp3.width + 16, implicitWidth)
                 onClic: {
                     if (vista.base === "09e") { Escrito.limpiar(); vista.ir("07a") }
-                    else { motor.hablar(vista.frase); vista.ir(vista.ruta.reproducir) }
+                    else if (Escrito.exigirCorregidas()) { motor.hablar(vista.frase); vista.ir(vista.ruta.reproducir) }
+                    else Nav.ir("02")   // dudosas sin corregir: se vuelve a Escribir con la primera abierta
                 }
             }
         }

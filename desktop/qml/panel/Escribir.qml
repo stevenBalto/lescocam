@@ -63,6 +63,8 @@ Item {
              }),
              terminar: "01b" })
         : (datos[Nav.pantalla] || datos["02"])
+    // Al pulsar «Terminar» con palabras dudosas se avisa y no se continúa.
+    readonly property bool mostrarAvisoDudosa: Escrito.avisarDudosa && Escrito.real && Escrito.hayDudosa
     readonly property real tamHint: Tema.escala === 0 ? 13 : Tema.tamNota
     readonly property real tamPalabra: Tema.tamTitulo
 
@@ -339,6 +341,37 @@ Item {
         }
     }
 
+    // Aviso de «Terminar» con palabras dudosas sin corregir
+    Rectangle {
+        id: avisoDudosa
+        visible: vista.mostrarAvisoDudosa
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: acciones.top
+        anchors.bottomMargin: 12
+        height: 44
+        width: Math.min(parent.width - 32, textoAvisoDudosa.implicitWidth + 28)
+        radius: Tema.radioTarjeta
+        color: Tema.fondoTarjeta
+        border.width: 1
+        border.color: Tema.acentoNaranja
+        Accessible.role: Accessible.AlertMessage
+        Accessible.name: textoAvisoDudosa.text
+        Texto {
+            id: textoAvisoDudosa
+            anchors.centerIn: parent
+            width: parent.width - 28
+            horizontalAlignment: Text.AlignHCenter
+            text: "Corrija las palabras con ola antes de terminar"
+            tam: Tema.tamPequeno
+            color: Tema.textoPrincipal
+        }
+        Timer {
+            running: vista.mostrarAvisoDudosa
+            interval: 4000
+            onTriggered: Escrito.avisarDudosa = false
+        }
+    }
+
     // «Acciones»
     Rectangle {
         id: acciones
@@ -375,7 +408,7 @@ Item {
             estilo: "oscuro"
             pastilla: true
             imagen: Qt.resolvedUrl("../../assets/imagenes/flechas-terminar.svg")
-            onClic: if (vista.d.terminar) Nav.ir(vista.d.terminar)
+            onClic: if (Escrito.exigirCorregidas() && vista.d.terminar) Nav.ir(vista.d.terminar)
         }
     }
 
