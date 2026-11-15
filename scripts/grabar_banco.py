@@ -64,16 +64,16 @@ def catalogo_referencias(cenarec: Optional[dict] = None, handson: Optional[dict]
     Hands-On se juntan como en construir_palabras (`clave_palabra`). El "archivo" de Hands-On es una ruta
     absoluta: VIDEOS / ruta_absoluta da la ruta absoluta."""
     from scripts import extraer_handson as H
-    from scripts.construir_palabras import clave_palabra
+    from scripts.construir_palabras import clave_palabra, clave_unica, repetidas
     cat = dict(catalogo() if cenarec is None else cenarec)
     if handson is None:
         handson = H.catalogo() if H.CATALOGO.exists() else {}
     carpeta = Path(videos_handson or H.VIDEOS).resolve()
-    por_clave = {}
+    alias, por_clave = repetidas(), {}
     for e in cat:
         por_clave.setdefault(clave_palabra(e), e)
     for vid in sorted(handson, key=lambda v: (handson[v]["etiqueta"], v)):
-        k = clave_palabra(handson[vid]["etiqueta"])
+        k = clave_unica(handson[vid]["etiqueta"], alias)
         e = por_clave.get(k, k)
         if e not in cat:
             cat[e] = {"archivo": str(carpeta / handson[vid]["archivo"])}

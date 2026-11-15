@@ -31,8 +31,10 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+import unicodedata
 from collections import Counter
 from pathlib import Path
 
@@ -46,14 +48,32 @@ from scripts.extraer_cenarec import CON_RECORTE, LISTA, catalogo, leer_lista, ru
 
 PESOS_CRUDOS = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 PREFIJO_LETRA = "LETRA-"
+REPETIDAS = senas_db.RAIZ / "data" / "reference" / "repetidas_handson.json"
 
 
 def clave_palabra(texto: str) -> str:
     """Para juntar la misma palabra de fuentes distintas: «Café (bebida)», «CAFÉ», «café 2» -> «CAFÉ»;
-    «por favor» y «POR-FAVOR» -> «POR-FAVOR»."""
-    t = re.sub(r"\(.*?\)", "", texto).strip().upper()
+    «por favor» y «POR-FAVOR» -> «POR-FAVOR». Normaliza a NFC: Hands-On trae a veces la «ñ» y las tildes
+    descompuestas (n + ~) y sin esto «SEÑA» quedaba dos veces."""
+    t = re.sub(r"\(.*?\)", "", unicodedata.normalize("NFC", texto)).strip().upper()
     t = re.sub(r"[\s_-]+", "-", t)
     return re.sub(r"-?\d+$", "", t).strip("-")
+
+
+def repetidas() -> dict:
+    """Palabras de Hands-On que son la misma seña que otra con otro nombre (sin tilde, plural, sinónimo
+    de una etiqueta con «/»): clave -> clave de la palabra con la que se juntan. La arma
+    scripts/repetidas_handson.py; nunca junta dos palabras de CENAREC (CENAREC las separa a propósito)."""
+    if not REPETIDAS.exists():
+        return {}
+    return json.loads(REPETIDAS.read_text(encoding="utf-8"))["juntar"]
+
+
+def clave_unica(texto: str, alias: dict | None = None) -> str:
+    """clave_palabra + las repetidas de Hands-On (la clave final de la palabra en senas.db)."""
+    k = clave_palabra(texto)
+    alias = repetidas() if alias is None else alias
+    return alias.get(k, k)
 
 
 def plantillas_de(ruta: Path, fuente: str, desde: int = 1) -> tuple[list, int, int]:
@@ -134,9 +154,10 @@ def main(argv=None) -> int:
                 por_clave.setdefault(clave_palabra(x["etiqueta"]), x)
         lista = {clave_palabra(e) for e in etiquetas}
         hcat = H.catalogo()
+        alias = repetidas()
         sumadas = nuevas = sin_cache = 0
         for vid in sorted(hcat, key=lambda v: (hcat[v]["etiqueta"], v)):
-            k = clave_palabra(hcat[vid]["etiqueta"])
+            k = clave_unica(hcat[vid]["etiqueta"], alias)
             if not a.todas and k not in lista:
                 continue
             ruta = H.ruta_cache(vid, a.extraccion)

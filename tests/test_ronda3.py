@@ -52,3 +52,36 @@ def test_ruta_motor_usa_la_completa_si_existe(tmp_path, monkeypatch):
     assert senas_db.ruta_motor() == senas_db.RUTA_DB
     completa.write_bytes(b"")
     assert senas_db.ruta_motor() == completa
+
+
+def test_clave_palabra_normaliza_la_enie_descompuesta():
+    from scripts.construir_palabras import clave_palabra
+    import unicodedata
+    assert clave_palabra(unicodedata.normalize("NFD", "seña")) == clave_palabra("SEÑA") == "SEÑA"
+
+
+def test_clave_unica_aplica_repetidas():
+    from scripts.construir_palabras import clave_unica
+    assert clave_unica("colores", {"COLORES": "COLOR"}) == "COLOR"
+    assert clave_unica("casa 2", {}) == "CASA"
+
+
+def test_texto_base_y_candidatas():
+    from scripts.repetidas_handson import candidatas, texto_base
+    assert texto_base("CÓMO-2") == "como"
+    assert texto_base("PROFESORES") == "profesor"
+    assert texto_base("ABUELOS") == "abuelo"
+    pares = candidatas(["FELIZ", "FELIZ/CONTENTO/ALEGRE", "COLOR", "COLORES", "PERRO"])
+    assert ("FELIZ", "FELIZ/CONTENTO/ALEGRE") in pares
+    assert ("COLOR", "COLORES") in pares
+    assert not any("PERRO" in p for p in pares)
+
+
+def test_elegir_nunca_junta_dos_de_cenarec_y_resuelve_cadenas():
+    from scripts.repetidas_handson import elegir
+    cen = {"NIÑO", "NIÑO-2", "FELIZ/CONTENTO/ALEGRE"}
+    sims = [(0.9, "NIÑO", "NIÑO-2"),                       # dos de CENAREC: no
+            (0.8, "CONTENTO", "FELIZ/CONTENTO/ALEGRE"),    # Hands-On -> CENAREC
+            (0.75, "ALEGRE", "CONTENTO"),                  # Hands-On -> Hands-On -> CENAREC
+            (0.5, "BAJO", "BAJOS")]                         # poco parecidas: no
+    assert elegir(sims, cen, 0.7) == {"CONTENTO": "FELIZ/CONTENTO/ALEGRE", "ALEGRE": "FELIZ/CONTENTO/ALEGRE"}
