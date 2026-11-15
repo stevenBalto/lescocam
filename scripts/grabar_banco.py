@@ -102,6 +102,7 @@ class Referencia:
         self.etiqueta = etiqueta
         d = self.cat.get(etiqueta)
         self.cap = self.cv2.VideoCapture(str(VIDEOS / d["archivo"])) if d else None
+        self.t_ref, self.pos, self.ultimo = time.monotonic(), 0, None
 
     def cuadro(self, etiqueta: str, alto: int):
         cv2 = self.cv2
@@ -112,11 +113,34 @@ class Referencia:
             cv2.putText(panel, "sin video de referencia", (20, alto // 2), cv2.FONT_HERSHEY_SIMPLEX, 0.7,
                         (200, 200, 200), 1)
             return panel
-        ok, img = self.cap.read()
-        if not ok:
-            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-            ok, img = self.cap.read()
-        if not ok:
+        # Avanza según el reloj, no según las vueltas del bucle: con MediaPipe cada vuelta tarda
+        # más que un cuadro del video y se vería en cámara lenta.
+        ahora = time.monotonic()
+        fps = self.cap.get(cv2.CAP_PROP_FPS) or 30.0
+        debe = int((ahora - self.t_ref) * fps)
+        if self.ultimo is None or debe > self.pos:
+            n = min(debe - self.pos, 60)
+            ok = True
+            for _ in range(max(n - 1, 0)):
+                ok = self.cap.grab()
+                if not ok:
+                    break
+            img = None
+            if ok:
+                ok, img = self.cap.read()
+            if ok:
+                self.pos += max(n, 1)
+                if debe - self.pos > 0:  # atrasado más de 60 cuadros: re-sincroniza
+                    self.t_ref = ahora - self.pos / fps
+                self.ultimo = img
+            else:  # fin del video: vuelve a empezar
+                self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                self.t_ref, self.pos = ahora, 0
+                ok, self.ultimo = self.cap.read()
+                if not ok:
+                    self.ultimo = None
+        img = self.ultimo
+        if img is None:
             return panel
         h, w = img.shape[:2]
         f = min(panel.shape[1] / w, alto / h)
