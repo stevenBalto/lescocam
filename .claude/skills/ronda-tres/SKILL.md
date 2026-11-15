@@ -47,7 +47,7 @@ Terminá con: **«¿Listo para empezar?»**. No empieces sin el sí.
 1. `git pull`. Si falla o hay conflictos, resolvelo con la persona.
 2. **Entorno** (solo si no existe `.venv`): `python -m venv .venv` y `.venv/Scripts/python -m pip install -r requirements-dev.txt`. Sin npm, sin `opencv-python`, sin `requirements-train.txt`.
 3. **Videos de referencia** (unos 3.6 GB): tienen que existir `data/dictionary/cenarec/videos/` y `data/dictionary/handson/videos/`, cada uno con su `catalogo.json` al lado.
-   - Si faltan: pedile a Christian el zip **`videos_ronda3.zip`** y descomprimilo en la carpeta `lescocam/` (crea `data/dictionary/...`).
+   - Si faltan: pedile a Christian el zip **`videos_ronda3.zip`** y descomprimilo en la carpeta `lescocam/` (crea `data/dictionary/...`). Trae también `data/dictionary/senas_completa.db`: con eso el motor de su PC queda con las 2203 palabras.
    - Sin zip (lento, horas): `.venv/Scripts/python -m scripts.descargar_cenarec` (sin `--lista` baja todo) y `.venv/Scripts/python -m scripts.descargar_handson --alto 540`.
    - Comprobá: `.venv/Scripts/python -c "from core import banco; from pathlib import Path; from scripts.grabar_banco import catalogo_referencias as c; l=banco.leer_lista(Path('data/reference/ronda3/<nombre>.txt')); print('sin video:', len([p for p in l if p not in c()]))"` → tiene que dar **0** (o pocos: esos se graban igual con N para saltarlos).
 4. **Cámara:** probá que abre (`cv2.VideoCapture(0)`; 1, 2 si falla).
