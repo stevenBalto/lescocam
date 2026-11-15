@@ -32,3 +32,17 @@
 ## Siguiente paso
 - Subir el top-3 de 92.5 a 95 %: ensamble de varias semillas del modelo Slovo, sumar las tomas del equipo al entrenamiento (afinar), plantillas del equipo en la galería, reajustar umbral y margen con el modelo elegido.
 - Datos en `data/dictionary/slovo/` (ignorado por git); modelo `modelo/embedding_slovo.pt`.
+
+## Madrugada 2026-11-15: ensamble + galería del equipo
+
+| Configuración (85 palabras, plantillas CENAREC) | top-1 | top-3 | errónea por persona | dice bien |
+|---|---|---|---|---|
+| 1 modelo Slovo + DTW, peso 0.5 | 78.5 % | 92.5 % | 1.0 % | 45.1 % |
+| 5 modelos (semillas 7, 1–4) + DTW, peso 0.7 | 79.7 % | 93.1 % | — | — |
+| 5 modelos + galería del equipo (máx.) + DTW, peso 0.5 | 84.7 % | 93.7 % | 1.2 % | 54.7 % |
+| **5 modelos + galería del equipo (máx.) + DTW, peso 0.7** | **83.5 %** | **95.1 %** | **1.2 %** | **54.4 %** |
+
+- Galería del equipo = las tomas de las otras 3 personas como plantillas del MODELO (no del DTW); la persona medida nunca está en su galería.
+- Errónea con las reglas de `evaluar_banco_modelo` (DTW y modelo coinciden; umbral y margen ajustados dejando a la persona afuera, tope 1 %).
+- Experimento en el scratchpad (no en el repo todavía): cache por toma + análisis. Falta pasarlo a un script del repo cuando se mida con todo el vocabulario.
+- Siguiente: CENAREC completo (1104 videos) y Hands-On (~2100) descargando; luego extraer, `construir_palabras --todas --handson` y medir el banco con todas las palabras como competencia.
