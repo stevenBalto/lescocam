@@ -22,6 +22,11 @@ Problema 1, fase 5. Cada uno graba **todo el vocabulario (CENAREC + Hands-On) me
 
 El «Nombre al grabar» va **exacto**. Si no coincide con nadie, decilo y volvé a preguntar.
 
+**Con el nombre, el zip.** Si ya existen `data/dictionary/cenarec/videos/` y `data/dictionary/handson/videos/` (en `lescocam/`), seguí al paso 2. Si no, preguntá solo: **«¿Dónde tenés `videos_ronda3.zip`? Pasame la ruta.»** (se lo pasa Christian; 3.4 GB).
+- Comprobá que la ruta existe y termina en `.zip`. Si no, volvé a preguntar.
+- Descomprimilo en `lescocam/` **en segundo plano** (`run_in_background`), con el Python del sistema: `python -m zipfile -e "<ruta>" .` (Linux: `python3`). Crea `data/dictionary/...` con los videos y `senas_completa.db` (el motor de su PC queda con las 2161 palabras). Tarda unos minutos: seguí con el paso 2 mientras.
+- No borres el zip.
+
 ## 2. Modelo, esfuerzo e indicaciones
 
 Primero decí, en una línea: **«Para esto alcanza con Sonnet, esfuerzo medio (`/model sonnet` y `/effort medium`).»** Si la sesión está en otro modelo o esfuerzo, decí cuál está activo.
@@ -47,7 +52,7 @@ Terminá con: **«¿Listo para empezar?»**. No empieces sin el sí.
 1. `git pull`. Si falla o hay conflictos, resolvelo con la persona.
 2. **Entorno** (solo si no existe `.venv`): `python -m venv .venv` y `.venv/Scripts/python -m pip install -r requirements-dev.txt`. Sin npm, sin `opencv-python`, sin `requirements-train.txt`.
 3. **Videos de referencia** (unos 3.6 GB): tienen que existir `data/dictionary/cenarec/videos/` y `data/dictionary/handson/videos/`, cada uno con su `catalogo.json` al lado.
-   - Si faltan: pedile a Christian el zip **`videos_ronda3.zip`** y descomprimilo en la carpeta `lescocam/` (crea `data/dictionary/...`). Trae también `data/dictionary/senas_completa.db`: con eso el motor de su PC queda con las 2161 palabras.
+   - Si faltan: ya se pidió la ruta del zip en el paso 1. Si todavía no terminó de descomprimirse, esperá.
    - Sin zip (lento, horas): `.venv/Scripts/python -m scripts.descargar_cenarec` (sin `--lista` baja todo) y `.venv/Scripts/python -m scripts.descargar_handson --alto 540`.
    - Comprobá: `.venv/Scripts/python -c "from core import banco; from pathlib import Path; from scripts.grabar_banco import catalogo_referencias as c; l=banco.leer_lista(Path('data/reference/ronda3/<nombre>.txt')); print('sin video:', len([p for p in l if p not in c()]))"` → tiene que dar **0** (o pocos: esos se graban igual con N para saltarlos).
 4. **Cámara:** probá que abre (`cv2.VideoCapture(0)`; 1, 2 si falla).
