@@ -60,7 +60,16 @@ from core.landmarks import VERSION_VECTOR
 
 RAIZ = Path(__file__).resolve().parent.parent
 RUTA_DB = RAIZ / "data" / "reference" / "senas.db"
+# Vocabulario completo (CENAREC + Hands-On, ~2200 palabras, ~25 MB): no entra en git (el hook corta en 5 MB).
+# Se arma en cada PC con:
+#   construir_palabras --todas --handson --salida data/dictionary/senas_completa.db
+RUTA_DB_COMPLETA = RAIZ / "data" / "dictionary" / "senas_completa.db"
 FORMATO_DB = 1
+
+
+def ruta_motor() -> Path:
+    """La base que usa el motor en vivo: la completa si está en esta PC; si no, la versionada (85 palabras)."""
+    return RUTA_DB_COMPLETA if RUTA_DB_COMPLETA.exists() else RUTA_DB
 ESCALA = 4096
 
 ESQUEMA = """

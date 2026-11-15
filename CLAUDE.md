@@ -8,6 +8,10 @@ Si el usuario dice «Hola chat, póngamonos al hilo del proyecto para avanzar» 
 
 Al cerrar cada fase del plan es obligatorio tacharla, hacer commit, `git pull` y `git push` antes de seguir con la fase siguiente.
 
+## Banco de prueba: ronda tres (obligatorio)
+
+Si el usuario dice «Ronda tres», ejecutá la skill `ronda-tres` **antes que cualquier otra cosa**: primero pedí el nombre y no leas ni ejecutes nada más hasta tenerlo. Tiene prioridad sobre «Ronda dos», «Arranque del equipo» y «Hilos de sesión». Cada uno de los 4 graba todo el vocabulario menos las 85 (2118 palabras, 1 toma; listas en `data/reference/ronda3/`, tomas en `data/ronda3/<persona>/`). Si la hizo igual al video y con las manos en cuadro, se guarda. Al cerrar o terminar sube solo su carpeta y no se habla más del problema 1 con ella.
+
 ## Banco de prueba: ronda dos (obligatorio)
 
 Si el usuario dice «Ronda dos» (o «Vengo de parte de Christian», la frase de la ronda 1, que ya terminó), ejecutá la skill `ronda-dos` **antes que cualquier otra cosa**: primero pedí el nombre y no leas ni ejecutes nada más hasta tenerlo. Tiene prioridad sobre «Arranque del equipo» y «Hilos de sesión». Cada uno de los 4 graba las 55 palabras que le faltan de las 85 (2 tomas); una toma bien hecha se guarda aunque el motor no la reconozca. Al terminar la persona sube sus tomas (`data/banco/<persona>/` y `hiloEquipo/banco/<persona>.md`) y no se habla más del problema 1 con ella. `scripts/registrar_banco.py --estado` muestra quiénes terminaron (170 tomas cada uno).

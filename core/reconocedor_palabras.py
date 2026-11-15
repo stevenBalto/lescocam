@@ -46,7 +46,7 @@ class ReconocedorPalabras:
     @classmethod
     def desde_db(cls, ruta: Path | str | None = None, mano: str = "auto") -> "ReconocedorPalabras":
         from core import senas_db
-        return cls(senas_db.comparador(ruta or senas_db.RUTA_DB), mano=mano)
+        return cls(senas_db.comparador(ruta or senas_db.ruta_motor()), mano=mano)
 
     @property
     def activo(self) -> bool:

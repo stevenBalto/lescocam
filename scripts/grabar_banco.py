@@ -56,6 +56,30 @@ def primera_pendiente(persona: str, palabras: list[str], tomas: int, desde: int 
     return None
 
 
+def catalogo_referencias(cenarec: Optional[dict] = None, handson: Optional[dict] = None,
+                         videos_handson: Optional[Path] = None) -> dict:
+    """Etiqueta -> {"archivo": ...} del video que se muestra a la izquierda.
+
+    CENAREC primero; si la palabra solo está en Hands-On (ronda 3), su primer video. Las etiquetas de
+    Hands-On se juntan como en construir_palabras (`clave_palabra`). El "archivo" de Hands-On es una ruta
+    absoluta: VIDEOS / ruta_absoluta da la ruta absoluta."""
+    from scripts import extraer_handson as H
+    from scripts.construir_palabras import clave_palabra
+    cat = dict(catalogo() if cenarec is None else cenarec)
+    if handson is None:
+        handson = H.catalogo() if H.CATALOGO.exists() else {}
+    carpeta = Path(videos_handson or H.VIDEOS).resolve()
+    por_clave = {}
+    for e in cat:
+        por_clave.setdefault(clave_palabra(e), e)
+    for vid in sorted(handson, key=lambda v: (handson[v]["etiqueta"], v)):
+        k = clave_palabra(handson[vid]["etiqueta"])
+        e = por_clave.get(k, k)
+        if e not in cat:
+            cat[e] = {"archivo": str(carpeta / handson[vid]["archivo"])}
+    return cat
+
+
 def _siguiente(valor: str, opciones: tuple) -> str:
     return opciones[(opciones.index(valor) + 1) % len(opciones)]
 
@@ -146,10 +170,11 @@ def main(argv=None) -> int:
               f"  Usá el mismo nombre de la vez pasada (así quedan todas en una sola carpeta): \"{otras[0]}\"")
         return 1
     orden = {p: todas.index(p) + 1 for p in palabras}
-    cat = catalogo()
+    cat = catalogo_referencias()
     faltan = [p for p in palabras if p not in cat]
     if faltan:
-        print(f"Sin video de CENAREC (se graba igual, sin referencia): {faltan}\n"
+        print(f"Sin video de CENAREC ni de Hands-On (se graba igual, sin referencia): {faltan[:20]}"
+              f"{f' y {len(faltan) - 20} más' if len(faltan) > 20 else ''}\n"
               "  Bajarlos: .venv/Scripts/python -m scripts.descargar_cenarec --lista data/reference/banco/<tu nombre>.txt")
 
     i = primera_pendiente(persona, palabras, a.tomas, 0, a.destino)
