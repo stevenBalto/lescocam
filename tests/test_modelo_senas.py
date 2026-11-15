@@ -1,5 +1,6 @@
 """Fase 4: descriptores_asl, modelo_senas y entrenar_embedding (todo sintético y en CPU)."""
 import json
+import re
 
 import numpy as np
 import pytest
@@ -339,3 +340,43 @@ def test_main_punta_a_punta(tmp_path, capsys):
     assert set(r["final"]["B_dtw_y_fusion"]) == {"0.0", "0.3", "0.5", "0.7", "1.0"}
     assert ms.cargar(salida).config["ancho"] == 16      # weights_only=True con el reporte dentro de extra
     assert "época" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------- entrenar_embedding: --particion-val (Slovo: train/test)
+
+def _datos_train_test(tmp_path):
+    datos = _datos_npz(tmp_path / "descriptores_v3.npz")
+    d = dict(np.load(datos))
+    d["particiones"] = np.where(d["particiones"] == "val", "test", d["particiones"])
+    np.savez_compressed(datos, **d)
+    return datos
+
+
+def _correr(tmp_path, *extra):
+    datos = _datos_train_test(tmp_path)
+    db = _db(tmp_path / "senas.db")
+    salida = tmp_path / "modelo" / "embedding_v1.pt"
+    rc = ee.main(["--datos", str(datos), "--db", str(db), "--salida", str(salida), "--epocas", "3", "--cada", "1",
+                  "--dtw-max", "5", "--ancho", "16", "--bloques", "1", "--lote", "32", *extra])
+    assert rc == 0
+    return json.loads((tmp_path / "modelo" / "reporte_v1.json").read_text(encoding="utf-8"))
+
+
+def test_sin_particion_val_se_guarda_la_ultima_epoca(tmp_path, capsys):
+    r = _correr(tmp_path)
+    out = capsys.readouterr().out
+    assert "AVISO" in out and "eval A 0 videos" in out
+    assert r["epoca_elegida"] == 3
+    assert [h["epoca"] for h in r["historia"]] == [1, 2, 3]
+
+
+def test_particion_val_test_da_evaluacion_a_y_elige_la_mejor(tmp_path, capsys):
+    r = _correr(tmp_path, "--particion-val", "test")
+    out = capsys.readouterr().out
+    assert "AVISO" not in out
+    n = int(re.search(r"eval A (\d+) videos", out).group(1))
+    assert n > 0
+    assert r["epoca_elegida"] in (1, 2, 3)
+    a = [h["A"] for h in r["historia"]]
+    assert any(v > 0 for v in a)
+    assert r["epoca_elegida"] == 1 + a.index(max(a))

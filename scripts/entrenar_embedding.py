@@ -218,9 +218,11 @@ def main(argv=None) -> int:
     p.add_argument("--cada", type=int, default=5, help="evaluar cada N épocas")
     p.add_argument("--sin-aumentar", action="store_true")
     p.add_argument("--dtw-max", type=int, default=800, help="videos de consulta para el DTW de referencia (0 = todos)")
+    p.add_argument("--particion-val", default="val",
+                   help="partición con firmantes que no están en train, para elegir la época (ASL Citizen: val; Slovo: test)")
     a = p.parse_args(argv)
 
-    dev = "cuda" if torch.cuda.is_available() else "cpu"
+    dev ="cuda" if torch.cuda.is_available() else "cpu"
     torch.manual_seed(a.semilla)
     d = np.load(a.datos)
     x, video, glosas, firmantes, part = d["x"], d["video"], d["glosas"], d["firmantes"], d["particiones"]
@@ -231,7 +233,10 @@ def main(argv=None) -> int:
     # A: galería solo de train (1 video por glosa) y consultas solo de val (firmantes que no están en train)
     conocidas = np.isin(glosas, clases)
     gal_a, _ = galeria_y_consultas(video, glosas, firmantes, conocidas & (part == "train"), a.semilla)
-    con_a = np.nonzero(conocidas & (part == "val") & np.isin(glosas, glosas[gal_a]))[0]
+    con_a = np.nonzero(conocidas & (part == a.particion_val) & np.isin(glosas, glosas[gal_a]))[0]
+    if not len(con_a):
+        print(f"AVISO: la evaluación A no tiene videos (no hay partición '{a.particion_val}'): se guarda la ÚLTIMA "
+              f"época, no la mejor. Para Slovo usar --particion-val test.", flush=True)
     gal_b, con_b = galeria_y_consultas(video, glosas, firmantes, np.isin(glosas, list(nuevas)), a.semilla)
     if x.shape[2] == P.COLUMNAS:
         cx, ce = cenarec(a.db)
@@ -277,7 +282,8 @@ def main(argv=None) -> int:
             historia.append({"epoca": ep, "perdida": total / len(xe), "A": ra["top1"], "B": rb["top1"], "C": rc["top1"]})
             print(f"época {ep:3d} | pérdida {total / len(xe):.3f} | A {ra['top1']:.1%} | B {rb['top1']:.1%} "
                   f"(top5 {rb['top5']:.1%}) | CENAREC {rc['top1']:.1%} | {time.perf_counter() - inicio:.0f} s", flush=True)
-            if ra["top1"] > mejor[0]:          # se elige con A (glosas conocidas), no con B ni CENAREC
+            # se elige con A (glosas conocidas), no con B ni CENAREC; sin A (0 videos) gana la última época
+            if ra["top1"] > mejor[0] or not len(con_a):
                 mejor = (ra["top1"], {k: v.detach().clone() for k, v in modelo.state_dict().items()}, ep)
 
     modelo.load_state_dict(mejor[1])
